@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-primary: #10B981;
+  --color-primary-50: #E7F8F2;
+  --color-primary-100: #D0F2E6;
+  --color-primary-200: #A0E5CB;
+  --color-primary-300: #71D8B0;
+  --color-primary-400: #42CB95;
+  --color-primary-500: #10B981;
+  --color-primary-600: #0E9F6E;
+  --color-primary-700: #0B7A56;
+  --color-primary-800: #085C42;
+  --color-primary-900: #043D2D;
+  --color-primary-950: #022E21;
+
+  --color-secondary: #3B82F6;
+  --color-secondary-50: #EFF6FF;
+  --color-secondary-100: #DBEAFE;
+  --color-secondary-200: #BFDBFE;
+  --color-secondary-300: #93C5FD;
+  --color-secondary-400: #60A5FA;
+  --color-secondary-500: #3B82F6;
+  --color-secondary-600: #2563EB;
+  --color-secondary-700: #1D4ED8;
+  --color-secondary-800: #1E40AF;
+  --color-secondary-900: #1E3A8A;
+  --color-secondary-950: #172554;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

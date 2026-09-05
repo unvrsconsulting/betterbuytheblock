@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(pkill -f \"vite --port 5199\")",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(node -e \"require\\('playwright'\\)\")",
+      "Bash(pkill -f \"vite --port 5799\")",
+      "Bash(pkill -f \"vite --port 5183\")",
+      "Read(//tmp/**)",
+      "Bash(npx --yes playwright --version2)",
+      "Bash(npx playwright *)",
+      "Bash(curl -s http://localhost:5183)",
+      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Bash(NODE_PATH=/Users/connorbolin/.npm/_npx/e41f203b7505f1fb/node_modules node *)",
+      "Bash(npm ls *)",
+      "Bash(find / -maxdepth 6 -iname \"playwright\" -type d)",
+      "Bash(npm root *)",
+      "Bash(python3 *)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(lsof -ti:5173 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(disown)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:5173 >/dev/null; do sleep 1; done')",
+      "Bash(curl -sf http://localhost:5173)",
+      "Bash(break)",
+      "Bash(curl -sI http://localhost:5173)",
+      "Bash(node *)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(pkill -f \"vite --port 5200\")",
+      "Bash(lsof -ti:5200)",
+      "Bash(xargs kill -9)",
+      "Bash(lsof -i :5173 -sTCP:LISTEN)",
+      "Bash(npx --no-install playwright install-deps)",
+      "Bash(curl *)",
+      "Bash(lsof -ti:5183 -sTCP:LISTEN)",
+      "Bash(echo \"EXIT: $?\")"
+    ]
+  }
+}

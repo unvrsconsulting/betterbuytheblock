@@ -1,0 +1,45 @@
+{
+  "brief": "",
+  "sprints": [
+    {
+      "name": "Simulated Business Billing Ledger",
+      "goal": "Give each business account a simulated dollar balance and a persistent billing transaction history, and deduct the already-computed neighborhood-targeting cost from that balance whenever a business publishes a new deal or adds neighborhoods to an existing one.",
+      "acceptance_criteria": "A business account has a starting balance visible in Business Hub. Publishing a new deal deducts exactly the 'Total Due Today' amount shown on the review step from that business's balance and appends one transaction (date, deal title, neighborhoods charged, amount) to its billing history, surviving a page reload via localStorage. Editing an existing deal to add neighborhoods deducts only the 'Additional Cost for New Neighborhoods' amount and logs a separate transaction; editing without adding neighborhoods changes neither balance nor history. Business Hub shows the current balance plus a reverse-chronological transaction list, with an empty state (not fabricated rows) when there are none. Two different business accounts have independent balances/histories — switching accounts never shows one business's ledger under another's.",
+      "status": "approved",
+      "attempts": 1,
+      "last_feedback": null
+    },
+    {
+      "name": "Insufficient-Funds Guard and Simulated Fund Top-Up",
+      "goal": "Block publishing or expanding a deal when its cost would exceed the business's current balance, and let a business simulate adding funds to its balance.",
+      "acceptance_criteria": "On the deal review step, if the deal's cost (new deal) or additional cost (edit adding neighborhoods) exceeds the business's current balance, the Publish/Save button is disabled and an inline message states the shortfall amount rather than silently doing nothing or overdrawing the balance. A visible 'Add Funds' control accepts a dollar amount; confirming it increases the balance by exactly that amount and logs a corresponding 'Funds Added' transaction. Entering a non-positive or non-numeric amount is rejected with a validation message and produces no balance/history change. After topping up enough to cover a previously blocked deal, that deal can now be published/saved and the balance decreases by the correct cost afterward.",
+      "status": "approved",
+      "attempts": 1,
+      "last_feedback": null
+    },
+    {
+      "name": "Balance Preview on Deal Review",
+      "goal": "Show the business the financial before/after of the deal they're about to publish or save, directly on the review step, for both new deals and edits.",
+      "acceptance_criteria": "Step 3 (Review) of the deal-creation/edit flow displays 'Current Balance', the deal's cost (or additional cost when editing), and 'Balance After', where Balance After exactly equals Current Balance minus the displayed cost. When cost is $0 (e.g. an edit that added no neighborhoods), Balance After equals Current Balance and no charge language is shown. The Current Balance shown here always matches the balance shown in Business Hub for that same business account at that moment — no stale or divergent figures between the two views.",
+      "status": "approved",
+      "attempts": 1,
+      "last_feedback": null
+    },
+    {
+      "name": "Per-Deal Spend Summary",
+      "goal": "On Business Hub, show each deal's total simulated spend (the sum of its own billing transactions) next to its signup count, so a business can compare cost against interest generated.",
+      "acceptance_criteria": "Every deal listed under 'Your Active Deals' and 'Expired Deals & Leads' shows a 'Spent: $X' figure equal to the sum of only that deal's transactions (its initial publish cost plus any later neighborhood-expansion costs). A deal with zero recorded transactions (e.g. one seeded before this feature existed) shows 'Spent: $0', not an error or a guessed number. Two deals from the same business that were targeted at different costs show correspondingly different Spent totals, verifiable against each deal's known targeting cost at creation time.",
+      "status": "approved",
+      "attempts": 1,
+      "last_feedback": null
+    },
+    {
+      "name": "Billing History Filtering and CSV Export",
+      "goal": "Let a business filter its billing transaction history by date range and export the currently filtered transactions to a CSV file for their own recordkeeping.",
+      "acceptance_criteria": "The billing history view has 'From' and 'To' date inputs; applying them hides transactions outside that range, and a range with no matching transactions shows an explicit 'no transactions in this range' message instead of an empty table. An 'Export CSV' action downloads a file whose rows (one header row plus one row per transaction: date, description, amount) exactly match the transactions currently visible under the active filter — verified by comparing row counts and values between the on-screen list and the downloaded file. Clearing the date filters restores the full transaction history on screen, and a subsequent export again reflects the full unfiltered list.",
+      "status": "approved",
+      "attempts": 1,
+      "last_feedback": null
+    }
+  ]
+}
