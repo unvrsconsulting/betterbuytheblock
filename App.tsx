@@ -1167,7 +1167,7 @@ const App: React.FC = () => {
   };
 
   const handleMyNeighborhoodClick = () => {
-    setSearchResults(services.filter(s => ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId)));
+    setSearchResults(services.filter(s => ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId || (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity)))));
     setFilterCategories([]);
     setFilterStatus('all');
     setSortBy('recommended');
@@ -1175,11 +1175,16 @@ const App: React.FC = () => {
     setView('results');
   };
 
-  const filteredServices = useMemo(() => {
-    return services.filter(s => ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId));
-  }, [services, selectedNeighborhoodId]);
-
   const currentNeighborhood = neighborhoods.find(n => n.id === selectedNeighborhoodId);
+  const selectedNeighborhoodCity = currentNeighborhood?.city;
+
+  const filteredServices = useMemo(() => {
+    return services.filter(s =>
+      (s.neighborhoodIds || []).includes(selectedNeighborhoodId) ||
+      (s as any).neighborhoodId === selectedNeighborhoodId ||
+      (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity))
+    );
+  }, [services, selectedNeighborhoodId, selectedNeighborhoodCity]);
 
   const currentSeason = useMemo(() => {
     const month = new Date().getMonth();
@@ -1538,7 +1543,7 @@ const App: React.FC = () => {
               onLocalSearch={(query) => {
                 const queryLower = (query || '').toLowerCase();
                 const matches = services.filter(s =>
-                  ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId) &&
+                  ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId || (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity))) &&
                   ((s.title || '').toLowerCase().includes(queryLower) ||
                   (s.category || '').toLowerCase().includes(queryLower) ||
                   (s.description || '').toLowerCase().includes(queryLower))
@@ -1804,7 +1809,7 @@ const App: React.FC = () => {
                     onLocalSearch={(query) => {
                       const queryLower = (query || '').toLowerCase();
                       const matches = services.filter(s => 
-                        ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId) &&
+                        ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId || (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity))) &&
                         ((s.title || '').toLowerCase().includes(queryLower) || 
                         (s.category || '').toLowerCase().includes(queryLower) ||
                         (s.description || '').toLowerCase().includes(queryLower))
@@ -1987,7 +1992,7 @@ const App: React.FC = () => {
           ) : view === 'business' && selectedBusinessId ? (
             <BusinessProfile
               business={businesses.find(b => b.id === selectedBusinessId)!}
-              services={services.filter(s => s.businessId === selectedBusinessId && ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId))}
+              services={services.filter(s => s.businessId === selectedBusinessId && ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId || (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity))))}
               allServices={services}
               neighborhoods={neighborhoods}
               reviews={reviews.filter(r => r.businessId === selectedBusinessId)}

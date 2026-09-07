@@ -43,7 +43,10 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
   onBack,
 }) => {
   const neighborhood = neighborhoods.find(n => n.id === neighborhoodId);
-  const neighborhoodServices = services.filter(s => (s.neighborhoodIds || []).includes(neighborhoodId));
+  const neighborhoodServices = services.filter(s =>
+    (s.neighborhoodIds || []).includes(neighborhoodId) ||
+    (neighborhood?.city && (s.servedCities || []).includes(neighborhood.city))
+  );
 
   if (!neighborhood) {
     return (

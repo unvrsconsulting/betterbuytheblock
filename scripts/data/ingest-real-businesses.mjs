@@ -30,7 +30,13 @@ const ENDPOINT = 'https://api.dataforseo.com/v3/business_data/business_listings/
 // mostly a different county). Started at 8 cities; expanded to the full 14 to
 // find more real businesses once every category had already been queried.
 const CITIES = ['Raleigh', 'Cary', 'Apex', 'Wake Forest', 'Holly Springs', 'Garner', 'Morrisville', 'Fuquay-Varina', 'Knightdale', 'Wendell', 'Zebulon', 'Rolesville', 'Angier', 'Wake County'];
-const RESULTS_PER_QUERY = 3;
+// DEEPEN=1 re-queries every category/city pair again with a higher result
+// limit, to find more real businesses per combo (DataForSEO's per-query cost
+// is roughly fixed regardless of `limit`, so this is the cost-efficient way
+// to grow coverage rather than more queries at limit=3). New finds are still
+// deduped against existing businesses by place_id.
+const DEEPEN = process.env.DEEPEN === '1';
+const RESULTS_PER_QUERY = DEEPEN ? 10 : 3;
 const NEIGHBORHOODS_PER_SERVED_CITY = 8;
 
 // Multiple proposed-deal variants per category — realistic pricing/discount/
@@ -267,7 +273,12 @@ async function main() {
   for (const category of CATEGORIES) {
     for (const city of CITIES) allPairs.push({ category, city });
   }
-  const remainingPairs = allPairs.filter(({ category, city }) => !doneQueryPairs.has(`${category}|${city}`));
+  const remainingPairs = DEEPEN
+    ? allPairs
+    : allPairs.filter(({ category, city }) => !doneQueryPairs.has(`${category}|${city}`));
+  if (DEEPEN) {
+    console.log(`DEEPEN mode: re-querying all ${remainingPairs.length} category/city combinations at limit=${RESULTS_PER_QUERY}.`);
+  }
   if (remainingPairs.length === 0) {
     console.log('All category/city combinations already queried — nothing to do.');
     return;

@@ -165,6 +165,13 @@ export interface Service {
   id: string;
   businessId: string;
   neighborhoodIds: string[];
+  // Which real Wake County cities this offering actually serves. A real
+  // business typically serves its whole city, not just the handful of
+  // neighborhoods listed in neighborhoodIds (kept small there to avoid
+  // shipping every one of a city's ~1,000+ real neighborhoods per offering)
+  // - so matching against a selected neighborhood checks this city list
+  // too, not just neighborhoodIds membership.
+  servedCities?: string[];
   title: string;
   description: string;
   category: string;
