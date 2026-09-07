@@ -22,30 +22,40 @@ const PER_PAGE = 80; // Pexels' max per request
 // Every query is anchored on "residential home"/"house" context so results
 // are the actual home/yard/interior, not a company van, crew photo, or logo
 // — this site only lists residential service deals, never commercial.
+// Kept deliberately broad and generic — a narrow query (e.g. "gutter
+// cleaning") pulls a small, weird pool: company vans, close-up product
+// shots, stray commercial photos. A plain "house exterior"/"home interior"
+// query pulls a large pool of real, good-looking residential photography,
+// which is what actually belongs on a residential bulk-deal card. Only
+// deviates from that base when the category's literal object (a pool, a
+// roof, a fence) needs to actually be visible in the shot.
+const EXTERIOR = 'house exterior';
+const INTERIOR = 'home interior';
+
 const CATEGORY_QUERIES = {
-  'Carpet Cleaning': 'carpet cleaning living room home',
-  'Cleaning & Maid Services': 'house cleaning home interior',
-  'Gutter Cleaning': 'house gutter roof residential',
-  'House Cleaning': 'home cleaning interior house',
-  'Power Washing': 'house exterior pressure washing driveway',
-  'Window Washing': 'house window cleaning residential',
-  'Deck or Porch': 'backyard wood deck patio house',
-  'Fencing Service': 'backyard wood fence house',
-  'Landscaping': 'front yard landscaping house garden',
-  'Lawn Service': 'front yard lawn mowing house',
-  'Pool Maintenance': 'backyard swimming pool house',
-  'Tree Service': 'yard tree house residential',
-  'Electrical': 'home electrical panel house interior',
-  'Handyman Service': 'home repair tools house interior',
-  'HVAC Maintenance': 'home air conditioner unit house',
-  'Plumbing': 'home kitchen bathroom sink pipe',
-  'Roofing': 'house roof shingles residential',
-  'Solar Panel Installation': 'house roof solar panels residential',
-  'Home Security': 'front door house security camera',
-  'Interior Design': 'home living room interior design',
-  'Moving Services': 'moving boxes house living room',
-  'Painting': 'house interior wall painting home',
-  'Pest Control': 'house yard residential exterior',
+  'Carpet Cleaning': INTERIOR,
+  'Cleaning & Maid Services': INTERIOR,
+  'Gutter Cleaning': EXTERIOR,
+  'House Cleaning': INTERIOR,
+  'Power Washing': EXTERIOR,
+  'Window Washing': EXTERIOR,
+  'Deck or Porch': 'backyard deck house',
+  'Fencing Service': 'backyard fence house',
+  'Landscaping': 'front yard house',
+  'Lawn Service': 'green lawn house',
+  'Pool Maintenance': 'backyard pool house',
+  'Tree Service': 'yard trees house',
+  'Electrical': INTERIOR,
+  'Handyman Service': INTERIOR,
+  'HVAC Maintenance': INTERIOR,
+  'Plumbing': INTERIOR,
+  'Roofing': 'house roof',
+  'Solar Panel Installation': 'solar panels house roof',
+  'Home Security': EXTERIOR,
+  'Interior Design': INTERIOR,
+  'Moving Services': INTERIOR,
+  'Painting': INTERIOR,
+  'Pest Control': EXTERIOR,
 };
 
 async function searchPexels(query) {
