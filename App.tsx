@@ -136,72 +136,77 @@ const SEASONS = [
   },
 ];
 
+// Real, fresh Pexels photos (see scripts/data/fetch-images.mjs for the
+// pattern) chosen so no article image repeats a deal/business card image
+// elsewhere on the site. Titles target real search phrasing homeowners
+// actually use ("how much does X cost in [city], NC") for the categories
+// this site actually lists, instead of generic seasonal filler.
 const COST_GUIDES = [
   {
-    title: 'How Much Does a New Furnace Cost? [2026 Data]',
-    description: 'When it’s time to replace the furnace, review this guide for new furnace costs based on type, size, and efficiency, plus furnace installation costs.',
-    author: 'LAUREN BONGARD',
-    date: 'NOV 17, 2025',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=500&auto=format&fit=crop',
+    title: 'How Much Does House Cleaning Cost in Wake County, NC? (2026 Guide)',
+    description: 'What drives house cleaning prices in Raleigh, Cary, and the rest of Wake County, and how often you actually need a visit.',
+    author: 'BetterByTheBlock Team',
+    date: 'JAN 12, 2026',
+    image: 'https://images.pexels.com/photos/4740529/pexels-photo-4740529.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
     body: [
-      "Furnace pricing varies widely based on a handful of factors: fuel type (gas, electric, or oil), the unit's efficiency rating (AFUE), the square footage it needs to heat, and your home's existing ductwork. A straight swap into an existing setup is almost always cheaper than a job that requires new ducting, electrical work, or venting changes.",
-      "High-efficiency units cost more upfront but use less fuel over the life of the system - in colder climates that difference adds up faster than in milder ones, so it's worth asking an installer to estimate the payback period for your specific home rather than assuming a higher efficiency rating is always worth the premium.",
-      "Because pricing depends so much on your specific home, get at least two or three written quotes before committing. This is exactly the kind of project where a neighborhood bulk deal helps - when several neighbors need similar work at the same time, contractors can often offer a better rate than they would for a single one-off job.",
+      "House cleaning pricing mostly comes down to square footage, how many bathrooms and bedrooms need attention, and whether you're booking a one-time deep clean or a recurring visit. A standing weekly or bi-weekly plan almost always costs less per visit than a one-off, since the crew isn't starting from a deep-clean baseline every time.",
+      "First-time or move-in/move-out cleans typically cost more than a routine maintenance visit, since there's more buildup to deal with and no established routine to work from. If your home has pets, that's also worth mentioning upfront - extra fur and dander usually adds time to the job.",
+      "Because most homes on a given street need roughly the same scope of work, this is a good category for a neighborhood bulk deal - a cleaning company already routed through your subdivision can often extend a better rate than they would for a single standalone booking.",
     ],
   },
   {
-    title: 'How Much Does Pest Control Cost? [2026 Data]',
-    description: 'Wake County\'s humid climate keeps ants, roaches, and termites active nearly year-round. Here\'s what pest control typically costs and what drives the price.',
-    author: 'ANGI',
-    date: 'MAR 5, 2026',
-    image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=500&auto=format&fit=crop',
+    title: 'How Much Does HVAC Maintenance Cost in Wake County, NC? (2026 Guide)',
+    description: "Wake County's hot summers and mild winters mean your HVAC system runs a lot - here's what a seasonal tune-up typically costs and why it's worth budgeting for.",
+    author: 'BetterByTheBlock Team',
+    date: 'FEB 3, 2026',
+    image: 'https://images.pexels.com/photos/978319/pexels-photo-978319.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    body: [
+      "A standard HVAC tune-up covers cleaning coils and filters, checking refrigerant levels, inspecting electrical connections, and testing that the system cycles correctly. Pricing depends mostly on system type (a single AC unit vs. a full heat pump system) and whether anything beyond routine maintenance turns up during the inspection.",
+      "In this climate, most homeowners get more value out of a spring AC tune-up than a fall furnace check, since the cooling system carries most of the year's workload. Skipping maintenance doesn't just risk a mid-summer breakdown - a poorly maintained system also runs less efficiently, which shows up as a higher power bill.",
+      "Technicians already in a neighborhood for one HVAC visit can usually fit in several more nearby homes in the same trip, which is exactly the kind of scheduling efficiency a bulk neighborhood deal is built to capture.",
+    ],
+  },
+  {
+    title: 'How Much Does Lawn Care Cost in Raleigh, NC? (2026 Pricing Guide)',
+    description: 'Weekly mowing, fertilization, and aeration pricing for Wake County yards, and how lot size and lawn condition change the estimate.',
+    author: 'BetterByTheBlock Team',
+    date: 'MAR 10, 2026',
+    image: 'https://images.pexels.com/photos/15173334/pexels-photo-15173334.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    body: [
+      "Weekly mowing pricing scales mostly with lot size and how much trimming/edging is involved around beds, fences, and walkways. A standing weekly plan through the growing season is typically cheaper per visit than calling for one-off mows.",
+      "Beyond mowing, fertilization and weed control are usually sold as a seasonal treatment plan rather than a single visit, since a lawn needs consistent applications through the growing season to actually see results. Aeration and overseeding are typically a once- or twice-a-year add-on, best timed for early fall in this region.",
+      "Lawn crews already working a street can often add adjacent yards to the same route with little extra cost - which is why bundling a few neighbors into one request tends to unlock a noticeably better group rate than everyone booking separately.",
+    ],
+  },
+  {
+    title: 'How Much Does Gutter Cleaning Cost in NC? (2026 Pricing Guide)',
+    description: "Wake County's tree cover means gutters clog fast - here's what a cleaning typically costs and how often you actually need one.",
+    author: 'BetterByTheBlock Team',
+    date: 'MAR 22, 2026',
+    image: 'https://images.pexels.com/photos/36777847/pexels-photo-36777847.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    body: [
+      "Gutter cleaning pricing is driven mainly by the home's linear footage of gutter, the number of stories, and how much tree cover is nearby. Homes surrounded by mature trees typically need service more often than open-lot homes, since leaf and pine needle buildup is the main thing that causes clogs and overflow.",
+      "Most homeowners in this area get by with two cleanings a year - once after spring pollen and blooms, and once after leaves drop in the fall - though heavily wooded lots sometimes need a mid-season check too. Skipping it isn't just a clogging risk: overflow running down the siding can lead to foundation and landscaping problems over time.",
+      "Because tree cover tends to be a neighborhood-wide condition rather than a single-house problem, gutter cleaning is a strong fit for a bulk deal - a crew already on your street can usually work in several more homes for less than the cost of separate appointments.",
+    ],
+  },
+  {
+    title: 'How Much Does Pest Control Cost in Wake County, NC? (2026 Guide)',
+    description: "Wake County's humid climate keeps ants, roaches, and termites active nearly year-round. Here's what pest control typically costs and what drives the price.",
+    author: 'BetterByTheBlock Team',
+    date: 'APR 2, 2026',
+    image: 'https://images.pexels.com/photos/5353890/pexels-photo-5353890.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
     body: [
       "Pest control pricing depends mainly on the type of pest, the size of your home, and whether you need a one-time treatment or an ongoing quarterly plan - termite and wildlife issues typically cost more to address than routine ant or roach treatments.",
-      "In Wake County's warm, humid climate, pests stay active almost year-round rather than dying off in winter, which is why many neighbors opt for a standing quarterly plan instead of paying for one-off visits every time something turns up.",
-      "Because nearby homes often share the same pest pressure - a termite colony or ant trail rarely respects property lines - this is a great fit for group pricing - a technician already treating one house can frequently service several homes on the same street for less than the cost of separate visits.",
+      "In this climate, pests stay active almost year-round rather than dying off in winter, which is why many homeowners opt for a standing quarterly plan instead of paying for one-off visits every time something turns up.",
+      "Because nearby homes often share the same pest pressure - a termite colony or ant trail rarely respects property lines - this is a great fit for group pricing: a technician already treating one house can frequently service several homes on the same street for less than the cost of separate visits.",
     ],
   },
-  {
-    title: 'How Much Does Insulation Installation Cost? [2026 Data]',
-    description: 'New insulation can make your home more comfortable and boost energy efficiency. Use this insulation cost guide to get an accurate estimate for the installation.',
-    author: 'RACHEL HOFFMAN',
-    date: 'DEC 16, 2025',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500&auto=format&fit=crop',
-    type: 'Cost Guide',
-    body: [
-      "Insulation cost is driven mostly by material type (fiberglass batts, blown-in cellulose, or spray foam), the area being insulated (attic, walls, or crawl space), and how easy that area is to access. Spray foam typically costs more per square foot than batts or blown-in insulation but seals gaps that the others can't.",
-      "Attics are usually the most cost-effective place to start, since heat loss through an under-insulated attic tends to have an outsized effect on comfort and energy bills compared to other parts of the house.",
-      "Ask any contractor you're considering for the R-value they're proposing and why - the right R-value depends on your climate zone, and a reputable installer should be able to explain the recommendation rather than just quoting a flat price.",
-    ],
-  },
-  {
-    title: 'Top 10 Home Maintenance Tasks for Spring',
-    description: 'Get your home ready for the warmer months with this comprehensive spring maintenance checklist.',
-    author: 'HOME EXPERTS',
-    date: 'FEB 20, 2026',
-    image: 'https://images.unsplash.com/photo-1584820927498-cafe2c1c8680?q=80&w=500&auto=format&fit=crop',
-    type: 'Checklist',
-    body: [
-      "Spring is the natural checkpoint after a winter of freeze-thaw cycles, so it's worth walking the outside of your home for cracked caulking, loose gutters, and any shingles that shifted during storms.",
-      "A short seasonal checklist: clean gutters and downspouts, inspect the roof for damage, check exterior faucets for leaks after the last freeze, service your HVAC system before the cooling season starts, and look over your deck or fence for wood that needs resealing.",
-      "Many of these are quick jobs for a professional but tedious to schedule one at a time - if a few neighbors need the same gutter cleaning or HVAC tune-up, bundling those requests into a single neighborhood deal usually gets everyone a better rate than booking separately.",
-    ],
-  },
-  {
-    title: 'Wake County Real Estate Market Update',
-    description: 'See the latest trends in home values and what it means for your home improvement ROI.',
-    author: 'WAKE COUNTY NEWS',
-    date: 'MAR 1, 2026',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=500&auto=format&fit=crop',
-    type: 'News',
-    body: [
-      "Home improvement return-on-investment varies a lot by project type and local market conditions, so it's worth treating any specific ROI percentage you read online as a rough starting point rather than a guarantee for your particular home.",
-      "In general, projects that address deferred maintenance (roofing, HVAC, gutters) tend to protect value rather than add it, while curb-appeal projects (landscaping, exterior painting, driveway work) tend to have an outsized effect on a buyer's first impression relative to their cost.",
-      "If you're planning improvements with resale in mind, a local real estate agent can usually give a more useful read on what buyers in your specific neighborhood are actually responding to than a generic national average.",
-    ],
-  }
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
@@ -913,6 +918,7 @@ const App: React.FC = () => {
     if (isAuthenticated) {
       setView('wishlist');
     } else {
+      setPostLoginIntent(null);
       setIsAuthModalOpen(true);
     }
   };
@@ -1261,7 +1267,7 @@ const App: React.FC = () => {
         onSettingsClick={() => setView('settings')}
         onSwitchAccountClick={currentUser.linkedUserId ? handleSwitchAccount : undefined}
         onLogoutClick={handleLogout}
-        onLoginClick={() => setIsAuthModalOpen(true)}
+        onLoginClick={() => { setPostLoginIntent(null); setIsAuthModalOpen(true); }}
         notifications={isAuthenticated ? notifications.filter(n => n.userId === currentUserId) : []}
         onNotificationClick={handleNotificationClick}
         onMarkAllNotificationsRead={handleMarkAllNotificationsRead}
@@ -1272,6 +1278,7 @@ const App: React.FC = () => {
         onClose={() => setIsAuthModalOpen(false)}
         users={users}
         defaultAccountType={postLoginIntent === 'business' ? 'business' : 'resident'}
+        lockAccountType
         onSignUp={(newUser, accountType) => {
           updateCurrentUser(newUser);
           setCurrentUserId(newUser.id);

@@ -13,9 +13,14 @@ interface AuthModalProps {
   onSignUp: (user: User, accountType: 'resident' | 'business') => void;
   onSignIn: (userId: string) => void;
   defaultAccountType?: 'resident' | 'business';
+  // When set, sign-up only ever creates this account type — the entry
+  // point already said which one (the "List Services" button is
+  // business-only, the header "Sign In" is residents-only), so there's no
+  // toggle to switch away from it.
+  lockAccountType?: boolean;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp, onSignIn, defaultAccountType }) => {
+const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp, onSignIn, defaultAccountType, lockAccountType }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -140,7 +145,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                 </div>
               )}
 
-              {!isLogin && (
+              {!isLogin && !lockAccountType && (
                 <div className="mb-6">
                   <p className="text-xs uppercase tracking-wider text-gray-500 font-bold mb-2">I'm signing up as a...</p>
                   <div className="grid grid-cols-2 gap-2">
