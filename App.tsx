@@ -141,70 +141,150 @@ const SEASONS = [
 // elsewhere on the site. Titles target real search phrasing homeowners
 // actually use ("how much does X cost in [city], NC") for the categories
 // this site actually lists, instead of generic seasonal filler.
+// Real ranges pulled from current industry pricing data (Angi, HomeGuide,
+// LawnStarter, HouseCallPro, and Raleigh-specific sources - see the research
+// behind this rewrite), not invented numbers. Framed as a 2027 outlook since
+// that's the planning horizon homeowners are actually budgeting against
+// right now, with the underlying data grounded in 2026 pricing trends.
 const COST_GUIDES = [
   {
-    title: 'How Much Does House Cleaning Cost in Wake County, NC? (2026 Guide)',
-    description: 'What drives house cleaning prices in Raleigh, Cary, and the rest of Wake County, and how often you actually need a visit.',
+    title: 'HVAC Costs in Wake County for 2027: Repairs, Tune-Ups, and Full Replacements',
+    description: 'A full breakdown of what heating and cooling work actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from a basic tune-up to a full system swap.',
     author: 'BetterBuyTheBlock Team',
-    date: 'JAN 12, 2026',
-    image: 'https://images.pexels.com/photos/4740529/pexels-photo-4740529.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    date: 'SEP 5, 2026',
+    image: 'https://images.pexels.com/photos/34687846/pexels-photo-34687846.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
-    body: [
-      "House cleaning pricing mostly comes down to square footage, how many bathrooms and bedrooms need attention, and whether you're booking a one-time deep clean or a recurring visit. A standing weekly or bi-weekly plan almost always costs less per visit than a one-off, since the crew isn't starting from a deep-clean baseline every time.",
-      "First-time or move-in/move-out cleans typically cost more than a routine maintenance visit, since there's more buildup to deal with and no established routine to work from. If your home has pets, that's also worth mentioning upfront - extra fur and dander usually adds time to the job.",
-      "Because most homes on a given street need roughly the same scope of work, this is a good category for a neighborhood bulk deal - a cleaning company already routed through your subdivision can often extend a better rate than they would for a single standalone booking.",
+    category: 'HVAC Maintenance',
+    intro: [
+      "If you own a home in Wake County, your HVAC system is one of the hardest working pieces of equipment you own. Long, humid summers and short, mild winters mean the compressor rarely gets a real break, and that adds up over the life of the system. Heading into 2027, homeowners here are budgeting for everything from a routine spring tune-up to a full replacement, and the price range between those two ends is enormous. This guide breaks down what you should actually expect to pay, service by service, based on current industry pricing data and local Raleigh area numbers.",
+      "We're going to walk through diagnostic and service call fees, common repairs, full system replacement, and what specifically pushes Wake County pricing above or below the national average. None of these numbers are exact quotes for your home. Your final price depends on your specific equipment, ductwork condition, and how easy your unit is to access. Think of this as a realistic planning range so you're not caught off guard when a contractor calls back with an estimate.",
+    ],
+    sections: [
+      {
+        heading: 'Service Calls and Diagnostics',
+        paragraphs: [
+          "Before any repair happens, most companies charge a service call or diagnostic fee just to send a technician out and figure out what's wrong. Nationally, that runs about $70 to $200, and it climbs toward the higher end for nights, weekends, or true emergency response. Some companies waive this fee if you move forward with the repair, so it's worth asking upfront.",
+          "This fee covers the technician's time to inspect your system, check refrigerant levels, test electrical connections, and identify the actual problem. It's a small number compared to what comes next, but it's the gatekeeper cost that determines whether you're looking at a $200 fix or a $3,000 one.",
+        ],
+      },
+      {
+        heading: 'Common HVAC Repairs',
+        paragraphs: [
+          "Once a technician identifies the issue, repair costs vary wildly depending on what actually broke. Most homeowners end up paying somewhere between $250 and $900 for a single repair visit, with an average around $450 to $650. On the lower end, things like fixing a refrigerant leak, adding insulation to exposed lines, or replacing a damaged vent typically run $200 to $700.",
+          "On the higher end, if a technician finds a failing compressor, a damaged coil, or a cracked heat exchanger, you're looking at $1,000 to $3,000 or more, since those are core components that require significant labor and parts cost to replace. A simple drain line cleaning or minor electrical fix can sometimes come in under $250, which is the best case scenario for a repair call.",
+        ],
+        linkLabel: 'See real HVAC deals in your neighborhood',
+        linkCategory: 'HVAC Maintenance',
+      },
+      {
+        heading: 'Full System Replacement',
+        paragraphs: [
+          "When a system is old enough or damaged enough that repair no longer makes sense, full replacement is the next step. Nationally, a complete HVAC replacement, including central air conditioning, furnace, or heat pump plus labor, runs $11,590 to $14,100 on average as of recent 2026 data, with installations more broadly ranging from $5,000 to $12,500 depending on equipment tier and job complexity.",
+          "Broken down by component, a central AC unit alone typically costs $3,500 to $7,500 installed, a gas furnace runs $3,000 to $6,500, and a heat pump system (increasingly popular in this climate since it handles both heating and cooling) lands around $4,000 to $8,000.",
+          "Locally, Raleigh homeowners tend to land a bit below the national average. Recent data puts average HVAC replacement in Raleigh at around $7,365, with most projects falling between $4,910 and $12,275. Installer labor in the Raleigh-Durham area averages roughly $27 to $28 per hour, which is moderate compared to Northeast or West Coast markets, and permit costs through the county typically run $90 to $150.",
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "A few factors matter more than anything else. Ductwork condition is the big one. If your existing ducts are in good shape and the new system can drop into the same footprint, you'll pay far less than a job that requires new ducting, electrical upgrades, or ventilation changes. System size relative to your square footage matters too. An undersized or oversized unit will cost you in comfort and efficiency even if the upfront price looks good.",
+          "Efficiency rating (SEER for cooling, AFUE for heating) is worth asking about directly. A higher efficiency unit costs more upfront but uses less energy over its lifespan, and in a climate that runs the AC as hard as Wake County does, that payback period is usually faster here than in milder regions. Always get two or three written quotes before committing to a full replacement. The spread between contractors on the exact same job can be surprisingly wide.",
+        ],
+      },
+    ],
+    closing: [
+      "The biggest lever homeowners actually have control over is timing and bundling. HVAC companies routing a technician through a subdivision for one tune-up can often add several more homes on the same visit for a fraction of the cost of a standalone appointment. If you know a few neighbors are also overdue for service, coordinating a shared request is one of the more effective ways to bring your real cost down without cutting corners on the work itself.",
     ],
   },
   {
-    title: 'How Much Does HVAC Maintenance Cost in Wake County, NC? (2026 Guide)',
-    description: "Wake County's hot summers and mild winters mean your HVAC system runs a lot - here's what a seasonal tune-up typically costs and why it's worth budgeting for.",
+    title: 'Roofing Costs in Wake County for 2027: Repair vs. Replacement Pricing',
+    description: 'What roof repair and full replacement actually cost heading into 2027, broken down by material, and what makes Raleigh area pricing different from the national average.',
     author: 'BetterBuyTheBlock Team',
-    date: 'FEB 3, 2026',
-    image: 'https://images.pexels.com/photos/978319/pexels-photo-978319.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    date: 'SEP 5, 2026',
+    image: 'https://images.pexels.com/photos/12700530/pexels-photo-12700530.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
-    body: [
-      "A standard HVAC tune-up covers cleaning coils and filters, checking refrigerant levels, inspecting electrical connections, and testing that the system cycles correctly. Pricing depends mostly on system type (a single AC unit vs. a full heat pump system) and whether anything beyond routine maintenance turns up during the inspection.",
-      "In this climate, most homeowners get more value out of a spring AC tune-up than a fall furnace check, since the cooling system carries most of the year's workload. Skipping maintenance doesn't just risk a mid-summer breakdown - a poorly maintained system also runs less efficiently, which shows up as a higher power bill.",
-      "Technicians already in a neighborhood for one HVAC visit can usually fit in several more nearby homes in the same trip, which is exactly the kind of scheduling efficiency a bulk neighborhood deal is built to capture.",
+    category: 'Roofing',
+    intro: [
+      "A roof is one of the largest single expenses most homeowners will ever face, and it's also one of the hardest to budget for accurately, since pricing swings so much based on material, roof size, pitch, and where you live. Heading into 2027, we pulled together current national and Wake County specific pricing data to give homeowners in Raleigh, Cary, Apex, and the surrounding area a realistic sense of what to expect, whether you're dealing with a small leak or planning a full tear off and replacement.",
+      "This guide covers repair costs, full replacement costs, and how pricing changes by roofing material, plus what's actually different about the Wake County market compared to national averages.",
+    ],
+    sections: [
+      {
+        heading: 'Roof Repair Costs',
+        paragraphs: [
+          "For a targeted repair rather than a full replacement, the national average cost lands around $1,150, with most homeowners paying somewhere between $400 and $1,900 depending on how extensive the damage is. On a per square foot basis, asphalt shingle repairs typically run $4 to $8 installed, which covers things like replacing damaged shingles, patching flashing around a chimney or vent, or sealing a small leak before it spreads.",
+          "The final number depends heavily on how accessible the damaged area is and whether the underlying decking needs to be repaired as well. A leak that's caught early and only affects the shingle layer is a much smaller job than one that's been dripping into the attic for months.",
+        ],
+      },
+      {
+        heading: 'Full Roof Replacement',
+        paragraphs: [
+          "For a complete replacement, national pricing generally falls in the $4 to $11 per square foot range, and total project costs typically land between $9,000 and $18,000 for a standard asphalt shingle roof on an average sized home, with an overall national average around $9,608. Larger homes, steep pitches, or premium materials can push that number toward $30,000 or more.",
+          "In Wake County specifically, a new roof typically costs $9,000 to $15,000 for most homes, which lines up closely with the national range but tends to land on the more affordable end. Local per square foot pricing runs about $3.40 to $5.90, and labor specifically falls in the $200 to $350 range per roofing square (a 100 square foot unit), or roughly $45 to $75 per hour for a crew. Contractor labor overall in the Raleigh area runs about 8% below the national average, which is one reason Wake County pricing tends to sit favorably compared to Northeast or West Coast markets.",
+        ],
+        linkLabel: 'See real roofing deals in your neighborhood',
+        linkCategory: 'Roofing',
+      },
+      {
+        heading: 'Pricing by Roofing Material',
+        paragraphs: [
+          "Material choice is the single biggest factor in your final number. Asphalt shingles remain the most common and most affordable option at roughly $3.50 to $5.50 per square foot installed, and they're the default choice for most Wake County homes. Metal roofing, whether standing seam or ribbed panels, runs $8 to $14 per square foot and has grown more popular for homeowners planning to stay in their home long term, since it typically lasts far longer than shingles.",
+          "Concrete or clay tile lands at $10 to $18 per square foot and is less common in this region but shows up on some architectural styles. Flat or TPO membrane roofing, typically used on additions or specific home styles, runs $4 to $7 per square foot. Slate is the premium option at $15 to $30 or more per square foot, and it's rare to see on a standard residential home in this area given the cost.",
+        ],
+      },
+    ],
+    closing: [
+      "If you're planning roof work for 2027, the best move is to get a written quote before storm season rather than after, when demand and pricing both spike. Roofing crews already scheduled to work on one home in a neighborhood can frequently extend a better rate to nearby homes needing similar work in the same visit, so it's worth checking whether neighbors are facing the same aging roof or storm damage before booking separately.",
     ],
   },
   {
-    title: 'How Much Does Lawn Care Cost in Raleigh, NC? (2026 Pricing Guide)',
-    description: 'Weekly mowing, fertilization, and aeration pricing for Wake County yards, and how lot size and lawn condition change the estimate.',
+    title: 'Lawn Care and Landscaping Costs in Wake County for 2027',
+    description: 'Real 2027 pricing for weekly mowing, mulching, aeration, and larger landscape projects across Raleigh and Wake County, and how to budget for the full growing season.',
     author: 'BetterBuyTheBlock Team',
-    date: 'MAR 10, 2026',
-    image: 'https://images.pexels.com/photos/15173334/pexels-photo-15173334.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    date: 'SEP 5, 2026',
+    image: 'https://images.pexels.com/photos/8288954/pexels-photo-8288954.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
-    body: [
-      "Weekly mowing pricing scales mostly with lot size and how much trimming/edging is involved around beds, fences, and walkways. A standing weekly plan through the growing season is typically cheaper per visit than calling for one-off mows.",
-      "Beyond mowing, fertilization and weed control are usually sold as a seasonal treatment plan rather than a single visit, since a lawn needs consistent applications through the growing season to actually see results. Aeration and overseeding are typically a once- or twice-a-year add-on, best timed for early fall in this region.",
-      "Lawn crews already working a street can often add adjacent yards to the same route with little extra cost - which is why bundling a few neighbors into one request tends to unlock a noticeably better group rate than everyone booking separately.",
+    category: 'Lawn Service',
+    intro: [
+      "Wake County's long growing season means lawn care isn't a one-time expense, it's a recurring line item that runs from early spring through late fall. Heading into 2027, homeowners are budgeting for everything from a simple weekly mow to full landscape design projects, and the price range across those services is wide. This guide walks through what each piece typically costs based on current pricing data, so you can build a realistic annual budget instead of guessing.",
+      "We'll cover mowing, mulching and bed work, aeration and overseeding, and larger landscape design projects, plus what a full season of maintenance tends to add up to for a typical Wake County yard.",
     ],
-  },
-  {
-    title: 'How Much Does Gutter Cleaning Cost in NC? (2026 Pricing Guide)',
-    description: "Wake County's tree cover means gutters clog fast - here's what a cleaning typically costs and how often you actually need one.",
-    author: 'BetterBuyTheBlock Team',
-    date: 'MAR 22, 2026',
-    image: 'https://images.pexels.com/photos/36777847/pexels-photo-36777847.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    type: 'Cost Guide',
-    body: [
-      "Gutter cleaning pricing is driven mainly by the home's linear footage of gutter, the number of stories, and how much tree cover is nearby. Homes surrounded by mature trees typically need service more often than open-lot homes, since leaf and pine needle buildup is the main thing that causes clogs and overflow.",
-      "Most homeowners in this area get by with two cleanings a year - once after spring pollen and blooms, and once after leaves drop in the fall - though heavily wooded lots sometimes need a mid-season check too. Skipping it isn't just a clogging risk: overflow running down the siding can lead to foundation and landscaping problems over time.",
-      "Because tree cover tends to be a neighborhood-wide condition rather than a single-house problem, gutter cleaning is a strong fit for a bulk deal - a crew already on your street can usually work in several more homes for less than the cost of separate appointments.",
+    sections: [
+      {
+        heading: 'Weekly Mowing',
+        paragraphs: [
+          "Professional mowing typically runs $29 to $65 per hour, or more commonly $43 to $69 per visit for a standard residential lot, including trimming and blowing off walkways. Total per-visit costs can range from $42 to $454 depending heavily on lawn size, with most Wake County homes falling toward the lower to middle end of that range on a standard suburban lot.",
+          "A standing weekly or biweekly plan through the growing season is almost always cheaper per visit than calling for one-off mows, since the crew can route your home into an existing schedule rather than making a special trip.",
+        ],
+      },
+      {
+        heading: 'Mulching and Bed Work',
+        paragraphs: [
+          "If you're buying mulch yourself, expect to pay roughly $2 to $5.50 per bag, or $17 to $68 per cubic yard for bulk material. Hiring it out professionally runs about $43 to $98 per hour, or $20 to $45 per cubic yard for labor alone, with full installed pricing (material, delivery, and labor together) sometimes landing meaningfully higher depending on the mulch type and how many beds need refreshing.",
+          "Spring is the most common time to refresh mulch beds in this region, both for curb appeal and to help beds retain moisture heading into the hot summer months.",
+        ],
+      },
+      {
+        heading: 'Aeration and Overseeding',
+        paragraphs: [
+          "Core aeration typically costs between $43 and $496 depending on lawn size and equipment used, with a national average closer to $154, and a more typical range of $107 to $202 for a standard residential lot. This is usually a once or twice a year service, and in this region it's best timed for early fall, when cooler soil temperatures give grass the best chance to recover and thicken up before winter.",
+          "Overseeding is frequently bundled with aeration, since freshly aerated soil gives new seed the best chance to take root. Doing both together in the same visit is typically more cost effective than scheduling them separately.",
+        ],
+        linkLabel: 'See real lawn care deals in your neighborhood',
+        linkCategory: 'Lawn Service',
+      },
+      {
+        heading: 'Larger Landscape Design Projects',
+        paragraphs: [
+          "For homeowners planning bigger changes, like a full yard redesign, new planting beds, or hardscape additions, pricing shifts significantly. In Wake County specifically, working with a landscape designer on a project typically runs $1,197 to $10,144, depending heavily on the scope, from a single bed redesign to a full front and back yard overhaul.",
+          "These larger projects are worth getting multiple quotes for, since the range between contractors on the same scope of work can be substantial, and design fees are sometimes handled separately from installation cost.",
+        ],
+        linkLabel: 'See real landscaping deals in your neighborhood',
+        linkCategory: 'Landscaping',
+      },
     ],
-  },
-  {
-    title: 'How Much Does Pest Control Cost in Wake County, NC? (2026 Guide)',
-    description: "Wake County's humid climate keeps ants, roaches, and termites active nearly year-round. Here's what pest control typically costs and what drives the price.",
-    author: 'BetterBuyTheBlock Team',
-    date: 'APR 2, 2026',
-    image: 'https://images.pexels.com/photos/5353890/pexels-photo-5353890.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    type: 'Cost Guide',
-    body: [
-      "Pest control pricing depends mainly on the type of pest, the size of your home, and whether you need a one-time treatment or an ongoing quarterly plan - termite and wildlife issues typically cost more to address than routine ant or roach treatments.",
-      "In this climate, pests stay active almost year-round rather than dying off in winter, which is why many homeowners opt for a standing quarterly plan instead of paying for one-off visits every time something turns up.",
-      "Because nearby homes often share the same pest pressure - a termite colony or ant trail rarely respects property lines - this is a great fit for group pricing: a technician already treating one house can frequently service several homes on the same street for less than the cost of separate visits.",
+    closing: [
+      "Adding it all up, many Wake County homeowners spend somewhere between $1,000 and $2,400 or more per year on recurring lawn maintenance alone, before factoring in mulch refreshes or larger projects. Because most homes on a given street need roughly the same seasonal work, lawn and landscaping is one of the easiest categories to bundle with neighbors. A crew already routed through your subdivision can usually add nearby yards to the same trip for a noticeably better group rate than everyone booking separately.",
     ],
   },
 ];
@@ -1480,6 +1560,7 @@ const App: React.FC = () => {
                   <div className="flex overflow-x-auto pb-2 gap-4 snap-x no-scrollbar">
                     {topRatedBusinesses.map(b => {
                       const testimonial = getBusinessTestimonial(b.id);
+                      const city = (b.address || '').split(',').map(p => p.trim())[1];
                       return (
                         <div
                           key={b.id}
@@ -1496,7 +1577,12 @@ const App: React.FC = () => {
                             />
                             <div className="min-w-0">
                               <h4 className="font-bold text-gray-900 text-sm line-clamp-1">{b.name}</h4>
-                              <div className="flex items-center gap-1 text-sm text-gray-600">
+                              {(b.category || city) && (
+                                <p className="text-xs text-gray-500 line-clamp-1">
+                                  {b.category}{b.category && city ? ' - ' : ''}{city}
+                                </p>
+                              )}
+                              <div className="flex items-center gap-1 text-sm text-gray-600 mt-0.5">
                                 <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
                                 {Number(b.rating).toFixed(1)} <span className="text-gray-500">({b.reviewCount || 0})</span>
                               </div>
@@ -1894,13 +1980,18 @@ const App: React.FC = () => {
             </section>
           ) : view === 'blog' && selectedBlog ? (
             <section className="pt-12 max-w-3xl mx-auto">
-              <button 
-                onClick={() => setView('home')} 
+              <button
+                onClick={() => setView('home')}
                 className="text-primary hover:underline mb-6 inline-flex items-center font-medium"
               >
                 &larr; Back to Home
               </button>
-              <img src={selectedBlog.image} alt={selectedBlog.title} className="w-full h-64 object-cover rounded-2xl mb-8" />
+              <img
+                src={selectedBlog.image}
+                alt={selectedBlog.title}
+                className="w-full h-72 sm:h-96 object-cover rounded-2xl mb-8"
+                referrerPolicy="no-referrer"
+              />
               <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{selectedBlog.title}</h1>
               <div className="flex items-center gap-4 text-sm text-gray-500 font-medium mb-8 uppercase tracking-wider">
                 <span>By {selectedBlog.author}</span>
@@ -1909,9 +2000,40 @@ const App: React.FC = () => {
               </div>
               <div className="prose prose-lg max-w-none text-gray-700">
                 <p className="lead text-xl text-gray-600 mb-8">{selectedBlog.description}</p>
-                {(selectedBlog as any).body?.map((paragraph: string, idx: number) => (
-                  <p key={idx}>{paragraph}</p>
+                {(selectedBlog as any).intro?.map((paragraph: string, idx: number) => (
+                  <p key={`intro-${idx}`}>{paragraph}</p>
                 ))}
+                {(selectedBlog as any).sections?.map((section: any, sIdx: number) => (
+                  <div key={`section-${sIdx}`}>
+                    <h2>{section.heading}</h2>
+                    {section.paragraphs.map((paragraph: string, pIdx: number) => (
+                      <p key={`section-${sIdx}-p-${pIdx}`}>{paragraph}</p>
+                    ))}
+                    {section.linkCategory && (
+                      <p className="not-prose">
+                        <button
+                          onClick={() => handleCategoryClick(section.linkCategory)}
+                          className="text-primary font-bold hover:underline inline-flex items-center gap-1"
+                        >
+                          {section.linkLabel || `See real ${section.linkCategory} deals`} &rarr;
+                        </button>
+                      </p>
+                    )}
+                  </div>
+                ))}
+                {(selectedBlog as any).closing?.map((paragraph: string, idx: number) => (
+                  <p key={`closing-${idx}`}>{paragraph}</p>
+                ))}
+                {(selectedBlog as any).category && (
+                  <p className="not-prose border-t border-gray-100 pt-6 mt-8">
+                    <button
+                      onClick={() => handleCategoryClick((selectedBlog as any).category)}
+                      className="text-primary font-bold hover:underline inline-flex items-center gap-1"
+                    >
+                      Browse all {(selectedBlog as any).category} deals in Wake County &rarr;
+                    </button>
+                  </p>
+                )}
               </div>
             </section>
           ) : view === 'wishlist' ? (
