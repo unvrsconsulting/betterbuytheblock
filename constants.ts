@@ -1,6 +1,5 @@
 
 import { Business, User, Service, UserType, Review } from './types';
-import { getCategoryImage } from './services/categoryImages';
 
 // Every business account starts with this simulated dollar balance, used to pay for
 // neighborhood-targeting costs when publishing or expanding deals. Not real money —
@@ -72,68 +71,6 @@ export const CATEGORY_GROUPS = [
 // show. These are purely illustrative — a generic category + pricing mechanic, never
 // attributed to a name, rating, review, or license, so nothing here can be mistaken
 // for a real listing. Each one drives straight into the real "Request a Deal" flow.
-export interface ExampleDeal {
-  category: string;
-  title: string;
-  description: string;
-  standardPrice: number;
-  discountPercentage: number;
-  requiredSignups: number;
-}
-
-export const EXAMPLE_DEALS: ExampleDeal[] = [
-  {
-    category: 'House Cleaning',
-    title: 'Bi-Weekly House Cleaning',
-    description: 'A standing bi-weekly visit to keep kitchens, bathrooms, and living areas consistently clean.',
-    standardPrice: 220,
-    discountPercentage: 18,
-    requiredSignups: 10,
-  },
-  {
-    category: 'Lawn Service',
-    title: 'Weekly Mowing Plan',
-    description: 'Consistent weekly mowing and edging through the growing season.',
-    standardPrice: 75,
-    discountPercentage: 15,
-    requiredSignups: 8,
-  },
-  {
-    category: 'HVAC Maintenance',
-    title: 'AC Seasonal Tune-Up',
-    description: 'A full inspection and tune-up to keep your system running efficiently through peak season.',
-    standardPrice: 180,
-    discountPercentage: 18,
-    requiredSignups: 8,
-  },
-  {
-    category: 'Pest Control',
-    title: 'Quarterly Pest Prevention',
-    description: 'Ongoing exterior treatment to keep common pests out year-round.',
-    standardPrice: 140,
-    discountPercentage: 20,
-    requiredSignups: 7,
-  },
-  {
-    category: 'Handyman Service',
-    title: 'Honey-Do List Bundle',
-    description: 'A half-day handyman visit to knock out a backlog of small repairs.',
-    standardPrice: 106,
-    discountPercentage: 11,
-    requiredSignups: 7,
-  },
-  {
-    category: 'Power Washing',
-    title: 'House Exterior Power Wash',
-    description: 'A full siding wash to remove pollen, mildew, and grime from your home\'s exterior.',
-    standardPrice: 253,
-    discountPercentage: 20,
-    requiredSignups: 10,
-  },
-];
-
-export const getExampleDealImage = (category: string) => getCategoryImage(category, 400, 300);
-
 // No reviews are seeded — see components/BusinessProfile.tsx's honest
 // rating/review-count split for why (real Google rating, zero fabricated
 // written reviews).

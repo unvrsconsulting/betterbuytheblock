@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
-import { USERS, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE, EXAMPLE_DEALS, getExampleDealImage } from './constants';
+import { USERS, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE } from './constants';
 import { loadSeedData } from './services/seedData';
 import Header from './components/Header';
 import ServiceCard from './components/ServiceCard';
@@ -1436,44 +1436,14 @@ const App: React.FC = () => {
                 )}
               </section>
 
-              {/* Example deals — pre-launch, no real business attached yet */}
-              <section>
-                <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">See What a Deal Could Look Like</h2>
-                  <p className="text-gray-500 text-sm mt-1">No businesses in your neighborhood yet - here's the kind of bulk-pricing deal you could unlock once one joins. Want one for real? Request it below.</p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {EXAMPLE_DEALS.map((deal) => {
-                    const discounted = deal.standardPrice * (1 - deal.discountPercentage / 100);
-                    return (
-                      <div key={deal.title} className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col">
-                        <div className="relative h-32 w-full bg-gray-200 overflow-hidden shrink-0">
-                          <img src={getExampleDealImage(deal.category)} alt={deal.category} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                          <span className="absolute top-3 left-3 bg-gray-900/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Example</span>
-                        </div>
-                        <div className="p-4 flex-grow flex flex-col">
-                          <p className="text-[10px] font-semibold text-primary-600 uppercase tracking-wider mb-1">{deal.category}</p>
-                          <h3 className="text-lg font-extrabold text-gray-900 leading-tight mb-1">{deal.title}</h3>
-                          <p className="text-gray-600 text-xs mb-3 flex-grow">{deal.description}</p>
-                          <div className="flex items-baseline gap-1.5 mb-1">
-                            <p className="text-green-700 font-black text-2xl leading-none">${discounted.toFixed(0)}</p>
-                            <p className="text-gray-500 text-xs line-through leading-none">${deal.standardPrice}</p>
-                            <span className="ml-auto bg-green-600 text-white text-[10px] font-black px-2 py-1 rounded-full">{deal.discountPercentage}% OFF</span>
-                          </div>
-                          <p className="text-gray-500 text-[11px] mb-3">Unlocks once {deal.requiredSignups} neighbors join</p>
-                          <Button
-                            variant="outline"
-                            className="w-full"
-                            onClick={() => handleOpenRequestModal(undefined, deal.title)}
-                          >
-                            Request This For My Neighborhood
-                          </Button>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
+              {renderServiceCarousel(
+                `Biggest Discounts in ${currentNeighborhood?.name || 'Your Neighborhood'}`,
+                "The steepest bulk-pricing savings available right now.",
+                [...filteredServices].sort((a, b) => b.discountPercentage - a.discountPercentage),
+                'all',
+                BadgePercent,
+                'emerald'
+              )}
 
               {filteredServices.length > 0 && (
                 <>
