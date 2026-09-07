@@ -148,11 +148,12 @@ const SEASONS = [
 // right now, with the underlying data grounded in 2026 pricing trends.
 const COST_GUIDES = [
   {
+    slug: 'hvac-costs-wake-county-2027',
     title: 'HVAC Costs in Wake County for 2027: Repairs, Tune-Ups, and Full Replacements',
     description: 'A full breakdown of what heating and cooling work actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from a basic tune-up to a full system swap.',
     author: 'BetterBuyTheBlock Team',
     date: 'SEP 5, 2026',
-    image: 'https://images.pexels.com/photos/34687846/pexels-photo-34687846.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: 'https://images.pexels.com/photos/12119564/pexels-photo-12119564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
     category: 'HVAC Maintenance',
     intro: [
@@ -166,12 +167,23 @@ const COST_GUIDES = [
           "Before any repair happens, most companies charge a service call or diagnostic fee just to send a technician out and figure out what's wrong. Nationally, that runs about $70 to $200, and it climbs toward the higher end for nights, weekends, or true emergency response. Some companies waive this fee if you move forward with the repair, so it's worth asking upfront.",
           "This fee covers the technician's time to inspect your system, check refrigerant levels, test electrical connections, and identify the actual problem. It's a small number compared to what comes next, but it's the gatekeeper cost that determines whether you're looking at a $200 fix or a $3,000 one.",
         ],
+        bullets: [
+          'Standard service call: $70 to $200',
+          'Nights, weekends, or emergency response: higher end of that range',
+          'Some companies waive the fee if you book the repair',
+        ],
       },
       {
         heading: 'Common HVAC Repairs',
         paragraphs: [
           "Once a technician identifies the issue, repair costs vary wildly depending on what actually broke. Most homeowners end up paying somewhere between $250 and $900 for a single repair visit, with an average around $450 to $650. On the lower end, things like fixing a refrigerant leak, adding insulation to exposed lines, or replacing a damaged vent typically run $200 to $700.",
           "On the higher end, if a technician finds a failing compressor, a damaged coil, or a cracked heat exchanger, you're looking at $1,000 to $3,000 or more, since those are core components that require significant labor and parts cost to replace. A simple drain line cleaning or minor electrical fix can sometimes come in under $250, which is the best case scenario for a repair call.",
+        ],
+        bullets: [
+          'Typical single repair visit: $250 to $900 (average $450 to $650)',
+          'Minor fix (leak, insulation, vent): $200 to $700',
+          'Major component (compressor, coil, heat exchanger): $1,000 to $3,000+',
+          'Simple drain line or electrical fix: under $250',
         ],
         linkLabel: 'See real HVAC deals in your neighborhood',
         linkCategory: 'HVAC Maintenance',
@@ -183,12 +195,25 @@ const COST_GUIDES = [
           "Broken down by component, a central AC unit alone typically costs $3,500 to $7,500 installed, a gas furnace runs $3,000 to $6,500, and a heat pump system (increasingly popular in this climate since it handles both heating and cooling) lands around $4,000 to $8,000.",
           "Locally, Raleigh homeowners tend to land a bit below the national average. Recent data puts average HVAC replacement in Raleigh at around $7,365, with most projects falling between $4,910 and $12,275. Installer labor in the Raleigh-Durham area averages roughly $27 to $28 per hour, which is moderate compared to Northeast or West Coast markets, and permit costs through the county typically run $90 to $150.",
         ],
+        bullets: [
+          'Full replacement, national average: $11,590 to $14,100',
+          'Central AC unit installed: $3,500 to $7,500',
+          'Gas furnace installed: $3,000 to $6,500',
+          'Heat pump system installed: $4,000 to $8,000',
+          'Raleigh area average: about $7,365 ($4,910 to $12,275 typical range)',
+        ],
       },
       {
         heading: 'What Actually Drives Your Price',
         paragraphs: [
           "A few factors matter more than anything else. Ductwork condition is the big one. If your existing ducts are in good shape and the new system can drop into the same footprint, you'll pay far less than a job that requires new ducting, electrical upgrades, or ventilation changes. System size relative to your square footage matters too. An undersized or oversized unit will cost you in comfort and efficiency even if the upfront price looks good.",
           "Efficiency rating (SEER for cooling, AFUE for heating) is worth asking about directly. A higher efficiency unit costs more upfront but uses less energy over its lifespan, and in a climate that runs the AC as hard as Wake County does, that payback period is usually faster here than in milder regions. Always get two or three written quotes before committing to a full replacement. The spread between contractors on the exact same job can be surprisingly wide.",
+        ],
+        bullets: [
+          'Ductwork condition (existing vs. new ducting needed)',
+          'System size relative to your square footage',
+          'Efficiency rating (SEER for cooling, AFUE for heating)',
+          'Number of quotes you actually get before committing',
         ],
       },
     ],
@@ -197,6 +222,7 @@ const COST_GUIDES = [
     ],
   },
   {
+    slug: 'roofing-costs-wake-county-2027',
     title: 'Roofing Costs in Wake County for 2027: Repair vs. Replacement Pricing',
     description: 'What roof repair and full replacement actually cost heading into 2027, broken down by material, and what makes Raleigh area pricing different from the national average.',
     author: 'BetterBuyTheBlock Team',
@@ -215,12 +241,24 @@ const COST_GUIDES = [
           "For a targeted repair rather than a full replacement, the national average cost lands around $1,150, with most homeowners paying somewhere between $400 and $1,900 depending on how extensive the damage is. On a per square foot basis, asphalt shingle repairs typically run $4 to $8 installed, which covers things like replacing damaged shingles, patching flashing around a chimney or vent, or sealing a small leak before it spreads.",
           "The final number depends heavily on how accessible the damaged area is and whether the underlying decking needs to be repaired as well. A leak that's caught early and only affects the shingle layer is a much smaller job than one that's been dripping into the attic for months.",
         ],
+        bullets: [
+          'National average repair: about $1,150',
+          'Typical repair range: $400 to $1,900',
+          'Asphalt shingle repair: $4 to $8 per square foot installed',
+        ],
       },
       {
         heading: 'Full Roof Replacement',
         paragraphs: [
           "For a complete replacement, national pricing generally falls in the $4 to $11 per square foot range, and total project costs typically land between $9,000 and $18,000 for a standard asphalt shingle roof on an average sized home, with an overall national average around $9,608. Larger homes, steep pitches, or premium materials can push that number toward $30,000 or more.",
           "In Wake County specifically, a new roof typically costs $9,000 to $15,000 for most homes, which lines up closely with the national range but tends to land on the more affordable end. Local per square foot pricing runs about $3.40 to $5.90, and labor specifically falls in the $200 to $350 range per roofing square (a 100 square foot unit), or roughly $45 to $75 per hour for a crew. Contractor labor overall in the Raleigh area runs about 8% below the national average, which is one reason Wake County pricing tends to sit favorably compared to Northeast or West Coast markets.",
+        ],
+        bullets: [
+          'National price per square foot: $4 to $11',
+          'Typical total project: $9,000 to $18,000 (national average $9,608)',
+          'Wake County typical total: $9,000 to $15,000',
+          'Wake County price per square foot: $3.40 to $5.90',
+          'Local labor: $200 to $350 per roofing square, or $45 to $75 per hour',
         ],
         linkLabel: 'See real roofing deals in your neighborhood',
         linkCategory: 'Roofing',
@@ -231,6 +269,13 @@ const COST_GUIDES = [
           "Material choice is the single biggest factor in your final number. Asphalt shingles remain the most common and most affordable option at roughly $3.50 to $5.50 per square foot installed, and they're the default choice for most Wake County homes. Metal roofing, whether standing seam or ribbed panels, runs $8 to $14 per square foot and has grown more popular for homeowners planning to stay in their home long term, since it typically lasts far longer than shingles.",
           "Concrete or clay tile lands at $10 to $18 per square foot and is less common in this region but shows up on some architectural styles. Flat or TPO membrane roofing, typically used on additions or specific home styles, runs $4 to $7 per square foot. Slate is the premium option at $15 to $30 or more per square foot, and it's rare to see on a standard residential home in this area given the cost.",
         ],
+        bullets: [
+          'Asphalt shingles: $3.50 to $5.50 per sq ft',
+          'Metal (standing seam or ribbed): $8 to $14 per sq ft',
+          'Concrete or clay tile: $10 to $18 per sq ft',
+          'Flat or TPO membrane: $4 to $7 per sq ft',
+          'Slate: $15 to $30+ per sq ft',
+        ],
       },
     ],
     closing: [
@@ -238,6 +283,7 @@ const COST_GUIDES = [
     ],
   },
   {
+    slug: 'lawn-care-landscaping-costs-wake-county-2027',
     title: 'Lawn Care and Landscaping Costs in Wake County for 2027',
     description: 'Real 2027 pricing for weekly mowing, mulching, aeration, and larger landscape projects across Raleigh and Wake County, and how to budget for the full growing season.',
     author: 'BetterBuyTheBlock Team',
@@ -256,6 +302,10 @@ const COST_GUIDES = [
           "Professional mowing typically runs $29 to $65 per hour, or more commonly $43 to $69 per visit for a standard residential lot, including trimming and blowing off walkways. Total per-visit costs can range from $42 to $454 depending heavily on lawn size, with most Wake County homes falling toward the lower to middle end of that range on a standard suburban lot.",
           "A standing weekly or biweekly plan through the growing season is almost always cheaper per visit than calling for one-off mows, since the crew can route your home into an existing schedule rather than making a special trip.",
         ],
+        bullets: [
+          'Typical rate: $29 to $65 per hour, or $43 to $69 per visit',
+          'Total per-visit range: $42 to $454 depending on lot size',
+        ],
       },
       {
         heading: 'Mulching and Bed Work',
@@ -263,12 +313,20 @@ const COST_GUIDES = [
           "If you're buying mulch yourself, expect to pay roughly $2 to $5.50 per bag, or $17 to $68 per cubic yard for bulk material. Hiring it out professionally runs about $43 to $98 per hour, or $20 to $45 per cubic yard for labor alone, with full installed pricing (material, delivery, and labor together) sometimes landing meaningfully higher depending on the mulch type and how many beds need refreshing.",
           "Spring is the most common time to refresh mulch beds in this region, both for curb appeal and to help beds retain moisture heading into the hot summer months.",
         ],
+        bullets: [
+          'DIY mulch: $2 to $5.50 per bag, or $17 to $68 per cubic yard',
+          'Professional labor: $43 to $98 per hour, or $20 to $45 per cubic yard',
+        ],
       },
       {
         heading: 'Aeration and Overseeding',
         paragraphs: [
           "Core aeration typically costs between $43 and $496 depending on lawn size and equipment used, with a national average closer to $154, and a more typical range of $107 to $202 for a standard residential lot. This is usually a once or twice a year service, and in this region it's best timed for early fall, when cooler soil temperatures give grass the best chance to recover and thicken up before winter.",
           "Overseeding is frequently bundled with aeration, since freshly aerated soil gives new seed the best chance to take root. Doing both together in the same visit is typically more cost effective than scheduling them separately.",
+        ],
+        bullets: [
+          'Typical range: $43 to $496',
+          'National average: about $154 ($107 to $202 typical)',
         ],
         linkLabel: 'See real lawn care deals in your neighborhood',
         linkCategory: 'Lawn Service',
@@ -278,6 +336,9 @@ const COST_GUIDES = [
         paragraphs: [
           "For homeowners planning bigger changes, like a full yard redesign, new planting beds, or hardscape additions, pricing shifts significantly. In Wake County specifically, working with a landscape designer on a project typically runs $1,197 to $10,144, depending heavily on the scope, from a single bed redesign to a full front and back yard overhaul.",
           "These larger projects are worth getting multiple quotes for, since the range between contractors on the same scope of work can be substantial, and design fees are sometimes handled separately from installation cost.",
+        ],
+        bullets: [
+          'Wake County landscape design projects: $1,197 to $10,144',
         ],
         linkLabel: 'See real landscaping deals in your neighborhood',
         linkCategory: 'Landscaping',
@@ -394,6 +455,10 @@ const App: React.FC = () => {
     const path = window.location.pathname;
     if (path === '/privacy') return 'privacy';
     if (path === '/terms') return 'terms';
+    if (path.startsWith('/guides/')) {
+      const slug = path.slice('/guides/'.length);
+      return COST_GUIDES.some(g => g.slug === slug) ? 'blog' : 'not-found';
+    }
     if (path !== '/') return 'not-found';
     return 'home';
   });
@@ -403,7 +468,12 @@ const App: React.FC = () => {
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedBlog, setSelectedBlog] = useState<typeof COST_GUIDES[0] | null>(null);
+  const [selectedBlog, setSelectedBlog] = useState<typeof COST_GUIDES[0] | null>(() => {
+    const path = window.location.pathname;
+    if (!path.startsWith('/guides/')) return null;
+    const slug = path.slice('/guides/'.length);
+    return COST_GUIDES.find(g => g.slug === slug) || null;
+  });
   const [selectedNeighborhoodPageId, setSelectedNeighborhoodPageId] = useState<string | null>(null);
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [requestModalBusinessId, setRequestModalBusinessId] = useState<string | undefined>(undefined);
@@ -554,17 +624,30 @@ const App: React.FC = () => {
   // keeps showing the 404 rather than silently bouncing to home.
   useEffect(() => {
     if (view === 'not-found') return;
-    const path = view === 'privacy' ? '/privacy' : view === 'terms' ? '/terms' : '/';
+    const path = view === 'privacy' ? '/privacy'
+      : view === 'terms' ? '/terms'
+      : view === 'blog' && selectedBlog ? `/guides/${selectedBlog.slug}`
+      : '/';
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
-  }, [view]);
+  }, [view, selectedBlog]);
 
   useEffect(() => {
     const onPopState = () => {
       const path = window.location.pathname;
       if (path === '/privacy') setView('privacy');
       else if (path === '/terms') setView('terms');
+      else if (path.startsWith('/guides/')) {
+        const slug = path.slice('/guides/'.length);
+        const guide = COST_GUIDES.find(g => g.slug === slug);
+        if (guide) {
+          setSelectedBlog(guide);
+          setView('blog');
+        } else {
+          setView('not-found');
+        }
+      }
       else if (path === '/') setView('home');
       else setView('not-found');
     };
@@ -577,16 +660,26 @@ const App: React.FC = () => {
   useEffect(() => {
     const DEFAULT_TITLE = 'BetterBuyTheBlock | Wake County Home Services at Discounted Rates';
     const DEFAULT_DESCRIPTION = 'Get bulk-pricing deals on home services across Wake County, NC. Join with your neighbors to unlock group discounts on cleaning, lawn care, HVAC, and more - free for local businesses to list.';
+    const DEFAULT_IMAGE = 'https://betterbuytheblock.com/og-image.jpg';
 
     let title = DEFAULT_TITLE;
     let description = DEFAULT_DESCRIPTION;
+    let image = DEFAULT_IMAGE;
+    let canonicalPath = '/';
 
-    if (view === 'privacy') {
+    if (view === 'blog' && selectedBlog) {
+      title = `${selectedBlog.title} | BetterBuyTheBlock`;
+      description = selectedBlog.description;
+      image = selectedBlog.image;
+      canonicalPath = `/guides/${selectedBlog.slug}`;
+    } else if (view === 'privacy') {
       title = `Privacy Policy | BetterBuyTheBlock`;
       description = 'How BetterBuyTheBlock collects, stores, and uses your information.';
+      canonicalPath = '/privacy';
     } else if (view === 'terms') {
       title = `Terms & Conditions | BetterBuyTheBlock`;
       description = 'The terms that apply to using BetterBuyTheBlock.';
+      canonicalPath = '/terms';
     } else if (view === 'not-found') {
       title = `Page Not Found | BetterBuyTheBlock`;
       description = 'The page you were looking for doesn\'t exist.';
@@ -624,10 +717,46 @@ const App: React.FC = () => {
       title = `Cost Guides | BetterBuyTheBlock`;
     }
 
+    const canonicalUrl = `https://betterbuytheblock.com${canonicalPath}`;
+
     document.title = title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+    document.querySelector('meta[property="og:image"]')?.setAttribute('content', image);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
+    document.querySelector('meta[property="og:type"]')?.setAttribute('content', view === 'blog' ? 'article' : 'website');
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', description);
+    document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', image);
+
+    // Article structured data (schema.org) for cost guides, so search
+    // engines can render rich results — only present while a guide is open.
+    const existingLd = document.getElementById('article-ld-json');
+    if (existingLd) existingLd.remove();
+    if (view === 'blog' && selectedBlog) {
+      const script = document.createElement('script');
+      script.id = 'article-ld-json';
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: selectedBlog.title,
+        description: selectedBlog.description,
+        image: selectedBlog.image,
+        author: { '@type': 'Organization', name: selectedBlog.author },
+        publisher: { '@type': 'Organization', name: 'BetterBuyTheBlock' },
+        datePublished: (() => {
+          const parsed = new Date(selectedBlog.date);
+          return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString().slice(0, 10);
+        })(),
+        mainEntityOfPage: canonicalUrl,
+      });
+      document.head.appendChild(script);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, selectedBusinessId, selectedServiceId, selectedNeighborhoodPageId, lastSearchQuery]);
+  }, [view, selectedBusinessId, selectedServiceId, selectedNeighborhoodPageId, lastSearchQuery, selectedBlog]);
 
   useEffect(() => {
     if (currentUser.type === UserType.BUSINESS && CONSUMER_ONLY_VIEWS.has(view)) {
@@ -1992,47 +2121,60 @@ const App: React.FC = () => {
                 className="w-full h-72 sm:h-96 object-cover rounded-2xl mb-8"
                 referrerPolicy="no-referrer"
               />
-              <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{selectedBlog.title}</h1>
-              <div className="flex items-center gap-4 text-sm text-gray-500 font-medium mb-8 uppercase tracking-wider">
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">{selectedBlog.title}</h1>
+              <div className="flex items-center gap-3 text-sm text-gray-500 font-medium mb-8 uppercase tracking-wider">
                 <span>By {selectedBlog.author}</span>
-                <span>•</span>
+                <span className="w-1 h-1 rounded-full bg-gray-300" />
                 <span>{selectedBlog.date}</span>
               </div>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p className="lead text-xl text-gray-600 mb-8">{selectedBlog.description}</p>
+              <div className="text-gray-700">
+                <p className="text-xl text-gray-600 leading-relaxed mb-10 pb-8 border-b border-gray-100">{selectedBlog.description}</p>
                 {(selectedBlog as any).intro?.map((paragraph: string, idx: number) => (
-                  <p key={`intro-${idx}`}>{paragraph}</p>
+                  <p key={`intro-${idx}`} className="text-base leading-relaxed mb-5">{paragraph}</p>
                 ))}
                 {(selectedBlog as any).sections?.map((section: any, sIdx: number) => (
-                  <div key={`section-${sIdx}`}>
-                    <h2>{section.heading}</h2>
+                  <div key={`section-${sIdx}`} className="mt-12">
+                    <h2 className="text-2xl font-extrabold text-gray-900 mb-4 pl-4 border-l-4 border-primary">
+                      {section.heading}
+                    </h2>
                     {section.paragraphs.map((paragraph: string, pIdx: number) => (
-                      <p key={`section-${sIdx}-p-${pIdx}`}>{paragraph}</p>
+                      <p key={`section-${sIdx}-p-${pIdx}`} className="text-base leading-relaxed mb-5">{paragraph}</p>
                     ))}
+                    {section.bullets && section.bullets.length > 0 && (
+                      <ul className="bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-3 mb-5">
+                        {section.bullets.map((bullet: string, bIdx: number) => (
+                          <li key={`section-${sIdx}-b-${bIdx}`} className="flex items-start gap-3 text-sm sm:text-base text-gray-800 font-medium">
+                            <BadgePercent className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     {section.linkCategory && (
-                      <p className="not-prose">
-                        <button
-                          onClick={() => handleCategoryClick(section.linkCategory)}
-                          className="text-primary font-bold hover:underline inline-flex items-center gap-1"
-                        >
-                          {section.linkLabel || `See real ${section.linkCategory} deals`} &rarr;
-                        </button>
-                      </p>
+                      <button
+                        onClick={() => handleCategoryClick(section.linkCategory)}
+                        className="w-full sm:w-auto flex items-center justify-between gap-3 bg-primary-50 hover:bg-primary-100 border border-primary-200 rounded-xl px-5 py-3.5 text-primary-700 font-bold transition-colors"
+                      >
+                        {section.linkLabel || `See real ${section.linkCategory} deals`}
+                        <span aria-hidden="true">&rarr;</span>
+                      </button>
                     )}
                   </div>
                 ))}
-                {(selectedBlog as any).closing?.map((paragraph: string, idx: number) => (
-                  <p key={`closing-${idx}`}>{paragraph}</p>
-                ))}
+                {(selectedBlog as any).closing?.length > 0 && (
+                  <div className="mt-12 bg-primary-50 border border-primary-100 rounded-2xl p-6">
+                    {(selectedBlog as any).closing.map((paragraph: string, idx: number) => (
+                      <p key={`closing-${idx}`} className="text-base leading-relaxed text-gray-800 last:mb-0 mb-3">{paragraph}</p>
+                    ))}
+                  </div>
+                )}
                 {(selectedBlog as any).category && (
-                  <p className="not-prose border-t border-gray-100 pt-6 mt-8">
-                    <button
-                      onClick={() => handleCategoryClick((selectedBlog as any).category)}
-                      className="text-primary font-bold hover:underline inline-flex items-center gap-1"
-                    >
-                      Browse all {(selectedBlog as any).category} deals in Wake County &rarr;
-                    </button>
-                  </p>
+                  <div className="mt-10 pt-8 border-t border-gray-100">
+                    <Button onClick={() => handleCategoryClick((selectedBlog as any).category)} className="inline-flex items-center gap-2">
+                      Browse all {(selectedBlog as any).category} deals in Wake County
+                      <span aria-hidden="true">&rarr;</span>
+                    </Button>
+                  </div>
                 )}
               </div>
             </section>
