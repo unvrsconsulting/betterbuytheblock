@@ -395,15 +395,21 @@ const App: React.FC = () => {
   }, [currentUserId]);
 
   const handleShareLocation = () => {
-    // Neighborhood is a per-account setting now — nothing to save it to for a guest.
-    // Business accounts have no neighborhood of their own either.
-    if (!isAuthenticated || currentUser.type === UserType.BUSINESS) return;
+    // Business accounts have no neighborhood of their own.
+    if (currentUser.type === UserType.BUSINESS) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const nearest = findNearestNeighborhood(neighborhoods, position.coords.latitude, position.coords.longitude);
           if (nearest) {
             updateCurrentUser({ ...currentUser, neighborhoodId: nearest.id });
+            // Not signed in yet (guest browsing pre-auth) — make this the
+            // active profile so the located neighborhood actually sticks,
+            // instead of updating an orphaned record nothing points to.
+            if (!currentUserId) {
+              setCurrentUserId(currentUser.id);
+              saveState('currentUserId', currentUser.id);
+            }
           }
         },
         (error) => {
