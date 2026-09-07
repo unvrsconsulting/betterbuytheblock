@@ -145,7 +145,7 @@ const COST_GUIDES = [
   {
     title: 'How Much Does House Cleaning Cost in Wake County, NC? (2026 Guide)',
     description: 'What drives house cleaning prices in Raleigh, Cary, and the rest of Wake County, and how often you actually need a visit.',
-    author: 'BetterByTheBlock Team',
+    author: 'BetterBuyTheBlock Team',
     date: 'JAN 12, 2026',
     image: 'https://images.pexels.com/photos/4740529/pexels-photo-4740529.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
@@ -158,7 +158,7 @@ const COST_GUIDES = [
   {
     title: 'How Much Does HVAC Maintenance Cost in Wake County, NC? (2026 Guide)',
     description: "Wake County's hot summers and mild winters mean your HVAC system runs a lot - here's what a seasonal tune-up typically costs and why it's worth budgeting for.",
-    author: 'BetterByTheBlock Team',
+    author: 'BetterBuyTheBlock Team',
     date: 'FEB 3, 2026',
     image: 'https://images.pexels.com/photos/978319/pexels-photo-978319.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
@@ -171,7 +171,7 @@ const COST_GUIDES = [
   {
     title: 'How Much Does Lawn Care Cost in Raleigh, NC? (2026 Pricing Guide)',
     description: 'Weekly mowing, fertilization, and aeration pricing for Wake County yards, and how lot size and lawn condition change the estimate.',
-    author: 'BetterByTheBlock Team',
+    author: 'BetterBuyTheBlock Team',
     date: 'MAR 10, 2026',
     image: 'https://images.pexels.com/photos/15173334/pexels-photo-15173334.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
@@ -184,7 +184,7 @@ const COST_GUIDES = [
   {
     title: 'How Much Does Gutter Cleaning Cost in NC? (2026 Pricing Guide)',
     description: "Wake County's tree cover means gutters clog fast - here's what a cleaning typically costs and how often you actually need one.",
-    author: 'BetterByTheBlock Team',
+    author: 'BetterBuyTheBlock Team',
     date: 'MAR 22, 2026',
     image: 'https://images.pexels.com/photos/36777847/pexels-photo-36777847.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
@@ -197,7 +197,7 @@ const COST_GUIDES = [
   {
     title: 'How Much Does Pest Control Cost in Wake County, NC? (2026 Guide)',
     description: "Wake County's humid climate keeps ants, roaches, and termites active nearly year-round. Here's what pest control typically costs and what drives the price.",
-    author: 'BetterByTheBlock Team',
+    author: 'BetterBuyTheBlock Team',
     date: 'APR 2, 2026',
     image: 'https://images.pexels.com/photos/5353890/pexels-photo-5353890.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
@@ -495,53 +495,53 @@ const App: React.FC = () => {
   // SEO: keep <title> and the meta description in sync with what's actually
   // on screen, instead of every view sharing index.html's static tags.
   useEffect(() => {
-    const DEFAULT_TITLE = 'BetterByTheBlock | Wake County Home Services at Discounted Rates';
+    const DEFAULT_TITLE = 'BetterBuyTheBlock | Wake County Home Services at Discounted Rates';
     const DEFAULT_DESCRIPTION = 'Get bulk-pricing deals on home services across Wake County, NC. Join with your neighbors to unlock group discounts on cleaning, lawn care, HVAC, and more - free for local businesses to list.';
 
     let title = DEFAULT_TITLE;
     let description = DEFAULT_DESCRIPTION;
 
     if (view === 'privacy') {
-      title = `Privacy Policy | BetterByTheBlock`;
-      description = 'How BetterByTheBlock collects, stores, and uses your information.';
+      title = `Privacy Policy | BetterBuyTheBlock`;
+      description = 'How BetterBuyTheBlock collects, stores, and uses your information.';
     } else if (view === 'terms') {
-      title = `Terms & Conditions | BetterByTheBlock`;
-      description = 'The terms that apply to using BetterByTheBlock.';
+      title = `Terms & Conditions | BetterBuyTheBlock`;
+      description = 'The terms that apply to using BetterBuyTheBlock.';
     } else if (view === 'not-found') {
-      title = `Page Not Found | BetterByTheBlock`;
+      title = `Page Not Found | BetterBuyTheBlock`;
       description = 'The page you were looking for doesn\'t exist.';
     } else if (view === 'results') {
-      title = lastSearchQuery ? `${lastSearchQuery} deals in Wake County | BetterByTheBlock` : `Search Results | BetterByTheBlock`;
+      title = lastSearchQuery ? `${lastSearchQuery} deals in Wake County | BetterBuyTheBlock` : `Search Results | BetterBuyTheBlock`;
       description = `Bulk-pricing home service deals ${lastSearchQuery ? `for ${lastSearchQuery} ` : ''}in your Wake County neighborhood.`;
     } else if (view === 'business' && selectedBusinessId) {
       const business = businesses.find(b => b.id === selectedBusinessId);
       if (business) {
-        title = `${business.name} | BetterByTheBlock`;
-        description = (business.description || `${business.name} on BetterByTheBlock - ${business.category || 'home services'} in Wake County, NC.`).slice(0, 160);
+        title = `${business.name} | BetterBuyTheBlock`;
+        description = (business.description || `${business.name} on BetterBuyTheBlock - ${business.category || 'home services'} in Wake County, NC.`).slice(0, 160);
       }
     } else if (view === 'serviceProfile' && selectedServiceId) {
       const service = services.find(s => s.id === selectedServiceId) || searchResults.find(s => s.id === selectedServiceId);
       if (service) {
-        title = `${service.title} | BetterByTheBlock`;
-        description = (service.description || `${service.title} - a neighborhood bulk-pricing deal on BetterByTheBlock.`).slice(0, 160);
+        title = `${service.title} | BetterBuyTheBlock`;
+        description = (service.description || `${service.title} - a neighborhood bulk-pricing deal on BetterBuyTheBlock.`).slice(0, 160);
       }
     } else if (view === 'neighborhood' && selectedNeighborhoodPageId) {
       const n = neighborhoods.find(nb => nb.id === selectedNeighborhoodPageId);
       if (n) {
-        title = `Home Service Deals in ${n.name}, ${n.city} | BetterByTheBlock`;
+        title = `Home Service Deals in ${n.name}, ${n.city} | BetterBuyTheBlock`;
         description = `Bulk-pricing home service deals available to residents of ${n.name} in ${n.city}, NC.`;
       }
     } else if (view === 'businesses') {
-      title = `Local Businesses | BetterByTheBlock`;
-      description = 'Browse real Wake County home service businesses on BetterByTheBlock.';
+      title = `Local Businesses | BetterBuyTheBlock`;
+      description = 'Browse real Wake County home service businesses on BetterBuyTheBlock.';
     } else if (view === 'how-it-works') {
-      title = `How It Works | BetterByTheBlock`;
+      title = `How It Works | BetterBuyTheBlock`;
     } else if (view === 'help') {
-      title = `Help Center | BetterByTheBlock`;
+      title = `Help Center | BetterBuyTheBlock`;
     } else if (view === 'contact') {
-      title = `Contact Us | BetterByTheBlock`;
+      title = `Contact Us | BetterBuyTheBlock`;
     } else if (view === 'articles') {
-      title = `Cost Guides | BetterByTheBlock`;
+      title = `Cost Guides | BetterBuyTheBlock`;
     }
 
     document.title = title;
@@ -1396,7 +1396,7 @@ const App: React.FC = () => {
 
               {/* How it works + trust stats */}
               <section className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-[0_2px_4px_rgba(15,23,42,0.04),0_16px_40px_-8px_rgba(15,23,42,0.18)]">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">How BetterByTheBlock Works</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">How BetterBuyTheBlock Works</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                   <div className="text-center">
                     <div className="w-12 h-12 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -2246,7 +2246,7 @@ const App: React.FC = () => {
           ) : view === 'how-it-works' ? (
             <StaticPage 
               title="How it works" 
-              content={<p>BetterByTheBlock connects you with local professionals offering group discounts. When more neighbors join a deal, everyone saves.</p>} 
+              content={<p>BetterBuyTheBlock connects you with local professionals offering group discounts. When more neighbors join a deal, everyone saves.</p>} 
               onBack={() => setView('home')} 
             />
           ) : view === 'pro-signup' ? (
@@ -2258,13 +2258,13 @@ const App: React.FC = () => {
           ) : view === 'pro-resources' ? (
             <StaticPage 
               title="Pro resources" 
-              content={<p>Access guides, templates, and best practices to maximize your success on BetterByTheBlock.</p>} 
+              content={<p>Access guides, templates, and best practices to maximize your success on BetterBuyTheBlock.</p>} 
               onBack={() => setView('home')} 
             />
           ) : view === 'success-stories' ? (
             <StaticPage 
               title="Success stories" 
-              content={<p>Read how local professionals and neighbors have benefited from group buying on BetterByTheBlock.</p>} 
+              content={<p>Read how local professionals and neighbors have benefited from group buying on BetterBuyTheBlock.</p>} 
               onBack={() => setView('home')} 
             />
           ) : view === 'help' ? (
@@ -2295,7 +2295,7 @@ const App: React.FC = () => {
               title="Contact us"
               content={
                 <>
-                  <p>This is a local demo build of BetterByTheBlock - there's no live support team behind it yet. If this were a production product, this page would list a real support email and response-time expectations.</p>
+                  <p>This is a local demo build of BetterBuyTheBlock - there's no live support team behind it yet. If this were a production product, this page would list a real support email and response-time expectations.</p>
                   <p>For now, any account issues can be resolved by clearing this browser's local storage and signing up again, since all data lives only in this browser.</p>
                 </>
               }
@@ -2308,17 +2308,17 @@ const App: React.FC = () => {
                 <>
                   <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
 
-                  <h3>What BetterByTheBlock is</h3>
-                  <p>BetterByTheBlock is a Wake County, NC platform that shows neighborhood bulk-pricing deals from local home service businesses and lets residents request deals from businesses. By using this site, you agree to these terms.</p>
+                  <h3>What BetterBuyTheBlock is</h3>
+                  <p>BetterBuyTheBlock is a Wake County, NC platform that shows neighborhood bulk-pricing deals from local home service businesses and lets residents request deals from businesses. By using this site, you agree to these terms.</p>
 
                   <h3>No payments happen on this site</h3>
-                  <p>BetterByTheBlock does not process payments. "Joining" a deal or "requesting" a deal does not charge you anything and is not a contract with the business. Any actual service, scheduling, and payment happens directly between you and the business, entirely off this platform.</p>
+                  <p>BetterBuyTheBlock does not process payments. "Joining" a deal or "requesting" a deal does not charge you anything and is not a contract with the business. Any actual service, scheduling, and payment happens directly between you and the business, entirely off this platform.</p>
 
                   <h3>Deals from businesses not yet on the platform</h3>
-                  <p>Many businesses shown on this site are real, independently-operated Wake County businesses we've identified as likely to offer the listed category of service - they have not yet joined BetterByTheBlock or agreed to any specific deal shown. These are marked "Not yet a confirmed partner," and the pricing shown for them is a proposal, not a rate the business has committed to. Requesting one of these deals sends the business a signal of real neighborhood demand; it does not create any obligation on their part.</p>
+                  <p>Many businesses shown on this site are real, independently-operated Wake County businesses we've identified as likely to offer the listed category of service - they have not yet joined BetterBuyTheBlock or agreed to any specific deal shown. These are marked "Not yet a confirmed partner," and the pricing shown for them is a proposal, not a rate the business has committed to. Requesting one of these deals sends the business a signal of real neighborhood demand; it does not create any obligation on their part.</p>
 
                   <h3>Accounts</h3>
-                  <p>A BetterByTheBlock profile is stored only in your browser's local storage - there is no password and no server-side account. Clearing your browser data, or switching browsers or devices, will lose your profile and history with no way to recover it.</p>
+                  <p>A BetterBuyTheBlock profile is stored only in your browser's local storage - there is no password and no server-side account. Clearing your browser data, or switching browsers or devices, will lose your profile and history with no way to recover it.</p>
 
                   <h3>Acceptable use</h3>
                   <p>Don't submit false, abusive, or spam requests; don't attempt to interfere with the site's operation or scrape it at scale; don't misrepresent who you are when contacting a business through this site.</p>
@@ -2343,7 +2343,7 @@ const App: React.FC = () => {
                   <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
 
                   <h3>What we store, and where</h3>
-                  <p>Your BetterByTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently - we have no copy and no way to recover it.</p>
+                  <p>Your BetterBuyTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently - we have no copy and no way to recover it.</p>
 
                   <h3>What actually gets sent to us</h3>
                   <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), the service name, your description, your display name, and your neighborhood/city are sent to our server and stored so we can see real demand and reach out to businesses. This is the only visitor data that leaves your browser during normal use.</p>

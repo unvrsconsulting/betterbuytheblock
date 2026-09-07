@@ -76,7 +76,7 @@ const BusinessOnboarding: React.FC<BusinessOnboardingProps> = ({ currentUser, on
         <div className="w-16 h-16 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <Building2 className="w-8 h-8" />
         </div>
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Grow your business with BetterByTheBlock</h1>
+        <h1 className="text-3xl font-extrabold text-gray-900 mb-2">Grow your business with BetterBuyTheBlock</h1>
         <p className="text-gray-600">Reach local customers by offering exclusive group discounts.</p>
       </div>
 

@@ -9,7 +9,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {} }) =
     <footer className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800 mt-auto">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <h3 className="text-white text-xl font-extrabold mb-4 tracking-tight">BetterByTheBlock</h3>
+          <h3 className="text-white text-xl font-extrabold mb-4 tracking-tight">BetterBuyTheBlock</h3>
           <p className="text-sm text-gray-400 leading-relaxed">
             Connecting neighbors with top-rated local professionals through the power of group buying.
           </p>
@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {} }) =
         </div>
       </div>
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 mt-12 pt-8 border-t border-gray-800 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
-        <p>© {new Date().getFullYear()} BetterByTheBlock. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} BetterBuyTheBlock. All rights reserved.</p>
       </div>
     </footer>
   );

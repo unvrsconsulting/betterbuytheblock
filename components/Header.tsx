@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ currentUser, isAuthenticated = false, o
             <HomeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
           </div>
           <h1 className="text-base sm:text-2xl font-extrabold text-gray-900 tracking-tight whitespace-nowrap">
-            BetterByTheBlock
+            BetterBuyTheBlock
           </h1>
         </div>
 

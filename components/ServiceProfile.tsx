@@ -308,7 +308,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
 
                   {service.isProspective && !isSignedUp && (
                     <p className="text-xs text-center text-gray-500 mt-4">
-                      {business.name} hasn't joined BetterByTheBlock yet - this is a proposed deal, not a live offer. Requesting it tells us (and them) there's real demand in your neighborhood.
+                      {business.name} hasn't joined BetterBuyTheBlock yet - this is a proposed deal, not a live offer. Requesting it tells us (and them) there's real demand in your neighborhood.
                     </p>
                   )}
 
@@ -432,7 +432,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                   <span className="font-bold text-gray-900 text-lg">{Number(business.rating).toFixed(1)}</span>
                 </div>
                 <p className="text-gray-500 text-sm mb-1">{business.reviewCount || 0} Google review{(business.reviewCount || 0) === 1 ? '' : 's'}</p>
-                <p className="text-gray-500">No written reviews on BetterByTheBlock yet - the rating above is {business.name}'s public Google rating.</p>
+                <p className="text-gray-500">No written reviews on BetterBuyTheBlock yet - the rating above is {business.name}'s public Google rating.</p>
               </>
             ) : (
               <p className="text-gray-500">No reviews yet.</p>

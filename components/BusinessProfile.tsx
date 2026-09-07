@@ -246,7 +246,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
               </div>
               {business.isProspective && (
                 <p className="text-sm text-gray-500 mb-4 max-w-xl">
-                  This is a real Wake County business we found in this category - they haven't joined BetterByTheBlock yet. The deal below is a proposal, not something they've offered. Request it to help bring them here.
+                  This is a real Wake County business we found in this category - they haven't joined BetterBuyTheBlock yet. The deal below is a proposal, not something they've offered. Request it to help bring them here.
                 </p>
               )}
               {(business.highlights?.length || 0) > 0 && (
@@ -491,7 +491,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
 
         <div id="reviews" className="border-t border-gray-200 pt-10 mb-10 scroll-mt-24">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Reviews on BetterByTheBlock ({platformReviewCount})</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Reviews on BetterBuyTheBlock ({platformReviewCount})</h2>
             {hasJoinedThisBusiness && (
               <Button
                 variant="outline"
@@ -556,7 +556,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
             <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-200">
               <p className="text-gray-500">
                 {googleReviewCount > 0
-                  ? `No written reviews on BetterByTheBlock yet - the rating above is ${business.name}'s public Google rating.`
+                  ? `No written reviews on BetterBuyTheBlock yet - the rating above is ${business.name}'s public Google rating.`
                   : 'No reviews yet.'}
               </p>
             </div>
