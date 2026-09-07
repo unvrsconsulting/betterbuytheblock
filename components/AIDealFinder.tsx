@@ -70,10 +70,10 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onSele
   };
 
   return (
-    <div className={`relative ${compact ? 'mb-8' : 'bg-gray-900 overflow-hidden mb-12'}`}>
+    <div className={`relative ${compact ? 'mb-8' : 'bg-gray-900 mb-12'}`}>
       {/* Background Image */}
       {!compact && (
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
             alt="Beautiful home exterior"
