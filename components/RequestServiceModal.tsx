@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, AlertCircle } from 'lucide-react';
 import Button from './Button';
@@ -8,13 +8,18 @@ interface RequestServiceModalProps {
   isOpen: boolean;
   onClose: () => void;
   businessName?: string;
+  initialServiceName?: string;
   onSubmit: (details: { serviceName: string; description: string }) => void;
 }
 
-const RequestServiceModal: React.FC<RequestServiceModalProps> = ({ isOpen, onClose, businessName, onSubmit }) => {
+const RequestServiceModal: React.FC<RequestServiceModalProps> = ({ isOpen, onClose, businessName, initialServiceName, onSubmit }) => {
   const [serviceName, setServiceName] = useState('');
   const [description, setDescription] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isOpen) setServiceName(initialServiceName || '');
+  }, [isOpen, initialServiceName]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
-import { USERS, INITIAL_SERVICES, BUSINESSES, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE } from './constants';
+import { USERS, INITIAL_SERVICES, BUSINESSES, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE, EXAMPLE_DEALS, getExampleDealImage } from './constants';
 import Header from './components/Header';
 import ServiceCard from './components/ServiceCard';
 import AIDealFinder from './components/AIDealFinder';
@@ -295,6 +295,7 @@ const App: React.FC = () => {
   const [selectedNeighborhoodPageId, setSelectedNeighborhoodPageId] = useState<string | null>(null);
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [requestModalBusinessId, setRequestModalBusinessId] = useState<string | undefined>(undefined);
+  const [requestModalPrefill, setRequestModalPrefill] = useState<string | undefined>(undefined);
   const [sortBy, setSortBy] = useState<string>('recommended');
   const [filterCategories, setFilterCategories] = useState<string[]>([]);
   const [filterStatus, setFilterStatus] = useState<string>('all');
@@ -426,6 +427,16 @@ const App: React.FC = () => {
   const handleSignUp = (serviceId: string) => {
     const service = services.find(s => s.id === serviceId) || searchResults.find(s => s.id === serviceId);
     if (!service || !currentUser || (service.signedUpUserIds || []).includes(currentUser.id)) return;
+
+    // Proposed deals aren't real yet — the business hasn't actually turned them
+    // on. "Joining" would be fake, so redirect into the real request flow
+    // instead, tied to this specific business (stronger outreach evidence than
+    // a generic request).
+    if (service.isProspective) {
+      handleOpenRequestModal(service.businessId, service.title);
+      return;
+    }
+
     if (service.closeAfterThreshold && service.currentSignups >= service.requiredSignups) return;
 
     const newSignedUpUserIds = [...service.signedUpUserIds, currentUser.id];
@@ -595,8 +606,9 @@ const App: React.FC = () => {
     setView('neighborhood');
   };
 
-  const handleOpenRequestModal = (businessId?: string) => {
+  const handleOpenRequestModal = (businessId?: string, prefillServiceName?: string) => {
     setRequestModalBusinessId(businessId);
+    setRequestModalPrefill(prefillServiceName);
     setIsRequestModalOpen(true);
   };
 
@@ -628,6 +640,23 @@ const App: React.FC = () => {
       saveState('dealRequests', next);
       return next;
     });
+
+    // Best-effort copy to the server so real demand is visible across visitors,
+    // not trapped in this one browser's localStorage. Never blocks or surfaces
+    // an error to the resident — their local request already succeeded above.
+    fetch('/api/deal-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        serviceName,
+        description,
+        businessId,
+        userId: currentUser.id,
+        userName: currentUser.name,
+        neighborhoodId: currentUser.neighborhoodId,
+        city: neighborhoods.find(n => n.id === currentUser.neighborhoodId)?.city,
+      }),
+    }).catch(() => {});
 
     if (businessId) {
       const owner = users.find(u => u.businessId === businessId && u.type === UserType.BUSINESS);
@@ -1250,19 +1279,65 @@ const App: React.FC = () => {
                     <p className="text-gray-500 text-sm">Once unlocked, the business reaches out to schedule at the bulk rate.</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-3 divide-x divide-gray-200 border-t border-gray-200 pt-6">
-                  <div className="text-center px-2">
-                    <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{activeDealsCount}</p>
-                    <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Active Deals</p>
+                {businesses.length > 0 ? (
+                  <div className="grid grid-cols-3 divide-x divide-gray-200 border-t border-gray-200 pt-6">
+                    <div className="text-center px-2">
+                      <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{activeDealsCount}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Active Deals</p>
+                    </div>
+                    <div className="text-center px-2">
+                      <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{neighborhoodsCoveredCount}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Neighborhoods Covered</p>
+                    </div>
+                    <div className="text-center px-2">
+                      <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{businesses.length}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Local Businesses</p>
+                    </div>
                   </div>
-                  <div className="text-center px-2">
-                    <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{neighborhoodsCoveredCount}</p>
-                    <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Neighborhoods Covered</p>
+                ) : (
+                  <div className="border-t border-gray-200 pt-6 text-center">
+                    <p className="text-gray-700 font-semibold mb-3">We're just launching in Wake County — be one of the first businesses listed, free.</p>
+                    <Button onClick={handleListBusinessClick}>List Your Business Free</Button>
                   </div>
-                  <div className="text-center px-2">
-                    <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{businesses.length}</p>
-                    <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Local Businesses</p>
-                  </div>
+                )}
+              </section>
+
+              {/* Example deals — pre-launch, no real business attached yet */}
+              <section>
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">See What a Deal Could Look Like</h2>
+                  <p className="text-gray-500 text-sm mt-1">No businesses in your neighborhood yet — here's the kind of bulk-pricing deal you could unlock once one joins. Want one for real? Request it below.</p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {EXAMPLE_DEALS.map((deal) => {
+                    const discounted = deal.standardPrice * (1 - deal.discountPercentage / 100);
+                    return (
+                      <div key={deal.title} className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col">
+                        <div className="relative h-32 w-full bg-gray-200 overflow-hidden shrink-0">
+                          <img src={getExampleDealImage(deal.category)} alt={deal.category} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                          <span className="absolute top-3 left-3 bg-gray-900/80 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Example</span>
+                        </div>
+                        <div className="p-4 flex-grow flex flex-col">
+                          <p className="text-[10px] font-semibold text-primary-600 uppercase tracking-wider mb-1">{deal.category}</p>
+                          <h3 className="text-lg font-extrabold text-gray-900 leading-tight mb-1">{deal.title}</h3>
+                          <p className="text-gray-600 text-xs mb-3 flex-grow">{deal.description}</p>
+                          <div className="flex items-baseline gap-1.5 mb-1">
+                            <p className="text-green-700 font-black text-2xl leading-none">${discounted.toFixed(0)}</p>
+                            <p className="text-gray-400 text-xs line-through leading-none">${deal.standardPrice}</p>
+                            <span className="ml-auto bg-green-600 text-white text-[10px] font-black px-2 py-1 rounded-full">{deal.discountPercentage}% OFF</span>
+                          </div>
+                          <p className="text-gray-500 text-[11px] mb-3">Unlocks once {deal.requiredSignups} neighbors join</p>
+                          <Button
+                            variant="outline"
+                            className="w-full"
+                            onClick={() => handleOpenRequestModal(undefined, deal.title)}
+                          >
+                            Request This For My Neighborhood
+                          </Button>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
 
@@ -2182,10 +2257,11 @@ const App: React.FC = () => {
         )}
       </main>
       <Footer onNavigate={(page) => setView(page as any)} />
-      <RequestServiceModal 
+      <RequestServiceModal
         isOpen={isRequestModalOpen}
         onClose={() => setIsRequestModalOpen(false)}
         businessName={requestModalBusinessId ? businesses.find(b => b.id === requestModalBusinessId)?.name : undefined}
+        initialServiceName={requestModalPrefill}
         onSubmit={handleRequestSubmit}
       />
     </div>

@@ -8,6 +8,7 @@ import ServiceCard from './ServiceCard';
 import { CheckCircle, MapPin, DollarSign, Users, Tag, Sparkles, Loader2, Image as ImageIcon, Search, Pencil, X, AlertCircle, Upload, Bookmark, FileUp } from 'lucide-react';
 import { verifyDealImage, generateDealRecommendations } from '../services/scraperService';
 import { useNeighborhoods } from '../hooks/useNeighborhoods';
+import { useCityStats } from '../hooks/useCityStats';
 import { searchNeighborhoods, getCities, neighborhoodsWithinRadius, estimateNeighborhoodPrice, estimateHomeCount } from '../services/neighborhoods';
 import { checkContent } from '../services/contentModeration';
 import { loadState, saveState } from '../services/localStore';
@@ -95,6 +96,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
   const [contentError, setContentError] = useState<string | null>(null);
 
   const { neighborhoods } = useNeighborhoods();
+  const { cityStats } = useCityStats();
 
   const cities = useMemo(() => getCities(neighborhoods), [neighborhoods]);
 
@@ -645,6 +647,33 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 </button>
               )}
 
+              {cityFilter !== 'All Cities' && cityStats[cityFilter] && (
+                <div className="p-3 bg-gray-50 rounded-xl border border-gray-200">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    {cityFilter} — real Wake County property records
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    <div>
+                      <p className="font-bold text-gray-900">{cityStats[cityFilter].homeCount.toLocaleString()}</p>
+                      <p className="text-xs text-gray-500">single-family homes</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900">${Math.round(cityStats[cityFilter].avgAssessedValue / 1000)}k</p>
+                      <p className="text-xs text-gray-500">avg. assessed value</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900">{cityStats[cityFilter].avgSqFt.toLocaleString()} sq ft</p>
+                      <p className="text-xs text-gray-500">avg. home size</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900">{cityStats[cityFilter].avgYearBuilt}</p>
+                      <p className="text-xs text-gray-500">avg. year built</p>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-gray-400 mt-2">Source: Wake County GIS parcel data</p>
+                </div>
+              )}
+
               <button
                 type="button"
                 onClick={() => {
@@ -770,7 +799,13 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                     >
                       <div>
                         <div className="font-bold text-gray-900">{n.name}</div>
-                        <div className="text-xs text-gray-500">{n.city} &middot; ~{n.estimatedHomes ?? estimateHomeCount(n.id)} homes</div>
+                        {n.homeStats ? (
+                          <div className="text-xs text-gray-500">
+                            {n.city} &middot; {n.homeStats.homeCount.toLocaleString()} homes &middot; avg ${Math.round(n.homeStats.avgAssessedValue / 1000)}k
+                          </div>
+                        ) : (
+                          <div className="text-xs text-gray-500">{n.city} &middot; ~{n.estimatedHomes ?? estimateHomeCount(n.id)} homes (est.)</div>
+                        )}
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
                         <span className="text-sm font-semibold text-gray-700">${estimateNeighborhoodPrice(n)}</span>

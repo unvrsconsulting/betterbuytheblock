@@ -1,6 +1,7 @@
 import { Neighborhood } from '../types';
 
 const DATA_URL = '/data/wake-neighborhoods.json';
+const STATS_URL = '/data/wake-neighborhood-stats.json';
 
 let cache: Neighborhood[] | null = null;
 let inflight: Promise<Neighborhood[]> | null = null;
@@ -37,13 +38,23 @@ export const loadNeighborhoods = (): Promise<Neighborhood[]> => {
   if (cache) return Promise.resolve(cache);
   if (inflight) return inflight;
 
-  inflight = fetch(DATA_URL)
-    .then(res => res.json())
-    .then((data: Neighborhood[]) => {
-      const withEstimates = data.map(n => ({
-        ...n,
-        estimatedHomes: n.estimatedHomes ?? estimateHomeCount(n.id),
-      }));
+  inflight = Promise.all([
+    fetch(DATA_URL).then(res => res.json()) as Promise<Neighborhood[]>,
+    fetch(STATS_URL).then(res => res.json()).catch(() => ({ neighborhoods: {} })),
+  ])
+    .then(([data, statsFile]) => {
+      const realStats: Record<string, NonNullable<Neighborhood['homeStats']>> = statsFile.neighborhoods || {};
+      const withEstimates = data.map(n => {
+        const homeStats = realStats[n.id];
+        return {
+          ...n,
+          homeStats,
+          // Real count where we have it (spatially joined to Wake County's own
+          // parcel data); the pseudo-random fallback only covers the small slice
+          // of neighborhoods that didn't match a current subdivision boundary.
+          estimatedHomes: homeStats?.homeCount ?? n.estimatedHomes ?? estimateHomeCount(n.id),
+        };
+      });
       cache = withEstimates;
       inflight = null;
       return withEstimates;

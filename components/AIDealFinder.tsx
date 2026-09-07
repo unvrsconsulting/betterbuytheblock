@@ -145,7 +145,7 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChan
             <div className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-medium text-gray-300">
               <span className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-primary-400" />
-                Verified local businesses
+                Free for businesses to list
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-primary-400" />

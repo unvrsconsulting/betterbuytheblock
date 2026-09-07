@@ -1,0 +1,96 @@
+{
+  "source": "Wake County GIS — Property/Parcels (assessor parcel data), single-family homes only",
+  "fetchedAt": "2026-09-06T20:10:30.719Z",
+  "cities": {
+    "Raleigh": {
+      "homeCount": 119531,
+      "avgAssessedValue": 514714,
+      "avgSqFt": 2110,
+      "avgYearBuilt": 1991
+    },
+    "Cary": {
+      "homeCount": 50783,
+      "avgAssessedValue": 661560,
+      "avgSqFt": 2662,
+      "avgYearBuilt": 1998
+    },
+    "Apex": {
+      "homeCount": 25698,
+      "avgAssessedValue": 614917,
+      "avgSqFt": 2600,
+      "avgYearBuilt": 2009
+    },
+    "Wake Forest": {
+      "homeCount": 17074,
+      "avgAssessedValue": 483614,
+      "avgSqFt": 2479,
+      "avgYearBuilt": 2007
+    },
+    "Holly Springs": {
+      "homeCount": 15973,
+      "avgAssessedValue": 576749,
+      "avgSqFt": 2638,
+      "avgYearBuilt": 2009
+    },
+    "Garner": {
+      "homeCount": 14208,
+      "avgAssessedValue": 386420,
+      "avgSqFt": 2070,
+      "avgYearBuilt": 2000
+    },
+    "Knightdale": {
+      "homeCount": 7069,
+      "avgAssessedValue": 399599,
+      "avgSqFt": 2191,
+      "avgYearBuilt": 2008
+    },
+    "Morrisville": {
+      "homeCount": 6613,
+      "avgAssessedValue": 588662,
+      "avgSqFt": 2425,
+      "avgYearBuilt": 2007
+    },
+    "Fuquay-Varina": {
+      "homeCount": 18015,
+      "avgAssessedValue": 462876,
+      "avgSqFt": 2306,
+      "avgYearBuilt": 2011
+    },
+    "Wendell": {
+      "homeCount": 7596,
+      "avgAssessedValue": 379687,
+      "avgSqFt": 1975,
+      "avgYearBuilt": 2011
+    },
+    "Rolesville": {
+      "homeCount": 4669,
+      "avgAssessedValue": 516383,
+      "avgSqFt": 2679,
+      "avgYearBuilt": 2014
+    },
+    "Zebulon": {
+      "homeCount": 4680,
+      "avgAssessedValue": 321730,
+      "avgSqFt": 1920,
+      "avgYearBuilt": 2009
+    },
+    "Angier": {
+      "homeCount": 723,
+      "avgAssessedValue": 398988,
+      "avgSqFt": 2465,
+      "avgYearBuilt": 2021
+    },
+    "Durham": {
+      "homeCount": 316,
+      "avgAssessedValue": 415260,
+      "avgSqFt": 2082,
+      "avgYearBuilt": 2019
+    },
+    "Wake County": {
+      "homeCount": 66432,
+      "avgAssessedValue": 593079,
+      "avgSqFt": 2587,
+      "avgYearBuilt": 1992
+    }
+  }
+}

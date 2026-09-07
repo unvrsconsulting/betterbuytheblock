@@ -65,10 +65,31 @@ export interface Neighborhood {
   city: string;
   lat?: number;
   lng?: number;
-  // Deterministic, estimated household count — real per-parcel counts aren't available
-  // in the shipped dataset, so this is a stable pseudo-random estimate seeded by id,
-  // used only to weight neighborhood-targeting price in the deal-creation flow.
+  // Real, per-neighborhood housing stats — Wake County parcel data spatially
+  // joined to the subdivision's real boundary (see scripts/data/fetch-neighborhood-stats.mjs).
+  // Absent for the small slice of neighborhoods that didn't match a current
+  // subdivision boundary; estimatedHomes falls back to a pseudo-random estimate
+  // for those only.
+  homeStats?: {
+    homeCount: number;
+    avgAssessedValue: number;
+    avgSqFt: number;
+    avgYearBuilt: number;
+  };
+  // Home count used for neighborhood-targeting pricing — real (from homeStats)
+  // when available, otherwise a stable pseudo-random fallback seeded by id.
   estimatedHomes?: number;
+}
+
+// Real, per-city housing stats from Wake County's own public parcel database
+// (assessor GIS), single-family homes only — see scripts/data/fetch-city-stats.mjs.
+// Not an estimate: homeCount and avgAssessedValue are real counts/averages over
+// real parcels, refreshed periodically as county assessment data changes.
+export interface CityStats {
+  homeCount: number;
+  avgAssessedValue: number;
+  avgSqFt: number;
+  avgYearBuilt: number;
 }
 
 export interface NeighborhoodAudience {
@@ -102,6 +123,16 @@ export interface Business {
   // Reverse-chronological is a display concern, not a storage concern — entries
   // are appended in the order they occur.
   billingHistory?: BillingTransaction[];
+  // Real business (name/category/address/phone all real, sourced via
+  // scripts/data/ingest-real-businesses.mjs) that has NOT signed up or agreed to
+  // anything — an unconfirmed directory listing, not a partner. No rating/review/
+  // license is ever fabricated for one of these; the UI must show a clear
+  // "not yet confirmed" badge and never imply affiliation or endorsement.
+  isProspective?: boolean;
+  // Real photo (via Pexels, see scripts/data/fetch-images.mjs), matching one of
+  // this business's own service offering images — never a generic/unrelated
+  // stock photo. Falls back to the category default image when absent.
+  coverImageUrl?: string;
 }
 
 export interface BillingTransaction {
@@ -148,4 +179,9 @@ export interface Service {
   imageUrl?: string;
   views?: number;
   closeAfterThreshold?: boolean;
+  // A proposed deal for a real (isProspective) business that never agreed to it —
+  // an illustration of what they could offer, not a live offer. "Join" is
+  // disabled; the UI routes into the real request flow instead (see
+  // handleSignUp's isProspective branch in App.tsx).
+  isProspective?: boolean;
 }

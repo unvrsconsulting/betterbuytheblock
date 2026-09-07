@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import { Star, MapPin, Phone, Globe, ShieldCheck, MessageSquarePlus, Award, CheckCircle, ChevronDown, ThumbsUp, Images, Search, Tag } from 'lucide-react';
 import { Business, Service, Review, User, Neighborhood } from '../types';
-import { DEFAULT_CATEGORY_IMAGE, buildUnsplashUrl } from '../services/categoryImages';
+import { DEFAULT_CATEGORY_IMAGE, buildUnsplashUrl, getCategoryImage } from '../services/categoryImages';
 import ServiceCard from './ServiceCard';
 import AIRequestDealPanel from './AIRequestDealPanel';
 import ReviewModal from './ReviewModal';
@@ -144,6 +144,12 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
     ? Math.round((reviews.filter(r => r.rating >= 4).length / reviews.length) * 100)
     : null;
 
+  // Google's real review count (from their own public listing) vs. written
+  // reviews actually posted on this platform — kept distinct so neither
+  // number misrepresents the other.
+  const googleReviewCount = business.reviewCount || 0;
+  const platformReviewCount = reviews.length;
+
   const servicesOffered = Array.from(new Set(businessOwnServices.map(s => s.title)));
 
   const servedNeighborhoodIds = Array.from(new Set(businessOwnServices.flatMap(s => s.neighborhoodIds || [])));
@@ -197,10 +203,11 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
       <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mb-10">
         <div className="h-48 bg-gray-900 relative">
           <img
-            src={`https://picsum.photos/seed/${encodeURIComponent(business.name)}/1200/400`}
+            src={business.coverImageUrl || getCategoryImage(business.category)}
             alt="Business Cover"
             className="w-full h-full object-cover opacity-60"
             referrerPolicy="no-referrer"
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = DEFAULT_CATEGORY_IMAGE; }}
           />
         </div>
         <div className="px-8 pb-8 relative">
@@ -216,6 +223,11 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
           <div className="pt-12 flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div>
               <h1 className="text-3xl font-extrabold text-gray-900 mb-2">{business.name}</h1>
+              {business.isProspective && (
+                <div className="inline-flex items-center gap-1.5 bg-gray-900 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                  Not yet a confirmed partner
+                </div>
+              )}
               <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
                 <button
                   onClick={() => document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
@@ -223,13 +235,20 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                 >
                   <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                   <span className="font-bold text-gray-900">{business.rating ? Number(business.rating).toFixed(1) : 'New'}</span>
-                  <span>({reviews.length} review{reviews.length === 1 ? '' : 's'})</span>
+                  <span>({googleReviewCount} review{googleReviewCount === 1 ? '' : 's'})</span>
                 </button>
-                <div className="flex items-center gap-1 text-green-600 font-medium">
-                  <ShieldCheck className="w-4 h-4" />
-                  Background Checked
-                </div>
+                {!business.isProspective && (
+                  <div className="flex items-center gap-1 text-green-600 font-medium">
+                    <ShieldCheck className="w-4 h-4" />
+                    Background Checked
+                  </div>
+                )}
               </div>
+              {business.isProspective && (
+                <p className="text-sm text-gray-500 mb-4 max-w-xl">
+                  This is a real Wake County business we found in this category — they haven't joined BetterByTheBlock yet. The deal below is a proposal, not something they've offered. Request it to help bring them here.
+                </p>
+              )}
               {(business.highlights?.length || 0) > 0 && (
                 <div className="flex flex-wrap gap-2 mb-4">
                   {business.highlights!.map(h => (
@@ -472,7 +491,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
 
         <div id="reviews" className="border-t border-gray-200 pt-10 mb-10 scroll-mt-24">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">All Reviews ({reviews.length})</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Reviews on BetterByTheBlock ({platformReviewCount})</h2>
             {hasJoinedThisBusiness && (
               <Button
                 variant="outline"
@@ -493,7 +512,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                   <Star key={star} className={`w-4 h-4 ${star <= Math.round(business.rating || 0) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200'}`} />
                 ))}
               </div>
-              <p className="text-xs text-gray-500">{reviews.length} review{reviews.length === 1 ? '' : 's'}</p>
+              <p className="text-xs text-gray-500">{googleReviewCount} Google review{googleReviewCount === 1 ? '' : 's'}</p>
             </div>
             {recommendPercent !== null && (
               <div className="text-center sm:text-left sm:border-l sm:pl-8 border-gray-200 flex items-center gap-3">
@@ -535,7 +554,11 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
             </div>
           ) : (
             <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-200">
-              <p className="text-gray-500">No reviews yet.</p>
+              <p className="text-gray-500">
+                {googleReviewCount > 0
+                  ? `No written reviews on BetterByTheBlock yet — the rating above is ${business.name}'s public Google rating.`
+                  : 'No reviews yet.'}
+              </p>
             </div>
           )}
         </div>

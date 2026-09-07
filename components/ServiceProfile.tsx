@@ -165,18 +165,29 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                   Neighborhood Deal Details
                 </h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span>Exclusive bulk pricing negotiated for your neighborhood.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span>Service scheduled efficiently when enough neighbors join.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span>Vetted local professional with verified reviews.</span>
-                  </li>
+                  {service.isProspective ? (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span>Pricing shown is a proposal, not a rate this business has agreed to yet.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span>Requesting it adds real, visible demand we can bring to this business.</span>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span>Exclusive bulk pricing negotiated for your neighborhood.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span>Service scheduled efficiently when enough neighbors join.</span>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -271,6 +282,13 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                     <div className="w-full py-4 text-center text-gray-500 font-bold bg-gray-100 rounded-xl border border-gray-200">
                       Signups Closed
                     </div>
+                  ) : service.isProspective ? (
+                    <Button
+                      onClick={onSignUp}
+                      className="w-full py-4 text-lg rounded-xl shadow-md hover:shadow-lg transition-all"
+                    >
+                      Request This Deal
+                    </Button>
                   ) : isGoalMet ? (
                     <button
                       onClick={onSignUp}
@@ -286,6 +304,12 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                     >
                       {service.isAIGenerated ? "Request Deal" : "Join Deal"}
                     </Button>
+                  )}
+
+                  {service.isProspective && !isSignedUp && (
+                    <p className="text-xs text-center text-gray-500 mt-4">
+                      {business.name} hasn't joined BetterByTheBlock yet — this is a proposed deal, not a live offer. Requesting it tells us (and them) there's real demand in your neighborhood.
+                    </p>
                   )}
 
                   {service.isAIGenerated && !isSignedUp && (

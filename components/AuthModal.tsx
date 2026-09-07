@@ -15,11 +15,6 @@ interface AuthModalProps {
   defaultAccountType?: 'resident' | 'business';
 }
 
-const DEMO_PERSONAS = [
-  { id: 'u2', label: 'Jane Doe' },
-  { id: 'user-a', label: 'Alice S.' },
-];
-
 const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp, onSignIn, defaultAccountType }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
@@ -65,11 +60,6 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
       },
       (error) => console.error('Error getting location:', error)
     );
-  };
-
-  const handleDemoLogin = (userId: string) => {
-    onSignIn(userId);
-    resetAndClose();
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -134,7 +124,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                 {isLogin ? 'Welcome Back' : accountType === 'business' ? 'List Your Business' : 'Join the Neighborhood'}
               </h2>
               <p className="text-xs text-gray-400 text-center mb-6">
-                Local demo profile — stored only in this browser, no password needed.
+                Free local profile — stored only in this browser, no password needed.
               </p>
 
               {error && (
@@ -166,31 +156,6 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                   </div>
                 </div>
               )}
-
-              <div className="mb-6">
-                <p className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2">Quick demo login</p>
-                <div className="flex gap-2">
-                  {DEMO_PERSONAS.map(p => (
-                    <button
-                      key={p.id}
-                      type="button"
-                      onClick={() => handleDemoLogin(p.id)}
-                      className="flex-1 py-2 px-3 border border-gray-300 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
-                    >
-                      {p.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative mb-6">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or use your own profile</span>
-                </div>
-              </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {!isLogin && (

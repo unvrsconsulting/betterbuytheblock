@@ -6,7 +6,7 @@ const PREFIX = 'nn_';
 // shadows the new demo data — without this, a returning user's browser keeps
 // whatever was cached on their first visit forever, no matter how much the
 // seed data in the codebase changes.
-const SEED_VERSION = '3';
+const SEED_VERSION = '8';
 
 export const resetIfStaleSeed = (): void => {
   try {

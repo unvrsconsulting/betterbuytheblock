@@ -1,0 +1,89 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { createClient } from 'redis';
+
+// Every real "Request a Deal" submission from the live site lands here, so the
+// owner can see aggregate real demand (which categories, which neighborhoods)
+// instead of it being trapped in each visitor's own browser localStorage.
+// POST is public (any visitor submitting a request); GET is token-gated so
+// only the site owner can read the aggregated list.
+
+const LIST_KEY = 'deal_requests';
+const MAX_ENTRIES = 5000;
+
+async function withClient<T>(fn: (client: any) => Promise<T>): Promise<T> {
+  const client = createClient({ url: process.env.REDIS_URL });
+  await client.connect();
+  try {
+    return await fn(client);
+  } finally {
+    await client.quit();
+  }
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method === 'POST') {
+    const body = req.body || {};
+    const { serviceName, description, businessId, userId, userName, neighborhoodId, city } = body;
+
+    if (!serviceName || !description || !userId) {
+      return res.status(400).json({ error: 'serviceName, description, and userId are required' });
+    }
+
+    const entry = {
+      serviceName: String(serviceName).slice(0, 200),
+      description: String(description).slice(0, 2000),
+      businessId: businessId ? String(businessId) : null,
+      userId: String(userId),
+      userName: userName ? String(userName).slice(0, 200) : null,
+      neighborhoodId: neighborhoodId ? String(neighborhoodId) : null,
+      city: city ? String(city).slice(0, 100) : null,
+      capturedAt: new Date().toISOString(),
+    };
+
+    try {
+      await withClient(async (client) => {
+        await client.lPush(LIST_KEY, JSON.stringify(entry));
+        await client.lTrim(LIST_KEY, 0, MAX_ENTRIES - 1);
+      });
+    } catch (err) {
+      console.error('deal-request capture failed', err);
+      // Fail soft — the visitor's own local request already succeeded via
+      // localStorage; losing the aggregate copy shouldn't surface as an error.
+      return res.status(200).json({ ok: true, captured: false });
+    }
+
+    return res.status(200).json({ ok: true, captured: true });
+  }
+
+  if (req.method === 'GET') {
+    const token = req.query.token;
+    if (!token || token !== process.env.ADMIN_TOKEN) {
+      return res.status(401).json({ error: 'unauthorized' });
+    }
+
+    try {
+      const items = await withClient(async (client) => {
+        const raw = await client.lRange(LIST_KEY, 0, -1);
+        return raw.map((r: string) => JSON.parse(String(r)));
+      });
+
+      const byCategory: Record<string, number> = {};
+      const byNeighborhood: Record<string, number> = {};
+      for (const item of items) {
+        const key = item.serviceName || 'unknown';
+        byCategory[key] = (byCategory[key] || 0) + 1;
+        if (item.neighborhoodId) {
+          byNeighborhood[item.neighborhoodId] = (byNeighborhood[item.neighborhoodId] || 0) + 1;
+        }
+      }
+
+      return res.status(200).json({ count: items.length, byCategory, byNeighborhood, items });
+    } catch (err) {
+      console.error('deal-request fetch failed', err);
+      return res.status(500).json({ error: 'failed to read requests' });
+    }
+  }
+
+  res.setHeader('Allow', 'GET, POST');
+  return res.status(405).json({ error: 'method not allowed' });
+}
