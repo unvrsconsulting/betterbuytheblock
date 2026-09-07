@@ -1,33 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { Cookie } from 'lucide-react';
 import Button from './Button';
+import { loadGoogleTagManager } from '../services/gtm';
 
-const STORAGE_KEY = 'storageNoticeAcknowledged';
+const STORAGE_KEY = 'analyticsConsent'; // 'accepted' | 'declined'
 
 interface CookieConsentBannerProps {
   onViewPrivacyPolicy: () => void;
 }
 
-// This site doesn't set cookies or run trackers — everything client-side
-// lives in localStorage (see services/localStore.ts). Framed honestly as a
-// storage notice rather than claiming cookie usage that doesn't exist.
+// Your profile/preferences live in localStorage regardless (required for the
+// site to function, not a choice). Analytics (Google Tag Manager) only loads
+// after you accept here — declining keeps it off for this browser.
 const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onViewPrivacyPolicy }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     try {
-      if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
+      const consent = localStorage.getItem(STORAGE_KEY);
+      if (consent === 'accepted') {
+        loadGoogleTagManager();
+      } else if (consent !== 'declined') {
+        setVisible(true);
+      }
     } catch {
-      // localStorage unavailable — nothing to acknowledge either way
+      // localStorage unavailable — leave analytics off rather than guess
     }
   }, []);
 
-  const dismiss = () => {
+  const respond = (accepted: boolean) => {
     try {
-      localStorage.setItem(STORAGE_KEY, 'true');
+      localStorage.setItem(STORAGE_KEY, accepted ? 'accepted' : 'declined');
     } catch {
       // ignore
     }
+    if (accepted) loadGoogleTagManager();
     setVisible(false);
   };
 
@@ -39,15 +46,23 @@ const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onViewPrivacy
         <p className="text-sm flex items-start sm:items-center gap-2">
           <Cookie className="w-4 h-4 shrink-0 mt-0.5 sm:mt-0 text-gray-400" />
           <span>
-            We don't use cookies or trackers. Your profile and preferences are saved only in this browser's local storage.{' '}
+            Your profile is always saved only in this browser's local storage — no cookies. We'd also like to use analytics (Google Tag Manager) to see how the site's used; it only loads if you accept.{' '}
             <button onClick={onViewPrivacyPolicy} className="underline hover:text-white transition-colors">
               Privacy Policy
             </button>
           </span>
         </p>
-        <Button onClick={dismiss} className="shrink-0 py-2 px-5 text-sm">
-          Got it
-        </Button>
+        <div className="flex gap-2 shrink-0">
+          <button
+            onClick={() => respond(false)}
+            className="py-2 px-4 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+          >
+            Decline
+          </button>
+          <Button onClick={() => respond(true)} className="py-2 px-5 text-sm">
+            Accept
+          </Button>
+        </div>
       </div>
     </div>
   );

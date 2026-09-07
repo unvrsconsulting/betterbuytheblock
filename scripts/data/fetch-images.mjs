@@ -19,30 +19,33 @@ const PEXELS_ENDPOINT = 'https://api.pexels.com/v1/search';
 const PER_PAGE = 80; // Pexels' max per request
 
 // One real-world search term per category — the actual query sent to Pexels.
+// Every query is anchored on "residential home"/"house" context so results
+// are the actual home/yard/interior, not a company van, crew photo, or logo
+// — this site only lists residential service deals, never commercial.
 const CATEGORY_QUERIES = {
-  'Carpet Cleaning': 'carpet cleaning',
-  'Cleaning & Maid Services': 'house cleaning service',
-  'Gutter Cleaning': 'gutter cleaning',
-  'House Cleaning': 'home cleaning',
-  'Power Washing': 'pressure washing house',
-  'Window Washing': 'window cleaning',
-  'Deck or Porch': 'wood deck patio',
-  'Fencing Service': 'wood fence installation',
-  'Landscaping': 'landscaping garden',
-  'Lawn Service': 'lawn mowing',
-  'Pool Maintenance': 'swimming pool',
-  'Tree Service': 'tree trimming arborist',
-  'Electrical': 'electrician working',
-  'Handyman Service': 'handyman tools repair',
-  'HVAC Maintenance': 'hvac air conditioner technician',
-  'Plumbing': 'plumber repair pipe',
-  'Roofing': 'roof repair',
-  'Solar Panel Installation': 'solar panel installation',
-  'Home Security': 'home security camera',
-  'Interior Design': 'interior design living room',
-  'Moving Services': 'moving boxes truck',
-  'Painting': 'house painting',
-  'Pest Control': 'pest control technician',
+  'Carpet Cleaning': 'carpet cleaning living room home',
+  'Cleaning & Maid Services': 'house cleaning home interior',
+  'Gutter Cleaning': 'house gutter roof residential',
+  'House Cleaning': 'home cleaning interior house',
+  'Power Washing': 'house exterior pressure washing driveway',
+  'Window Washing': 'house window cleaning residential',
+  'Deck or Porch': 'backyard wood deck patio house',
+  'Fencing Service': 'backyard wood fence house',
+  'Landscaping': 'front yard landscaping house garden',
+  'Lawn Service': 'front yard lawn mowing house',
+  'Pool Maintenance': 'backyard swimming pool house',
+  'Tree Service': 'yard tree house residential',
+  'Electrical': 'home electrical panel house interior',
+  'Handyman Service': 'home repair tools house interior',
+  'HVAC Maintenance': 'home air conditioner unit house',
+  'Plumbing': 'home kitchen bathroom sink pipe',
+  'Roofing': 'house roof shingles residential',
+  'Solar Panel Installation': 'house roof solar panels residential',
+  'Home Security': 'front door house security camera',
+  'Interior Design': 'home living room interior design',
+  'Moving Services': 'moving boxes house living room',
+  'Painting': 'house interior wall painting home',
+  'Pest Control': 'house yard residential exterior',
 };
 
 async function searchPexels(query) {
@@ -108,7 +111,7 @@ async function main() {
     }
   }
 
-  writeFileSync(DATA_PATH, JSON.stringify({ businesses, services }, null, 2));
+  writeFileSync(DATA_PATH, JSON.stringify({ ...data, businesses, services }, null, 2));
   console.log(`\nAssigned images to ${servicesNeeding.length} offerings and ${coversSet} business covers. Wrote ${path.relative(process.cwd(), DATA_PATH)}.`);
 }
 

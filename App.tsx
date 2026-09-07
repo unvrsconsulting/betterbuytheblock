@@ -373,12 +373,15 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    // Show location prompt on first visit
+    // Show location prompt on first visit. Key is versioned (not the older
+    // "hasVisitedBefore") because that older flag got set for visitors who
+    // hit a bug where the prompt silently never actually asked — bumping the
+    // key lets everyone genuinely get asked once under the fixed logic.
     try {
-      const hasVisited = localStorage.getItem('hasVisitedBefore');
+      const hasVisited = localStorage.getItem('locationPromptShownV2');
       if (!hasVisited) {
         handleShareLocation();
-        localStorage.setItem('hasVisitedBefore', 'true');
+        localStorage.setItem('locationPromptShownV2', 'true');
       }
     } catch (e) {
       console.warn('localStorage not available', e);
@@ -2364,7 +2367,7 @@ const App: React.FC = () => {
                   <p>Business names, categories, addresses, phone numbers, descriptions, and ratings shown on this site come from each business's own public listing information (via a third-party business-data API), not from anything a visitor submits. Photos shown are real stock photography, not photos of the specific business's actual work.</p>
 
                   <h3>Cookies and tracking</h3>
-                  <p>We don't use cookies, and we don't run any advertising or analytics trackers on this site. The only client-side storage is your browser's local storage, described above. Our hosting provider may log standard technical request information (like IP address and browser type) as part of normal web server operation — we don't use this for tracking or advertising.</p>
+                  <p>Your profile and preferences use local storage, not cookies, and that always happens (it's how the site remembers you between visits). Separately, we use Google Tag Manager to understand how the site's being used — that only loads if you accept it in the notice shown on your first visit; declining keeps it off for that browser. We don't run advertising trackers. Our hosting provider may also log standard technical request information (like IP address and browser type) as part of normal web server operation.</p>
 
                   <h3>No payment data</h3>
                   <p>We don't process payments and never collect card or bank information.</p>
