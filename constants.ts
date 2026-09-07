@@ -145,7 +145,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-931-0673",
     "description": "ITsStraight Cleaning, a locally owned and operated business with over ten years of experience, is dedicated to providing the highest standard of cleaning services to homes and businesses in Clayton. They offer a wide range of services, including carpet, upholstery, rug, and tile cleaning, as well as stain removal and residential and commercial cleaning. Their team of trustworthy professionals is committed to delivering exceptional service and achieving the best results using quality products. IT",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4107284/pexels-photo-4107284.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4107284/pexels-photo-4107284.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-2",
@@ -155,7 +157,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-343-5198",
     "description": "We are IICRC certified carpet repair and cleaning specialists. We are an affordable alternative to carpet replacement by offering carpet repair. We are a family local business here to serve our clients.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38325/vacuum-cleaner-carpet-cleaner-housework-housekeeping-38325.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38325/vacuum-cleaner-carpet-cleaner-housework-housekeeping-38325.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 59
   },
   {
     "id": "real-biz-3",
@@ -165,7 +169,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-815-3881",
     "description": "As professional Carpet Cleaners, Southern Class Carpet and Upholstery understands that you need more than carpet cleaning, it is also very important to protect your investment by prolonging the life of your carpet and upholstery.\nWhile hot water extraction is the cleaning method most recommended by carpet manufacturers, at Southern Class Carpet and Upholstery we provide Professional Carpet Cleaning based on your cleaning needs. Please feel free to contact us anytime, we clean carpets, floors, ar",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4107276/pexels-photo-4107276.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4107276/pexels-photo-4107276.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 165
   },
   {
     "id": "real-biz-4",
@@ -175,7 +181,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-446-5379",
     "description": "The Healthy Carpet is a family and veteran owned local business in Apex NC. We offer organic carpet cleaning, area rug cleaning and upholstery cleaning to families like us with asthma and allergies. Contact us today at (919) 446-5379 or visit our website to schedule appointment anytime! NON-Toxic * HypoAllergenic * Kids and Pet Friendly",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32155482/pexels-photo-32155482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32155482/pexels-photo-32155482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 62
   },
   {
     "id": "real-biz-5",
@@ -196,7 +204,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-268-8373",
     "description": "House cleaning, office cleaning, carpet cleaning, move in & move out cleaning, post construction clean up",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8273523/pexels-photo-8273523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8273523/pexels-photo-8273523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-7",
@@ -207,7 +217,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-285-9545",
     "description": "Ericson Carpet Cleaning is Owned and Operated by Paul Ericson and his two sons for over 20 years. Ericson Carpet Cleaning is the premiere Carpet Cleaning and Furniture Cleaning service in Holly Springs NC and surrounding areas. Special offers include $99 Upholstery Cleaning and $159 for a Whole House Cleaning!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3867613/pexels-photo-3867613.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3867613/pexels-photo-3867613.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 106
   },
   {
     "id": "real-biz-8",
@@ -218,7 +230,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-232-8129",
     "description": "RAM‑Z Services LLC delivers comprehensive property maintenance for homes and businesses across North Carolina. Established in 2019, this licensed, insured, A+ BBB‑accredited, and HUB‑certified small business provides a full range of reliable handyman and facility care services. Their team specializes in professional pressure washing, detailed gutter cleaning, and high‑quality floor refinishing, along with carpet cleaning, HVAC servicing, and basic plumbing solutions. With a reputation for depend",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9462139/pexels-photo-9462139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9462139/pexels-photo-9462139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 29
   },
   {
     "id": "real-biz-9",
@@ -229,7 +243,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-264-1357",
     "description": "Welcome to CCR Renovation Services LLC! We are a team of enthusiastic entrepreneurs, driven by a passion for delivering top-quality services. As energetic and reliable professionals, we are committed to exceeding your expectations with every project.\n\nWhether you’re looking for renovations like flooring installations, carpet cleaning, or repairs, we bring expertise, dedication, and a personal touch to every job.\n\nLet us help you transform your space and make your vision a reality!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27176673/pexels-photo-27176673.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27176673/pexels-photo-27176673.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 13
   },
   {
     "id": "real-biz-10",
@@ -239,7 +255,9 @@ export const BUSINESSES: Business[] = [
     "address": "1824 Long Mill Rd, Youngsville, NC 27596",
     "description": "• Cleaning method STEAM CLEANING or VLM\n• Certified as a experience carpet cleaning technician\n• Locally owned & operated\n• Free estimate\n• Give professional satisfying quality cleaning with results you can see\n• Over 10yrs experience\n• LLC\n• Insured",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5233264/pexels-photo-5233264.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5233264/pexels-photo-5233264.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 18
   },
   {
     "id": "real-biz-11",
@@ -250,7 +268,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-362-1054",
     "description": "We provide superior carpet cleaning service customers love in the Raleigh, NC area. Our certified technicians will clean your carpets, area rugs, furniture, upholstery, and tile & grout. We also clean commercial carpets and tile floors. At Phoenix Cleaning Solutions, we know what our clients value in carpet cleaning and home cleaning services: great service, affordability, and honesty. We believe that God has blessed our family with this business and we will strive to honor him with the work we ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7484840/pexels-photo-7484840.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7484840/pexels-photo-7484840.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 603
   },
   {
     "id": "real-biz-12",
@@ -261,7 +281,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-932-0644",
     "description": "Specializing in all area's of Carpet extraction and cleaning services. Upholstery, tile ,duct cleaning also offering pressure washing. Residential & Commercial services.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7703301/pexels-photo-7703301.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7703301/pexels-photo-7703301.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-13",
@@ -272,7 +294,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-836-6863",
     "description": "Carolina Clean Pro offers Carpet Cleaning, Carpet Repair and Stretching, Upholstery Cleaning, and Tile & Grout Cleaning.\n\nWe specialize in deep cleaning with a 3 step cleaning process. We pre treat with a detergent, agitate with a counter rotating brush, and last we rinse & extract (steam cleaning). This ensures your floors and upholstery receive a deep cleaning every time!\n\nFor our carpet repair and stretching services, we can provide you with service from an experienced, certified, quality tec",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195273/pexels-photo-6195273.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195273/pexels-photo-6195273.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 197
   },
   {
     "id": "real-biz-14",
@@ -282,7 +306,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-366-1980",
     "description": "Premier Chem-Dry provides outstanding carpet and upholstery cleaning services that are better, cleaner, and healthier for your home and family! Call us today at 919-366-1980!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3890169/pexels-photo-3890169.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3890169/pexels-photo-3890169.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-15",
@@ -293,7 +319,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-909-7133",
     "description": "We specialize in Residential & Commercial Carpet Cleaning in Raleigh NC as well as Upholstery Cleaning, Carpet Stretching, Carpet Repair, Pressure Washing, Tile & Grout Cleaning and Area Rug Cleaning and more.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9462147/pexels-photo-9462147.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9462147/pexels-photo-9462147.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 16
   },
   {
     "id": "real-biz-16",
@@ -304,7 +332,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-376-6055",
     "description": "Professional, environmentally friendly carpet cleaning service with over 10 years experience in the Wake County, Raleigh/Durham area; North Carolina.\n\nBest rated carpet and tile cleaning service in the RTP. We use one of the most advanced carpet cleaning systems possible for home carpet and rug cleaning. No hidden fees, no bait and switch. Carpet cleaning, carpet repairs, carpet stretching, pet stain removal, odor removal, upholstery cleaning, tile and grout cleaning.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4176223/pexels-photo-4176223.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4176223/pexels-photo-4176223.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 462
   },
   {
     "id": "real-biz-17",
@@ -315,7 +345,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-669-6613",
     "description": "JW Floorcoverings Inc is a family owned and operated, 3rd generation flooring company serving Raleigh, Apex, Cary Holly Springs, FuquayNC and surrounding areas. With over 30 years of experience, we specialize in retail flooring sales and professional installation for both residential and commercial projects. We offer Carpet, Laminate, Luxury Vinyl Plank (LVP), Luxury Vinyl Tile (LVT), Custom Area Rugs and Stair Runners, Prefinished Hardwood, Sand & Finish/Refinishing Services, Hardwood Deep Clea",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7179501/pexels-photo-7179501.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7179501/pexels-photo-7179501.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 42
   },
   {
     "id": "real-biz-18",
@@ -325,7 +357,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-518-3245",
     "description": "\"We are your key to clean. \" Two Chicks and A Broomstick Cleaning is a Cleaning Company located in Raleigh, NC, and services all of Raleigh & the surrounding areas. We specialize in Deep Cleaning, Residential Cleaning, Move Out Cleaning, Move in Cleaning, Office Cleaning, Commercial Cleaning Services, Business Cleaning, Apartment Cleaning, Maid Services & more. Here at Two Chicks and A Broomstick Cleaning, our mission is to always provide quality Professional Cleaning Services at an affordable p",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 20
   },
   {
     "id": "real-biz-19",
@@ -335,7 +369,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-910-0880",
     "description": "Champagne Clean is Raleigh's go-to cleaning service for homeowners and businesses who want spotless results without the stress. We specialize in recurring maid services, deep cleaning, move-in/move-out cleans, and Airbnb turnover cleaning throughout Raleigh and the surrounding Triangle area. Locally owned and operated, our insured and background-checked team treats every home like our own. Safe, green cleaning products. Flexible scheduling. Satisfaction guaranteed every time. Let us handle the c",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-20",
@@ -346,7 +382,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-418-2503",
     "description": "Looking for a reliable cleaning service in Raleigh, NC? Raleigh House Cleaner delivers trusted, top-quality cleaning solutions tailored to your needs.\n\nOur Cleaning Services in Raleigh and Nearby Areas:\nHouse Cleaning\nApartment Cleaning\nOffice Cleaning\nMove-Out Cleaning\nCarpet Cleaning\nMaid Services\nRental Property Cleaning\nIn-home Laundry\nHome Organizing\n\nIf you need a one-time deep clean or ongoing maintenance, we make your home or office spotless, fresh, and welcoming.\n\nChoose Raleigh House C",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195949/pexels-photo-6195949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195949/pexels-photo-6195949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 215
   },
   {
     "id": "real-biz-21",
@@ -357,7 +395,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-249-7229",
     "description": "Dust and Mop House Cleaning of Apex is the leading cleaning service in the area. We are known throughout Apex, Cary, Fuquay-Varina, Holly Springs, Morrisville, and the surrounding areas.\n\nWe're dedicated to providing high-quality, time-saving housekeeping services that help our clients regain their valuable free time. Our comprehensive house cleaning services include deep cleaning, recurring maid service, move-in & move-out cleaning, and more. All of our house and apartment cleaners are insured,",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195275/pexels-photo-6195275.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195275/pexels-photo-6195275.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 320
   },
   {
     "id": "real-biz-22",
@@ -367,7 +407,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-289-4777",
     "description": "Maid Brigade of Cary is a professional cleaning service company located in Cary, NC. We provide expert green cleaning services to residents in our community. We provide you with a sparkling clean home without dangerous chemical residues using our PUREcleaning process. For a free house cleaning estimate, contact our office today, we look forward to cleaning your home and giving you time back in your day!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195273/pexels-photo-6195273.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195273/pexels-photo-6195273.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 68
   },
   {
     "id": "real-biz-23",
@@ -378,7 +420,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-230-4353",
     "description": "LivClean Cleaning Services of Cary, NC: Exceptional cleaning solutions for residential and commercial spaces. Our experienced team ensures spotless results, tailored to your needs. From regular maid services to deep cleaning, we deliver meticulous attention to detail and customer satisfaction. Insured, bonded, reliable, and competitive pricing. Schedule now!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195951/pexels-photo-6195951.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195951/pexels-photo-6195951.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 33
   },
   {
     "id": "real-biz-24",
@@ -389,7 +433,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-924-9564",
     "description": "Bella’s Cleaning Services LLC provides professional residential and commercial cleaning services designed to keep your home or business spotless, fresh, and stress-free. We specialize in deep cleaning, move-in and move-out cleaning, office cleaning, recurring maid services, apartment cleaning, and eco-friendly cleaning solutions. Our experienced and reliable team is committed to delivering detailed, affordable, and high-quality cleaning services with flexible scheduling to fit your needs. We pro",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4239037/pexels-photo-4239037.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4239037/pexels-photo-4239037.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-25",
@@ -400,7 +446,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-925-2378",
     "description": "Raleigh Cleaning Company is a locally owned House Cleaning Service serving Raleigh, Wake Forest, North Raleigh, Rolesville, Youngsville, Franklinton, Louisburg, Chapel Hill, Durham, and surrounding communities since 2014. Our insured and background-checked team provides professional House Cleaning, Residential Cleaning, Deep Cleaning, Recurring Cleaning, and Maid Services tailored to your needs. Whether you need weekly, bi-weekly, monthly, or one-time cleaning, we're committed to delivering reli",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4239032/pexels-photo-4239032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4239032/pexels-photo-4239032.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 250
   },
   {
     "id": "real-biz-26",
@@ -411,7 +459,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-883-9106",
     "description": "Molly Maid provides exceptional cleaning services in Wake Forest for homes & businesses. With over 40 years of housekeeping experience, you can count on Molly Maid for customized cleaning options to meet your needs, schedule & budget. Our employees are trained, insured & background checked for your peace of mind. They follow a 44-point checklist to provide you with a clean you can count on®. You can feel confident knowing our work is backed by the Neighborly Done Right Promise®, delivered by Mol",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.6,
+    "reviewCount": 146
   },
   {
     "id": "real-biz-27",
@@ -421,7 +471,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-412-4235",
     "description": "\"We are your key to clean.\" Lyons Cleaning is a Cleaning Company located in Raleigh, NC and services all of Raleigh & the surrounding areas. We specialize in Residential Cleaning, Junk Removal, Move In and Move out Cleaning, Maid Cleaning, Janitorial Services, and more. Here at Lyons Cleaning, our mission is to provide quality service at an affordable price. With our years of experience in the industry, you can be sure you are getting nothing but the best. Give us a call today for more informati",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9462326/pexels-photo-9462326.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9462326/pexels-photo-9462326.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-28",
@@ -432,7 +484,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-334-2899",
     "description": "Bright Oak Home Services delivers professional, detail-focused house cleaning throughout Raleigh, Durham, Chapel Hill, Wake Forest, Cary, Apex, Garner, Clayton, Knightdale, and surrounding North Carolina areas. Our trusted local team specializes in residential cleanings, move-in/move-out services, deep cleans, and personalized housekeeping to keep your space spotless, fresh, and stress-free. Whether you're looking for a one-time clean or ongoing maid service, we tailor every visit to your needs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/28576634/pexels-photo-28576634.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/28576634/pexels-photo-28576634.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 267
   },
   {
     "id": "real-biz-29",
@@ -443,7 +497,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-582-7364",
     "description": "Molly Maid provides exceptional cleaning services in Garner for homes & businesses. With over 40 years of housekeeping experience, you can count on Molly Maid for customized cleaning options to meet your needs, schedule & budget. Our employees are trained, insured & background checked for your peace of mind. They follow a 44-point checklist to provide you with a clean you can count on®. You can feel confident knowing our work is backed by the Neighborly Done Right Promise®, delivered by Molly Ma",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/28576631/pexels-photo-28576631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/28576631/pexels-photo-28576631.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.8,
+    "reviewCount": 213
   },
   {
     "id": "real-biz-30",
@@ -454,7 +510,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-744-5038",
     "description": "Life is Maid is a full service company of Raleigh, NC that specializes in residential, business, personal organizing, concierge and cleaning services. Life is Maid was designed to meet the needs of individuals, families, business executives, entrepreneurs, trade and entertainment professionals.\n\nOur maids are experienced and knowledgeable in helping individuals transform dysfunctional, cluttered spaces into functional, beautiful spaces. Each maid has been trained by Ikeeta Johnson to use her met",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195129/pexels-photo-6195129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195129/pexels-photo-6195129.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-31",
@@ -464,7 +522,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-879-0805",
     "description": "At GG Triangle Gutters, we provide professional gutter services to protect your Wendell, North Carolina home with efficient drainage solutions. Whether you are looking to add seamless gutters, custom gutters, gutter guards, or downspouts to your residential or commercial property, we are the team you can trust for installation, repair, maintenance, cleaning, and replacement. We also offer roof, fascia, and soffit repair, and we do the job right with craftsmanship you can trust, never trying to u",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/25907259/pexels-photo-25907259.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/25907259/pexels-photo-25907259.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 52
   },
   {
     "id": "real-biz-32",
@@ -474,7 +534,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-285-5361",
     "description": "Southern ProWash (also searched as Southern Pro Wash) is a locally owned and operated pressure washing company offering Residential and Commercial Pressure Washing Services. Southern ProWash has serviced Raleigh, Morrisville, Cary, Holly Springs, Apex, Knightdale, Clayton, & surrounding areas for 16+ years.\nWe offer low pressure house washing (soft wash), roof cleaning, gutter cleaning, wood cleaning and staining, driveway cleaning, rust removal, and hard surface sealing. We also offer Holiday L",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/18239262/pexels-photo-18239262.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/18239262/pexels-photo-18239262.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 96
   },
   {
     "id": "real-biz-33",
@@ -485,7 +547,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1814-602-2107",
     "description": "Welcome to Alba Pro Services, your local pressure washing service based in Raleigh.\n\nAlba Pro Services is your go-to for expert exterior cleaning and maintenance. From window cleaning and gutter cleaning to house washing, driveway cleaning, and comprehensive residential and commercial cleaning services, we deliver eco-friendly solutions with exceptional customer care and competitive pricing.\n\nWhether you’re in the heart of Raleigh or a nearby town, we’re here to provide exceptional exterior clea",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5667308/pexels-photo-5667308.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5667308/pexels-photo-5667308.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 55
   },
   {
     "id": "real-biz-34",
@@ -495,7 +559,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-902-8796",
     "description": "Ever Clean Gutter Systems provides permanent, clog‑free gutter protection for homeowners and businesses in Apex, Cary, Holly Springs, Raleigh, Fuquay‑Varina, Morrisville, and surrounding Triangle communities. Our patented, self‑cleaning gutter system stops clogged gutters, overflowing water, fascia and soffit rot, foundation damage, and the failures of screens and filters. With over one million feet installed and zero failures, Ever Clean delivers durable, maintenance‑free performance and a clea",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/20560233/pexels-photo-20560233.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/20560233/pexels-photo-20560233.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 23
   },
   {
     "id": "real-biz-35",
@@ -505,7 +571,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-672-0303",
     "description": "Pink Pro Wash NC is a family-owned and operated pressure washing company proudly serving the Triangle area of North Carolina. We offer a comprehensive range of exterior cleaning services, specializing in house washing, roof washing, gutter cleaning, deck and patio cleaning, driveway cleaning, window cleaning, dryer vent cleaning, and even holiday lights. After leaving corporate America, we built a business with purpose—to help our neighbors refresh their homes with unbeatable service and value. ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/39301187/pexels-photo-39301187.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/39301187/pexels-photo-39301187.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 63
   },
   {
     "id": "real-biz-36",
@@ -516,7 +584,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-336-6505",
     "description": "Central Cary Gutter Works provides professional gutter services in Cary, NC to help homeowners protect their roof, siding, foundation, and landscaping from rainwater damage. We handle gutter cleaning, gutter repair, gutter installation, downspout service, debris removal, leak sealing, and gutter replacement. Our team focuses on clean workmanship, durable solutions, and reliable service that keeps water flowing safely away from your home. Whether you need seasonal gutter maintenance, quick repair",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/37386040/pexels-photo-37386040.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/37386040/pexels-photo-37386040.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-37",
@@ -527,7 +597,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-344-7976",
     "description": "At Under Pressure: Pressure Washing, we proudly serve Holly Springs with top-notch pressure washing services! From driveway cleaning to gutter care, our dedicated team is here to refresh your home's exterior, one project at a time.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11666892/pexels-photo-11666892.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11666892/pexels-photo-11666892.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 273
   },
   {
     "id": "real-biz-38",
@@ -538,7 +610,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-274-0673",
     "description": "Since 2007, Brightview Window Cleaning & Pressure Washing has transformed homes and businesses in Wake Forest, Raleigh, and surrounding areas. Family-owned and operated, they provide expert window, gutter, and pressure washing services, restoring exteriors to their sparkling best. From decks and patios to driveways and fences, Brightview's meticulous cleaning extends beyond windows, leaving your entire property refreshed and revitalized.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/20105378/pexels-photo-20105378.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/20105378/pexels-photo-20105378.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 939
   },
   {
     "id": "real-biz-39",
@@ -549,7 +623,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-616-8226",
     "description": "Southern Shine NC, a locally-owned business founded in 2020, is a comprehensive exterior cleaning and home improvement company servicing Wake Forest, Raleigh, and its surrounding areas. From pressure washing and window tinting to gutter cleaning, concrete cleaning, and holiday light hanging, our mission is to exceed every customer's expectations by delivering sparkling results and exceptional customer service. With our dedication to quality, Southern Shine NC continues to be the region's top cho",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/13793186/pexels-photo-13793186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/13793186/pexels-photo-13793186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 634
   },
   {
     "id": "real-biz-40",
@@ -560,7 +636,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-981-5900",
     "description": "Residential window cleaning specialist and gutter cleaning. Residential interior painting. Commercial window cleaning and maintenance. 25 years experience in all services.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/13307118/pexels-photo-13307118.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/13307118/pexels-photo-13307118.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-41",
@@ -570,7 +648,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-757-7607",
     "description": "Clean Gutters & Installations is a full-service business that specializes in maintaining and improving your gutters. We offer a range of services including gutter cleaning, gutter guards installation, realignment, reinforcement, and resealing of gutters, repairs, extensions, and downspouts.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/12343741/pexels-photo-12343741.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/12343741/pexels-photo-12343741.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 20
   },
   {
     "id": "real-biz-42",
@@ -580,7 +660,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-324-9368",
     "description": "Window Hero Cary provides expert window cleaning, pressure washing, soft washing, and gutter cleaning for homes and businesses across Cary and surrounding areas. Using both advanced drone-powered and traditional techniques, we remove dirt, grime, and buildup to boost curb appeal and protect your property. From streak-free windows to debris-free gutters, our team delivers safe, precise, and lasting results. Locally owned and operated since 2005 and part of the HomeFront Brands family, Window Hero",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/529964/pexels-photo-529964.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/529964/pexels-photo-529964.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 509
   },
   {
     "id": "real-biz-43",
@@ -591,7 +673,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-418-9199",
     "description": "Paramount Power Washing LLC is your trusted partner for top-quality exterior and interior cleaning services. We specialize in power washing, window cleaning, gutter cleaning, and dryer vent cleaning, ensuring your home or business looks its best and functions safely year-round. Our expert team uses advanced equipment and eco-friendly solutions to remove dirt, grime, and buildup, restoring your property’s curb appeal and efficiency. Whether you’re looking to refresh your home’s exterior, maintain",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32546261/pexels-photo-32546261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32546261/pexels-photo-32546261.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 103
   },
   {
     "id": "real-biz-44",
@@ -602,7 +686,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-216-6200",
     "description": "Gutter Shutter of the Triangle is a trusted local gutter company serving Raleigh, Durham, Cary and nearby areas. We provide the most durable and clog-resistant Gutter Shutter™ system to withstand heavy rain and storms. Our team of gutter experts ensures your home is protected with quality materials and top-quality installation. Our services include complete Raindrop® gutter guard installation, gutter cleaning, and soffit and fascia replacement. Homeowners in North Carolina trust us for our clean",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11698047/pexels-photo-11698047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11698047/pexels-photo-11698047.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 144
   },
   {
     "id": "real-biz-45",
@@ -612,7 +698,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-752-6312",
     "description": "Carolina Decks and More is a full wood restoration company servicing the Triangle area of North Carolina. We restore decks, screened in porches, fences, and other exterior wood structures. We are a full service exterior cleaning company specializing in house washing, gutter cleaning, driveway and walkway cleaning. Additionally, we install gutter guards and have two carpentry crews who specialize in replacing rotten wood and building new decks. Services also include interior and exterior painting",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/2663254/pexels-photo-2663254.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/2663254/pexels-photo-2663254.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 64
   },
   {
     "id": "real-biz-46",
@@ -622,7 +710,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-817-9222",
     "description": "Welcome to Matthews Seamless Gutters! We’re your go-to team for all your gutter needs in Angier, NC, and the surrounding areas. Serving residential clients, we offer a wide range of gutter services including gutter installation, gutter guards, repairs, and cleaning. We understand the critical role that gutters play in preserving the integrity of your home, and that’s why we do things differently here.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/34157645/pexels-photo-34157645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/34157645/pexels-photo-34157645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 41
   },
   {
     "id": "real-biz-47",
@@ -632,7 +722,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-212-6836",
     "description": "Ingenious Maids is a house cleaning company that service Raleigh, NC and the surrounding areas, we pride ourselves on our ability to transform any space into a spotless, inviting environment.\nOur team of experienced cleaners are dedicated to providing top-notch standard and deep cleaning services, paying close attention to every detail to ensure that our clients' expectations are not only met, but exceeded.\n\nWe also clean:\n- Homes for new house showings (This is especially useful for Relators.)\n",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3890165/pexels-photo-3890165.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3890165/pexels-photo-3890165.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-48",
@@ -642,7 +734,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-698-5659",
     "description": "With over 20 years of experience, our house cleaning business in Wake County, North Carolina, offers unparalleled excellence and trust. Founded by a single immigrant mother, we have grown to become the region's top choice for meticulous and reliable cleaning services. Our highly trained, insured professionals use the latest materials and techniques, ensuring your home is spotless and organized. Recommended by hundreds of families and businesses, we provide the peace of mind you deserve. Imagine ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4815353/pexels-photo-4815353.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4815353/pexels-photo-4815353.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 25
   },
   {
     "id": "real-biz-49",
@@ -653,7 +747,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-229-9227",
     "description": "At Greenway Residential Cleaning, LLC, we provide professional house cleaning services in Cary, NC and surrounding communities. With over five years of experience, we specialize in recurring home cleaning, move-in ready cleaning for realtors and real estate professionals, and post-construction cleaning for residential and professional projects. Our personalized approach keeps your space consistently clean and stress-free.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5591780/pexels-photo-5591780.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5591780/pexels-photo-5591780.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 75
   },
   {
     "id": "real-biz-50",
@@ -663,7 +759,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1252-915-1669",
     "description": "We provide quality cleaning services to residential and commercial customers. If you need assistance keeping your house or office tidy up and smelling fresh. Give Us a call.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7641006/pexels-photo-7641006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7641006/pexels-photo-7641006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-51",
@@ -674,7 +772,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-608-2912",
     "description": "Family Owned Business since 2006 . Specializing in Dryer Vent Cleaning Repairs and Replacement . Hot dryers cause House Fires safety and energy efficiency are the focus of work. Vent and duct solutions has successfully positioned itself as a reliable service provider . John takes pride in offering efficient affordable and satisfying solutions to Dryer Vent issues. John's experience is backed by 25 years in the construction industry with knowledge of retrofitting security and fire systems along w",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6195274/pexels-photo-6195274.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6195274/pexels-photo-6195274.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-52",
@@ -684,7 +784,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-823-3041",
     "description": "Serving Wake Forest, Rolesville, Zebulon, Youngsville, and beyond!\nAt Southern Charm Clean, we redefine house cleaning with a touch of Southern hospitality. Get an instant quote and book now!\n\nWith transparent pricing, flexible time slots, and a commitment to excellence, we bring effortless cleanliness to your doorstep. Say goodbye to the hassle and hello to a pristine home—book now for a sparkling living space!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27176670/pexels-photo-27176670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27176670/pexels-photo-27176670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-53",
@@ -695,7 +797,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-473-6885",
     "description": "At Wake County Home Buyers, we specialize in helping homeowners in tough situations sell fast, with zero hassle. Whether you’re behind on payments, inherited a house, divorce, or just ready to move on — we’ll buy your house as-is with no repairs, no fees, and no cleaning needed.\nWe’re a trusted local company that’s helped hundreds of sellers across Wake, Durham, Johnston, Cumberland, Pitt, and Harnett Counties. Need to stay in the home a few extra days after closing? We’ve got you covered.\n\n✅ Ca",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7513068/pexels-photo-7513068.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7513068/pexels-photo-7513068.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 39
   },
   {
     "id": "real-biz-54",
@@ -705,7 +809,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-895-4588",
     "description": "Wendy Cleaning Services is a family company and understands the needs of customers and we clean your house as if it were our own.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/10557495/pexels-photo-10557495.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/10557495/pexels-photo-10557495.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-55",
@@ -715,7 +821,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-923-9148",
     "description": "Gaby's Cleaning Services is a Cleaning Services located in Angier, NC and has been servicing all of Angier and the surrounding areas for many years. We specialize in House Cleaning Service, Window Cleaning Service, Commercial Cleaning, Office Cleaning Service, Apartment Cleaning, Housekeeping, Move-In Cleaning Services, Move-Out Cleaning Services, Floor Waxing, Floor Polishing & a other Housekeeping Services. Here at Gaby's Cleaning Services, our mission is to always provide quality service at a",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27176673/pexels-photo-27176673.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27176673/pexels-photo-27176673.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-56",
@@ -726,7 +834,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-222-5008",
     "description": "Construction, Commercial and House Cleaning\nOur highly qualified experts will complete any task fast and reliably.\nWe guarantee fast and discrete handling of all your business tasks. Our team of highly qualified employees is available because your satisfaction is our highest priority.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7703296/pexels-photo-7703296.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7703296/pexels-photo-7703296.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-57",
@@ -737,7 +847,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1330-559-0476",
     "description": "repair and installation of siding, painting, gardening, power washing, installation of pvc floors, handyman jobs, clean the gutters, repair the decks and more jobs",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4876639/pexels-photo-4876639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4876639/pexels-photo-4876639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-58",
@@ -748,7 +860,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-809-9630",
     "description": "Professional Carpet Cleaning, ULV Disinfectant Corona Virus 19 Applications, Power Washing",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6196240/pexels-photo-6196240.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6196240/pexels-photo-6196240.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 25
   },
   {
     "id": "real-biz-59",
@@ -758,7 +872,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-324-9193",
     "description": "Discover top-tier outdoor cleaning services with Creative Exterior LLC. Specializing in power washing, solar panel cleaning, and more to enhance your property's appeal. Trust our commitment to excellence and eco-friendly solutions. Learn how we can transform your outdoor space today.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5229639/pexels-photo-5229639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5229639/pexels-photo-5229639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 21
   },
   {
     "id": "real-biz-60",
@@ -768,7 +884,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-434-8192",
     "description": "Hugo's Power Washing is a power washing and cleaning company serving Central North Carolina communities. We are dedicated to providing outstanding power washing and cleaning services.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11771786/pexels-photo-11771786.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11771786/pexels-photo-11771786.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 38
   },
   {
     "id": "real-biz-61",
@@ -779,7 +897,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-217-2551",
     "description": "Armstrong House Washing is a family-owned exterior cleaning company proudly serving Wake County since 1995. We provide professional house washing, window cleaning, and power washing. for homes and businesses. Our experienced team uses safe, low pressure soft washing methods to protect your property while delivering exceptional results. Every call is answered by a live representative, making it easy to get an estimate and schedule service. Fully insured and committed to quality , we stand behind ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/16001962/pexels-photo-16001962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/16001962/pexels-photo-16001962.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-62",
@@ -790,7 +910,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-532-6843",
     "description": "Residential and Commercial power washing services",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4876652/pexels-photo-4876652.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4876652/pexels-photo-4876652.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 36
   },
   {
     "id": "real-biz-63",
@@ -800,7 +922,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-341-2248",
     "description": "Sparkle Squad of Cary-Apex-Holly Springs provides outstanding window cleaning services year-round, ensuring your home or business always looks its best. We offer comprehensive services starting with window cleaning to give you streak-free, sparkling windows that instantly boost your property's curb appeal. Our services also include gutter cleaning services to protect your property from unpredictable weather by efficiently managing rain and melting snow, preventing costly water damage. We also of",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6873175/pexels-photo-6873175.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6873175/pexels-photo-6873175.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 82
   },
   {
     "id": "real-biz-64",
@@ -810,7 +934,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-769-4655",
     "description": "Pressure Point Power Washing NC, LLC is a family-owned pressure washing company serving Wake, Harnett, and Johnston County, NC. We provide professional house washing, driveway and sidewalk cleaning, roof and gutter cleaning, deck and fence washing, and soft washing for homes and businesses. Our experienced team removes dirt, mold, mildew, algae, and stains using safe, effective methods. “BIG or small, we clean it all!” Contact us for your FREE estimate today!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4030037/pexels-photo-4030037.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4030037/pexels-photo-4030037.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 83
   },
   {
     "id": "real-biz-65",
@@ -821,7 +947,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-244-9482",
     "description": "PAINTING-ROOF REPAIR-DECKS-PORCH-POWER WASHING-FASCIA-GUTTERS-CLEANING SERVICES-SIDING",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-66",
@@ -832,7 +960,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-422-5054",
     "description": "Serving the Triangle area for over 40 years, Dixie Paint Inc delivers premium painting services with meticulous attention to detail. Our white-glove approach ensures immaculate workmanship and thorough cleanup for every project. We use only high-quality paints, caulks, and sealers to guarantee lasting results. Beyond painting, we offer expert rotted wood repair and power washing services. Fully insured and dedicated to excellence, we are members of the Better Business Bureau with an A+ rating. W",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3990589/pexels-photo-3990589.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3990589/pexels-photo-3990589.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 87
   },
   {
     "id": "real-biz-67",
@@ -842,7 +972,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-909-8089",
     "description": "Exterior Restoration Pros provides professional home soft washing, power washing, roof soft washing, window cleaning, and gutter cleaning services. Exterior washing maintenance of your property is a great way to secure your investment and enhances curb appeal.\n\nWe clean vinyl siding, concrete driveways, walkways, patios, pavers, backyard pool areas, decks, fences, and windows. We offer safe house washing that removes stains, dirt, grime, and mold. Our roof cleaning service is a reliable option t",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/221540/pexels-photo-221540.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/221540/pexels-photo-221540.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-68",
@@ -852,7 +984,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-412-5854",
     "description": "Pressure washing can make your walls, decks, roofs, driveways, and fences look good as new! Harte Power Washing shows up ready to provide top-rated services to all customers, whether we wash your house, driveway, patio, or business. We deliver exceptional pressure washing in Fuquay-Varina, NC, serving the greater Raleigh area. Whether your top concern is experience, affordability, or equipment, we have it all in spades. Our professional crews can tackle any job of any size with speed and precisi",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 55
   },
   {
     "id": "real-biz-69",
@@ -862,7 +996,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-322-8432",
     "description": "C & R Property Services is a local based property services company based in the Raleigh NC area. We specialize in: Maintenance/ handyman services, power/pressure washing and property organization for both commercial and residential clients.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/16804980/pexels-photo-16804980.png?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/16804980/pexels-photo-16804980.png?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-70",
@@ -872,7 +1008,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-441-8063",
     "description": "The Service Pros, Inc is your trusted partner for top-notch property maintenance in Holly Springs, Raleigh, and Cary, NC. Specializing in comprehensive home improvement services, we excel in painting services, from interior to exterior painting, ensuring your home shines inside and out. Our expert team offers premier pressure washing and power washing services to refresh your property's appearance. Need electrical repair, gutter cleaning, or wood rot repair? We've got you covered with reliable s",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3958958/pexels-photo-3958958.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3958958/pexels-photo-3958958.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 77
   },
   {
     "id": "real-biz-71",
@@ -882,7 +1020,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-448-4528",
     "description": "Twins Window Cleaning is family owned providing Interior and Exterior Detailed Window Cleaning, Power Washing, Gutter Cleaning, and Solar Panel Cleaning services. Supplying the whole triangle in NC. We offer Residential and Commercial services. Fully Insured and bonded allowing our customers and employees to be covered. Call us now for a Free Estimate! Crystal clear the thrust worthy Twins are here! See clearly with the help of the best, with more than 20 years of experience we value our custome",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9268656/pexels-photo-9268656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9268656/pexels-photo-9268656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 8
   },
   {
     "id": "real-biz-72",
@@ -892,7 +1032,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-995-6280",
     "description": "Power Washing, Pressure Washing, Roof Cleaning, Gutter Cleaning, Driveway Cleaning and more.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 208
   },
   {
     "id": "real-biz-73",
@@ -902,7 +1044,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1786-972-8359",
     "description": "As a Marine Corps veteran-owned business, we bring discipline and dedication to every project, ensuring your home or business shines. We are your trusted source for pressure washing, window, roof, and gutter cleaning. Experience our commitment to quality and attention to detail today.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17041922/pexels-photo-17041922.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17041922/pexels-photo-17041922.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-74",
@@ -913,7 +1057,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-664-9942",
     "description": "Spiffy Brothers Pressure Washing provides professional Window Cleaning, Pressure Washing, Soft Washing, and Exterior cleaning throughout Raleigh, Cary, Apex, Holly Springs, Wake Forest, Garner, Fuquay-Varina, Knightdale, Wendell, Clayton, and nearby areas. We specialize in Interior and Exterior Window Cleaning, House Washing, Roof Soft Washing, Driveway and Concrete Cleaning, Deck Cleaning, Fence Cleaning, Gutter Cleaning, and Commercial Exterior Cleaning. Using purified water-fed pole technolog",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38921234/pexels-photo-38921234.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38921234/pexels-photo-38921234.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 148
   },
   {
     "id": "real-biz-75",
@@ -923,7 +1069,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-464-0725",
     "description": "Professional and quality window cleaning services, as well as gutter cleaning and pressure washing. Locally owned and based in Cary, NC.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9462100/pexels-photo-9462100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9462100/pexels-photo-9462100.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-76",
@@ -933,7 +1081,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-752-3341",
     "description": "BCR Janitorial Services, Inc. is a commercial cleaning contractor / janitorial service serving the Fuquay Varina, NC area since 1999.\n\nServices include Cleaning Service, Commercial Cleaning, Office Cleaning, Janitorial Services, Apartment Cleaning, Construction Cleaning, Disinfection Services, Event Cleaning, Floor Cleaning, Floor Stripping, Window Cleaning, Porter Services, Pressure Washing, Retail Cleaning and Green Cleaning.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/713297/pexels-photo-713297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/713297/pexels-photo-713297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-77",
@@ -944,7 +1094,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-807-1266",
     "description": "TLC Pressure Washing offers expert pressure washing and soft washing for residential and commercial properties in Wake Forest, Raleigh, Cary, Apex, Garner, Clayton, Holly Springs, Fuquay-Varina, Knightdale, Rolesville, Youngsville, Wendell, Zebulon and surrounding areas.\n\nWe specialize in house washing, driveway and walkway cleaning, roof soft washing, deck and patio cleaning, brick and concrete restoration, porch cleaning, window cleaning, solar panel cleaning, and dumpster pad cleaning.\n\nWe us",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/31435403/pexels-photo-31435403.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/31435403/pexels-photo-31435403.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 25
   },
   {
     "id": "real-biz-78",
@@ -955,7 +1107,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-210-7724",
     "description": "RDU Window Cleaning & Pressure Washing is the choice for window cleaning serving Fuquay Varina, NC. No matter their height or the layers of dirt on them, we can provide thorough interior and exterior cleaning for all the windows in your home. Call us today.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7641351/pexels-photo-7641351.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7641351/pexels-photo-7641351.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 12
   },
   {
     "id": "real-biz-79",
@@ -965,7 +1119,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-675-0892",
     "description": "Serving Fuquay Varina, NC and surrounding areas. At Atlantis Pressure Washing, your satisfaction is our mission. We strive to make sure that every customer is happy at the end of the day. We make sure to get the job done efficiently no matter how long it takes. We specialize in a range of pressure washing services, including house soft washing, as well as cleaning driveways, decks, patios, fences, and more. We also offer exterior window cleaning! Contact us if you need any services and feel free",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7641006/pexels-photo-7641006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7641006/pexels-photo-7641006.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 71
   },
   {
     "id": "real-biz-80",
@@ -976,7 +1132,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-421-7124",
     "description": "At Teacher Under Pressure, we offer to take home improvement chores off your hands. Whether you're looking for someone to handle gutter cleaning, power washing, or window cleaning, our team can help. Our goal is to provide quality service to homeowners across the community and beyond. We clean up homes and support teachers: it's a win-win for everyone involved! So if you need some help getting your driveway power washed, reach out to us. We offer soft washing, window cleaning, gutter cleaning an",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/12040693/pexels-photo-12040693.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/12040693/pexels-photo-12040693.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 700
   },
   {
     "id": "real-biz-81",
@@ -986,7 +1144,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-357-8490",
     "description": "Whole home remodelers with over 15 years of experience including Kitchens, Bathrooms, and Additions. Specializing in Deck and Porch building. We are ready to tackle your next indoor or outdoor home improvement project.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/37050707/pexels-photo-37050707.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/37050707/pexels-photo-37050707.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 22
   },
   {
     "id": "real-biz-82",
@@ -996,7 +1156,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-839-3785",
     "description": "At K&G Construction and Cleaning Services, we are a team of dedicated professionals with expertise in both construction and cleaning services. With 10 years of experience, we have built a strong reputation for our commitment to excellence and customer satisfaction. Our mission is to deliver top-quality construction and cleaning solutions tailored to meet the unique needs of our clients. Whether it's a residential project or a commercial venture, we strive to exceed expectations and deliver excep",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/19073668/pexels-photo-19073668.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/19073668/pexels-photo-19073668.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-83",
@@ -1007,7 +1169,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-371-0876",
     "description": "The Restoration House is a premier home remodeler serving Cary, NC, and the greater Triangle area. Specializing in kitchen remodeling, bathroom remodeling, custom home additions, basement finishing, deck and porch construction, garage conversions, and damage restoration, the company offers a concept-to-completion experience. A dedicated project manager oversees every project, ensuring transparent communication, on-schedule delivery, and quality inspections from start to finish. Whether you need ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8180361/pexels-photo-8180361.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8180361/pexels-photo-8180361.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.7,
+    "reviewCount": 19
   },
   {
     "id": "real-biz-84",
@@ -1018,7 +1182,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-539-2945",
     "description": "NuWave Construction: Where comfort meets creativity.\n\nWe specialize in:\n• Home repair\n• Living room remodeling\n• Deck and screen porch construction and repair.\n• Custom cabinets and storage solutions.\n• Flooring installation and refinishing.\n• Professional wall painting to refresh your space.\n• Full home remodeling to bring your vision to life.\n• Handyman services for everyday repairs and small projects.\n\nFrom simple fixes to complete transformations, we approach every project with care and atte",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/19632196/pexels-photo-19632196.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/19632196/pexels-photo-19632196.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 46
   },
   {
     "id": "real-biz-85",
@@ -1029,7 +1195,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-307-8495",
     "description": "KOR Property Services, LLC can transform your outdoor living space with a single premier partner. Established in November 2020, we deliver seamless, all-in-one property transformations across the Triangle area. Eliminate the stress of managing multiple contractors—we handle your entire project from concept to completion. Whether you want to build a luxury inground pool, outdoor kitchens, a custom deck, a screened-in porch, or a premium stone patio, our team brings your vision to life. We combine",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9584819/pexels-photo-9584819.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9584819/pexels-photo-9584819.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-86",
@@ -1039,7 +1207,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-320-6800",
     "description": "Established in 2020, Happy’s Fence Company LLC is Raleigh's premier residential and commercial fence installation contractor. We pride ourselves on delivering top-quality fencing solutions. We specialize in designing, installing, and maintaining a wide array of fence types, including wood, vinyl, aluminum, wrought iron and chain link, ensuring durability, security, and aesthetic appeal for your property.\n\nWe are particularly proud to serve our Latin neighbors, offering bilingual customer service",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/18900649/pexels-photo-18900649.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/18900649/pexels-photo-18900649.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 13
   },
   {
     "id": "real-biz-87",
@@ -1049,7 +1219,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-694-4923",
     "description": "The Guardian Fencing Company is a trusted fence contractor in Raleigh, NC, providing professional fence installation and repair services for residential and commercial properties. We specialize in vinyl , aluminum , wood, and chain link fence systems. Offering durable solutions that enhance security, privacy, and curb appeal. Our experienced team works closely with you to design and install the perfect fence to match your property and budget. Whether you need a privacy fence, decorative aluminum",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/30756778/pexels-photo-30756778.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/30756778/pexels-photo-30756778.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-88",
@@ -1060,7 +1232,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-714-4535",
     "description": "Hawk Fences of Raleigh is a veteran-owned fence company proudly serving Raleigh, Durham, Cary, Wake Forest, and nearby areas. We specialize in wood, vinyl, aluminum, and chain-link fences, built for privacy, security, and lasting value.\nOur process starts with a free remote estimate using satellite imagery, handled by professional project consultants who make it easy from start to finish.\nWith over 3,000 fences installed, we combine craftsmanship, technology, and trusted local crews. Backed by s",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/889839/pexels-photo-889839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/889839/pexels-photo-889839.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 14
   },
   {
     "id": "real-biz-89",
@@ -1071,7 +1245,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-333-1836",
     "description": "Local fencing and decking contractor focusing on quality craftsmanship and superior customer service.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/14840228/pexels-photo-14840228.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/14840228/pexels-photo-14840228.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-90",
@@ -1081,7 +1257,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-770-7374",
     "description": "GT Fence is a locally owned and operated fence installation company serving the Raleigh, Durham, Chapel Hill NC and surrounding areas. With over 18 years of experience, we provide fast, reliable, and honest service for every customer. From wood and vinyl to aluminum and chain link, we install all types of fencing with top-notch workmanship and attention to detail.\n\nOur team helps you choose the right fence for your home or business—offering clear advice on the pros and cons of each option to fit",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/48246/fence-wood-fence-wood-limit-48246.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/48246/fence-wood-fence-wood-limit-48246.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.8,
+    "reviewCount": 78
   },
   {
     "id": "real-biz-91",
@@ -1092,7 +1270,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-228-9059",
     "description": "Endurance Fence Solutions is your trusted fencing contractor in Holly Springs, NC, serving the whole Triangle. We take pride in delivering top-notch services, including fence installation and repair, artificial turf installation, and pool safety fence solutions. Our experienced team and multiple crews ensure a quick turnaround on projects of all sizes. With a reputation for superior customer service, we're the go-to fencing contractor for durable and customized aluminum, chain link, vinyl, and w",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/113726/pexels-photo-113726.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/113726/pexels-photo-113726.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 86
   },
   {
     "id": "real-biz-92",
@@ -1103,7 +1283,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-420-3081",
     "description": "Whether privacy is your priority or protection is paramount, a fence can be an aesthetically pleasing solution to secure your peace of mind or your loved ones - Fortified Fencing LLC is your trusted Wake Forest fence design and installation contractor.\n\nFortified Fencing is a locally owned and family operated Wake Forest fence company providing full-service residential and commercial fence installation in the Greater Triangle region and beyond. We are the Triangle’s leader in quality fence insta",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8352382/pexels-photo-8352382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8352382/pexels-photo-8352382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 276
   },
   {
     "id": "real-biz-93",
@@ -1114,7 +1296,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-263-5000",
     "description": "Welcome to Pro Fence Distributors, LLC — a family-owned, locally operated leader in premium aluminum and vinyl fencing solutions. We take pride in delivering exceptional customer service, competitive pricing, and one of the largest inventories of ready-to-ship products in the industry.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5458355/pexels-photo-5458355.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5458355/pexels-photo-5458355.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-94",
@@ -1125,7 +1309,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-554-2848",
     "description": "Since 1986, American Heritage Fencing has proudly served Raleigh-Durham North Carolina, with American-made fencing solutions. As a family-owned business, we are dedicated to meeting your needs, and with each project, we supply quality craftsmanship and a personalized, service-oriented approach. Our rich heritage drives us to uphold family values in every project, so you can choose a fence built to last, designed to impress, and made to exceed your expectations.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/12579246/pexels-photo-12579246.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/12579246/pexels-photo-12579246.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.7,
+    "reviewCount": 79
   },
   {
     "id": "real-biz-95",
@@ -1136,7 +1322,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-525-5441",
     "description": "Tobacco Road Fencing LLC is a local fence contractor owned and operated by the Fyle Family of Fuquay-Varina, NC. Our service areas are Wake, Harnett, Johnston, and Chatham counties. We provide classic wood fencing, ideal for a rustic look. We also offer aluminum fencing, which is durable and professional-looking. Vinyl fencing is another popular choice, and it comes in endless colors and finishes. Chain link fencing is an affordable option that’s easy to maintain and repair. Our Services: Board ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/12629407/pexels-photo-12629407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/12629407/pexels-photo-12629407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 140
   },
   {
     "id": "real-biz-96",
@@ -1157,7 +1345,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-592-1860",
     "description": "Fencing contractor serving Raleigh with quality products including wood fences, vinyl fences, aluminum fencing and chain link fences. Our Focus is to serve our customers by providing great customer service and high-quality products. Lawn Island is a name you can trust! Serving Raleigh, Holly Springs, Apex, Cary, Fuquay-Varina, Angier, Lillington and more.\"",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/35182397/pexels-photo-35182397.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/35182397/pexels-photo-35182397.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 13
   },
   {
     "id": "real-biz-98",
@@ -1167,7 +1357,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-437-1700",
     "description": "Jordan Fences LLC is a professional fencing company in Clayton, North Carolina and its surrounding areas. We specialize in residential and commercial fence installations, repairs, and replacements. Our services include wood, vinyl, aluminum, chain link and more. We strive to provide excellent customer service and satisfaction with quality craftsmanship at competitive prices.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/31714552/pexels-photo-31714552.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/31714552/pexels-photo-31714552.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 91
   },
   {
     "id": "real-biz-99",
@@ -1178,7 +1370,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-667-6414",
     "description": "Add protection, privacy, and value to your home with one of our beautiful fence options. Excellent service, great quality and a fair price.\n\nWe make buying fences fast and easy so you can protect your loved ones and your investments.\n\nGet your free quick fence quote today! We offer a wide variety of wood fence, vinyl & PVC fence, aluminum fence, and chain link fence styles.\n\nYour preferred fence install company in Clayton, North Carolina and surrounding areas.\n\nLocally owned and operated. Call B",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/136097/pexels-photo-136097.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/136097/pexels-photo-136097.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.6,
+    "reviewCount": 334
   },
   {
     "id": "real-biz-100",
@@ -1188,7 +1382,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-777-8356",
     "description": "Good Neighbor Fence is a fully insured, locally owned fencing company serving Raleigh, Chapel Hill, Cary, Sanford, and surrounding areas in Wake, Orange, Durham and Johnson counties in North Carolina. We provide a range of fencing services, including Privacy Wood, Vinyl, Aluminum, Ornamental Iron, Chain link and Custom Fences for both residential and commercial properties. Whether you need a full fence replacement, new fence installation or repair, our team is dedicated to delivering quality cra",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/36617431/pexels-photo-36617431.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/36617431/pexels-photo-36617431.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 16
   },
   {
     "id": "real-biz-101",
@@ -1199,7 +1395,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-321-0808",
     "description": "Cransten Handyman and Remodeling is the premier place to go to for your home service needs. We specialize in but are not limited to:\n\nRemodeling\nHandyman\nBathroom Remodeling\nKitchen Remodeling\nTiling\nFlooring\nProperty Maintenance\nDrywall Repairs\nFencing\nPainting\nCarpentry\n\nAnd much more. Call us for a free quote!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17723414/pexels-photo-17723414.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17723414/pexels-photo-17723414.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-102",
@@ -1209,7 +1407,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-809-5440",
     "description": "At That One Landscaping Company, we believe your outdoor space should feel as good as it looks. Serving Wake Forest, Rolesville, and North Raleigh, we specialize in high-quality landscaping, lawn care, and property maintenance that bring out the best in every yard. Our friendly, detail-driven team handles everything from mowing and fertilization to landscape design, drainage solutions, and seasonal clean-ups — always with dependable service and pride in our work. Whether it’s a small touch-up or",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38936344/pexels-photo-38936344.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38936344/pexels-photo-38936344.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 37
   },
   {
     "id": "real-biz-103",
@@ -1220,7 +1420,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-389-7797",
     "description": "Landscaping throughout the greater Raleigh NC area",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32759035/pexels-photo-32759035.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32759035/pexels-photo-32759035.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-104",
@@ -1230,7 +1432,9 @@ export const BUSINESSES: Business[] = [
     "address": "4108 Galax Dr, Raleigh, NC 27612",
     "description": "Welcome to Downes Landscaping Services, the top choice for meticulous property maintenance catering to property managers and businesses. Our seasoned team, with years of experience, excels in delivering exceptional maintenance services to ensure the pristine condition of your properties. At Downes Landscaping, we prioritize open communication and transparent service, committing to exceeding your expectations in every aspect of property maintenance. Imagine a maintenance service that assumes full",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38556700/pexels-photo-38556700.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38556700/pexels-photo-38556700.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-105",
@@ -1241,7 +1445,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-244-8630",
     "description": "Transform your outdoor space with our premier landscaping services in Apex, NC & the surrounding areas. Specializing in hardscape, we create stunning patios, durable retaining walls, and elegant walkways that enhance both the beauty and functionality of your property. Our experienced team is dedicated to delivering high-quality craftsmanship and personalized service to meet your unique needs. Let us help you build that outdoor oasis of your dreams. Contact us today for a free consultation!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32632465/pexels-photo-32632465.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32632465/pexels-photo-32632465.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 24
   },
   {
     "id": "real-biz-106",
@@ -1251,7 +1457,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1910-808-1125",
     "description": "Junk Captain LLC is a professional junk removal company serving the greater Raleigh area, including Cary, Apex, Fuquay Varina, and Durham. We handle residential and commercial junk removal with fast, reliable service and eco-friendly disposal.\nOur services include furniture removal, appliance removal, construction debris, yard waste and landscaping debris, estate cleanouts, garage cleanouts, hot tub removal, mattress disposal, and more. Whether you’re decluttering, renovating, moving, or cleanin",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/16327475/pexels-photo-16327475.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/16327475/pexels-photo-16327475.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 39
   },
   {
     "id": "real-biz-107",
@@ -1262,7 +1470,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-307-8495",
     "description": "KOR Property Services, LLC can transform your outdoor living space with a single premier partner. Established in November 2020, we deliver seamless, all-in-one property transformations across the Triangle area. Eliminate the stress of managing multiple contractors—we handle your entire project from concept to completion. Whether you want to build a luxury inground pool, outdoor kitchens, a custom deck, a screened-in porch, or a premium stone patio, our team brings your vision to life. We combine",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29821815/pexels-photo-29821815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29821815/pexels-photo-29821815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-108",
@@ -1273,7 +1483,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-710-7847",
     "description": "We consider our Environment. We love to care our trees but we must to care life and reduce dangers when some trees are dead or sicks. They can fall out over houses, cars, playground at the parks. We know how to cut trees properly, and provide hedge trimming service. Our experience includes stump grinding, storm clean up and landscaping.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5027617/pexels-photo-5027617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5027617/pexels-photo-5027617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 23
   },
   {
     "id": "real-biz-109",
@@ -1284,7 +1496,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-600-8888",
     "description": "We are your local contractors that service the greater triangle area and surrounding cities for all your home maintenance and renovation needs! We specialize in a variety of different services such as but not limited to Plumbing, Electrical, Drywall, Painting, Landscaping, General Maintenance and Complete Home Renovations. We have on call professionals 24/7 for any emergency situations. We also have over 20 years in experience and would like to help your house feel more like a home! Call in and ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38936347/pexels-photo-38936347.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38936347/pexels-photo-38936347.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-110",
@@ -1294,7 +1508,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-909-5939",
     "description": "We provide a full range of landscaping services from landscape maintenance, lawn care, landscape design, landscape installation and more. We are so confident in the quality of our workmanship, that we warranty the workmanship for 5 years.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11937296/pexels-photo-11937296.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11937296/pexels-photo-11937296.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 8
   },
   {
     "id": "real-biz-111",
@@ -1305,7 +1521,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-791-8871",
     "description": "– 10 Years of Experience\n– Expert Negotiator\n– Certified Military Relocation Professional\n– Accredited Buyer Representative\n– Seller Representative Specialist\n– New Construction Representative\nI work with a team of trusted professionals and as a team we make you goal our #1 priority; Lenders, Contractors, Painters, Landscaping, Handymen, HVAC, Plumbing, Electrical—whatever the need I can make recommendations of trusted, reliable professionals.\n\nI am honored that my past clients trust me and refe",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17880216/pexels-photo-17880216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17880216/pexels-photo-17880216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 8
   },
   {
     "id": "real-biz-112",
@@ -1315,7 +1533,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1252-450-5323",
     "description": "Looking for top-notch commercial landscaping in Raleigh, NC? Look no further than Coastal Cuts Landscaping. With our team of experienced professionals, we have the size and expertise to handle even the biggest jobs and properties. Unlike other landscaping companies, we are exclusively dedicated to serving commercial clients, making us the go-to choice for all your commercial landscaping needs. Whether you need landscape design, maintenance, sod or mulch installation, property management, or lawn",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4944058/pexels-photo-4944058.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4944058/pexels-photo-4944058.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-113",
@@ -1326,7 +1546,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-801-7564",
     "description": "We are a reliable family owned lawn care & landscaping business located in Clayton NC. We specialize in quality lawn cutting, hedging, mulching & much more. Please give us a call if you're looking for a reliable professional lawn care & landscaping service. Thank you!\nCpaulk1@gmail.com 9198017564",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5622462/pexels-photo-5622462.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5622462/pexels-photo-5622462.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-114",
@@ -1336,7 +1558,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1910-236-6294",
     "description": "Landscaping and Outdoor Living solutions, serving Raleigh, NC and surrounding areas.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4079768/pexels-photo-4079768.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4079768/pexels-photo-4079768.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-115",
@@ -1347,7 +1571,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-646-3099",
     "description": "Monarch Premium Services is a full-scale property maintenance, remodeling, repair and service concierge company. Our property concierge service covers Interior & Exterior Cleaning, Maintenance, Repairs & Remodeling along with Lawn Care, Landscaping and Exterior Property Maintenance & Clean up.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38936350/pexels-photo-38936350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38936350/pexels-photo-38936350.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 16
   },
   {
     "id": "real-biz-116",
@@ -1358,7 +1584,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-225-0716",
     "description": "Willow Oak Landscaping LLC is a professional landscaping company providing high-quality landscape installation, lawn maintenance, land management, and hydroseeding services. We are committed to enhancing the beauty, health, and value of residential and commercial properties through reliable service, attention to detail, and quality workmanship. From routine mowing and landscape maintenance to complete landscape renovations and hydroseeding projects, our goal is to create and maintain attractive ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4920293/pexels-photo-4920293.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4920293/pexels-photo-4920293.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 8
   },
   {
     "id": "real-biz-117",
@@ -1369,7 +1597,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-285-2822",
     "description": "We are a family owned and operated landscape supply company located in Willow Spring, NC. Our goal is to offer exceptional service and a quality product at a price you can afford. We are located at the corner of NC Hwy. 42 and Barber Bridge Rd.\nWe offer a variety of products and services including washed stone, gravel, rock, river rock, specialty boulders, flagstone, stacking stone, sand, soil, compost, fill dirt, bulk mulch, designer mulch, pine straw and more. We offer delivery within 40 miles",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/130154/pexels-photo-130154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/130154/pexels-photo-130154.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 115
   },
   {
     "id": "real-biz-118",
@@ -1379,7 +1609,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-539-8580",
     "description": "Commercial and Residential Lawn Service\nDrainage, Sod, Grading, Clearing, Excavating and Property Maintenance.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/37554739/pexels-photo-37554739.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/37554739/pexels-photo-37554739.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 39
   },
   {
     "id": "real-biz-119",
@@ -1389,7 +1621,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1770-313-3498",
     "description": "Quick and honest mobile small engine repair by a veteran-owned business. Serving the community with reliable service, I bring the expertise right to you. Whether it's lawn mowers, chainsaws, or other small engines.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27309420/pexels-photo-27309420.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27309420/pexels-photo-27309420.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-120",
@@ -1399,7 +1633,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-630-5661",
     "description": "We are Premium Lawn Apex! We are proud to service properties throughout Apex, NC. Our services include Lawn Care Maintenance, Mowing, hedge trimming, seasonal cleanups, leaf cleanups, limb/branch removal, mulch installation, pine straw installation, weed removal, and much more! Call today for a FREE estimate!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6728925/pexels-photo-6728925.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6728925/pexels-photo-6728925.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-121",
@@ -1409,7 +1645,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-249-8224",
     "description": "Small Engine Repair Shop specializing in lawnmowers, weed whackers, and leaf blowers. Diagnostics, repairs, as well as electrical work. Will also take old lawn care equipment off your hands. Can service any brand.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11364122/pexels-photo-11364122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11364122/pexels-photo-11364122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-122",
@@ -1420,7 +1658,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-819-0615",
     "description": "Yard Smart Lawn Care - where pristine lawns meet personalized service. We proudly serve Rolesville, Wake Forest, Raleigh, and surrounding areas. As a family-owned business, we pride ourselves on delivering meticulous lawn maintenance with a personal touch. With years of experience, our team is committed to bringing you quality lawn care, at a price that's easy on your wallet. From mowing and fertilization and weed control, to mulch and pine straw, we tailor our services to meet your unique needs",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4162016/pexels-photo-4162016.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4162016/pexels-photo-4162016.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-123",
@@ -1431,7 +1671,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1252-343-1196",
     "description": "Anders Landscaping LLC is a locally owned landscaper providing professional landscaping and lawn care services in Rolesville, Wake Forest, Raleigh, and surrounding North Carolina areas. We specialize in lawn maintenance, mulch installation, yard cleanups, shrub trimming, and small hardscape projects. If you’re searching for a reliable landscaper near you, we offer dependable service, quality workmanship, and free estimates.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4162011/pexels-photo-4162011.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4162011/pexels-photo-4162011.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-124",
@@ -1442,7 +1684,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-817-0525",
     "description": "Crownover Green is a lawn care service based in Wake Forest NC. We provide lawn care service to residents in Wake Forest, Rolesville, and surrounding areas. We specialize exclusively in a seasonal lawn treatment solution that will transform your lawn to one that is sustained by healthy soil rather than one that is increasingly dependent upon heavy use of synthetic fertilizers. Our lawn care services include lawn fertilization, weed control, fungal disease management, lawn pest management, core a",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6728919/pexels-photo-6728919.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6728919/pexels-photo-6728919.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 232
   },
   {
     "id": "real-biz-125",
@@ -1452,7 +1696,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1910-538-8385",
     "description": "Last Stop Lawn Care and Exterior Home Maintenance is Locally owned and operated. Fully Insured company based out of Fuquay-Varina.\nI will be serving the area offering exterior maintenance for residential homes that includes rotten wood replacement, roof replacements and repairs, gutter installation and repairs plus many more exterior services to protect your home and build value. Crews are fully trained and install in accordance to manufacturers guidelines for full warranty.\nI also offer lawn ma",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4162009/pexels-photo-4162009.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4162009/pexels-photo-4162009.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-126",
@@ -1463,7 +1709,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-284-5399",
     "description": "Lawn Panther Landscaping, Turf & Weed Control provides licensed turf treatments, fertilization, weed control, and landscape services for homes and properties in Fuquay-Varina, Holly Springs, Apex, and nearby areas. We specialize in detailed lawn treatment programs, pre-emergent and post-emergent weed control, turf maintenance, mulch, shrub and tree planting, and landscape improvements. As a local, family-owned business, we focus on responsive service, careful applications, and practical solution",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32632465/pexels-photo-32632465.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32632465/pexels-photo-32632465.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 9
   },
   {
     "id": "real-biz-127",
@@ -1473,7 +1721,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-438-3749",
     "description": "Outdoor Maintenance Company provides reliable, recurring exterior care for homeowners in the Raleigh area. We handle everything outside your home, including lawn mowing, gutter cleaning, pressure washing, shrub trimming, mulch, weed control, pest spray, and more. Whether you need one-time services or a full-service monthly plan, we keep your property looking its best year-round. Set it and forget it. We will take care of the rest.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6728926/pexels-photo-6728926.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6728926/pexels-photo-6728926.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-128",
@@ -1483,7 +1733,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-969-3739",
     "description": "Cornerstone Landscaping & Exteriors delivers reliable, high-quality landscaping and exterior maintenance services for both residential and commercial properties. From routine lawn care and seasonal cleanups to professional sod installation and full-property upkeep, we help keep your outdoor spaces clean, healthy, and well-maintained all year round. We work with homeowners, property managers, and businesses who value dependable service, attention to detail, and consistent results.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9548417/pexels-photo-9548417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9548417/pexels-photo-9548417.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 29
   },
   {
     "id": "real-biz-129",
@@ -1493,7 +1745,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-737-7369",
     "description": "Puddle Pool Services is your trusted choice for expert pool cleaning service in Raleigh. We offer reliable solutions for both residential and commercial pools, including hot tub maintenance, pool repair, seasonal pool maintenance, and more. Whether you need a professional pool inspection in Raleigh or help with pool leak detection, our experienced team has you covered. From pool opening and closing services to ongoing pool maintenance, Puddle Pools of the Triangle keeps your water clean, safe, a",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/36018788/pexels-photo-36018788.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/36018788/pexels-photo-36018788.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 10
   },
   {
     "id": "real-biz-130",
@@ -1504,7 +1758,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-332-1121",
     "description": "Established in 2008, Aqua Operators Pools LLC is a trusted swimming pool service company in Cary, North Carolina. They offer a comprehensive range of pool care solutions, including repairs, cleaning, and maintenance, for both residential and commercial properties. Their dedication to safety makes them a preferred choice for keeping pools sparkling and swimmers happy.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38642627/pexels-photo-38642627.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38642627/pexels-photo-38642627.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 40
   },
   {
     "id": "real-biz-131",
@@ -1514,7 +1770,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-223-9574",
     "description": "As one of Raleigh's premiere pool maintenance companies, Triangle Pool Services provides expert, friendly service to meet all of your pool needs. Proudly serving the Triangle Area of NC. Visit our website and schedule an appointment for cleaning or repair on your pool or pool related equipment. We specialize in custom concrete pools.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9828113/pexels-photo-9828113.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9828113/pexels-photo-9828113.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 14
   },
   {
     "id": "real-biz-132",
@@ -1525,7 +1783,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-709-3039",
     "description": "Expert Aquatics is the industry leader in commercial pool management, maintenance, and construction. With over 15 years of industry experience, we find that the best service is delivered to our customers through ample communication, top tier training, and unparalleled oversight. We aren't just a vendor, we are partners, and as such we believe you deserve the highest level of service and support from our team. Expert Aquatics believes in a client focused approach, your success is our success.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/2222614/pexels-photo-2222614.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/2222614/pexels-photo-2222614.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-133",
@@ -1536,7 +1796,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-741-4949",
     "description": "Pool Scouts of Greater Triangle, provides professional pool cleaning and pool maintenance services in Greater Triangle, helping homeowners enjoy clean, safe, and swim-ready water without the hassle. Our trained technicians deliver reliable pool service, handling everything from routine pool maintenance and water balancing to specialty pool cleanings using modern tools and proven methods. Whether you need recurring weekly pool care or a one-time deep clean, we provide consistent results and frien",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/39195274/pexels-photo-39195274.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/39195274/pexels-photo-39195274.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 380
   },
   {
     "id": "real-biz-134",
@@ -1546,7 +1808,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-367-6360",
     "description": "Honest pool and hot tub service: maintenance, equipment repair and replacement, including pumps, motors, liners, and covers.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.7,
+    "reviewCount": 41
   },
   {
     "id": "real-biz-135",
@@ -1557,7 +1821,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-213-0869",
     "description": "AquaLux Pool Management provides reliable, professional pool cleaning, maintenance, and repair services for homeowners in the Raleigh area.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7222171/pexels-photo-7222171.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7222171/pexels-photo-7222171.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 20
   },
   {
     "id": "real-biz-136",
@@ -1567,7 +1833,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-909-8089",
     "description": "Exterior Restoration Pros provides professional home soft washing, power washing, roof soft washing, window cleaning, and gutter cleaning services. Exterior washing maintenance of your property is a great way to secure your investment and enhances curb appeal.\n\nWe clean vinyl siding, concrete driveways, walkways, patios, pavers, backyard pool areas, decks, fences, and windows. We offer safe house washing that removes stains, dirt, grime, and mold. Our roof cleaning service is a reliable option t",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5269487/pexels-photo-5269487.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5269487/pexels-photo-5269487.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-137",
@@ -1578,7 +1846,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-468-5942",
     "description": "Discover spacious living with style and comfort in our brand new 3-bedroom townhomes for rent in Rolesville, NC. Thoughtfully designed with modern finishes, each home features quartz countertops, an attached two car garage, and a versatile second-floor loft—perfect for a home office, playroom, or additional lounge. Enjoy the ease of maintenance-free living while taking advantage of community perks like a sparkling pool and a dog park your pup will love. Conveniently located just off S. Main Stre",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8328775/pexels-photo-8328775.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8328775/pexels-photo-8328775.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.6,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-138",
@@ -1589,7 +1859,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1844-735-2083",
     "description": "Affordable Apartments for rent in Raleigh, NC at Chandler Ridge Apartments. Chandler Ridge offers one-, two-, and three-bedroom apartments. Enjoy spacious floor plans and a relaxing community in a location you will love. Chandler Ridge offers an array of amenities including a community pool, on-site maintenance and management, state of the art fitness center, resident business center and so much more. Did we mention the apartments also include washer and dryers! Stop by and apply today to reserv",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7294660/pexels-photo-7294660.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7294660/pexels-photo-7294660.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 3.7,
+    "reviewCount": 95
   },
   {
     "id": "real-biz-139",
@@ -1600,7 +1872,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-989-9942",
     "description": "At Triangle Swimming Pools, we offer custom swimming pools on time and with unsurpassed quality and workmanship in the Raleigh, Durham & Chapel Hill areas of the Triangle. Our fiberglass pools are well crafted, long lasting and without all of the maintenance issues of vinyl liners and gunite pools. You can have peace of mind knowing that you and your family will enjoy your pool, designed and installed by Triangle Pools, for years!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/14761078/pexels-photo-14761078.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/14761078/pexels-photo-14761078.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.8,
+    "reviewCount": 33
   },
   {
     "id": "real-biz-140",
@@ -1611,7 +1885,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-772-6111",
     "description": "\"We are the Triangle's most trusted and most experienced swimming pool and spa company. We have been family owned and operated since 1972. We are not only a builder, we sell spas, grills and outdoor kitchens and patio furniture. We also have a pool/spa service and maintenance fleet that can take of any pool issue and can ensure that all you have to do is swim! We have 3 locations between Raleigh and Garner and we have any of the supplies, toys and accessories you may need for your pool or spa! W",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38791852/pexels-photo-38791852.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38791852/pexels-photo-38791852.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.7,
+    "reviewCount": 207
   },
   {
     "id": "real-biz-141",
@@ -1621,7 +1897,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1910-723-4072",
     "description": "RDU Splash Of Blue is a family-owned, local business that provides professional pool service, pool maintenance, and all applications of exterior cleaning, all year round. We always put our customers first as customer satisfaction is our main priority. We make it easy for our customers to request a variety of outdoor services/maintenance all from one company. Our weekly, bi-weekly, and monthly service plans are convenient for our customers because as well as routine service/maintenance, we also t",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8688152/pexels-photo-8688152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8688152/pexels-photo-8688152.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 89
   },
   {
     "id": "real-biz-142",
@@ -1632,7 +1910,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-900-0919",
     "description": "Ditch the hassle of pool maintenance and dive into pure fun! Our exceptional pool services are here to the rescue. We'll handle the nitty-gritty, from cleaning to repairs, so you can just kick back and make a splash! Exciting, isn't it? Let's get started!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/137569/pexels-photo-137569.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/137569/pexels-photo-137569.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.7,
+    "reviewCount": 24
   },
   {
     "id": "real-biz-143",
@@ -1642,7 +1922,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-438-1881",
     "description": "Professional tree service, licensed and insured, free estimates. Owner/operator Wes Kesler has a decade of experience in multiple aspects of the tree industry, and is here to meet and exceed all of your tree care needs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/35089307/pexels-photo-35089307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/35089307/pexels-photo-35089307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 10
   },
   {
     "id": "real-biz-144",
@@ -1652,7 +1934,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-355-5859",
     "description": "Established in 2017, Apex Tree Company is a trusted arborist and tree service company serving our neighbors in the Cary, Apex, Holly Springs and Fuquay-Varina area. The team are ISA-certified arborists providing comprehensive tree care, from health assessments and trimming to safe and efficient removal. Apex Tree Company prioritizes the health of your trees and the safety of your property.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/31127615/pexels-photo-31127615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/31127615/pexels-photo-31127615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 175
   },
   {
     "id": "real-biz-145",
@@ -1663,7 +1947,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-341-7000",
     "description": "Joshua Tree Experts is a full-service tree care company serving Raleigh-Cary, including Apex, Wake Forest, Holly Springs, Garner, Rolesville, and beyond. We are fully licensed and insured and hold ISA-Certified Arborists on staff. Our expert tree care team provides tree trimming, removals, and emergency storm services. We also provide plant health care to ensure the vitality of your trees for years to come with tree fertilization as well as insect and disease management. Contact us today for rel",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7812842/pexels-photo-7812842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7812842/pexels-photo-7812842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 243
   },
   {
     "id": "real-biz-146",
@@ -1673,7 +1959,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-903-0713",
     "description": "Triangle Crane, Inc. in Apex, NC, is a premier choice for reliable and efficient crane services. As a leading crane company, we offer an extensive array of solutions to meet your needs, including rental crane services and tree removal expertise. Our fleet consists of top-of-the-line equipment for any project, from crane rental to boom truck rental and cherry picker truck rental. Whether you require a crane on rent for large-scale construction or specialized service crane operations, our experien",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6153123/pexels-photo-6153123.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6153123/pexels-photo-6153123.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 23
   },
   {
     "id": "real-biz-147",
@@ -1683,7 +1971,9 @@ export const BUSINESSES: Business[] = [
     "address": "615 Beaver Creek Rd, Apex, NC 27502",
     "description": "The Tree Guy LLC is the premier provider of comprehensive tree care services in Apex, NC, and its surrounding regions. Specializing in expert tree removal, meticulous pruning, and dedicated plant health care, we are committed to ensuring the safety, health, and beauty of your trees and landscape. Our team of skilled professionals uses the latest techniques and equipment to deliver top-notch service, whether you need a dangerous tree removed, precise pruning to enhance tree health and aesthetics,",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6218318/pexels-photo-6218318.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6218318/pexels-photo-6218318.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 53
   },
   {
     "id": "real-biz-148",
@@ -1694,7 +1984,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-208-9864",
     "description": "I offer mowing, weed whacking, edging, planting, bush/tree trimming, and I can spread mulch/straw. Currently I only service those who reside in the neighborhood Haddon Hall in Apex, North Carolina. Please review my website for some important information and details.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/2310483/pexels-photo-2310483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/2310483/pexels-photo-2310483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-149",
@@ -1705,7 +1997,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-355-8299",
     "description": "CS Tree Services Inc, based in Apex, NC, is your trusted partner for comprehensive tree care solutions. Specializing in stump grinding and tree removal, we serve both residential and commercial clients across Raleigh, Cary, and beyond. Our expert arborists in Raleigh offer services including tree trimming, pruning, cabling and bracing, and emergency storm damage response. Utilizing advanced equipment like aerial lifts and cranes, we ensure safe and efficient tree removal and maintenance. With a ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29731767/pexels-photo-29731767.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29731767/pexels-photo-29731767.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 192
   },
   {
     "id": "real-biz-150",
@@ -1715,7 +2009,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-913-8388",
     "description": "Welcome to Hall American Solutions! We are a full service, multi-disciplinary, family-owned company, specializing in tree removal, coastal landscape solutions, land management, waterway excavation, and wetland resource projects. You name it, we can do it. Residential, commercial or governmental, No job is too big or too small! We are fully insured and bonded, and our team is comprised of experts within their fields. Our pride is in our efficiency. Give us a call today!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6413498/pexels-photo-6413498.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6413498/pexels-photo-6413498.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-151",
@@ -1726,7 +2022,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-820-0937",
     "description": "Veteran Owned, Humble Tree Professionals offers comprehensive tree care services such as tree pruning, planting, healthcare, assessments, and removals. We staff ISA-Certified Arborists and have more than 15+ years of experience in the tree care industry. Our team adheres to safety standards and is fully insured.\n\nOur current service area is Raleigh, Garner, Cary, Apex, Fuquay-Varina, Holly Springs, and beyond.\nReach out today to schedule your free estimate!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/10079904/pexels-photo-10079904.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/10079904/pexels-photo-10079904.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 80
   },
   {
     "id": "real-biz-152",
@@ -1736,7 +2034,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-484-8407",
     "description": "Reliable Home Handyman LLC is a locally owned and operated home improvement company serving Cary, Apex, Raleigh, Morrisville, and surrounding areas. With more than 15 years of residential construction experience, we provide professional handyman services, tree work, finish carpentry, drywall repair, painting, electrical repairs, plumbing repairs, flooring, door and window installation, deck repairs, fence repairs, and general home maintenance. We are committed to quality workmanship, honest comm",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/30387769/pexels-photo-30387769.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/30387769/pexels-photo-30387769.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-153",
@@ -1746,7 +2046,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-400-0974",
     "description": "Why Choose Our Tree Company?\nThere are several reasons why you should consider choosing Edgar’s Tree Service LLC for all of your tree care needs. Our dedication to excellence and commitment to customer satisfaction have helped us establish ourselves as a trusted and reliable service provider in the industry. Our team of highly skilled and talented professionals is one of the main reasons for our selection. We have a team of skilled arborists who possess extensive knowledge and expertise in tree ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/12274112/pexels-photo-12274112.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/12274112/pexels-photo-12274112.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 170
   },
   {
     "id": "real-biz-154",
@@ -1757,7 +2059,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-931-0591",
     "description": "Whether your electrical project is big or small, SergTech Electric LLC and its team of residential electricians are here to service your job in a timely and affordable way.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-155",
@@ -1767,7 +2071,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-345-9573",
     "description": "Promark Home Inspections performs high quality and comprehensive inspections of the structural, electrical, plumbing, and mechanical components of the home to assist you in making an informed decision on the purchase of a home. We also offer radon testing.\nOwner, Mark Villee, is an experienced structural engineer and home inspector that personally trains and manages each home inspector. You can be sure that having a Promark home inspector inspect your home, that each inspection will be thorough ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7285965/pexels-photo-7285965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7285965/pexels-photo-7285965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 54
   },
   {
     "id": "real-biz-156",
@@ -1777,7 +2083,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-502-6785",
     "description": "Specializing in home repairs, tile, flooring, painting, electrical, plumbing, sheetrock, cabinets, deck repair, punch out list, tv mounting, bathroom remodel and so much more.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 15
   },
   {
     "id": "real-biz-157",
@@ -1787,7 +2095,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-756-5132",
     "description": "Crestline Electric, LLC is a locally owned and operated one-man electrical contracting business proudly serving Holly Springs and surrounding areas. Led by Aldo Vizcaino, a licensed and insured electrician with over 15 years of experience, I provide reliable, high-quality residential and light commercial electrical services with a commitment to craftsmanship and customer satisfaction.\n\nEmail: avizcaino@crestline-electric.com\n📞 Contact me today to schedule service or request a free quote.\nCrestl",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17321814/pexels-photo-17321814.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17321814/pexels-photo-17321814.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-158",
@@ -1797,7 +2107,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-321-9371",
     "description": "Located in Raleigh, NC, Dogwood Electrical Services offers professional, dependable electrical solutions across the region. As a family-owned business, you'll always speak directly with an owner committed to your satisfaction. Our skilled electricians handle everything from basic troubleshooting to advanced installations like electric car chargers, emphasizing safety and efficiency with the latest technologies. Discover why our community trusts us for their electrical needs. Reach out to us toda",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17924298/pexels-photo-17924298.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17924298/pexels-photo-17924298.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 19
   },
   {
     "id": "real-biz-159",
@@ -1808,7 +2120,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-389-9931",
     "description": "My business is A commercial and residential electrical business with the intent to install and fix your electrical needs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7285975/pexels-photo-7285975.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7285975/pexels-photo-7285975.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 10
   },
   {
     "id": "real-biz-160",
@@ -1819,7 +2133,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-766-0912",
     "description": "Licensed Electrican and HVAC Service.\nStudied HVAC nights at Dutchess community college while working as an Electrican. Owner operated a small Electrical, HVAC and plumbing business 15 years in New York. Relocated to North Carolina 3 years ago.\nI serviced and installed anything form a 1 room ductless split to 10 ton roof top systems. Wired new constuction homes renovated 100 year old homes and multi family homes.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/20500461/pexels-photo-20500461.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/20500461/pexels-photo-20500461.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-161",
@@ -1830,7 +2146,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-753-5682",
     "description": "Auer Electric, LLC Specializing in Generac Generator Sales, Installation, and Service. Installation of car charging stations, main meter / panel service entrance repairs and replacement, Electrical Installations and repairs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-162",
@@ -1840,7 +2158,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1843-471-0131",
     "description": "At Jones Electric Services, our goal is to primarily focus on the needs of your residential electrical needs and small business needs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8853523/pexels-photo-8853523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8853523/pexels-photo-8853523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-163",
@@ -1851,7 +2171,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-897-3905",
     "description": "Its Fixed is a company with more than 10 years of combine experience in electrical and plumbing service and repairs for commercial and residential customers.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/2898199/pexels-photo-2898199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/2898199/pexels-photo-2898199.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-164",
@@ -1862,7 +2184,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-292-6609",
     "description": "North Carolina based HVAC & Electrical company focusing on educating clients, offering professional services and committed to providing solutions to current, potential and future HVAC and Electrical problems to prevent repeat failures .",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8853470/pexels-photo-8853470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8853470/pexels-photo-8853470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 21
   },
   {
     "id": "real-biz-165",
@@ -1872,7 +2196,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-332-1185",
     "description": "JoCo Service Group is a comprehensive commercial and residential contractor in Smithfield, NC. Their licensed technicians tackle everything from plumbing leaks to electrical repairs and complete HVAC installations. They also offer general construction and handyman services, providing a one-stop shop for all your service needs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-166",
@@ -1883,7 +2209,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-376-7050",
     "description": "Services provided:\nBuyer Home Inspections\nPre-sale Home Inspections\nPreventative/Annual Maintenance Inspections\nWhat We Inspect:\nThe Structural Components of the house\nThe exterior of the house including: porch and decks\nRoofs\nPlumbing systems\nElectrical systems\nHVAC Systems\nThe interior of the house",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/10699351/pexels-photo-10699351.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/10699351/pexels-photo-10699351.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-167",
@@ -1893,7 +2221,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-694-3121",
     "description": "JCI Handyman Service Home & Garden, LLC is a handyman business located in Wake Forest, NC. We were established in September 2019 and our business focus is on small to medium projects which may encompass many areas of home maintenance, improvements and installations. We are committed to doing quality work to the satisfaction of our customers. Contact us for your next home project.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-168",
@@ -1903,7 +2233,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-444-7714",
     "description": "Home On is where you'll find all your home service needs under one roof! We provide electrical, roofing, plumbing, HVAC, painting, handyman services, and more in Raleigh, North Carolina. Our certified technicians are committed to serving you and your home. Whether you have a plumbing emergency or a renovation project you’ve been too busy to get to, contact us today to get started! This is home services the way it should be!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4792495/pexels-photo-4792495.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4792495/pexels-photo-4792495.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-169",
@@ -1913,7 +2245,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-637-1104",
     "description": "\"Reliable Handyman Service. Wake County's premier source for handyman work since 2000. \"",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7640990/pexels-photo-7640990.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7640990/pexels-photo-7640990.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 57
   },
   {
     "id": "real-biz-170",
@@ -1923,7 +2257,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1973-666-4778",
     "description": "Pro Fix Home Remodeling & Services provides professional handyman and home repair services in Raleigh, Apex, Cary, Holly Springs, Fuquay-Varina, and surrounding areas. We specialize in drywall repair, ceiling repair, interior and exterior painting, finish carpentry, trim installation, door repair and installation, cabinet repairs, wood rot repair, punch lists, and home maintenance. Whether you need a quick repair or a small remodeling project, we deliver clear communication, quality craftsmanshi",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5484718/pexels-photo-5484718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5484718/pexels-photo-5484718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-171",
@@ -1933,7 +2269,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-417-9474",
     "description": "Thanks for considering \"The Carpet Handyman\" to fix your carpet issue. We also provide floor care such as wood floor cleaning. Locally owned and operated and will give your carpet the attention it deserves. We offer a variety of skilled carpet repair services - including a Carpet Stretching Service. Our Carpet Stretching Service allows us to remove unsightly and hazardous buckles from your carpet. We pride ourselves on creating an outstanding experience for each one of our clients.\nWe also do:\n*",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7540627/pexels-photo-7540627.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7540627/pexels-photo-7540627.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 30
   },
   {
     "id": "real-biz-172",
@@ -1943,7 +2281,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-394-0687",
     "description": "Level Up Handyman Services provides reliable, professional handyman services throughout Raleigh, NC and surrounding areas. We specialize in TV mounting, furniture assembly, curtain rod installation, picture and mirror hanging, shelving installation, ceiling fan installation, light fixture replacement, drywall repair, and general home improvements. We take pride in quality workmanship, honest pricing, and dependable service. Whether you need a single repair or multiple home projects completed, we",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38264258/pexels-photo-38264258.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38264258/pexels-photo-38264258.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 8
   },
   {
     "id": "real-biz-173",
@@ -1953,7 +2293,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1704-616-1143",
     "description": "Locally owned and operated handyman business serving homeowners and property managers in Raleigh NC and surrounding areas. We specialize in reliable home repairs and maintenance, including drywall and paint, light electrical and plumbing, fixture installs, dryer vent cleaning, and tenant turn punch lists and completing that “Honey Do List”. With flexible scheduling, clear communication, and full insurance, we focus on quality workmanship and showing up when we say we will. Whether it’s a small r",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7484795/pexels-photo-7484795.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7484795/pexels-photo-7484795.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 13
   },
   {
     "id": "real-biz-174",
@@ -1964,7 +2306,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-272-9475",
     "description": "Kozub Remodels provides kitchen and bathroom remodeling, stair and railing work, tile installation, flooring, drywall, painting, carpentry, trim, cabinet updates, countertops, and finish work for homeowners in Raleigh, Durham, and nearby areas. We handle projects with clear communication, detailed craftsmanship, and one team managing scope, schedule, and quality from start to finish.\n\nServices also include door and window installation, basement remodeling, deck and porch updates, restoration and",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 19
   },
   {
     "id": "real-biz-175",
@@ -1974,7 +2318,9 @@ export const BUSINESSES: Business[] = [
     "address": "736 Ancient Oaks Dr, Holly Springs, NC 27540",
     "description": "Mr. Fix It Handyman Service Inc\nHome repairs and installation",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9606949/pexels-photo-9606949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9606949/pexels-photo-9606949.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 116
   },
   {
     "id": "real-biz-176",
@@ -1984,7 +2330,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-935-2892",
     "description": "Hawkins Renovations is your go-to partner for kitchen and bathroom remodels, handyman services, and landscaping in Cameron, NC and the surrounding 100-mile area. With over 50 years of combined experience, we offer a full range of services designed to improve your home's beauty, functionality, and value. From detailed renovations to small repairs and custom outdoor projects, our team delivers clear expectations, transparent communication, and fast turnaround times. We are a service-focused team k",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4312854/pexels-photo-4312854.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4312854/pexels-photo-4312854.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-177",
@@ -1995,7 +2343,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-675-7481",
     "description": "MTC Heating & Air Conditioning provides residential and commercial HVAC services in Raleigh and surrounding areas, specializing in air conditioning repair, AC installation, and AC maintenance to keep homes and businesses comfortable year-round.\n\nWe also offer expert heating services, including furnace repair, furnace installation, and heating maintenance for reliable performance during colder months. Our experienced team services all major brands and focuses on fast response times, accurate diag",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 341
   },
   {
     "id": "real-biz-178",
@@ -2006,7 +2356,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-768-9254",
     "description": "At Cold Flow Heating & Cooling, we're your Raleigh experts for all your HVAC needs. Our experienced technicians service, repair, and install any heating or cooling system, keeping your home comfortable year-round. Whether it's an AC malfunction or a furnace tune-up, we fix it fast and efficiently. We also offer maintenance plans to prevent future issues and extend your HVAC system's lifespan. Ditch the discomfort and breathe easy with Cold Flow – Raleigh's trusted choice for complete HVAC care. ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-179",
@@ -2017,7 +2369,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-840-8100",
     "description": "Howard Heating & Air is now part of Lyndon Heating & Air.\n\nBy joining together, we are expanding our ability to serve homeowners with residential HVAC service, repair, maintenance, and system replacement while continuing the trusted customer relationships Howard Heating & Air has built over the years.\n\nCustomers can continue to expect dependable service, honest recommendations, and professional workmanship backed by the Lyndon Heating & Air team. Existing maintenance agreements and ongoing custo",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 16
   },
   {
     "id": "real-biz-180",
@@ -2027,7 +2381,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-914-0606",
     "description": "Do you really know what's inside the home you live in? Gain peace of mind knowing that all of the major components in your home are working safely and as intended when you reach out to Doherty Home Inspections. With years of experience in the inspection and construction world, our team knows how to detect plumbing, structural, electrical, and HVAC problems. We offer home inspections for regular maintenance, end of warranty (11th month), new construction, pre-listing, and pre-purchasing. We also ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 350
   },
   {
     "id": "real-biz-181",
@@ -2038,7 +2394,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-306-2996",
     "description": "Dedicated AC Repair: Your Comfort, Our Commitment. Serving the Cary, NC area from our convenient location on E Chatham Street, we specialize in keeping your home comfortable year-round. As trusted HVAC, heating, and air conditioning contractors, we bring expertise and dedication to every project. From routine maintenance to complete system overhauls, Dedicated AC Repair ensures your indoor climate is always at its best. Experience the difference of a company focused on quality and customer satis",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33925031/pexels-photo-33925031.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33925031/pexels-photo-33925031.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-182",
@@ -2048,7 +2406,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-270-7932",
     "description": "Air Best Heating & Cooling offers expert heating and cooling services designed to keep your home comfortable year-round. Our skilled technicians specialize in installation, maintenance, and repair of HVAC systems, ensuring efficient and reliable performance. Committed to customer satisfaction, we provide prompt, professional service tailored to your specific needs. Trust Air Best Heating & Cooling for all your residential and commercial heating and cooling requirements.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5463587/pexels-photo-5463587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5463587/pexels-photo-5463587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 31
   },
   {
     "id": "real-biz-183",
@@ -2059,7 +2419,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-218-7283",
     "description": "Air Shield Heating & Cooling is a veteran owned HVAC contractor serving Holly Springs, NC, with trusted HVAC services for local homeowners. Since 2025, our independently owned team has provided AC repair, HVAC repair, furnace repair, heating repair, AC installation, AC replacement, heat pump repair, HVAC maintenance, AC maintenance, heating installation, and furnace installation. We proudly serve Holly Springs, Apex, Fuquay Varina, Holly Glen, Braxton Village, Sunset Ridge, Arbor Creek, and Oak ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27427771/pexels-photo-27427771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27427771/pexels-photo-27427771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 141
   },
   {
     "id": "real-biz-184",
@@ -2069,7 +2431,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-208-3580",
     "description": "C. Brothers Services is a family-owned HVAC company serving the Triangle and surrounding areas, built on generations of North Carolina heritage. We provide reliable heating and cooling solutions with honest service, fair pricing, and lasting comfort. From repairs and maintenance to full system installations, our experienced team is committed to doing the job right the first time. We treat every home like our own, delivering quality workmanship and dependable results. C. Brothers Services, comfor",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5463577/pexels-photo-5463577.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5463577/pexels-photo-5463577.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 39
   },
   {
     "id": "real-biz-185",
@@ -2080,7 +2444,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-412-4873",
     "description": "Wake Forest HVAC Company is your trusted HVAC partner serving Wake Forest, Rolesville, and Youngsville, NC. We specialize in heating repair, air conditioning repair, maintenance, and installation services. Our team is built on three core values: professionalism, clear communication, and integrity. Whether you need emergency repairs or routine maintenance, we're committed to keeping your home comfortable year-round. Contact us today for expert HVAC service!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38228166/pexels-photo-38228166.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38228166/pexels-photo-38228166.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 530
   },
   {
     "id": "real-biz-186",
@@ -2091,7 +2457,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-748-1008",
     "description": "Langley Heating and Air, Inc. is a trusted residential and commercial HVAC company serving Wake Forest, NC and surrounding areas. We provide expert heating and air conditioning installation, repair, replacement, and maintenance for homes and businesses across Wake County, including Wake Forest, Raleigh, Cary, Durham, Rolesville, Zebulon, Wendell, Knightdale, Creedmoor, Franklinton, Henderson, Apex, Morrisville, and Clayton. We are fully licensed, insured and committed to fast response times, hon",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5539540/pexels-photo-5539540.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5539540/pexels-photo-5539540.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 401
   },
   {
     "id": "real-biz-187",
@@ -2102,7 +2470,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-232-8129",
     "description": "RAM‑Z Services LLC delivers comprehensive property maintenance for homes and businesses across North Carolina. Established in 2019, this licensed, insured, A+ BBB‑accredited, and HUB‑certified small business provides a full range of reliable handyman and facility care services. Their team specializes in professional pressure washing, detailed gutter cleaning, and high‑quality floor refinishing, along with carpet cleaning, HVAC servicing, and basic plumbing solutions. With a reputation for depend",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29452977/pexels-photo-29452977.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29452977/pexels-photo-29452977.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 29
   },
   {
     "id": "real-biz-188",
@@ -2112,7 +2482,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-230-4439",
     "description": "Frost Fire Heating and Cooling LLC, located at 160 Peace Ln, is a leading air conditioning contractor in Raleigh, NC, dedicated to providing exceptional HVAC services for both residential and commercial clients. Specializing in AC repair, air conditioner installation, and duct cleaning, we ensure your comfort all year round with reliable and professional solutions. Our expert technicians are equipped to handle emergency AC repairs, central air installations, and split system air conditioning ser",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 52
   },
   {
     "id": "real-biz-189",
@@ -2123,7 +2495,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-772-4230",
     "description": "Lawrence Service Group, Inc. is the go-to HVAC maintenance and repair service for the greater Triangle area because we’re dedicated to our customers. We know how stressful and frustrating it can be when your home systems stop working or need replacing. Our team is devoted to arriving to your home as soon as possible and greeting you with a smile. We’ll get everything back to working properly in no time, and you can get back to feeling comfortable in your own home. We’re passionate about building",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/3964692/pexels-photo-3964692.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/3964692/pexels-photo-3964692.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-190",
@@ -2134,7 +2508,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-995-5026",
     "description": "Combining years of experience with a dedication to client satisfaction, The Fifth Season Heating & Air has established itself as the local leader in HVAC Service, HVAC Installation and HVAC Maintenance.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38084058/pexels-photo-38084058.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38084058/pexels-photo-38084058.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 24
   },
   {
     "id": "real-biz-191",
@@ -2144,7 +2520,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-791-9689",
     "description": "When you need a Plumber Service that you can depend on, call Plumb Twisted in Cushing, Oklahoma and surrounding areas for all of your Plumbing needs. At Plumb Twisted we specialize in a variety of Plumbing Services, including Plumbing Installation, Kitchen Remodeling, Bathroom Remodeling, and Emergency Plumbing Services. You’ll know that you’re in the right hands when you call the plumbing experts from Plumb Twisted in Cushing, OK.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-192",
@@ -2155,7 +2533,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-587-8867",
     "description": "We offer full-service residential and commercial plumbing. We can work with you to find the right service level and provide flexible appointments to fit your schedule. We are proud that Cary Plumbing Giant remains a genuine, fully licensed and insured family-owned business. When you work with us you’ll get honest estimates and a no-hassle guarantee so you can get it fixed quickly and enjoy peace of mind again. If you’re concerned about pricing and project details, we get it! Cary Plumbing Giant ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-193",
@@ -2165,7 +2545,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-903-2705",
     "description": "Welcome to Local Plumb Pros! We are a small, family-owned business that serves the local Apex, NC, area. In the plumbing industry since 2009, our owner is a highly experienced, well-trained and certified plumber. Located centrally in Apex, we provide full plumbing services to homes and businesses throughout the Southern Triangle area. Our team uses the latest technology and tools to provide customers with reliable plumbing services at a fair price. We are fully licensed and insured.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29226620/pexels-photo-29226620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29226620/pexels-photo-29226620.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 138
   },
   {
     "id": "real-biz-194",
@@ -2176,7 +2558,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1855-663-9876",
     "description": "The Zurn Elkay Innovation Center facilitates testing, quality control, product technology and system innovations.\n\nHeadquartered in Milwaukee, Wisconsin, Zurn Elkay Water Solutions is a growth-oriented, pure-play water business that designs, procures, manufactures, and markets what we believe is the broadest sustainable product portfolio of solutions to improve health, human safety, and the environment. The Zurn Elkay product portfolio includes professional-grade water control and safety, water ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9389356/pexels-photo-9389356.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9389356/pexels-photo-9389356.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-195",
@@ -2186,7 +2570,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-352-1632",
     "description": "Local Plumbing Company servicing Angier NC and surrounding areas",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/16442684/pexels-photo-16442684.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/16442684/pexels-photo-16442684.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 3
   },
   {
     "id": "real-biz-196",
@@ -2196,7 +2582,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-437-4589",
     "description": "GGG Plumbing LLC is a trusted local plumber providing professional plumbing services to homeowners and businesses in Four Oaks, NC and the surrounding areas. The company is known for delivering reliable solutions, from routine maintenance to complex repairs, with a strong focus on quality workmanship and customer satisfaction. As an experienced emergency plumber, GGG Plumbing LLC responds promptly to urgent plumbing issues to help minimize damage and restore proper function. With skilled technic",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27354192/pexels-photo-27354192.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27354192/pexels-photo-27354192.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 9
   },
   {
     "id": "real-biz-197",
@@ -2206,7 +2594,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-816-6852",
     "description": "At Plumb Level Plumbing & Construction we offer plumbing installation and repair services for Residential and Commercial customers. We strive to provide quality service at a competitive price. We service central NC and are fully licensed and insured.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 20
   },
   {
     "id": "real-biz-198",
@@ -2217,7 +2607,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-589-7290",
     "description": "TruBlue is a premier company specializing in residential roofing services in the Raleigh & Durham Metro Area, as well as the Coastal areas of NC. If you're looking for a new roof or roof replacement contact us today! We're available anytime to help you get the roof you've been looking for. We offer roofing services, reroofing, storm damage repair, and more for commercial and residential properties alike. Call us today to get started.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32608171/pexels-photo-32608171.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32608171/pexels-photo-32608171.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 43
   },
   {
     "id": "real-biz-199",
@@ -2227,7 +2619,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-879-0805",
     "description": "At GG Triangle Gutters, we provide professional gutter services to protect your Wendell, North Carolina home with efficient drainage solutions. Whether you are looking to add seamless gutters, custom gutters, gutter guards, or downspouts to your residential or commercial property, we are the team you can trust for installation, repair, maintenance, cleaning, and replacement. We also offer roof, fascia, and soffit repair, and we do the job right with craftsmanship you can trust, never trying to u",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5264807/pexels-photo-5264807.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5264807/pexels-photo-5264807.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 52
   },
   {
     "id": "real-biz-200",
@@ -2237,7 +2631,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-414-0583",
     "description": "Home additions, interior and exterior remodeling. Bathrooms, Kitchens, Decks, Screen Porches, Sun Rooms, Roofing, Siding. Full service.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9431615/pexels-photo-9431615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9431615/pexels-photo-9431615.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 122
   },
   {
     "id": "real-biz-201",
@@ -2248,7 +2644,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1888-643-9247",
     "description": "With decades of experience under our belt and thousands of happy customers, we can proudly say that we have become one of the most trusted roofing and property restoration companies throughout the Midwest and Southeast. We are family-owned and operated and have been since our family started its first roofing business in 1979.\n\nYou can count on our decades of experience to make sure your project gets done right. Don’t just take our word for it. We stand by our work with industry-leading warranty ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6338827/pexels-photo-6338827.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6338827/pexels-photo-6338827.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-202",
@@ -2259,7 +2657,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-467-1484",
     "description": "One of the first roofing companies in Cary NC. Now serving surrounding areas including Eastern NC. We offer any home improvement that you may need. Allservices roofing and Haley Realty Group has now merged to meet all your real estate needs. Restoration ti staging to market. Call 919 467 1484 Thanks,\nJeff Haley",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/31762405/pexels-photo-31762405.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/31762405/pexels-photo-31762405.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-203",
@@ -2270,7 +2670,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-907-0001",
     "description": "The Flooring Monk by Tomar Flooring & Roofing LLC is a veteran-owned flooring company serving Morrisville, Cary, Apex, Raleigh, Durham and RTP area. We specialize in one-day floor transformations for homes and businesses, delivering clean, efficient installs with minimal disruption.\n\nWe install hardwood, engineered hardwood, LVP, EVP, laminate, and carpet for both residential and commercial projects. Our experienced crews focus on precision, speed, and quality, completing most flooring installat",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/15964928/pexels-photo-15964928.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/15964928/pexels-photo-15964928.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 38
   },
   {
     "id": "real-biz-204",
@@ -2280,7 +2682,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-877-6277",
     "description": "Go with one of North Carolina’s most trusted roofing contractors: Liberty Construction. Located in Apex, NC, we bring over 20 years of industry experience to your project and have developed a reputation for superior craftsmanship using quality materials. Locally owned and operated, we are roofing contractors that offer professional roof repair and roof replacement services to commercial and mostly residential clients. We take the time to understand your unique needs - our priority is you because",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/14232056/pexels-photo-14232056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/14232056/pexels-photo-14232056.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 17
   },
   {
     "id": "real-biz-205",
@@ -2291,7 +2695,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-576-9420",
     "description": "Simple Construction Roofing is your trusted, locally owned roofing specialist serving Raleigh, Wake Forest, and surrounding NC communities like Cary. With a focus on quality and durability, we provide you with professional roof repairs, shingle replacements, and expert inspections.\nWe pride ourselves on honest communication and reliable service from the first estimate to the final inspection. Whether dealing with storm damage or updating your roof, our team is dedicated to protecting your home w",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/34524716/pexels-photo-34524716.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/34524716/pexels-photo-34524716.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 170
   },
   {
     "id": "real-biz-206",
@@ -2302,7 +2708,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-406-4670",
     "description": "We are a licensed general contractor that serves Raleigh and the Triangle. We specialize in insurance repair work. Ask me about our numerous certifications in water damage, fire/smoke damage, wind damage, mold remediation, roofing, textiles, lead based materials renovation, hazardous materials cleanup and more!\nWe have the skills and experience to assist any homeowner or business through the insurance claims process. We work with your claims adjuster to arrive at an agreed scope and cost of work",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/12243107/pexels-photo-12243107.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/12243107/pexels-photo-12243107.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 80
   },
   {
     "id": "real-biz-207",
@@ -2312,7 +2720,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-291-3400",
     "description": "TRUST US TO TAKE CARE OF YOUR ROOF\nMEET WITH A RELIABLE ROOFING CONTRACTOR IN HOLLY SPRINGS, NC\nShield Roofing Co is raising the bar on roofing services in Holly Springs, NC, one house at a time. Our roofing contractor is equipped with first-class products from brands like CertainTeed that are designed to keep your roof in tip-top shape for years to come.\n\nWhether you need partial re-roofing or a full roof replacement, you can find the help you need at Shield Roofing Co. Call us at 919-291-3400 ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/39238333/pexels-photo-39238333.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/39238333/pexels-photo-39238333.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 30
   },
   {
     "id": "real-biz-208",
@@ -2323,7 +2733,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-869-6374",
     "description": "Agape Roofing LLC in Raleigh, NC is a roofing contractor specializing in the installation of Commercial and Residential Roofs . We offer over a decade of expert roofing experience and provide a wide range of services designed to improve your home needs. We can handle complete roof installations as well as all kinds of roofing repairs. At Agape Roofing, we offer an extensive array of roofing choices and work with all major roofing brands. With our highly skilled team with many years of experience",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/34019842/pexels-photo-34019842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/34019842/pexels-photo-34019842.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 21
   },
   {
     "id": "real-biz-209",
@@ -2334,7 +2746,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-352-2151",
     "description": "Since 2017, Peak Roofing & Restoration has been a trusted, locally-owned company providing top-tier roofing solutions to the Apex, Cary, and Raleigh communities. Specializing in comprehensive roof replacements and expert repairs, they are dedicated to restoring the safety and beauty of your home. Additionally, Peak Roofing & Restoration offers professional installation of Govee Permanent outdoor lighting, enhancing your home's curb appeal with a touch of modern sophistication.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33501308/pexels-photo-33501308.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33501308/pexels-photo-33501308.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 22
   },
   {
     "id": "real-biz-210",
@@ -2345,7 +2759,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-583-7663",
     "description": "Welcome to ProRoofing in Raleigh, North Carolina! We offer premier local roofing services, including roof installations, maintenance, repairs, and free roof inspections. We are committed to offering high-quality roofing materials and expert craftsmanship to each of our residential and commercial customers. We aim for 100% customer satisfaction on every roofing service. Our experience and know-how sets us apart from our competitors as well as our attention to detail and timely service. Oftentimes",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/34524694/pexels-photo-34524694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/34524694/pexels-photo-34524694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 23
   },
   {
     "id": "real-biz-211",
@@ -2355,7 +2771,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-820-4286",
     "description": "Welcome to Kyle McLean Roofing and Repair. As a locally owned, family-centered business, we bring the knowledge, commitment, and follow through many contractors struggle to provide. I have seen it all in my 25+ years of roofing experience, and am confident in providing the right solution for your Roofing and Repair needs. Whether you are looking for a new roof installation or replacement, roof repair, help with gutters, creating a new design with specialty roofing, or simply need a roof inspecti",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/34524695/pexels-photo-34524695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/34524695/pexels-photo-34524695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 57
   },
   {
     "id": "real-biz-212",
@@ -2366,7 +2784,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-438-1132",
     "description": "TNT Roofing and Construction is a locally owned and trusted exterior contractor serving homeowners across North Carolina. We provide high-quality roofing, siding, and gutter services with a focus on durability, curb appeal, and long-term protection. Whether you're in need of a full roof replacement, updated siding, or a reliable gutter system, our experienced team is here to help. We take pride in using premium materials, offering clear communication, and standing behind our workmanship with str",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33404248/pexels-photo-33404248.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33404248/pexels-photo-33404248.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 32
   },
   {
     "id": "real-biz-213",
@@ -2377,7 +2797,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-810-3084",
     "description": "We are your full service roofing company, with 10 years experience we know how to protect your home.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/36054139/pexels-photo-36054139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/36054139/pexels-photo-36054139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 16
   },
   {
     "id": "real-biz-214",
@@ -2388,7 +2810,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-669-1106",
     "description": "Located in Angier, North Carolina, we are a family-owned company operated by Austin Gardner since 2012. With a commitment to quality and customer satisfaction, we specialize in residential and commercial roofing, as well as new construction and renovations for existing structures.\n\nOur expertise encompasses a wide range of roofing materials, including shingles, metal, rubber, slate, and concrete. Whether you’re looking to enhance your home or need reliable solutions for your business, we take pr",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33944130/pexels-photo-33944130.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33944130/pexels-photo-33944130.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-215",
@@ -2399,7 +2823,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-464-6823",
     "description": "At Odyssey Contracting, our unwavering commitment to homeowners in Holly Springs is to enhance the beauty and functionality of your home, making it a reflection of your unique style. We understand that selecting a contractor for your home renovation project is a significant decision, and we strive to provide a premium experience from start to finish. Our skilled team of professionals excels in remodeling, deck building, siding installation, general contracting, roofing, sunroom construction, and",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38028508/pexels-photo-38028508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38028508/pexels-photo-38028508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-216",
@@ -2410,7 +2836,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-753-8309",
     "description": "We provide roofing and remodeling services in Raleigh, Cary, Apex, Holly Springs, and surrounding areas in North Carolina. With 23 years of experience, we help residential and commercial properties with roof repairs, gutter drainage needs, siding updates, interior and exterior painting, deck construction, screened porch projects, and general remodeling. We also handle emergency work and offer free estimates. Contact us to request service!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/32050399/pexels-photo-32050399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/32050399/pexels-photo-32050399.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-217",
@@ -2431,7 +2859,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-200-7489",
     "description": "Call Wiring Solutions Plus LLC for all your electrical and solar panel installation needs! Serving Raleigh and the surrounding areas. Call now for a free estimate!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29206488/pexels-photo-29206488.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29206488/pexels-photo-29206488.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-219",
@@ -2441,7 +2871,9 @@ export const BUSINESSES: Business[] = [
     "address": "4209 Lassiter Mill Rd, Raleigh, NC 27609",
     "description": "At Clean Solar we are dedicated to providing sustainable energy solutions that power the future. Based in Raleigh, North Carolina, we bring clean and renewable energy to homes and businesses across the state, leading North Carolina's green energy revolution. Our skilled professionals offer a wide range of services, including solar panel installation and comprehensive energy solutions, ensuring that our clients embrace a sustainable, environmentally friendly lifestyle. We are authorized Tesla, Fr",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38171120/pexels-photo-38171120.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38171120/pexels-photo-38171120.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-220",
@@ -2452,7 +2884,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-948-6474",
     "description": "8MSolar is the most trusted solar installation company in Cary, North Carolina. We specialize in high-quality solar panel installation for residential, commercial, and non-profit systems in North Carolina, including Raleigh, Apex, and Charlotte.\n\nAs one of the only NABCEP Certified solar installers in Cary, North Carolina, our expert team is committed to customizing each solar system to meet the unique needs of every client.\n\nWe carry solar panels from QCells, Solaria, REC, and more, as well as ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6961122/pexels-photo-6961122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6961122/pexels-photo-6961122.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 558
   },
   {
     "id": "real-biz-221",
@@ -2463,7 +2897,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-200-0214",
     "description": "Saltbox Construction specializes in roofing, gutters, and solar panel installation. We provide free estimates and inspections. Don’t let damage from severe weather develop into costly repairs. We can work directly with your insurance company to get fast and reliable repairs. Save money on your utility bills and take advantage of the tax incentives for the year.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8853500/pexels-photo-8853500.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8853500/pexels-photo-8853500.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 86
   },
   {
     "id": "real-biz-222",
@@ -2474,7 +2910,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-333-6830",
     "description": "Independent Solar.\nSolar Panel And Battery Installation,\n\nSave Money & Lower your carbon footprint!\nYour solution to Low cost, Clean, Reliable energy that your household can depend on.\n\nImpact focused.\nWe are dedicated to lowering your utility bill, While also lowering negative effects on climate change. Solar is the future of sustainable living and protecting what we call home!\n\nExtended Guarantee.\nOur company values honesty and integrity above all. We respect and seek out diverse backgrounds a",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11645008/pexels-photo-11645008.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11645008/pexels-photo-11645008.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-223",
@@ -2485,7 +2923,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-217-2145",
     "description": "Secure, spacious vehicle storage on a 1-acre lot behind our home in a quiet area of Raleigh. Ideal for vehicle storage including car storage, SUV storage, truck storage (no semis), boat storage, and trailer parking, with plenty of open spots available. The property is monitored by security cameras and has an active 24-hour attendant for added peace of mind. Conveniently located near the cross streets of Brandy Apple and Penn Oak Circle with easy neighborhood access. Month-to-month flexibility av",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33104381/pexels-photo-33104381.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33104381/pexels-photo-33104381.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-224",
@@ -2495,7 +2935,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-939-0993",
     "description": "Prime Electrical Company is a trusted residential electrical company dedicated to lighting up your home with safety and precision. Our team of experienced electricians provides top-notch installation, repair, and maintenance services, ensuring your family's comfort and security. We take pride in delivering reliable solutions for all your residential electrical needs, from lighting design to electrical panel upgrades, with a commitment to quality and customer satisfaction.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/22307556/pexels-photo-22307556.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/22307556/pexels-photo-22307556.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 10
   },
   {
     "id": "real-biz-225",
@@ -2506,7 +2948,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-561-6045",
     "description": "Element Integration is a home automation and electronics company offering customized networking and installation solutions for homes and businesses. From lighting and temperature control to security systems, AV setups, and home theaters, we create seamless smart environments. Our expert team helps you design the perfect system to fit your needs—whether it’s an immersive entertainment space or a fully connected home. With Element Integration, you’ll enjoy comfort, convenience, and control at your",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33104382/pexels-photo-33104382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33104382/pexels-photo-33104382.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 106
   },
   {
     "id": "real-biz-226",
@@ -2516,7 +2960,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-579-6020",
     "description": "When you're in a pinch, Cary Fast Key Locksmith Company is your trusted source for professional locksmith services. Serving the entire Cary, NC area, their skilled technicians are ready to assist with a wide range of needs, from rekeying your home to handling emergency lockouts. They are committed to providing reliable, efficient solutions, giving you peace of mind with their expert craftsmanship and friendly service. Whether you need a new set of car keys or a complete security upgrade, Cary Fa",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/24346971/pexels-photo-24346971.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/24346971/pexels-photo-24346971.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-227",
@@ -2527,7 +2973,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-368-4068",
     "description": "Pat Dillon is an award winning and top producing agent serving Chapel Hill, Durham and the surrounding areas in the Triangle, NC. Pat also specializes in the real estate needs of Lake Hogan Farms, Southern Village, Lake Forest, Briar Chapel, Amberly, Churton Grove, and surrounding areas. Embodying authentic optimism, she brings a unique perspective to the home buying and selling journey, instilling a sense of security, trust, and confidence in her clients that she will walk this journey with the",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/28940577/pexels-photo-28940577.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/28940577/pexels-photo-28940577.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 24
   },
   {
     "id": "real-biz-228",
@@ -2537,7 +2985,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-355-4288",
     "description": "RDU TV Mounting & Audio Video specializes in the sales and installation of TVs, projectors, audio-video equipment, camera systems, smart home automation, and whole-home/business internet solutions. We design and deliver custom AV setups for both residential and commercial clients, including home theaters, media rooms, conference spaces, outdoor entertainment systems, and security camera installations.\n\nRecognized as North Carolina’s most trusted TV installer, we pride ourselves on outstanding cu",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7463021/pexels-photo-7463021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7463021/pexels-photo-7463021.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 166
   },
   {
     "id": "real-biz-229",
@@ -2547,7 +2997,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1646-858-9475",
     "description": "Diversity Security IT Solutions LLC offers professional security camera installation in Apex, NC, serving both residential and commercial clients. We specialize in designing and installing CCTV surveillance systems, access control solutions, and structured cabling to support reliable security and network performance. Our team also provides home automation services, helping you manage lighting, security, and connected devices with ease. Whether you need a new system or want to upgrade your existi",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29280895/pexels-photo-29280895.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29280895/pexels-photo-29280895.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 11
   },
   {
     "id": "real-biz-230",
@@ -2558,7 +3010,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-885-8558",
     "description": "Connesso is a home automation company that specializes in luxury smart home integration. We work with homeowners, builders and businesses to design connected living spaces. Services include structured wiring, lighting automation, security system installation, custom audio and home theaters, energy management solutions and more. Personalized and professional electronics installation that enhance comfort, convenience, aesthetics and security.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29291981/pexels-photo-29291981.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29291981/pexels-photo-29291981.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 13
   },
   {
     "id": "real-biz-231",
@@ -2569,7 +3023,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1941-348-3102",
     "description": "Professional And Expert Home Renovation Contractor\n\nWe are an experienced company specializing in home remodeling, renovation and repair, offering comprehensive services tailored to the needs of our clients. Our goal is to create durable, functional and aesthetically pleasing spaces that provide comfort and security for years to come.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5966513/pexels-photo-5966513.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5966513/pexels-photo-5966513.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 21
   },
   {
     "id": "real-biz-232",
@@ -2580,7 +3036,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-600-9364",
     "description": "We are the Triangle's premier commercial and residential window tinting company. With nearly 15 years of industry experience, our experts specialize in energy saving solar control, privacy, and safety/security options for your home and business.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-233",
@@ -2591,7 +3049,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-773-9400",
     "description": "When it comes to reducing risk, you need a solution customized to your organization's unique needs. Allied Universal® offers commercial security system installation service, home security camera system installation service, and advanced security systems installation services. With experience across industries, we help safeguard your people, assets, and reputation by leveraging trained security professionals, data, and cutting-edge technology to deploy smarter, more effective security programs.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/28454963/pexels-photo-28454963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/28454963/pexels-photo-28454963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-234",
@@ -2602,7 +3062,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-306-1230",
     "description": "Professional Customized Home & Business Security Systems Installers",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7508684/pexels-photo-7508684.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7508684/pexels-photo-7508684.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 15
   },
   {
     "id": "real-biz-235",
@@ -2613,7 +3075,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1910-463-9756",
     "description": "Piney Grove Storage is a Veteran-Owned storage facility offering clean, secure, and affordable climate-controlled storage units in Fuquay-Varina. Whether you’re moving, downsizing, or need extra space for your home or business, our modern facility keeps your belongings protected from heat, humidity, and weather all year long. Affordable prices and we don't hike your rates!\nWe provide easy drive-up access, spacious hallways, 24/7 security monitoring, online reservations, and friendly local servic",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/14596555/pexels-photo-14596555.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/14596555/pexels-photo-14596555.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 47
   },
   {
     "id": "real-biz-236",
@@ -2624,7 +3088,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-900-0525",
     "description": "Inspirational interiors from Lisa Rice, award-winning interior designer. Lisa combines her creativity with a process guaranteed to make your project run smoothly.\n\nWhile working with all types of clients, she has a fondness for working in the many active adult communities around Raleigh.\n\nWith her innate capacity for both design and organizational skills, Lisa offers a stress-free way to improve your home. Whether you have a new-build house you need to turn into a family home, or you are downsiz",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/29012619/pexels-photo-29012619.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/29012619/pexels-photo-29012619.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 19
   },
   {
     "id": "real-biz-237",
@@ -2634,7 +3100,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1857-707-8361",
     "description": "Interior design professional with 20+ years experience helping homeowners and developers turn confusing spaces into functional, beautiful living environments. Based in Raleigh, NC, I work with clients locally and remotely across the U.S.\n\nI specialize in:\n• Space planning & layout optimization\n• Kitchen & living area renovation design\n• Visual plans that solve real problems — not just pretty pictures\n\nStart with a message — no phone call needed. Clear steps, results you can trust.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-238",
@@ -2644,7 +3112,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-749-0177",
     "description": "Staging Solutions NC provides interior design, interior decorating, and home staging services in the Raleigh NC and surrounding areas. Staging Solutions NC also offers paint color consultations, furniture layout, room planning, room styling and decor, lighting, and more. Staging Solutions NC works with multiple contractors to offer a turn key service.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/18285958/pexels-photo-18285958.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/18285958/pexels-photo-18285958.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 12
   },
   {
     "id": "real-biz-239",
@@ -2655,7 +3125,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-225-9111",
     "description": "Award-Winning Interior Design Studio · Best of Cary 2024, 2025 & 2026 · Designing homes that hold every layer of who you are — your culture, your heritage, your partner's taste, your architecture — woven together so naturally it looks like it was always meant to be this way. Serving Cary, Raleigh, Durham, Chapel Hill and the greater Triangle area. Services include Signature Design Session, Designer By Your Side, Turn-Key Design and Design Clarity Session. Every project begins with one focused co",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 23
   },
   {
     "id": "real-biz-240",
@@ -2666,7 +3138,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-623-3298",
     "description": "Interior Design, Paint Consultation, Designer for a day, Space planning, Design plan, Occupied staging, Window treatments, Art selection, Lighting, Finishing Touches",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/27164969/pexels-photo-27164969.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/27164969/pexels-photo-27164969.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 14
   },
   {
     "id": "real-biz-241",
@@ -2677,7 +3151,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1305-393-4120",
     "description": "Commercial and residential Interior design needs.\nStaging seasonal and temporary ocasional display design.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/17947890/pexels-photo-17947890.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/17947890/pexels-photo-17947890.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 8
   },
   {
     "id": "real-biz-242",
@@ -2688,7 +3164,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1215-622-1946",
     "description": "asd | Andrea S Daniels Interior Design is committed to providing the best experience for homeowners, to go beyond the usual limits by doing something new, combined with an insistence that interior space should be timeless, enduring and have a lasting impression.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8089172/pexels-photo-8089172.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8089172/pexels-photo-8089172.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-243",
@@ -2699,7 +3177,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-618-2565",
     "description": "At Tranquil Designs LLC, we are an award-winning interior design and design-build firm creating thoughtfully designed, well-built residential and commercial spaces. Serving Raleigh, Wake Forest, and the greater Triangle area, we transform houses into homes and businesses into functional, inspiring environments. Led by Principal Designer Deri Washington, our team partners with clients from concept through completion—blending personal style, functionality, and quality craftsmanship to deliver spac",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/280239/pexels-photo-280239.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/280239/pexels-photo-280239.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 35
   },
   {
     "id": "real-biz-244",
@@ -2709,7 +3189,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1908-500-3432",
     "description": "Southern Fusion Design is an owner involved business located in Wake County, North Carolina specializing in Organization, Staging and Interior Design & Decor.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/36353282/pexels-photo-36353282.png?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/36353282/pexels-photo-36353282.png?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 19
   },
   {
     "id": "real-biz-245",
@@ -2720,7 +3202,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-809-1888",
     "description": "With over 30 years of experience in the business, Raleigh Design Associates is here to elevate your interior spaces and breathe new life into your brand. From healthcare facilities and schools to corporate offices and faith-based facilities, we're proud to be a top-rated firm for commercial interior design in Raleigh, NC. Whether you're planning a new professional space or freshening up an existing office, we work closely with our clients to understand their vision, budget, and needs. And with o",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/11296142/pexels-photo-11296142.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/11296142/pexels-photo-11296142.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-246",
@@ -2731,7 +3215,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-683-1084",
     "description": "BHDP is an award-winning, international design firm, recognized for innovative and inspiring solutions in architecture, planning, interior design, and experiential design to provide more informed design solutions for our clients. We serve seven markets: Workplace, Higher Education, Industrial, Discovery & Science, Healthcare, Community & Government, and Retail.\n\nOur purpose is to design environments that positively impact peoples’ behaviors to achieve results for our clients. We are committed to",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/1484981/pexels-photo-1484981.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/1484981/pexels-photo-1484981.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-247",
@@ -2742,7 +3228,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-833-5400",
     "description": "iS design specializes in corporate architecture and interior design. We have designed over 10 million square feet of class A office space, with individual projects ranging from 1,000 SF to 75,000 SF. Our focus is to provide personal attention and responsive solutions to our clients’ design and schedule requirements.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/2029682/pexels-photo-2029682.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/2029682/pexels-photo-2029682.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-248",
@@ -2753,7 +3241,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-817-4647",
     "description": "Vantage Therapy and Wellness provides couples therapy and relationship counseling in Raleigh, NC for high-functioning adults navigating relational distress, infidelity, attachment wounds, grief, and major life transitions. I work with individuals and couples who feel stuck in repeating patterns and want focused, forward-moving work. Services include marriage counseling, affair recovery, premarital counseling, divorce and coparenting adjustment, discernment counseling, and communication and confl",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6169013/pexels-photo-6169013.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6169013/pexels-photo-6169013.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-249",
@@ -2764,7 +3254,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-365-5194",
     "description": "Team of moving professionals offering full home moving and storage services.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9115461/pexels-photo-9115461.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9115461/pexels-photo-9115461.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 19
   },
   {
     "id": "real-biz-250",
@@ -2774,7 +3266,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-394-9404",
     "description": "Moving Made Easy Across the Triangle\n\nLooking for trusted local movers in Raleigh who treat your home like their own? We deliver premium residential moving services throughout Raleigh, Cary, Durham, Chapel Hill, and the greater Triangle area — on time, every time.\n\nOur experienced team handles every detail, from careful furniture disassembly to full-service Triangle packing services that keep your belongings safe and secure. Whether you're moving across the street or across the county, we bring ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6169660/pexels-photo-6169660.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6169660/pexels-photo-6169660.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 4
   },
   {
     "id": "real-biz-251",
@@ -2785,7 +3279,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-343-0545",
     "description": "Coastal Carrier Moving and Storage is a reputable moving company in Chapel Hill, NC. We are fully licensed, insured, and have an A+ rating with the Better Business Bureau. We follow a higher standard than most moving companies. For over 30 years, our professional staff has been relocating families throughout North Carolina.\nWe have extensive moving experience and can relocate you locally to a different neighborhood or across the country. Our moving services include residential moving, commercial",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6169676/pexels-photo-6169676.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6169676/pexels-photo-6169676.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 349
   },
   {
     "id": "real-biz-252",
@@ -2795,7 +3291,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1305-785-6210",
     "description": "We offer help moving and furniture assembly services, we are not a full service moving company, basically you pay for the labor of us packing and unpacking the truck that you rent and drive. Furniture assembly is Ikea,\nWayfair, Amazon, Walmart, etc put together furniture. We do some outdoor furniture. We also offer offer pickup and delivery services on my pickup truck or small moves on my pickup truck. We offer junk removal services on my pickup truck also.\n\nOur services are available in Durham,",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6170156/pexels-photo-6170156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6170156/pexels-photo-6170156.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 136
   },
   {
     "id": "real-biz-253",
@@ -2805,7 +3303,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-205-7588",
     "description": "Hinton Ventures Moving and Junk Removal offers affordable, hassle-free services for moving, furniture delivery, and junk removal. Our dedicated team prioritizes honesty, promptness, and reliability, providing efficient solutions for all your needs. Whether it's a one-bedroom residence, furniture/appliance delivery, event labor, or junk removal, we've got you covered. From packing/unpacking storage pods to hauling clutter, our services cater to all spaces. With over 10 years of experience, our te",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6169048/pexels-photo-6169048.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6169048/pexels-photo-6169048.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 107
   },
   {
     "id": "real-biz-254",
@@ -2816,7 +3316,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-346-4725",
     "description": "Hi, I’m Sandi D'Arezzo, owner of Hello Simplified Professional Organizing. We’re a team of professional organizers serving Raleigh and the surrounding Triangle area.\n\nWe specialize in home organizing, decluttering services, unpacking services, and complete home setup for clients navigating major life changes. Whether you're moving, welcoming a baby, downsizing, or transitioning into senior living, we help create calm, functional, and easy-to-maintain spaces.\n\nOur team handles the sorting, organi",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6646780/pexels-photo-6646780.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6646780/pexels-photo-6646780.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 53
   },
   {
     "id": "real-biz-255",
@@ -2826,7 +3328,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-741-0474",
     "description": "We provide several transportation services including:\nCourier\nMobile Notary\nPrivate Transportation (By appointment)\nHauling\nMoving\nErrands\nClean outs\nSpecial deliveries\n+ more! Contact us for your transportation needs!",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6699421/pexels-photo-6699421.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6699421/pexels-photo-6699421.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 2
   },
   {
     "id": "real-biz-256",
@@ -2837,7 +3341,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-900-8919",
     "description": "Dream City Bodyworks is a mobility-focused wellness studio specializing in assisted stretch therapy and therapeutic massage designed to help reduce tension, improve mobility, and keep your body moving the way it should. Our services are tailored for tight, stiff, and overworked bodies dealing with muscle tension, limited flexibility, and everyday physical stress. Through personalized care and a movement-based approach, we help clients move better, feel better, and recover with purpose. HSA/FSA b",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6169185/pexels-photo-6169185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6169185/pexels-photo-6169185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 276
   },
   {
     "id": "real-biz-257",
@@ -2847,7 +3353,9 @@ export const BUSINESSES: Business[] = [
     "address": "509 W North St, Raleigh, NC 27603",
     "description": "Legal Services for Startups & Entrepreneurs 🚀 Flat Rate Pricing💡Stellar Reviews 🙌🏼 B-Corp Certified ✨ Carbon Neutral 🌎 Woman-Owned ♀ Minority-Owned 👍🏽\n\nWhat's holding you back from moving forward with your next idea? Have you ever wanted to start your own company or side hustle but unsure about next steps? Do you already have a business but worry about the legal risks? You can't afford to wait. Liles Law is here! We help entrepreneurs sleep better at night with comprehensive legal service",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/33679977/pexels-photo-33679977.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/33679977/pexels-photo-33679977.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 136
   },
   {
     "id": "real-biz-258",
@@ -2858,7 +3366,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-930-8630",
     "description": "MovementX is the best way to see a trusted physical therapist at your home, at our CrossFit Angier clinic, or virtually so you can move healthy and live your best life.\n\nFinally—physical therapy in Fuquay Varina and Angier that’s easy, enjoyable, and effective.\n\nOur specialists work with people of all ages and abilities. Whether you're a young athlete recovering from surgery, a busy CrossFit athlete experiencing lower back pain, or an active older adult hoping to improve balance, we are here to ",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5025639/pexels-photo-5025639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5025639/pexels-photo-5025639.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 103
   },
   {
     "id": "real-biz-259",
@@ -2868,7 +3378,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1910-514-9254",
     "description": "Moving the Community forward 1 ride at a time. Providing concierge transportation at affordable prices. Delivering reliable, and cost saving transportation services. Any type of ground transportation request can be accommodated. Memberships offered, along with profile sheets option(s) to enhance your riding experience. \"Doing Transportation Right\".",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5933476/pexels-photo-5933476.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5933476/pexels-photo-5933476.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-260",
@@ -2879,7 +3391,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-362-8355",
     "description": "Are you looking for a Raleigh moving company? If you want a company that offers dependable and professional relocation services, it’s time to contact Movin’ On Movers. For nearly 40 years we have been providing the Triangle area with top of the line service, and are dedicated to continuing our sterling reputation.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7362917/pexels-photo-7362917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7362917/pexels-photo-7362917.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 4.9,
+    "reviewCount": 59
   },
   {
     "id": "real-biz-261",
@@ -2890,7 +3404,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-234-6599",
     "description": "Chain of art studios offering easy-to-follow painting classes for groups & individuals.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5583116/pexels-photo-5583116.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5583116/pexels-photo-5583116.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 247
   },
   {
     "id": "real-biz-262",
@@ -2900,7 +3416,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-349-6193",
     "description": "Wrangler Construction is a premier contracting and home remodeling company based in Raleigh, NC. We specialize in transforming homes with high-quality craftsmanship, personalized service, and attention to detail. Whether you're planning a minor renovation or a complete home makeover, we are committed to turning your vision into reality.\n\nWith over 12 years of experience in remodeling and the construction industry, we have a proven track record of delivering outstanding results. Our expertise spa",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5583126/pexels-photo-5583126.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5583126/pexels-photo-5583126.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-263",
@@ -2910,7 +3428,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-369-0878",
     "description": "At Next Level Painters, we bring color, creativity, and craftsmanship to every project. With a commitment to quality and attention to detail, we elevate the atmosphere of homes and businesses with precision painting services that stand the test of time.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/1669754/pexels-photo-1669754.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 44
   },
   {
     "id": "real-biz-264",
@@ -2921,7 +3441,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-606-2346",
     "description": "As a results oriented person, I specialize in marketing and sales. My strengths are analyzing and forecasting market trends and making data driven decisions. This is crucial for residential real estate as it gives clients peace of mind that they are making the right choice. I also have a fine art background with a focus on design, painting, and ceramics.\nI would love the opportunity to review your real estate needs and goals and help you make the best decision. I look forward to helping you with",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4792518/pexels-photo-4792518.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4792518/pexels-photo-4792518.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-265",
@@ -2931,7 +3453,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-753-4000",
     "description": "Salazar Painting & More is a family-owned business in the heart of Downtown Apex, proudly managed by Ana Carrillo and Jesus Salazar. We're dedicated to delivering exceptional workmanship, top-tier quality, and unparalleled customer service – all at affordable prices.\n\nAt Salazar Painting & More, we treat our customers like family. Your satisfaction is our priority, and we ensure every project is completed to perfection the first time around. Experience the difference of working with a locally ow",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/5493664/pexels-photo-5493664.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/5493664/pexels-photo-5493664.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 26
   },
   {
     "id": "real-biz-266",
@@ -2942,7 +3466,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-376-6025",
     "description": "Accu Painters of NC, LLC provides commercial and residential interior and exterior painting services, along with kitchen and bathroom remodeling, to the The Triangle and the surrounding areas.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/6474482/pexels-photo-6474482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/6474482/pexels-photo-6474482.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 7
   },
   {
     "id": "real-biz-267",
@@ -2953,7 +3479,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-552-2689",
     "description": "Painting is a big job. From picking the perfect paint to taping and adding coat after coat to the walls, you probably wish you’d hired a professional halfway through the job. The next time you want to paint your home’s exterior or interior, leave the dirty work to us here at Prep-Rite Painting! We’re the Cary, North Carolina area’s top choice for professional painting because we’re extremely thorough, we completely clean up after we’re done painting, and we treat all of our customers like friend",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7509763/pexels-photo-7509763.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7509763/pexels-photo-7509763.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 9
   },
   {
     "id": "real-biz-268",
@@ -2963,7 +3491,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-402-6420",
     "description": "Bull City Home Improvement can complete any improvements that need to be done to your home! Bull City home Improvement does: Maintenance & Handyman Work, Painting, Flooring, Drywalling, Pressure Washing, Trim Carpentry, Decks, etc. Owned by a Durham native, Wesley Holt, and services all of the Triangle and surrounding areas. Please contact 919-402-6420 for more information and a free quote.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/7218029/pexels-photo-7218029.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/7218029/pexels-photo-7218029.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 14
   },
   {
     "id": "real-biz-269",
@@ -2973,7 +3503,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-389-3212",
     "description": "OCD Painting Services is a Family-Owned North Carolina Company Proudly Serving: Fuquay-Varina, Angier, Lillington, Garner, Holly Springs, Willow Spring, Apex. We offer professional services such as residential interior painting, cabinet refinishing, popcorn ceiling removal, deck refinishing, garage floor epoxy, and much more. Friendly, reliable, and local.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/9222200/pexels-photo-9222200.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/9222200/pexels-photo-9222200.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 5
   },
   {
     "id": "real-biz-270",
@@ -2984,7 +3516,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-252-3649",
     "description": "Sullivan Pest Control Service in Raleigh, NC, offers comprehensive pest management solutions for urban and suburban properties. Our licensed exterminators specialize in eliminating ants, termites, bed bugs, and rodents using effective, eco-friendly methods. We provide integrated pest prevention strategies, including seasonal treatments and humane wildlife exclusion. With expertise in North Carolina's diverse insect populations, we ensure thorough eradication and long-lasting protection. Our Rale",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/19789841/pexels-photo-19789841.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/19789841/pexels-photo-19789841.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1
   },
   {
     "id": "real-biz-271",
@@ -2995,7 +3529,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1800-705-9253",
     "description": "Target Specialty Products provides pest management supplies, pest application equipment, and professional pest training programs to Pest Management Professionals (PMPs) in Raleigh, NC. As a wholesale insecticide supplier, our goal is to provide PMPs with the products to control termites, bed bugs, rodents, ants, birds, and more. Target also offers commercial turf and ornamental products for golf and sports turf; arbor, landscape, and lawn care; nursery and greenhouses; and industrial and aquatic",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/38190067/pexels-photo-38190067.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/38190067/pexels-photo-38190067.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 18
   },
   {
     "id": "real-biz-272",
@@ -3006,7 +3542,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-769-6779",
     "description": "At A1 Bed Bug Exterminator Raleigh, a reputable pest control service located in the heart of Raleigh, we have proudly made our services accessible to the entire Raleigh area. Equipped with trained technicians, cutting-edge technology, and a genuine concern for our customers, we dedicate ourselves to eliminating bed bug infestations from your living spaces, ensuring a peaceful and bed bug-free home for you and your family.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/36752203/pexels-photo-36752203.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/36752203/pexels-photo-36752203.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 13
   },
   {
     "id": "real-biz-273",
@@ -3017,7 +3555,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-213-9949",
     "description": "A hospitality-led property management company in Raleigh, North Carolina, JVM Property manages residential spaces across Wake County. Balancing the needs of both residents and property owners, we promise a positive experience for all.\n\nProviding all-inclusive management, JVM Property ensures each home is well-cared for through services such as lawn care, pest control, and air-filter replacement at no additional cost to owners or residents.\n\nOur management at JVM Property is built to protect your",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/19789837/pexels-photo-19789837.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/19789837/pexels-photo-19789837.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 6
   },
   {
     "id": "real-biz-274",
@@ -3028,7 +3568,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-568-5113",
     "description": "Kind Pest Control is Cary's trusted eco-friendly pest control company, locally owned and serving Wake County homeowners searching for pest control near them. EPA-registered treatments for termites, mosquitoes, ants, cockroaches, rodents, and more. 2,100+ five-star reviews. Satisfaction guarantee. Call (919) 568-5113.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1580
   },
   {
     "id": "real-biz-275",
@@ -3039,7 +3581,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-618-0658",
     "description": "Professional nuisance wildlife removal and pest control service. We specializing in full home exclusions to prevent entry from Bats, Squirrels, Birds, Raccoons, and more.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4894608/pexels-photo-4894608.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4894608/pexels-photo-4894608.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 28
   },
   {
     "id": "real-biz-276",
@@ -3049,7 +3593,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-200-6222",
     "description": "Protekt Pest Solutions is your trusted partner for professional pest control services in Wake, Johnston, Durham, Orange, Franklin, Vance, Granville, Harnett, Lee, and Chatham Counties. We specialize in providing effective pest management solutions for both residential and commercial customers, ensuring a pest-free environment tailored to your needs.\n\nFrom comprehensive inspections to targeted treatments, our experienced team handles a variety of pests, including ants, termites, rodents, spiders,",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/26872245/pexels-photo-26872245.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/26872245/pexels-photo-26872245.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 43
   },
   {
     "id": "real-biz-277",
@@ -3060,7 +3606,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-909-3659",
     "description": "Pest Control Services - Environmentally safe and effective pest control solutions for Wake Country & the Triangle Area.\n\nLicensed Wildlife Removal & Control Expert - North Caroina Wildlife Certification W.D.C.A. Termite Control - Protect your investment - You are 100x more likely to get structural damage from termites than from a fire or flood. Moisture Control & Crawl Space Solutions - If your crawl space isn't healthy then your whole house isn't healthy. Professional Insect and Ant Control For",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/8533069/pexels-photo-8533069.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/8533069/pexels-photo-8533069.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 24
   },
   {
     "id": "real-biz-278",
@@ -3082,7 +3630,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-299-6595",
     "description": "ClearDefense Pest Control, located at 171 Tradition Trail Suite 307 in Holly Springs, NC, is your top-rated exterminator for eco-friendly pest solutions in Holly Springs, Apex, Cary, and beyond. Our unique formula targets pests while remaining safe for people, pets, and the environment. Our expert team uses precision techniques to create strong protective barriers, reducing the need for frequent visits and saving you money. Trusted by the community and backed by a 5.0-star rating from hundreds o",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4176549/pexels-photo-4176549.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4176549/pexels-photo-4176549.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 1075
   },
   {
     "id": "real-biz-280",
@@ -3093,7 +3643,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1984-225-0037",
     "description": "We are a pest control service working out of Fuquay-Varina, NC and we're ready to help you take your home back from unwanted pests. If left unattended pests can damage your home, spread disease, and pose a variety of other hazards. Protect your home with reliable and affordable pest control, bed bug removal, and mosquitos removal courtesy of your local experts.",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/4975360/pexels-photo-4975360.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/4975360/pexels-photo-4975360.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 64
   },
   {
     "id": "real-biz-281",
@@ -3104,7 +3656,9 @@ export const BUSINESSES: Business[] = [
     "phone": "+1919-557-0999",
     "description": "Saber Exterminating is Veteran, Family owned & operated with over 20 years of experience in & around Fuquay-Varina, NC. We are fully licensed & insured & offer free initial evaluations. We offer competitive rates with unparalleled service. In addition to our pest control services, we provide the following services: Light hauling; Clean out of crawl spaces; Insulation removal & replacement; Snake Away treatments; Structural repairs related to insect damage; Installation of moisture barriers, foun",
     "isProspective": true,
-    "coverImageUrl": "https://images.pexels.com/photos/18816918/pexels-photo-18816918.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+    "coverImageUrl": "https://images.pexels.com/photos/18816918/pexels-photo-18816918.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    "rating": 5,
+    "reviewCount": 33
   },
   {
     "id": "real-biz-282",
