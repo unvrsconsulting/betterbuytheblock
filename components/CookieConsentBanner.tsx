@@ -46,7 +46,7 @@ const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onViewPrivacy
         <p className="text-sm flex items-start sm:items-center gap-2">
           <Cookie className="w-4 h-4 shrink-0 mt-0.5 sm:mt-0 text-gray-400" />
           <span>
-            Your profile is always saved only in this browser's local storage — no cookies. We'd also like to use analytics (Google Tag Manager) to see how the site's used; it only loads if you accept.{' '}
+            We use analytics to improve your experience.{' '}
             <button onClick={onViewPrivacyPolicy} className="underline hover:text-white transition-colors">
               Privacy Policy
             </button>
