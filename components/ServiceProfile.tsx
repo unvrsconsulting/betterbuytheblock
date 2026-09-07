@@ -16,7 +16,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What if the deal doesn't unlock before it expires?",
-    a: "If not enough neighbors join in time, the deal simply expires and nothing is charged — joining doesn't commit you to payment up front."
+    a: "If not enough neighbors join in time, the deal simply expires and nothing is charged - joining doesn't commit you to payment up front."
   },
   {
     q: "Can I leave a deal after joining?",
@@ -212,7 +212,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                     <ProgressBar current={service.currentSignups || 0} total={service.requiredSignups || 1} />
                     <p className="text-center text-xs text-gray-500 mt-3">
                       {isGoalMet
-                        ? (isClosed ? "Deal unlocked — signups are now closed." : "Deal unlocked! You can still join.")
+                        ? (isClosed ? "Deal unlocked - signups are now closed." : "Deal unlocked! You can still join.")
                         : `Only ${(service.requiredSignups || 1) - (service.currentSignups || 0)} more needed to unlock!`}
                     </p>
                   </div>
@@ -221,7 +221,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                     isClosed ? (
                       <div className="mb-4 flex items-center justify-center text-gray-600 font-bold bg-gray-100 p-3 rounded-xl border border-gray-200">
                         <CheckCircle className="w-5 h-5 mr-2" />
-                        Deal Unlocked — Signups Closed
+                        Deal Unlocked - Signups Closed
                       </div>
                     ) : (
                       <div className="mb-4 flex items-center justify-center text-green-700 font-bold bg-green-50 p-3 rounded-xl border border-green-200">
@@ -308,7 +308,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
 
                   {service.isProspective && !isSignedUp && (
                     <p className="text-xs text-center text-gray-500 mt-4">
-                      {business.name} hasn't joined BetterByTheBlock yet — this is a proposed deal, not a live offer. Requesting it tells us (and them) there's real demand in your neighborhood.
+                      {business.name} hasn't joined BetterByTheBlock yet - this is a proposed deal, not a live offer. Requesting it tells us (and them) there's real demand in your neighborhood.
                     </p>
                   )}
 
@@ -337,7 +337,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                   </div>
                   <p className="text-sm text-gray-700 italic leading-relaxed line-clamp-4 mb-3">"{featuredReview.text}"</p>
                   <p className="text-xs font-bold text-gray-900">
-                    — {featuredReview.userName}{featuredReview.isVerifiedNeighbor ? ', Verified Neighbor' : ''}
+ - {featuredReview.userName}{featuredReview.isVerifiedNeighbor ? ', Verified Neighbor' : ''}
                   </p>
                 </div>
               </div>
@@ -432,7 +432,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                   <span className="font-bold text-gray-900 text-lg">{Number(business.rating).toFixed(1)}</span>
                 </div>
                 <p className="text-gray-500 text-sm mb-1">{business.reviewCount || 0} Google review{(business.reviewCount || 0) === 1 ? '' : 's'}</p>
-                <p className="text-gray-500">No written reviews on BetterByTheBlock yet — the rating above is {business.name}'s public Google rating.</p>
+                <p className="text-gray-500">No written reviews on BetterByTheBlock yet - the rating above is {business.name}'s public Google rating.</p>
               </>
             ) : (
               <p className="text-gray-500">No reviews yet.</p>

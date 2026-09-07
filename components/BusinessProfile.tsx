@@ -169,7 +169,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
       q: `Does ${business.name} offer free estimates?`,
       a: business.amenities?.includes('Free Estimates')
         ? `Yes, ${business.name} offers free estimates.`
-        : `${business.name} hasn't listed free estimates on their profile — ask them directly when requesting a deal.`,
+        : `${business.name} hasn't listed free estimates on their profile - ask them directly when requesting a deal.`,
     },
     {
       q: `Is ${business.name} licensed?`,
@@ -181,7 +181,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
       q: `Are warranties offered by ${business.name}?`,
       a: business.amenities?.includes('Warranty Included')
         ? `Yes, ${business.name} includes a warranty on their work.`
-        : `${business.name} hasn't listed warranty information on their profile — ask them directly when requesting a deal.`,
+        : `${business.name} hasn't listed warranty information on their profile - ask them directly when requesting a deal.`,
     },
   ];
 
@@ -246,7 +246,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
               </div>
               {business.isProspective && (
                 <p className="text-sm text-gray-500 mb-4 max-w-xl">
-                  This is a real Wake County business we found in this category — they haven't joined BetterByTheBlock yet. The deal below is a proposal, not something they've offered. Request it to help bring them here.
+                  This is a real Wake County business we found in this category - they haven't joined BetterByTheBlock yet. The deal below is a proposal, not something they've offered. Request it to help bring them here.
                 </p>
               )}
               {(business.highlights?.length || 0) > 0 && (
@@ -295,7 +295,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
               {business.isLicensed && (
                 <div className="flex items-center gap-3 text-gray-600">
                   <ShieldCheck className="w-5 h-5 text-gray-500 shrink-0" />
-                  <span>Licensed{business.licenseNumber ? ` — ${business.licenseNumber}` : ''}</span>
+                  <span>Licensed{business.licenseNumber ? ` - ${business.licenseNumber}` : ''}</span>
                 </div>
               )}
               {business.googleBusinessUrl && (
@@ -556,7 +556,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
             <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-200">
               <p className="text-gray-500">
                 {googleReviewCount > 0
-                  ? `No written reviews on BetterByTheBlock yet — the rating above is ${business.name}'s public Google rating.`
+                  ? `No written reviews on BetterByTheBlock yet - the rating above is ${business.name}'s public Google rating.`
                   : 'No reviews yet.'}
               </p>
             </div>

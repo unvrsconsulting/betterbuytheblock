@@ -72,13 +72,10 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChan
         >
           {!compact && (
             <>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
                 Wake County Home Services <br className="hidden md:block" />
                 <span className="text-primary-400">at Discounted Rates</span>
               </h1>
-              <p className="text-base md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
-                Search for services in your neighborhood
-              </p>
             </>
           )}
 

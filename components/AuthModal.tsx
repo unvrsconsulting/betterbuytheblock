@@ -131,7 +131,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                 {isLogin ? 'Welcome Back' : accountType === 'business' ? 'List Your Business' : 'Join the Neighborhood'}
               </h2>
               <p className="text-xs text-gray-500 text-center mb-6">
-                Free local profile — stored only in this browser, no password needed.
+                Free local profile - stored only in this browser, no password needed.
               </p>
 
               {error && (

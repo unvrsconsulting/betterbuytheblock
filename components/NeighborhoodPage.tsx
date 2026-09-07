@@ -67,7 +67,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
           <p className="text-gray-600 max-w-xl">
             {neighborhoodServices.length > 0
               ? `${neighborhoodServices.length} active neighborhood deal${neighborhoodServices.length === 1 ? '' : 's'} available in ${neighborhood.name}.`
-              : `No deals in ${neighborhood.name} yet — check back soon, or request one from a business you like.`}
+              : `No deals in ${neighborhood.name} yet - check back soon, or request one from a business you like.`}
           </p>
         </div>
         {neighborhood.lat != null && neighborhood.lng != null && (

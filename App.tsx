@@ -110,7 +110,7 @@ const SEASONS = [
     label: 'Winter',
     months: [11, 0, 1],
     headline: 'Get Ready for a Raleigh Winter',
-    blurb: 'Occasional freezes and ice storms put a strain on heating systems and pipes — these are the services Wake County neighbors need most right now.',
+    blurb: 'Occasional freezes and ice storms put a strain on heating systems and pipes - these are the services Wake County neighbors need most right now.',
     categories: ['HVAC Maintenance', 'Plumbing', 'Gutter Cleaning', 'Home Security'],
   },
   {
@@ -124,7 +124,7 @@ const SEASONS = [
     label: 'Summer',
     months: [5, 6, 7],
     headline: 'Beat the Raleigh Heat',
-    blurb: "Triple-digit heat index days keep AC units running nonstop and bring out mosquitoes — here's what neighbors are booking right now.",
+    blurb: "Triple-digit heat index days keep AC units running nonstop and bring out mosquitoes - here's what neighbors are booking right now.",
     categories: ['HVAC Maintenance', 'Pool Maintenance', 'Pest Control', 'Lawn Service', 'Power Washing'],
   },
   {
@@ -146,8 +146,8 @@ const COST_GUIDES = [
     type: 'Cost Guide',
     body: [
       "Furnace pricing varies widely based on a handful of factors: fuel type (gas, electric, or oil), the unit's efficiency rating (AFUE), the square footage it needs to heat, and your home's existing ductwork. A straight swap into an existing setup is almost always cheaper than a job that requires new ducting, electrical work, or venting changes.",
-      "High-efficiency units cost more upfront but use less fuel over the life of the system — in colder climates that difference adds up faster than in milder ones, so it's worth asking an installer to estimate the payback period for your specific home rather than assuming a higher efficiency rating is always worth the premium.",
-      "Because pricing depends so much on your specific home, get at least two or three written quotes before committing. This is exactly the kind of project where a neighborhood bulk deal helps — when several neighbors need similar work at the same time, contractors can often offer a better rate than they would for a single one-off job.",
+      "High-efficiency units cost more upfront but use less fuel over the life of the system - in colder climates that difference adds up faster than in milder ones, so it's worth asking an installer to estimate the payback period for your specific home rather than assuming a higher efficiency rating is always worth the premium.",
+      "Because pricing depends so much on your specific home, get at least two or three written quotes before committing. This is exactly the kind of project where a neighborhood bulk deal helps - when several neighbors need similar work at the same time, contractors can often offer a better rate than they would for a single one-off job.",
     ],
   },
   {
@@ -158,9 +158,9 @@ const COST_GUIDES = [
     image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=500&auto=format&fit=crop',
     type: 'Cost Guide',
     body: [
-      "Pest control pricing depends mainly on the type of pest, the size of your home, and whether you need a one-time treatment or an ongoing quarterly plan — termite and wildlife issues typically cost more to address than routine ant or roach treatments.",
+      "Pest control pricing depends mainly on the type of pest, the size of your home, and whether you need a one-time treatment or an ongoing quarterly plan - termite and wildlife issues typically cost more to address than routine ant or roach treatments.",
       "In Wake County's warm, humid climate, pests stay active almost year-round rather than dying off in winter, which is why many neighbors opt for a standing quarterly plan instead of paying for one-off visits every time something turns up.",
-      "Because nearby homes often share the same pest pressure — a termite colony or ant trail rarely respects property lines — this is a great fit for group pricing — a technician already treating one house can frequently service several homes on the same street for less than the cost of separate visits.",
+      "Because nearby homes often share the same pest pressure - a termite colony or ant trail rarely respects property lines - this is a great fit for group pricing - a technician already treating one house can frequently service several homes on the same street for less than the cost of separate visits.",
     ],
   },
   {
@@ -173,7 +173,7 @@ const COST_GUIDES = [
     body: [
       "Insulation cost is driven mostly by material type (fiberglass batts, blown-in cellulose, or spray foam), the area being insulated (attic, walls, or crawl space), and how easy that area is to access. Spray foam typically costs more per square foot than batts or blown-in insulation but seals gaps that the others can't.",
       "Attics are usually the most cost-effective place to start, since heat loss through an under-insulated attic tends to have an outsized effect on comfort and energy bills compared to other parts of the house.",
-      "Ask any contractor you're considering for the R-value they're proposing and why — the right R-value depends on your climate zone, and a reputable installer should be able to explain the recommendation rather than just quoting a flat price.",
+      "Ask any contractor you're considering for the R-value they're proposing and why - the right R-value depends on your climate zone, and a reputable installer should be able to explain the recommendation rather than just quoting a flat price.",
     ],
   },
   {
@@ -186,7 +186,7 @@ const COST_GUIDES = [
     body: [
       "Spring is the natural checkpoint after a winter of freeze-thaw cycles, so it's worth walking the outside of your home for cracked caulking, loose gutters, and any shingles that shifted during storms.",
       "A short seasonal checklist: clean gutters and downspouts, inspect the roof for damage, check exterior faucets for leaks after the last freeze, service your HVAC system before the cooling season starts, and look over your deck or fence for wood that needs resealing.",
-      "Many of these are quick jobs for a professional but tedious to schedule one at a time — if a few neighbors need the same gutter cleaning or HVAC tune-up, bundling those requests into a single neighborhood deal usually gets everyone a better rate than booking separately.",
+      "Many of these are quick jobs for a professional but tedious to schedule one at a time - if a few neighbors need the same gutter cleaning or HVAC tune-up, bundling those requests into a single neighborhood deal usually gets everyone a better rate than booking separately.",
     ],
   },
   {
@@ -491,7 +491,7 @@ const App: React.FC = () => {
   // on screen, instead of every view sharing index.html's static tags.
   useEffect(() => {
     const DEFAULT_TITLE = 'BetterByTheBlock | Wake County Home Services at Discounted Rates';
-    const DEFAULT_DESCRIPTION = 'Get bulk-pricing deals on home services across Wake County, NC. Join with your neighbors to unlock group discounts on cleaning, lawn care, HVAC, and more — free for local businesses to list.';
+    const DEFAULT_DESCRIPTION = 'Get bulk-pricing deals on home services across Wake County, NC. Join with your neighbors to unlock group discounts on cleaning, lawn care, HVAC, and more - free for local businesses to list.';
 
     let title = DEFAULT_TITLE;
     let description = DEFAULT_DESCRIPTION;
@@ -512,13 +512,13 @@ const App: React.FC = () => {
       const business = businesses.find(b => b.id === selectedBusinessId);
       if (business) {
         title = `${business.name} | BetterByTheBlock`;
-        description = (business.description || `${business.name} on BetterByTheBlock — ${business.category || 'home services'} in Wake County, NC.`).slice(0, 160);
+        description = (business.description || `${business.name} on BetterByTheBlock - ${business.category || 'home services'} in Wake County, NC.`).slice(0, 160);
       }
     } else if (view === 'serviceProfile' && selectedServiceId) {
       const service = services.find(s => s.id === selectedServiceId) || searchResults.find(s => s.id === selectedServiceId);
       if (service) {
         title = `${service.title} | BetterByTheBlock`;
-        description = (service.description || `${service.title} — a neighborhood bulk-pricing deal on BetterByTheBlock.`).slice(0, 160);
+        description = (service.description || `${service.title} - a neighborhood bulk-pricing deal on BetterByTheBlock.`).slice(0, 160);
       }
     } else if (view === 'neighborhood' && selectedNeighborhoodPageId) {
       const n = neighborhoods.find(nb => nb.id === selectedNeighborhoodPageId);
@@ -748,7 +748,7 @@ const App: React.FC = () => {
     if (!currentUser) return;
     if (honeypot) return; // bot filled the hidden field — silently drop
     if (isRateLimited(`dealRequest_${currentUser.id}`, 15000)) {
-      alert("You're submitting requests too quickly — please wait a moment and try again.");
+      alert("You're submitting requests too quickly - please wait a moment and try again.");
       return;
     }
     const newRequest: DealRequest = {
@@ -832,7 +832,7 @@ const App: React.FC = () => {
   const handleAddReview = (businessId: string, rating: number, text: string) => {
     if (!currentUser) return;
     if (isRateLimited(`review_${currentUser.id}_${businessId}`, 30000)) {
-      alert("You're posting too quickly — please wait a moment before submitting another review.");
+      alert("You're posting too quickly - please wait a moment before submitting another review.");
       return;
     }
     // "Verified Neighbor" means the reviewer actually lives in one of the
@@ -1403,7 +1403,7 @@ const App: React.FC = () => {
                       <Users className="w-5 h-5" />
                     </div>
                     <h3 className="font-bold text-gray-900 mb-1">Join with your neighbors</h3>
-                    <p className="text-gray-500 text-sm">Every deal unlocks once enough neighbors join — the more, the cheaper.</p>
+                    <p className="text-gray-500 text-sm">Every deal unlocks once enough neighbors join - the more, the cheaper.</p>
                   </div>
                   <div className="text-center">
                     <div className="w-12 h-12 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -1430,7 +1430,7 @@ const App: React.FC = () => {
                   </div>
                 ) : (
                   <div className="border-t border-gray-200 pt-6 text-center">
-                    <p className="text-gray-700 font-semibold mb-3">We're just launching in Wake County — be one of the first businesses listed, free.</p>
+                    <p className="text-gray-700 font-semibold mb-3">We're just launching in Wake County - be one of the first businesses listed, free.</p>
                     <Button onClick={handleListBusinessClick}>List Your Business Free</Button>
                   </div>
                 )}
@@ -1440,7 +1440,7 @@ const App: React.FC = () => {
               <section>
                 <div className="mb-6">
                   <h2 className="text-2xl font-bold text-gray-900">See What a Deal Could Look Like</h2>
-                  <p className="text-gray-500 text-sm mt-1">No businesses in your neighborhood yet — here's the kind of bulk-pricing deal you could unlock once one joins. Want one for real? Request it below.</p>
+                  <p className="text-gray-500 text-sm mt-1">No businesses in your neighborhood yet - here's the kind of bulk-pricing deal you could unlock once one joins. Want one for real? Request it below.</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {EXAMPLE_DEALS.map((deal) => {
@@ -1533,7 +1533,7 @@ const App: React.FC = () => {
                                 ))}
                               </div>
                               <p className="text-sm text-gray-600 italic line-clamp-3">"{testimonial.text}"</p>
-                              <p className="text-xs text-gray-500 mt-2 font-medium">— {testimonial.userName}{testimonial.isVerifiedNeighbor ? ', Verified Neighbor' : ''}</p>
+                              <p className="text-xs text-gray-500 mt-2 font-medium"> - {testimonial.userName}{testimonial.isVerifiedNeighbor ? ', Verified Neighbor' : ''}</p>
                             </div>
                           )}
                         </div>
@@ -2109,7 +2109,7 @@ const App: React.FC = () => {
                   }
 
                   if (isRateLimited(`createDeal_${currentUser.businessId}`, 5000)) {
-                    alert("You're creating deals too quickly — please wait a moment and try again.");
+                    alert("You're creating deals too quickly - please wait a moment and try again.");
                     return;
                   }
                   const newService: Service = {
@@ -2299,13 +2299,13 @@ const App: React.FC = () => {
                   <p>Every deal lists a "required signups" number. Once that many neighbors join, the deal unlocks and the discounted price is confirmed with the business. You can usually still join a deal after it unlocks, right up until it expires.</p>
 
                   <h3>What happens after I join a deal?</h3>
-                  <p>You're not charged anything by joining — this demo doesn't process payments. Joining signals real interest and helps unlock the group discount; you'd coordinate scheduling and payment directly with the business once a deal is confirmed.</p>
+                  <p>You're not charged anything by joining - this demo doesn't process payments. Joining signals real interest and helps unlock the group discount; you'd coordinate scheduling and payment directly with the business once a deal is confirmed.</p>
 
                   <h3>What if the exact service I need isn't listed?</h3>
                   <p>Use "Request a Deal" from your neighborhood's results page, or the request button on a specific business's profile. That sends your request straight to the business (or, for a general request, broadcasts it) so they know there's local demand.</p>
 
                   <h3>How do neighborhoods work?</h3>
-                  <p>Every neighborhood in the search is a real, named subdivision in Wake County, NC — not a made-up region. Businesses choose which neighborhoods they want to offer a deal in, and deals only show up for residents of those neighborhoods.</p>
+                  <p>Every neighborhood in the search is a real, named subdivision in Wake County, NC - not a made-up region. Businesses choose which neighborhoods they want to offer a deal in, and deals only show up for residents of those neighborhoods.</p>
 
                   <h3>What are Connections?</h3>
                   <p>Share your connection code with actual neighbors so you can see each other's names (instead of "Neighbor") when you both join the same deal, and see who among your connections has already signed up.</p>
@@ -2318,7 +2318,7 @@ const App: React.FC = () => {
               title="Contact us"
               content={
                 <>
-                  <p>This is a local demo build of BetterByTheBlock — there's no live support team behind it yet. If this were a production product, this page would list a real support email and response-time expectations.</p>
+                  <p>This is a local demo build of BetterByTheBlock - there's no live support team behind it yet. If this were a production product, this page would list a real support email and response-time expectations.</p>
                   <p>For now, any account issues can be resolved by clearing this browser's local storage and signing up again, since all data lives only in this browser.</p>
                 </>
               }
@@ -2338,10 +2338,10 @@ const App: React.FC = () => {
                   <p>BetterByTheBlock does not process payments. "Joining" a deal or "requesting" a deal does not charge you anything and is not a contract with the business. Any actual service, scheduling, and payment happens directly between you and the business, entirely off this platform.</p>
 
                   <h3>Deals from businesses not yet on the platform</h3>
-                  <p>Many businesses shown on this site are real, independently-operated Wake County businesses we've identified as likely to offer the listed category of service — they have not yet joined BetterByTheBlock or agreed to any specific deal shown. These are marked "Not yet a confirmed partner," and the pricing shown for them is a proposal, not a rate the business has committed to. Requesting one of these deals sends the business a signal of real neighborhood demand; it does not create any obligation on their part.</p>
+                  <p>Many businesses shown on this site are real, independently-operated Wake County businesses we've identified as likely to offer the listed category of service - they have not yet joined BetterByTheBlock or agreed to any specific deal shown. These are marked "Not yet a confirmed partner," and the pricing shown for them is a proposal, not a rate the business has committed to. Requesting one of these deals sends the business a signal of real neighborhood demand; it does not create any obligation on their part.</p>
 
                   <h3>Accounts</h3>
-                  <p>A BetterByTheBlock profile is stored only in your browser's local storage — there is no password and no server-side account. Clearing your browser data, or switching browsers or devices, will lose your profile and history with no way to recover it.</p>
+                  <p>A BetterByTheBlock profile is stored only in your browser's local storage - there is no password and no server-side account. Clearing your browser data, or switching browsers or devices, will lose your profile and history with no way to recover it.</p>
 
                   <h3>Acceptable use</h3>
                   <p>Don't submit false, abusive, or spam requests; don't attempt to interfere with the site's operation or scrape it at scale; don't misrepresent who you are when contacting a business through this site.</p>
@@ -2366,17 +2366,17 @@ const App: React.FC = () => {
                   <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
 
                   <h3>What we store, and where</h3>
-                  <p>Your BetterByTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently — we have no copy and no way to recover it.</p>
+                  <p>Your BetterByTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently - we have no copy and no way to recover it.</p>
 
                   <h3>What actually gets sent to us</h3>
                   <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), the service name, your description, your display name, and your neighborhood/city are sent to our server and stored so we can see real demand and reach out to businesses. This is the only visitor data that leaves your browser during normal use.</p>
-                  <p>If you use the AI deal-request assistant, the text you type and the business's name are sent to Google's Gemini API to generate a draft message. That's a direct request to Google's API from our server — we don't separately store what you typed for this feature.</p>
+                  <p>If you use the AI deal-request assistant, the text you type and the business's name are sent to Google's Gemini API to generate a draft message. That's a direct request to Google's API from our server - we don't separately store what you typed for this feature.</p>
 
                   <h3>Business data</h3>
                   <p>Business names, categories, addresses, phone numbers, descriptions, and ratings shown on this site come from each business's own public listing information (via a third-party business-data API), not from anything a visitor submits. Photos shown are real stock photography, not photos of the specific business's actual work.</p>
 
                   <h3>Cookies and tracking</h3>
-                  <p>Your profile and preferences use local storage, not cookies, and that always happens (it's how the site remembers you between visits). Separately, we use Google Tag Manager to understand how the site's being used — that only loads if you accept it in the notice shown on your first visit; declining keeps it off for that browser. We don't run advertising trackers. Our hosting provider may also log standard technical request information (like IP address and browser type) as part of normal web server operation.</p>
+                  <p>Your profile and preferences use local storage, not cookies, and that always happens (it's how the site remembers you between visits). Separately, we use Google Tag Manager to understand how the site's being used - that only loads if you accept it in the notice shown on your first visit; declining keeps it off for that browser. We don't run advertising trackers. Our hosting provider may also log standard technical request information (like IP address and browser type) as part of normal web server operation.</p>
 
                   <h3>No payment data</h3>
                   <p>We don't process payments and never collect card or bank information.</p>

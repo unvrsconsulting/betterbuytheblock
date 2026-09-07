@@ -171,7 +171,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
       img.onload = () => {
         if (img.naturalWidth < MIN_IMAGE_WIDTH || img.naturalHeight < MIN_IMAGE_HEIGHT) {
           setImageError(
-            `Image is ${img.naturalWidth}×${img.naturalHeight}px — minimum required is ${MIN_IMAGE_WIDTH}×${MIN_IMAGE_HEIGHT}px.`
+            `Image is ${img.naturalWidth}×${img.naturalHeight}px - minimum required is ${MIN_IMAGE_WIDTH}×${MIN_IMAGE_HEIGHT}px.`
           );
           setIsUploadingImage(false);
           return;
@@ -650,7 +650,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
               {cityFilter !== 'All Cities' && cityStats[cityFilter] && (
                 <div className="p-3 bg-gray-50 rounded-xl border border-gray-200">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-2">
-                    {cityFilter} — real Wake County property records
+                    {cityFilter} - real Wake County property records
                   </p>
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>
@@ -683,7 +683,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${isDrawMode ? 'bg-primary-50 border-primary text-primary-700' : 'border-gray-300 text-gray-700 hover:bg-gray-50'}`}
               >
                 <Pencil className="w-4 h-4" />
-                {isDrawMode ? 'Drawing on map — click to place area' : 'Draw a service area on the map'}
+                {isDrawMode ? 'Drawing on map - click to place area' : 'Draw a service area on the map'}
               </button>
 
               <label className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer transition-colors">
@@ -819,7 +819,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
               </div>
               {hiddenSelectedCount > 0 && (
                 <p className="text-xs text-gray-500">
-                  +{hiddenSelectedCount} more selected neighborhood{hiddenSelectedCount === 1 ? '' : 's'} not shown — refine your search to view them.
+                  +{hiddenSelectedCount} more selected neighborhood{hiddenSelectedCount === 1 ? '' : 's'} not shown - refine your search to view them.
                 </p>
               )}
 
@@ -961,7 +961,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 <p className="flex items-start gap-1.5 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mt-3">
                   <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                   <span>
-                    Your balance is too low to {isEditing ? 'save these changes' : 'publish this deal'} — you need{' '}
+                    Your balance is too low to {isEditing ? 'save these changes' : 'publish this deal'} - you need{' '}
                     <strong>${shortfall.toFixed(2)}</strong> more to cover this cost.
                   </span>
                 </p>
