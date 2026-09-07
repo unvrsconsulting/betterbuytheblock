@@ -9,7 +9,8 @@ import {
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
-import { USERS, INITIAL_SERVICES, BUSINESSES, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE, EXAMPLE_DEALS, getExampleDealImage } from './constants';
+import { USERS, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE, EXAMPLE_DEALS, getExampleDealImage } from './constants';
+import { loadSeedData } from './services/seedData';
 import Header from './components/Header';
 import ServiceCard from './components/ServiceCard';
 import AIDealFinder from './components/AIDealFinder';
@@ -32,18 +33,23 @@ import { findNearestNeighborhood } from './services/neighborhoods';
 import { isRateLimited } from './services/contentModeration';
 import NeighborhoodPage from './components/NeighborhoodPage';
 
-import ConnectionsPanel from './components/ConnectionsPanel';
 import ConnectionsFeed from './components/ConnectionsFeed';
-import ArticlesPage from './components/ArticlesPage';
-import UserProfile from './components/UserProfile';
 import StaticPage from './components/StaticPage';
 import Footer from './components/Footer';
+import CookieConsentBanner from './components/CookieConsentBanner';
 import Breadcrumbs, { BreadcrumbItem } from './components/Breadcrumbs';
-import BusinessOnboarding from './components/BusinessOnboarding';
-import BusinessHub from './components/BusinessHub';
-import BusinessCreateDeal from './components/BusinessCreateDeal';
-import BusinessEditProfile from './components/BusinessEditProfile';
-import SettingsPage from './components/SettingsPage';
+
+// Code-split views that only ever load for a business owner or a settings/
+// connections visit — a resident just browsing deals never needs this code,
+// so it shouldn't be in their initial bundle.
+const ConnectionsPanel = React.lazy(() => import('./components/ConnectionsPanel'));
+const ArticlesPage = React.lazy(() => import('./components/ArticlesPage'));
+const UserProfile = React.lazy(() => import('./components/UserProfile'));
+const BusinessOnboarding = React.lazy(() => import('./components/BusinessOnboarding'));
+const BusinessHub = React.lazy(() => import('./components/BusinessHub'));
+const BusinessCreateDeal = React.lazy(() => import('./components/BusinessCreateDeal'));
+const BusinessEditProfile = React.lazy(() => import('./components/BusinessEditProfile'));
+const SettingsPage = React.lazy(() => import('./components/SettingsPage'));
 
 const ALL_CATEGORIES = [
   'Carpet Cleaning',
@@ -212,7 +218,7 @@ const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[
           {group.name}
         </h4>
         <svg 
-          className={`w-4 h-4 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -265,8 +271,23 @@ const App: React.FC = () => {
   const [currentUserId, setCurrentUserId] = useState<string | null>(() => loadState<string | null>('currentUserId', null));
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [postLoginIntent, setPostLoginIntent] = useState<'business' | null>(null);
-  const [services, setServices] = useState<Service[]>(() => loadState<Service[]>('services', INITIAL_SERVICES));
-  const [businesses, setBusinesses] = useState<Business[]>(() => loadState<Business[]>('businesses', BUSINESSES));
+  // Seed catalog (523 businesses, 886 offerings) is fetched as static JSON
+  // rather than bundled as a JS literal — see services/seedData.ts. A
+  // returning visitor's own localStorage copy (their joined/wishlisted
+  // state included) still loads instantly and synchronously; only a
+  // genuinely fresh browser waits on the fetch below.
+  const [services, setServices] = useState<Service[]>(() => loadState<Service[]>('services', []));
+  const [businesses, setBusinesses] = useState<Business[]>(() => loadState<Business[]>('businesses', []));
+
+  useEffect(() => {
+    if (loadState<Service[]>('services', []).length > 0 || loadState<Business[]>('businesses', []).length > 0) return;
+    loadSeedData().then(({ businesses: seedBusinesses, services: seedServices }) => {
+      setBusinesses(seedBusinesses);
+      setServices(seedServices);
+      saveState('businesses', seedBusinesses);
+      saveState('services', seedServices);
+    });
+  }, []);
   const { neighborhoods } = useNeighborhoods();
 
   const isAuthenticated = currentUserId !== null && users.some(u => u.id === currentUserId);
@@ -284,7 +305,13 @@ const App: React.FC = () => {
   };
 
   const selectedNeighborhoodId = currentUser.neighborhoodId ?? '';
-  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood'>('home');
+  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood'>(() => {
+    const path = window.location.pathname;
+    if (path === '/privacy') return 'privacy';
+    if (path === '/terms') return 'terms';
+    if (path !== '/') return 'not-found';
+    return 'home';
+  });
   const [searchResults, setSearchResults] = useState<Service[]>([]);
   const [lastSearchQuery, setLastSearchQuery] = useState('');
   const [selectedBusinessId, setSelectedBusinessId] = useState<string | null>(null);
@@ -423,6 +450,87 @@ const App: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [view]);
+
+  // Real, bookmarkable URLs for the handful of views worth indexing (see
+  // sitemap.xml) — everything else in this app is client-side view state
+  // living at "/", same as before. A truly bad URL is left alone so a reload
+  // keeps showing the 404 rather than silently bouncing to home.
+  useEffect(() => {
+    if (view === 'not-found') return;
+    const path = view === 'privacy' ? '/privacy' : view === 'terms' ? '/terms' : '/';
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+  }, [view]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const path = window.location.pathname;
+      if (path === '/privacy') setView('privacy');
+      else if (path === '/terms') setView('terms');
+      else if (path === '/') setView('home');
+      else setView('not-found');
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  // SEO: keep <title> and the meta description in sync with what's actually
+  // on screen, instead of every view sharing index.html's static tags.
+  useEffect(() => {
+    const DEFAULT_TITLE = 'BetterByTheBlock | Wake County Home Services at Discounted Rates';
+    const DEFAULT_DESCRIPTION = 'Get bulk-pricing deals on home services across Wake County, NC. Join with your neighbors to unlock group discounts on cleaning, lawn care, HVAC, and more — free for local businesses to list.';
+
+    let title = DEFAULT_TITLE;
+    let description = DEFAULT_DESCRIPTION;
+
+    if (view === 'privacy') {
+      title = `Privacy Policy | BetterByTheBlock`;
+      description = 'How BetterByTheBlock collects, stores, and uses your information.';
+    } else if (view === 'terms') {
+      title = `Terms & Conditions | BetterByTheBlock`;
+      description = 'The terms that apply to using BetterByTheBlock.';
+    } else if (view === 'not-found') {
+      title = `Page Not Found | BetterByTheBlock`;
+      description = 'The page you were looking for doesn\'t exist.';
+    } else if (view === 'results') {
+      title = lastSearchQuery ? `${lastSearchQuery} deals in Wake County | BetterByTheBlock` : `Search Results | BetterByTheBlock`;
+      description = `Bulk-pricing home service deals ${lastSearchQuery ? `for ${lastSearchQuery} ` : ''}in your Wake County neighborhood.`;
+    } else if (view === 'business' && selectedBusinessId) {
+      const business = businesses.find(b => b.id === selectedBusinessId);
+      if (business) {
+        title = `${business.name} | BetterByTheBlock`;
+        description = (business.description || `${business.name} on BetterByTheBlock — ${business.category || 'home services'} in Wake County, NC.`).slice(0, 160);
+      }
+    } else if (view === 'serviceProfile' && selectedServiceId) {
+      const service = services.find(s => s.id === selectedServiceId) || searchResults.find(s => s.id === selectedServiceId);
+      if (service) {
+        title = `${service.title} | BetterByTheBlock`;
+        description = (service.description || `${service.title} — a neighborhood bulk-pricing deal on BetterByTheBlock.`).slice(0, 160);
+      }
+    } else if (view === 'neighborhood' && selectedNeighborhoodPageId) {
+      const n = neighborhoods.find(nb => nb.id === selectedNeighborhoodPageId);
+      if (n) {
+        title = `Home Service Deals in ${n.name}, ${n.city} | BetterByTheBlock`;
+        description = `Bulk-pricing home service deals available to residents of ${n.name} in ${n.city}, NC.`;
+      }
+    } else if (view === 'businesses') {
+      title = `Local Businesses | BetterByTheBlock`;
+      description = 'Browse real Wake County home service businesses on BetterByTheBlock.';
+    } else if (view === 'how-it-works') {
+      title = `How It Works | BetterByTheBlock`;
+    } else if (view === 'help') {
+      title = `Help Center | BetterByTheBlock`;
+    } else if (view === 'contact') {
+      title = `Contact Us | BetterByTheBlock`;
+    } else if (view === 'articles') {
+      title = `Cost Guides | BetterByTheBlock`;
+    }
+
+    document.title = title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, selectedBusinessId, selectedServiceId, selectedNeighborhoodPageId, lastSearchQuery]);
 
   useEffect(() => {
     if (currentUser.type === UserType.BUSINESS && CONSUMER_ONLY_VIEWS.has(view)) {
@@ -624,8 +732,9 @@ const App: React.FC = () => {
     updateCurrentUser({ ...currentUser, ...updates });
   };
 
-  const submitDealRequest = (serviceName: string, description: string, businessId?: string) => {
+  const submitDealRequest = (serviceName: string, description: string, businessId?: string, honeypot?: string) => {
     if (!currentUser) return;
+    if (honeypot) return; // bot filled the hidden field — silently drop
     if (isRateLimited(`dealRequest_${currentUser.id}`, 15000)) {
       alert("You're submitting requests too quickly — please wait a moment and try again.");
       return;
@@ -662,6 +771,7 @@ const App: React.FC = () => {
         userName: currentUser.name,
         neighborhoodId: currentUser.neighborhoodId,
         city: neighborhoods.find(n => n.id === currentUser.neighborhoodId)?.city,
+        website: '',
       }),
     }).catch(() => {});
 
@@ -679,13 +789,13 @@ const App: React.FC = () => {
     }
   };
 
-  const handleRequestSubmit = async (details: { serviceName: string; description: string }) => {
+  const handleRequestSubmit = async (details: { serviceName: string; description: string; website?: string }) => {
     if (!currentUser || !isAuthenticated) {
       alert("Please sign in to request a deal.");
       return;
     }
 
-    submitDealRequest(details.serviceName, details.description, requestModalBusinessId);
+    submitDealRequest(details.serviceName, details.description, requestModalBusinessId, details.website);
     alert(`Your request for "${details.serviceName}" has been submitted!`);
   };
 
@@ -1085,7 +1195,11 @@ const App: React.FC = () => {
       case 'contact':
         return [home, { label: 'Contact Us' }];
       case 'terms':
-        return [home, { label: 'Terms & Privacy' }];
+        return [home, { label: 'Terms & Conditions' }];
+      case 'privacy':
+        return [home, { label: 'Privacy Policy' }];
+      case 'not-found':
+        return [home, { label: 'Not Found' }];
       case 'settings':
         return [home, { label: 'Settings' }];
       case 'connections':
@@ -1173,6 +1287,7 @@ const App: React.FC = () => {
       />
 
       <main>
+        <React.Suspense fallback={<div className="py-24 flex justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
         {view === 'home' && (
           <div className="bg-gray-900 relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
@@ -1250,7 +1365,7 @@ const App: React.FC = () => {
                    className="col-span-full text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100"
                  >
                     <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <TagIcon className="w-8 h-8 text-gray-400" />
+                      <TagIcon className="w-8 h-8 text-gray-500" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">No deals found here yet</h3>
                     <p className="text-gray-500 max-w-md mx-auto mb-6">
@@ -1330,7 +1445,7 @@ const App: React.FC = () => {
                           <p className="text-gray-600 text-xs mb-3 flex-grow">{deal.description}</p>
                           <div className="flex items-baseline gap-1.5 mb-1">
                             <p className="text-green-700 font-black text-2xl leading-none">${discounted.toFixed(0)}</p>
-                            <p className="text-gray-400 text-xs line-through leading-none">${deal.standardPrice}</p>
+                            <p className="text-gray-500 text-xs line-through leading-none">${deal.standardPrice}</p>
                             <span className="ml-auto bg-green-600 text-white text-[10px] font-black px-2 py-1 rounded-full">{deal.discountPercentage}% OFF</span>
                           </div>
                           <p className="text-gray-500 text-[11px] mb-3">Unlocks once {deal.requiredSignups} neighbors join</p>
@@ -1394,7 +1509,7 @@ const App: React.FC = () => {
                               <h4 className="font-bold text-gray-900 text-sm line-clamp-1">{b.name}</h4>
                               <div className="flex items-center gap-1 text-sm text-gray-600">
                                 <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                                {Number(b.rating).toFixed(1)} <span className="text-gray-400">({b.reviewCount || 0})</span>
+                                {Number(b.rating).toFixed(1)} <span className="text-gray-500">({b.reviewCount || 0})</span>
                               </div>
                             </div>
                           </div>
@@ -1406,7 +1521,7 @@ const App: React.FC = () => {
                                 ))}
                               </div>
                               <p className="text-sm text-gray-600 italic line-clamp-3">"{testimonial.text}"</p>
-                              <p className="text-xs text-gray-400 mt-2 font-medium">— {testimonial.userName}{testimonial.isVerifiedNeighbor ? ', Verified Neighbor' : ''}</p>
+                              <p className="text-xs text-gray-500 mt-2 font-medium">— {testimonial.userName}{testimonial.isVerifiedNeighbor ? ', Verified Neighbor' : ''}</p>
                             </div>
                           )}
                         </div>
@@ -1445,11 +1560,11 @@ const App: React.FC = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                       <input type="email" placeholder="Email address" className="pl-10 pr-4 py-3 rounded-lg border border-gray-300 w-full sm:w-64 focus:ring-2 focus:ring-primary focus:border-primary outline-none" />
                     </div>
                     <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                       <input type="text" placeholder="Zip code" className="pl-10 pr-4 py-3 rounded-lg border border-gray-300 w-full sm:w-32 focus:ring-2 focus:ring-primary focus:border-primary outline-none" />
                     </div>
                     <Button className="py-3 px-6 rounded-lg font-bold whitespace-nowrap">Sign me up</Button>
@@ -1578,7 +1693,7 @@ const App: React.FC = () => {
                         placeholder="Min"
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
                       />
-                      <span className="text-gray-400 text-sm">–</span>
+                      <span className="text-gray-500 text-sm">–</span>
                       <input
                         type="number"
                         min="0"
@@ -1622,7 +1737,7 @@ const App: React.FC = () => {
                   {getFilteredAndSortedResults().length === 0 && (
                     <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100 mb-6">
                       <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <TagIcon className="w-8 h-8 text-gray-400" />
+                        <TagIcon className="w-8 h-8 text-gray-500" />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">No deals match your filters</h3>
                       <p className="text-gray-500 max-w-md mx-auto mb-6">
@@ -1742,7 +1857,7 @@ const App: React.FC = () => {
                     onChange={(e) => setCategoryMinPrice(e.target.value)}
                     className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
                   />
-                  <span className="text-gray-400">&ndash;</span>
+                  <span className="text-gray-500">&ndash;</span>
                   <input
                     type="number"
                     min={0}
@@ -1840,7 +1955,7 @@ const App: React.FC = () => {
                 ) : (
                   <div className="col-span-full text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100">
                     <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Heart className="w-8 h-8 text-gray-400" />
+                      <Heart className="w-8 h-8 text-gray-500" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Your wishlist is empty</h3>
                     <p className="text-gray-500 max-w-md mx-auto">
@@ -2104,7 +2219,7 @@ const App: React.FC = () => {
                               </p>
                             )}
                             <p className="text-sm text-gray-600 mt-2 line-clamp-2">{request.description}</p>
-                            <p className="text-xs text-gray-400 mt-2">
+                            <p className="text-xs text-gray-500 mt-2">
                               Requested on {new Date(request.date).toLocaleDateString()}
                             </p>
                           </div>
@@ -2199,25 +2314,77 @@ const App: React.FC = () => {
             />
           ) : view === 'terms' ? (
             <StaticPage
-              title="Terms & Privacy"
+              title="Terms & Conditions"
               content={
                 <>
-                  <h3>This is a local demo, not a live service</h3>
-                  <p>BetterByTheBlock, as currently deployed, stores all account, deal, and message data only in your own browser's local storage. Nothing is sent to a server, nothing is shared with businesses or other users outside this browser, and there is no real payment processing anywhere in the product.</p>
+                  <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
 
-                  <h3>What that means in practice</h3>
-                  <ul>
-                    <li>Clearing your browser's site data (or using a different browser or device) will lose your account and history — there is no account recovery.</li>
-                    <li>"Signing up" for a deal, "requesting" a service, and business "Pay & Publish" actions are all simulated — no money moves and no real business is notified.</li>
-                    <li>The neighborhood names, coordinates, and cities in search are real (sourced from Wake County's public GIS data). The businesses, deals, and reviews you see by default are seed/demo data, not real businesses.</li>
-                  </ul>
+                  <h3>What BetterByTheBlock is</h3>
+                  <p>BetterByTheBlock is a Wake County, NC platform that shows neighborhood bulk-pricing deals from local home service businesses and lets residents request deals from businesses. By using this site, you agree to these terms.</p>
 
-                  <h3>If this became a real product</h3>
-                  <p>A production version would need a real backend, a real privacy policy describing what's collected and how it's used, real payment terms, and a way to delete your account and data on request. None of that exists yet — treat anything you enter here as non-private, throwaway demo data.</p>
+                  <h3>No payments happen on this site</h3>
+                  <p>BetterByTheBlock does not process payments. "Joining" a deal or "requesting" a deal does not charge you anything and is not a contract with the business. Any actual service, scheduling, and payment happens directly between you and the business, entirely off this platform.</p>
+
+                  <h3>Deals from businesses not yet on the platform</h3>
+                  <p>Many businesses shown on this site are real, independently-operated Wake County businesses we've identified as likely to offer the listed category of service — they have not yet joined BetterByTheBlock or agreed to any specific deal shown. These are marked "Not yet a confirmed partner," and the pricing shown for them is a proposal, not a rate the business has committed to. Requesting one of these deals sends the business a signal of real neighborhood demand; it does not create any obligation on their part.</p>
+
+                  <h3>Accounts</h3>
+                  <p>A BetterByTheBlock profile is stored only in your browser's local storage — there is no password and no server-side account. Clearing your browser data, or switching browsers or devices, will lose your profile and history with no way to recover it.</p>
+
+                  <h3>Acceptable use</h3>
+                  <p>Don't submit false, abusive, or spam requests; don't attempt to interfere with the site's operation or scrape it at scale; don't misrepresent who you are when contacting a business through this site.</p>
+
+                  <h3>No warranty</h3>
+                  <p>This site is provided "as is." We don't guarantee that any listed business will respond to a request, that pricing shown will be honored, or that the service is uninterrupted or error-free. We aren't a party to, and aren't responsible for, any agreement you reach with a business.</p>
+
+                  <h3>Changes</h3>
+                  <p>We may update these terms as the site evolves. Continuing to use the site after a change means you accept the updated terms.</p>
+
+                  <h3>Contact</h3>
+                  <p>Questions about these terms can be sent through the <button type="button" onClick={() => setView('contact')} className="text-primary hover:underline font-medium">Contact us</button> page.</p>
                 </>
               }
               onBack={() => setView('home')}
             />
+          ) : view === 'privacy' ? (
+            <StaticPage
+              title="Privacy Policy"
+              content={
+                <>
+                  <p><em>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</em></p>
+
+                  <h3>What we store, and where</h3>
+                  <p>Your BetterByTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently — we have no copy and no way to recover it.</p>
+
+                  <h3>What actually gets sent to us</h3>
+                  <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), the service name, your description, your display name, and your neighborhood/city are sent to our server and stored so we can see real demand and reach out to businesses. This is the only visitor data that leaves your browser during normal use.</p>
+                  <p>If you use the AI deal-request assistant, the text you type and the business's name are sent to Google's Gemini API to generate a draft message. That's a direct request to Google's API from our server — we don't separately store what you typed for this feature.</p>
+
+                  <h3>Business data</h3>
+                  <p>Business names, categories, addresses, phone numbers, descriptions, and ratings shown on this site come from each business's own public listing information (via a third-party business-data API), not from anything a visitor submits. Photos shown are real stock photography, not photos of the specific business's actual work.</p>
+
+                  <h3>Cookies and tracking</h3>
+                  <p>We don't use cookies, and we don't run any advertising or analytics trackers on this site. The only client-side storage is your browser's local storage, described above. Our hosting provider may log standard technical request information (like IP address and browser type) as part of normal web server operation — we don't use this for tracking or advertising.</p>
+
+                  <h3>No payment data</h3>
+                  <p>We don't process payments and never collect card or bank information.</p>
+
+                  <h3>Your choices</h3>
+                  <p>Clear your browser's local storage at any time to remove your profile. To have a submitted deal request removed from our records, reach out via the <button type="button" onClick={() => setView('contact')} className="text-primary hover:underline font-medium">Contact us</button> page.</p>
+
+                  <h3>Changes</h3>
+                  <p>We may update this policy as the site evolves; the date above reflects the most recent change.</p>
+                </>
+              }
+              onBack={() => setView('home')}
+            />
+          ) : view === 'not-found' ? (
+            <div className="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
+              <p className="text-primary font-bold text-lg mb-2">404</p>
+              <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Page not found</h1>
+              <p className="text-gray-600 mb-8">The page you're looking for doesn't exist or may have moved.</p>
+              <Button onClick={() => setView('home')}>Back to Home</Button>
+            </div>
           ) : view === 'neighborhood' && selectedNeighborhoodPageId ? (
             <NeighborhoodPage
               neighborhoodId={selectedNeighborhoodPageId}
@@ -2270,8 +2437,10 @@ const App: React.FC = () => {
             </div>
           </section>
         )}
+        </React.Suspense>
       </main>
       <Footer onNavigate={(page) => setView(page as any)} />
+      <CookieConsentBanner onViewPrivacyPolicy={() => setView('privacy')} />
       <RequestServiceModal
         isOpen={isRequestModalOpen}
         onClose={() => setIsRequestModalOpen(false)}

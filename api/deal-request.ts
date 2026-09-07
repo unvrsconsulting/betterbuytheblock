@@ -9,6 +9,9 @@ import { createClient } from 'redis';
 
 const LIST_KEY = 'deal_requests';
 const MAX_ENTRIES = 5000;
+const RATE_LIMIT_KEY_PREFIX = 'rl:deal_request:';
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_SECONDS = 60 * 60;
 
 async function withClient<T>(fn: (client: any) => Promise<T>): Promise<T> {
   const client = createClient({ url: process.env.REDIS_URL });
@@ -23,10 +26,38 @@ async function withClient<T>(fn: (client: any) => Promise<T>): Promise<T> {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'POST') {
     const body = req.body || {};
-    const { serviceName, description, businessId, userId, userName, neighborhoodId, city } = body;
+    const { serviceName, description, businessId, userId, userName, neighborhoodId, city, website } = body;
+
+    // Honeypot: a real visitor never sees or fills this field (hidden via
+    // CSS, not `type="hidden"`, so form-filling bots that skip hidden inputs
+    // still trip it). Silently accept-and-drop rather than error, so a bot
+    // can't tell the difference and adjust.
+    if (website) {
+      return res.status(200).json({ ok: true, captured: true });
+    }
 
     if (!serviceName || !description || !userId) {
       return res.status(400).json({ error: 'serviceName, description, and userId are required' });
+    }
+    if (String(description).trim().length < 5) {
+      return res.status(400).json({ error: 'description is too short' });
+    }
+
+    const ip = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown').split(',')[0].trim();
+    try {
+      const limited = await withClient(async (client) => {
+        const key = RATE_LIMIT_KEY_PREFIX + ip;
+        const count = await client.incr(key);
+        if (count === 1) await client.expire(key, RATE_LIMIT_WINDOW_SECONDS);
+        return count > RATE_LIMIT_MAX;
+      });
+      if (limited) {
+        return res.status(429).json({ error: 'Too many requests, please try again later.' });
+      }
+    } catch (err) {
+      console.error('deal-request rate-limit check failed', err);
+      // Fail open on the rate limiter itself — a Redis hiccup shouldn't block
+      // a genuine visitor's request.
     }
 
     const entry = {

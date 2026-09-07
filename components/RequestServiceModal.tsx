@@ -9,12 +9,13 @@ interface RequestServiceModalProps {
   onClose: () => void;
   businessName?: string;
   initialServiceName?: string;
-  onSubmit: (details: { serviceName: string; description: string }) => void;
+  onSubmit: (details: { serviceName: string; description: string; website?: string }) => void;
 }
 
 const RequestServiceModal: React.FC<RequestServiceModalProps> = ({ isOpen, onClose, businessName, initialServiceName, onSubmit }) => {
   const [serviceName, setServiceName] = useState('');
   const [description, setDescription] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot — real users never see or fill this
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -37,9 +38,10 @@ const RequestServiceModal: React.FC<RequestServiceModalProps> = ({ isOpen, onClo
     }
 
     setError(null);
-    onSubmit({ serviceName, description });
+    onSubmit({ serviceName, description, website });
     setServiceName('');
     setDescription('');
+    setWebsite('');
     onClose();
   };
 
@@ -66,7 +68,7 @@ const RequestServiceModal: React.FC<RequestServiceModalProps> = ({ isOpen, onClo
               </h2>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-gray-500 hover:text-gray-600 transition-colors"
                 aria-label="Close"
               >
                 <X className="w-6 h-6" />
@@ -86,6 +88,20 @@ const RequestServiceModal: React.FC<RequestServiceModalProps> = ({ isOpen, onClo
               )}
 
               <div className="space-y-4">
+                {/* Honeypot: hidden from real users via CSS (not type="hidden",
+                    which some bots skip), left blank by anyone who can't see it. */}
+                <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 <div>
                   <label htmlFor="serviceName" className="block text-sm font-medium text-gray-700 mb-1">
                     Service Name

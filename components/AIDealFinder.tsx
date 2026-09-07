@@ -84,7 +84,7 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChan
 
           <form onSubmit={handleSearch} className={`bg-white p-1.5 rounded-xl shadow-2xl flex flex-col md:flex-row gap-1.5 w-full max-w-5xl mx-auto relative ${compact ? 'border border-gray-200' : ''}`} ref={searchContainerRef}>
             <div className={`${compact ? 'md:flex-1' : 'md:w-[40%]'} flex items-center px-3 py-2 ${compact ? '' : 'border-b md:border-b-0 md:border-r border-gray-200'} relative`}>
-              <Search className="w-4 h-4 text-gray-400 mr-2.5 shrink-0" />
+              <Search className="w-4 h-4 text-gray-500 mr-2.5 shrink-0" />
               <input
                 type="text"
                 value={searchQuery}
@@ -107,7 +107,7 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChan
                         setShowSuggestions(false);
                       }}
                     >
-                      <Search className="w-4 h-4 text-gray-400" />
+                      <Search className="w-4 h-4 text-gray-500" />
                       {suggestion}
                     </div>
                   ))}
@@ -118,7 +118,7 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChan
             {!compact && (
               <div className="md:w-[50%] flex items-center justify-between px-3 py-2">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <MapPin className="w-4 h-4 text-gray-400 shrink-0" />
+                  <MapPin className="w-4 h-4 text-gray-500 shrink-0" />
                   <span className="text-gray-900 text-sm truncate">
                     {currentNeighborhood ? `${currentNeighborhood.name}, ${currentNeighborhood.city}` : 'Set your neighborhood'}
                   </span>

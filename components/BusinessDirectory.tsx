@@ -94,7 +94,7 @@ const BusinessDirectory: React.FC<BusinessDirectoryProps> = ({ businesses, servi
 
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 sm:p-5 mb-8 flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
           <input
             type="text"
             value={search}
@@ -154,10 +154,10 @@ const BusinessDirectory: React.FC<BusinessDirectoryProps> = ({ businesses, servi
                     {business.rating ? (
                       <div className="flex items-center gap-1 text-sm text-gray-600">
                         <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                        {Number(business.rating).toFixed(1)} <span className="text-gray-400">({business.reviewCount || 0})</span>
+                        {Number(business.rating).toFixed(1)} <span className="text-gray-500">({business.reviewCount || 0})</span>
                       </div>
                     ) : (
-                      <span className="text-sm text-gray-400">New</span>
+                      <span className="text-sm text-gray-500">New</span>
                     )}
                   </div>
                 </div>
@@ -185,7 +185,7 @@ const BusinessDirectory: React.FC<BusinessDirectoryProps> = ({ businesses, servi
       ) : (
         <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100">
           <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Building2 className="w-8 h-8 text-gray-400" />
+            <Building2 className="w-8 h-8 text-gray-500" />
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-2">No businesses match your filters</h3>
           <p className="text-gray-500 max-w-md mx-auto">Try adjusting your search, category, or city filter.</p>

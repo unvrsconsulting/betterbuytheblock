@@ -68,14 +68,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             <div className="flex flex-col gap-2">
               <button
                 onClick={(e) => { e.stopPropagation(); onToggleWishlist(); }}
-                className={`p-2 rounded-full backdrop-blur-sm shadow-sm transition-colors ${isWishlisted ? 'bg-red-50 text-red-500' : 'bg-white/90 text-gray-400 hover:text-red-500'}`}
+                className={`p-2 rounded-full backdrop-blur-sm shadow-sm transition-colors ${isWishlisted ? 'bg-red-50 text-red-500' : 'bg-white/90 text-gray-500 hover:text-red-500'}`}
                 aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
               >
                 <Heart className="w-4 h-4" fill={isWishlisted ? "currentColor" : "none"} />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); shareServiceLink(service.id); }}
-                className="p-2 rounded-full bg-white/90 text-gray-400 hover:text-primary-500 backdrop-blur-sm shadow-sm transition-colors"
+                className="p-2 rounded-full bg-white/90 text-gray-500 hover:text-primary-500 backdrop-blur-sm shadow-sm transition-colors"
                 title="Share Deal"
                 aria-label="Share deal"
               >
@@ -126,7 +126,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <div className="flex items-end justify-between gap-2">
             <div className="flex items-baseline gap-1.5 min-w-0">
               <p className="text-green-700 font-black text-2xl leading-none whitespace-nowrap">${discountedPrice.toFixed(0)}</p>
-              <p className="text-gray-400 text-xs line-through leading-none whitespace-nowrap">${service.standardPrice.toFixed(0)}</p>
+              <p className="text-gray-500 text-xs line-through leading-none whitespace-nowrap">${service.standardPrice.toFixed(0)}</p>
             </div>
             <span className="bg-green-600 text-white text-[10px] font-black px-2 py-1 rounded-full whitespace-nowrap shrink-0">
               {service.discountPercentage}% OFF
@@ -216,7 +216,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                   className={`text-[10px] font-medium text-center transition-colors ${
                     service.status === 'completed'
                       ? 'text-gray-300 cursor-not-allowed'
-                      : 'text-gray-400 hover:text-red-500'
+                      : 'text-gray-500 hover:text-red-500'
                   }`}
                 >
                   Leave Deal

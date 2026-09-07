@@ -35,17 +35,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {} }) =
           <ul className="space-y-3 text-sm">
             <li><button onClick={() => onNavigate('help')} className="hover:text-white transition-colors">Help center</button></li>
             <li><button onClick={() => onNavigate('contact')} className="hover:text-white transition-colors">Contact us</button></li>
-            <li><button onClick={() => onNavigate('terms')} className="hover:text-white transition-colors">Terms & Privacy</button></li>
+            <li><button onClick={() => onNavigate('terms')} className="hover:text-white transition-colors">Terms & Conditions</button></li>
+            <li><button onClick={() => onNavigate('privacy')} className="hover:text-white transition-colors">Privacy Policy</button></li>
           </ul>
         </div>
       </div>
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 mt-12 pt-8 border-t border-gray-800 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center">
         <p>© {new Date().getFullYear()} BetterByTheBlock. All rights reserved.</p>
-        <div className="flex space-x-6 mt-4 md:mt-0">
-          <a href="#" className="hover:text-white transition-colors">Twitter</a>
-          <a href="#" className="hover:text-white transition-colors">Facebook</a>
-          <a href="#" className="hover:text-white transition-colors">Instagram</a>
-        </div>
       </div>
     </footer>
   );

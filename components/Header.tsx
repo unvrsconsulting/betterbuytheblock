@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ currentUser, isAuthenticated = false, o
                         <div className="mt-0.5 shrink-0">{NOTIFICATION_ICONS[n.type]}</div>
                         <div className="flex-1 min-w-0">
                           <p className={`text-sm ${!n.read ? 'font-semibold text-gray-900' : 'text-gray-700'} line-clamp-2`}>{n.message}</p>
-                          <p className="text-xs text-gray-400 mt-0.5">{timeAgo(n.date)}</p>
+                          <p className="text-xs text-gray-500 mt-0.5">{timeAgo(n.date)}</p>
                         </div>
                         {!n.read && <div className="w-2 h-2 bg-primary rounded-full shrink-0 mt-1.5" />}
                       </button>

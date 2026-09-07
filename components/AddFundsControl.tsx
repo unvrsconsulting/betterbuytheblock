@@ -35,7 +35,7 @@ const AddFundsControl: React.FC<AddFundsControlProps> = ({ onAddFunds, className
       <div className="flex flex-wrap items-center gap-2">
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <DollarSign className="h-4 w-4 text-gray-400" />
+            <DollarSign className="h-4 w-4 text-gray-500" />
           </div>
           <input
             type="text"

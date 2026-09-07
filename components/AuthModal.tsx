@@ -62,9 +62,16 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
     );
   };
 
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (!EMAIL_PATTERN.test(email.trim())) {
+      setError('Please enter a valid email address.');
+      return;
+    }
 
     if (isLogin) {
       const existing = users.find(u => u.email?.toLowerCase() === email.trim().toLowerCase());
@@ -114,7 +121,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
           >
             <button
               onClick={resetAndClose}
-              className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
+              className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -123,7 +130,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
               <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">
                 {isLogin ? 'Welcome Back' : accountType === 'business' ? 'List Your Business' : 'Join the Neighborhood'}
               </h2>
-              <p className="text-xs text-gray-400 text-center mb-6">
+              <p className="text-xs text-gray-500 text-center mb-6">
                 Free local profile — stored only in this browser, no password needed.
               </p>
 
@@ -135,7 +142,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
 
               {!isLogin && (
                 <div className="mb-6">
-                  <p className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2">I'm signing up as a...</p>
+                  <p className="text-xs uppercase tracking-wider text-gray-500 font-bold mb-2">I'm signing up as a...</p>
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       type="button"
@@ -162,7 +169,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                     <div className="relative">
-                      <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                       <input
                         type="text"
                         value={name}
@@ -179,7 +186,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                   <div className="relative">
                     <label className="block text-sm font-medium text-gray-700 mb-1">Neighborhood</label>
                     <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                       <input
                         type="text"
                         value={neighborhoodSearch}
@@ -225,7 +232,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                     <input
                       type="email"
                       value={email}

@@ -51,7 +51,7 @@ const FaqAccordion: React.FC<{ items: { q: string; a: string }[] }> = ({ items }
               className="w-full flex items-center justify-between text-left px-6 py-4 hover:bg-gray-50 transition-colors"
             >
               <span className="font-medium text-gray-900 text-sm">{item.q}</span>
-              <ChevronDown className={`w-4 h-4 text-gray-400 shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-500 shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
             </button>
             {openIndex === idx && (
               <p className="px-6 pb-4 text-sm text-gray-600 leading-relaxed">{item.a}</p>
@@ -264,24 +264,24 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
             <div className="flex flex-col gap-3 min-w-[200px]">
               {business.address ? (
                 <div className="flex items-center gap-3 text-gray-600">
-                  <MapPin className="w-5 h-5 text-gray-400 shrink-0" />
+                  <MapPin className="w-5 h-5 text-gray-500 shrink-0" />
                   <span>{business.address}</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-3 text-gray-600">
-                  <MapPin className="w-5 h-5 text-gray-400 shrink-0" />
+                  <MapPin className="w-5 h-5 text-gray-500 shrink-0" />
                   <span>Serves your area</span>
                 </div>
               )}
               {business.phone && (
                 <div className="flex items-center gap-3 text-gray-600">
-                  <Phone className="w-5 h-5 text-gray-400 shrink-0" />
+                  <Phone className="w-5 h-5 text-gray-500 shrink-0" />
                   <a href={`tel:${business.phone}`} className="hover:text-primary transition-colors">{business.phone}</a>
                 </div>
               )}
               {business.website && (
                 <div className="flex items-center gap-3 text-gray-600">
-                  <Globe className="w-5 h-5 text-gray-400 shrink-0" />
+                  <Globe className="w-5 h-5 text-gray-500 shrink-0" />
                   <a
                     href={business.website.startsWith('http') ? business.website : `https://${business.website}`}
                     target="_blank"
@@ -294,7 +294,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
               )}
               {business.isLicensed && (
                 <div className="flex items-center gap-3 text-gray-600">
-                  <ShieldCheck className="w-5 h-5 text-gray-400 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-gray-500 shrink-0" />
                   <span>Licensed{business.licenseNumber ? ` — ${business.licenseNumber}` : ''}</span>
                 </div>
               )}
@@ -328,7 +328,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
         {activeServices.length > 0 && (
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input
                 type="text"
                 value={dealSearch}
@@ -404,7 +404,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
           {servicesOffered.length > 0 && (
             <div className="bg-white rounded-2xl border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <Tag className="w-5 h-5 text-gray-400" /> Services Offered
+                <Tag className="w-5 h-5 text-gray-500" /> Services Offered
               </h3>
               <div className="flex flex-wrap gap-2">
                 {servicesOffered.map(title => (
@@ -419,7 +419,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
           {(business.amenities?.length || 0) > 0 && (
             <div className="bg-white rounded-2xl border border-gray-200 p-6">
               <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-gray-400" /> Amenities
+                <CheckCircle className="w-5 h-5 text-gray-500" /> Amenities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-3">
                 {business.amenities!.map(a => (
@@ -435,7 +435,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
         {(business.memberships?.length || 0) > 0 && (
           <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-10">
             <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Award className="w-5 h-5 text-gray-400" /> Memberships & Affiliates
+              <Award className="w-5 h-5 text-gray-500" /> Memberships & Affiliates
             </h3>
             <div className="flex flex-wrap gap-2">
               {business.memberships!.map(m => (
@@ -451,7 +451,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
         {(business.galleryPhotoIds?.length || 0) > 0 && (
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Images className="w-6 h-6 text-gray-400" /> Gallery of Work
+              <Images className="w-6 h-6 text-gray-500" /> Gallery of Work
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {business.galleryPhotoIds!.map((photoId, idx) => (

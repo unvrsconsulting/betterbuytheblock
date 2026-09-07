@@ -135,7 +135,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                 const distinctCities = Array.from(new Set(neighborhoods.map(n => n.city)));
                 return (
                   <div className="mb-6">
-                    <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
                       Available in {neighborhoods.length} neighborhood{neighborhoods.length === 1 ? '' : 's'}
                       {distinctCities.length <= 3 ? ` across ${distinctCities.join(', ')}` : ` across ${distinctCities.length} cities`}
                     </p>
@@ -150,7 +150,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                         </button>
                       ))}
                       {hiddenCount > 0 && (
-                        <span className="text-xs font-medium text-gray-400 px-2.5 py-1">+{hiddenCount} more</span>
+                        <span className="text-xs font-medium text-gray-500 px-2.5 py-1">+{hiddenCount} more</span>
                       )}
                     </div>
                   </div>
@@ -478,7 +478,7 @@ const FaqAccordion: React.FC = () => {
               className="w-full flex items-center justify-between text-left px-6 py-4 hover:bg-gray-50 transition-colors"
             >
               <span className="font-medium text-gray-900 text-sm">{item.q}</span>
-              <ChevronDown className={`w-4 h-4 text-gray-400 shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-500 shrink-0 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
             </button>
             {openIndex === idx && (
               <p className="px-6 pb-4 text-sm text-gray-600 leading-relaxed">{item.a}</p>

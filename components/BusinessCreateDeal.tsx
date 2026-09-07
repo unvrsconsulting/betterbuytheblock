@@ -482,7 +482,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 <label className="block text-sm font-medium text-gray-700 mb-1">Standard Price ($)</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <DollarSign className="h-5 w-5 text-gray-400" />
+                    <DollarSign className="h-5 w-5 text-gray-500" />
                   </div>
                   <input 
                     type="number" 
@@ -497,7 +497,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 <label className="block text-sm font-medium text-gray-700 mb-1">Discount (%)</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Tag className="h-5 w-5 text-gray-400" />
+                    <Tag className="h-5 w-5 text-gray-500" />
                   </div>
                   <input 
                     type="number" 
@@ -512,7 +512,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 <label className="block text-sm font-medium text-gray-700 mb-1">Required Signups</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Users className="h-5 w-5 text-gray-400" />
+                    <Users className="h-5 w-5 text-gray-500" />
                   </div>
                   <input 
                     type="number" 
@@ -563,7 +563,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <ImageIcon className="h-5 w-5 text-gray-400" />
+                    <ImageIcon className="h-5 w-5 text-gray-500" />
                   </div>
                   <input
                     type="url"
@@ -573,7 +573,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none ${imageError ? 'border-red-500' : 'border-gray-300'}`}
                     placeholder="https://example.com/image.jpg"
                   />
-                  {isVerifyingImage && <div className="absolute right-3 top-3"><Loader2 className="w-5 h-5 animate-spin text-gray-400" /></div>}
+                  {isVerifyingImage && <div className="absolute right-3 top-3"><Loader2 className="w-5 h-5 animate-spin text-gray-500" /></div>}
                 </div>
                 <label className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed cursor-pointer text-sm font-medium shrink-0 transition-colors ${imageError ? 'border-red-300 text-red-600' : 'border-gray-300 text-gray-600 hover:border-primary hover:text-primary'}`}>
                   {isUploadingImage ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
@@ -599,7 +599,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
           </div>
 
           <div className="w-full lg:w-80 shrink-0 lg:sticky lg:top-4">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Live Preview</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Live Preview</p>
             <ServiceCard
               service={previewService}
               business={business}
@@ -626,7 +626,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                   {cities.map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
                 <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
                   <input
                     type="text"
                     value={neighborhoodSearch}
@@ -649,7 +649,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
 
               {cityFilter !== 'All Cities' && cityStats[cityFilter] && (
                 <div className="p-3 bg-gray-50 rounded-xl border border-gray-200">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-2">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-2">
                     {cityFilter} — real Wake County property records
                   </p>
                   <div className="grid grid-cols-2 gap-2 text-sm">
@@ -670,7 +670,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                       <p className="text-xs text-gray-500">avg. year built</p>
                     </div>
                   </div>
-                  <p className="text-[10px] text-gray-400 mt-2">Source: Wake County GIS parcel data</p>
+                  <p className="text-[10px] text-gray-500 mt-2">Source: Wake County GIS parcel data</p>
                 </div>
               )}
 
@@ -705,15 +705,15 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
 
               {savedAudiences.length > 0 && (
                 <div className="border border-gray-200 rounded-lg p-3 space-y-2">
-                  <p className="text-xs font-bold uppercase tracking-wider text-gray-400 flex items-center gap-1">
+                  <p className="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
                     <Bookmark className="w-3.5 h-3.5" /> Saved Audiences
                   </p>
                   {savedAudiences.map(a => (
                     <div key={a.id} className="flex items-center justify-between gap-2 text-sm">
                       <button type="button" onClick={() => handleLoadAudience(a)} className="text-left text-gray-700 hover:text-primary flex-1">
-                        {a.name} <span className="text-gray-400">({a.neighborhoodIds.length})</span>
+                        {a.name} <span className="text-gray-500">({a.neighborhoodIds.length})</span>
                       </button>
-                      <button type="button" onClick={() => handleDeleteAudience(a.id)} className="text-gray-400 hover:text-red-500">
+                      <button type="button" onClick={() => handleDeleteAudience(a.id)} className="text-gray-500 hover:text-red-500">
                         <X className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -732,7 +732,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                     autoFocus
                   />
                   <Button size="sm" onClick={handleSaveAudience} disabled={!audienceNameDraft.trim()}>Save</Button>
-                  <button type="button" onClick={() => { setIsSavingAudience(false); setAudienceNameDraft(''); }} className="text-gray-400 hover:text-red-500">
+                  <button type="button" onClick={() => { setIsSavingAudience(false); setAudienceNameDraft(''); }} className="text-gray-500 hover:text-red-500">
                     <X className="w-4 h-4" />
                   </button>
                 </div>
@@ -967,7 +967,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 </p>
               )}
               <div className="mt-4 pt-4 border-t border-gray-100">
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Add Funds</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Add Funds</p>
                 <AddFundsControl onAddFunds={onAddFunds} />
               </div>
             </div>

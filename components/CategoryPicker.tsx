@@ -44,7 +44,7 @@ const CategoryPicker: React.FC<CategoryPickerProps> = ({ value, onChange, placeh
   return (
     <div className="relative" ref={wrapperRef}>
       <div className="relative">
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
         <input
           id={id}
           type="text"
@@ -54,7 +54,7 @@ const CategoryPicker: React.FC<CategoryPickerProps> = ({ value, onChange, placeh
           className="w-full pl-10 pr-9 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none"
           placeholder={value && !isOpen ? value : placeholder}
         />
-        <ChevronDown className={`absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </div>
 
       {isOpen && (
@@ -64,7 +64,7 @@ const CategoryPicker: React.FC<CategoryPickerProps> = ({ value, onChange, placeh
           ) : (
             filteredGroups.map(group => (
               <div key={group.name} className="mb-1 last:mb-0">
-                <p className="px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-400">{group.name}</p>
+                <p className="px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-500">{group.name}</p>
                 {group.categories.map(category => (
                   <button
                     key={category}

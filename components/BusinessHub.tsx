@@ -196,7 +196,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
         </div>
         <div className="p-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 flex items-center gap-1.5 shrink-0">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5 shrink-0">
               <Receipt className="w-3.5 h-3.5" /> Billing History
             </h3>
             {billingHistory.length > 0 && (
@@ -296,7 +296,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
                       <h3 className="font-bold text-gray-900">{request.userName}</h3>
                       <p className="text-sm font-medium text-primary-600">{request.serviceName}</p>
                       <p className="text-sm text-gray-600 mt-1 line-clamp-3">{request.description}</p>
-                      <p className="text-xs text-gray-400 mt-2">{new Date(request.date).toLocaleDateString()}</p>
+                      <p className="text-xs text-gray-500 mt-2">{new Date(request.date).toLocaleDateString()}</p>
                     </div>
                   </div>
                   <div className="shrink-0">
@@ -362,7 +362,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
                 </div>
               </div>
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-4 py-2 flex items-center justify-center gap-1.5 text-sm text-gray-600" title="Total simulated spend on this deal">
-                <DollarSign className="w-4 h-4 text-gray-400" />
+                <DollarSign className="w-4 h-4 text-gray-500" />
                 <span className="font-semibold text-gray-900">Spent: ${spentFor(service.id)}</span>
               </div>
               {service.neighborhoodIds.length >= 2 && (
@@ -411,7 +411,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
         </div>
       ) : (
         <div className="text-center py-16 bg-gray-50 rounded-3xl border border-gray-200 border-dashed mb-12">
-          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-500">
             <TrendingUp className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-2">No active deals</h3>

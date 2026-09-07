@@ -160,7 +160,7 @@ const UserProfile: React.FC<UserProfileProps> = ({
           {!isEditing ? (
             <button 
               onClick={() => setIsEditing(true)}
-              className="absolute top-6 right-6 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
+              className="absolute top-6 right-6 p-2 text-gray-500 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
             >
               <Edit2 className="w-5 h-5" />
             </button>
@@ -352,7 +352,7 @@ const UserProfile: React.FC<UserProfileProps> = ({
                       </p>
                     )}
                     <p className="text-sm text-gray-600 mt-2 line-clamp-2">{request.description}</p>
-                    <p className="text-xs text-gray-400 mt-2">
+                    <p className="text-xs text-gray-500 mt-2">
                       Requested on {new Date(request.date).toLocaleDateString()}
                     </p>
                   </div>

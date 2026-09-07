@@ -163,7 +163,7 @@ const ConnectionsPanel: React.FC<ConnectionsPanelProps> = ({ currentUser, users,
                 </div>
                 <button 
                   onClick={() => handleRemoveConnection(user.id)}
-                  className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors"
+                  className="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors"
                   title="Remove Connection"
                 >
                   <UserMinus className="w-4 h-4" />

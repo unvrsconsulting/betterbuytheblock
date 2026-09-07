@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { Business, User } from '../types';
 import Button from './Button';
-import { GoogleGenAI } from '@google/genai';
 import { checkContent } from '../services/contentModeration';
 
 interface AIRequestDealPanelProps {
@@ -34,18 +33,15 @@ const AIRequestDealPanel: React.FC<AIRequestDealPanelProps> = ({ isOpen, onClose
 
     setIsGenerating(true);
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      const prompt = `You are an AI assistant helping a user request a custom deal from a local business named "${business.name}".
-      The user's request is: "${requestText}".
-      Generate a professional, compelling deal request that is competitive to other similar companies and offers available in the area.
-      Format the response as a short, persuasive message to the business owner, suggesting a fair group discount if multiple neighbors sign up.`;
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-3.1-pro-preview',
-        contents: prompt,
+      const res = await fetch('/api/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'generateDealRequestMessage', businessName: business.name, requestText }),
       });
+      if (!res.ok) throw new Error(`AI request failed (${res.status})`);
+      const { text } = await res.json();
 
-      setGeneratedDeal(response.text || 'Failed to generate deal request.');
+      setGeneratedDeal(text || 'Failed to generate deal request.');
       setIsSent(false);
     } catch (error) {
       console.error('Error generating deal:', error);
@@ -94,7 +90,7 @@ const AIRequestDealPanel: React.FC<AIRequestDealPanelProps> = ({ isOpen, onClose
               </div>
               <button
                 onClick={onClose}
-                className="p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
+                className="p-2 text-gray-500 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />

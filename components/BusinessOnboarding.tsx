@@ -111,7 +111,7 @@ const BusinessOnboarding: React.FC<BusinessOnboardingProps> = ({ currentUser, on
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Primary Business Address</label>
               <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
                 <input
                   type="text"
                   value={address}
@@ -138,7 +138,7 @@ const BusinessOnboarding: React.FC<BusinessOnboardingProps> = ({ currentUser, on
                 value={gmbUrl}
                 onChange={(e) => { setGmbUrl(e.target.value); if (contentError) setContentError(null); }}
                 disabled={noGmb}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none disabled:bg-gray-50 disabled:text-gray-400"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder="Link to your Google Business Profile"
               />
               <p className="text-xs text-gray-500 mt-1">

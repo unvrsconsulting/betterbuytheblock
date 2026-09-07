@@ -105,7 +105,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
       ) : (
         <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100 mb-16">
           <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <TagIcon className="w-8 h-8 text-gray-400" />
+            <TagIcon className="w-8 h-8 text-gray-500" />
           </div>
           <h3 className="text-xl font-bold text-gray-900 mb-2">No deals here yet</h3>
           <p className="text-gray-500 max-w-md mx-auto">

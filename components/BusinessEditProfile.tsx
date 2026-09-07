@@ -95,7 +95,7 @@ const BusinessEditProfile: React.FC<BusinessEditProfileProps> = ({ business, onS
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Primary Business Address</label>
           <div className="relative">
-            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
             <input
               type="text"
               value={address}
