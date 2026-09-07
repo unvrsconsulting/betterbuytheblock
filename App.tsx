@@ -614,6 +614,18 @@ const App: React.FC = () => {
     }
   };
 
+  // Same effect as handleShareLocation, but for a neighborhood picked
+  // directly from the inline search/autofill in the hero search bar,
+  // instead of one resolved from geolocation coordinates.
+  const handleSelectNeighborhood = (neighborhoodId: string) => {
+    if (currentUser.type === UserType.BUSINESS) return;
+    updateCurrentUser({ ...currentUser, neighborhoodId });
+    if (!currentUserId) {
+      setCurrentUserId(currentUser.id);
+      saveState('currentUserId', currentUser.id);
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [view]);
@@ -1522,7 +1534,7 @@ const App: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-gray-900"></div>
             <AIDealFinder
               currentNeighborhood={neighborhoods.find(n => n.id === selectedNeighborhoodId)}
-              onChangeNeighborhoodClick={() => setView('profile')}
+              onSelectNeighborhood={handleSelectNeighborhood}
               onLocalSearch={(query) => {
                 const queryLower = (query || '').toLowerCase();
                 const matches = services.filter(s =>
@@ -1788,7 +1800,7 @@ const App: React.FC = () => {
                 <div className="mb-8">
                   <AIDealFinder
                     currentNeighborhood={neighborhoods.find(n => n.id === selectedNeighborhoodId)}
-                    onChangeNeighborhoodClick={() => setView('profile')}
+                    onSelectNeighborhood={handleSelectNeighborhood}
                     onLocalSearch={(query) => {
                       const queryLower = (query || '').toLowerCase();
                       const matches = services.filter(s => 

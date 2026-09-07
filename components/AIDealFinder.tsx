@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Neighborhood } from '../types';
 import { Search, MapPin, CheckCircle } from 'lucide-react';
 import Button from './Button';
+import { useNeighborhoods } from '../hooks/useNeighborhoods';
+import { searchNeighborhoods } from '../services/neighborhoods';
 
 const SUGGESTIONS = [
   "Power washing",
@@ -19,25 +21,44 @@ const SUGGESTIONS = [
 
 interface AIDealFinderProps {
   currentNeighborhood?: Neighborhood;
-  onChangeNeighborhoodClick?: () => void;
+  onSelectNeighborhood?: (neighborhoodId: string) => void;
   onLocalSearch?: (query: string) => void;
   compact?: boolean;
 }
 
-const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChangeNeighborhoodClick, onLocalSearch, compact = false }) => {
+const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onSelectNeighborhood, onLocalSearch, compact = false }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isEditingNeighborhood, setIsEditingNeighborhood] = useState(false);
+  const [neighborhoodSearch, setNeighborhoodSearch] = useState('');
+  const [showNeighborhoodDropdown, setShowNeighborhoodDropdown] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
+  const neighborhoodInputRef = useRef<HTMLInputElement>(null);
+  const { neighborhoods } = useNeighborhoods();
+  const filteredNeighborhoods = searchNeighborhoods(neighborhoods, neighborhoodSearch, 6);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
         setShowSuggestions(false);
+        setIsEditingNeighborhood(false);
+        setShowNeighborhoodDropdown(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (isEditingNeighborhood) neighborhoodInputRef.current?.focus();
+  }, [isEditingNeighborhood]);
+
+  const handleSelectNeighborhood = (neighborhoodId: string) => {
+    onSelectNeighborhood?.(neighborhoodId);
+    setIsEditingNeighborhood(false);
+    setShowNeighborhoodDropdown(false);
+    setNeighborhoodSearch('');
+  };
 
   const handleSearch = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -113,20 +134,53 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onChan
             </div>
 
             {!compact && (
-              <div className="md:w-[50%] flex items-center justify-between px-3 py-2">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <MapPin className="w-4 h-4 text-gray-500 shrink-0" />
-                  <span className="text-gray-900 text-sm truncate">
-                    {currentNeighborhood ? `${currentNeighborhood.name}, ${currentNeighborhood.city}` : 'Set your neighborhood'}
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={onChangeNeighborhoodClick}
-                  className="text-sm font-bold text-primary-600 hover:underline shrink-0 ml-3"
-                >
-                  Change
-                </button>
+              <div className="md:w-[50%] relative px-3 py-2">
+                {isEditingNeighborhood ? (
+                  <div className="flex items-center gap-2.5">
+                    <MapPin className="w-4 h-4 text-gray-500 shrink-0" />
+                    <input
+                      ref={neighborhoodInputRef}
+                      type="text"
+                      value={neighborhoodSearch}
+                      onChange={(e) => { setNeighborhoodSearch(e.target.value); setShowNeighborhoodDropdown(true); }}
+                      onFocus={() => setShowNeighborhoodDropdown(true)}
+                      placeholder="Search your neighborhood or city..."
+                      className="w-full bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-500 text-sm outline-none"
+                    />
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => { setIsEditingNeighborhood(true); setShowNeighborhoodDropdown(true); }}
+                    className="flex items-center gap-2.5 min-w-0 w-full text-left group"
+                  >
+                    <MapPin className="w-4 h-4 text-gray-500 shrink-0" />
+                    <span className="text-gray-900 text-sm truncate flex-1">
+                      {currentNeighborhood ? `${currentNeighborhood.name}, ${currentNeighborhood.city}` : 'Set your neighborhood'}
+                    </span>
+                    <span className="text-sm font-bold text-primary-600 group-hover:underline shrink-0">
+                      Change
+                    </span>
+                  </button>
+                )}
+                {showNeighborhoodDropdown && isEditingNeighborhood && (
+                  <div className="absolute z-50 top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl max-h-60 overflow-y-auto text-left">
+                    {filteredNeighborhoods.length > 0 ? (
+                      filteredNeighborhoods.map((n, index) => (
+                        <div
+                          key={`n-${n.id}-${index}`}
+                          className="px-4 py-2.5 hover:bg-gray-50 cursor-pointer"
+                          onMouseDown={() => handleSelectNeighborhood(n.id)}
+                        >
+                          <div className="font-medium text-gray-900 text-sm">{n.name}</div>
+                          <div className="text-xs text-gray-500">{n.city}, NC</div>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="px-4 py-2.5 text-sm text-gray-500">No neighborhoods found</div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 
