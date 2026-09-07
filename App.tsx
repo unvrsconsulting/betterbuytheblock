@@ -373,10 +373,18 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    // Show location prompt on first visit. Key is versioned (not the older
-    // "hasVisitedBefore") because that older flag got set for visitors who
-    // hit a bug where the prompt silently never actually asked — bumping the
-    // key lets everyone genuinely get asked once under the fixed logic.
+    // Show location prompt on first visit. Waits for `neighborhoods` to
+    // actually be loaded first — it starts as [] and loads async, and
+    // handleShareLocation's success callback closes over whatever value was
+    // current when this effect ran. Firing before the fetch resolves meant
+    // findNearestNeighborhood always searched an empty list and silently
+    // matched nothing, so granting location permission looked like it did
+    // nothing.
+    if (neighborhoods.length === 0) return;
+    // Key is versioned (not the older "hasVisitedBefore") because that older
+    // flag got set for visitors who hit a bug where the prompt silently
+    // never actually asked — bumping the key lets everyone genuinely get
+    // asked once under the fixed logic.
     try {
       const hasVisited = localStorage.getItem('locationPromptShownV2');
       if (!hasVisited) {
@@ -388,7 +396,8 @@ const App: React.FC = () => {
       // Fallback if localStorage is not available
       handleShareLocation();
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [neighborhoods.length]);
 
   useEffect(() => {
     // Deep-link into a shared deal, e.g. /?service=srv_123
