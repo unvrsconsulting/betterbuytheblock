@@ -5,7 +5,7 @@ import {
   Mail, MapPin, Heart, Grid as GridIcon, Star, Search, Users, BadgePercent,
   Brush, Sparkles, DoorOpen, Zap, Fence, Droplets, Wrench, Shield, Home, Fan,
   Sofa, Trees, Leaf, Truck, Paintbrush, Bug, Droplet, Waves, Wind, Warehouse,
-  Sun, TreePine, AppWindow, LucideIcon
+  Sun, TreePine, AppWindow, LucideIcon, SlidersHorizontal
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
@@ -302,6 +302,7 @@ const App: React.FC = () => {
   const [minPrice, setMinPrice] = useState<string>('');
   const [maxPrice, setMaxPrice] = useState<string>('');
   const [categorySortBy, setCategorySortBy] = useState<string>('recommended');
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState<boolean>(false);
   const [categoryMinPrice, setCategoryMinPrice] = useState<string>('');
   const [categoryMaxPrice, setCategoryMaxPrice] = useState<string>('');
   const [isLocationPromptOpen, setIsLocationPromptOpen] = useState(false);
@@ -1494,12 +1495,20 @@ const App: React.FC = () => {
                     </h2>
                     <p className="text-gray-600">We found these pros and deals for your neighborhood.</p>
                   </div>
+                  <button
+                    onClick={() => setIsMobileFiltersOpen(prev => !prev)}
+                    className="md:hidden inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-300 text-gray-700 font-medium text-sm bg-white shrink-0"
+                  >
+                    <SlidersHorizontal className="w-4 h-4" />
+                    {isMobileFiltersOpen ? 'Hide Filters' : 'Filters & Sort'}
+                  </button>
                 </div>
               </div>
 
               <div className="flex flex-col md:flex-row gap-8">
-                {/* Sidebar Filters */}
-                <div className="w-full md:w-64 shrink-0 space-y-8">
+                {/* Sidebar Filters — collapsed behind a toggle on mobile so
+                    results aren't pushed below a full page of filter controls */}
+                <div className={`${isMobileFiltersOpen ? 'block' : 'hidden'} md:block w-full md:w-64 shrink-0 space-y-8`}>
                   <div>
                     <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-4">Categories</h3>
                     <div className="space-y-3">

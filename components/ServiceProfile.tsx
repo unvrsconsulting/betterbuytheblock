@@ -425,7 +425,18 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
           </div>
         ) : (
           <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-200">
-            <p className="text-gray-500">No reviews yet for this business.</p>
+            {business.rating ? (
+              <>
+                <div className="flex items-center justify-center gap-1.5 mb-2">
+                  <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  <span className="font-bold text-gray-900 text-lg">{Number(business.rating).toFixed(1)}</span>
+                </div>
+                <p className="text-gray-500 text-sm mb-1">{business.reviewCount || 0} Google review{(business.reviewCount || 0) === 1 ? '' : 's'}</p>
+                <p className="text-gray-500">No written reviews on BetterByTheBlock yet — the rating above is {business.name}'s public Google rating.</p>
+              </>
+            ) : (
+              <p className="text-gray-500">No reviews yet.</p>
+            )}
           </div>
         )}
       </div>
