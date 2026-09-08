@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from 'redis';
+import { sendNotificationEmail, escapeHtml } from './_lib/email';
 
 // Every real "Request a Deal" submission from the live site lands here, so the
 // owner can see aggregate real demand (which categories, which neighborhoods)
@@ -82,6 +83,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // localStorage; losing the aggregate copy shouldn't surface as an error.
       return res.status(200).json({ ok: true, captured: false });
     }
+
+    // Fire-and-forget: a failed email should never block the response, since
+    // the real data is already durably saved in Redis by this point.
+    sendNotificationEmail(
+      `New deal request: ${entry.serviceName}`,
+      `<h2>New deal request</h2>
+       <p><strong>Service:</strong> ${escapeHtml(entry.serviceName)}</p>
+       <p><strong>From:</strong> ${escapeHtml(entry.userName || entry.userId)}</p>
+       ${entry.city ? `<p><strong>City:</strong> ${escapeHtml(entry.city)}</p>` : ''}
+       ${entry.businessId ? `<p><strong>Business ID:</strong> ${escapeHtml(entry.businessId)}</p>` : ''}
+       <p><strong>Details:</strong></p>
+       <p>${escapeHtml(entry.description)}</p>`
+    ).catch(() => {});
 
     return res.status(200).json({ ok: true, captured: true });
   }

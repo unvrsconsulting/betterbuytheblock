@@ -32,8 +32,14 @@ const MAX_PAGES_PER_QUERY = 6; // hard cap: at most 480 photos fetched per query
 // a single broad term like "home interior" only has ~400-500 distinct
 // results on Pexels no matter how many pages you request.
 const QUERY_GROUPS = {
-  INTERIOR: ['home interior', 'cozy home interior room', 'modern home interior design', 'house interior room'],
-  EXTERIOR: ['single family house exterior', 'modern house exterior daytime', 'residential house exterior', 'suburban house front'],
+  INTERIOR: [
+    'home interior', 'cozy home interior room', 'modern home interior design', 'house interior room',
+    'living room interior', 'kitchen interior home', 'bedroom interior home', 'family home interior',
+  ],
+  EXTERIOR: [
+    'single family house exterior', 'modern house exterior daytime', 'residential house exterior', 'suburban house front',
+    'beautiful two story house exterior', 'american house exterior', 'house front yard exterior', 'brick house exterior',
+  ],
   DECK: ['single family house backyard deck', 'wood deck patio backyard', 'backyard deck house'],
   FENCE: ['single family house backyard fence', 'wood fence backyard yard', 'backyard fence house'],
   FRONT_YARD: ['single family house front yard', 'garden yard house', 'front yard landscaping'],

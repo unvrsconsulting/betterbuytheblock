@@ -36,7 +36,7 @@ const CITIES = ['Raleigh', 'Cary', 'Apex', 'Wake Forest', 'Holly Springs', 'Garn
 // to grow coverage rather than more queries at limit=3). New finds are still
 // deduped against existing businesses by place_id.
 const DEEPEN = process.env.DEEPEN === '1';
-const RESULTS_PER_QUERY = DEEPEN ? 10 : 3;
+const RESULTS_PER_QUERY = DEEPEN ? 20 : 3;
 const NEIGHBORHOODS_PER_SERVED_CITY = 8;
 
 // Multiple proposed-deal variants per category — realistic pricing/discount/

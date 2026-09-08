@@ -5,7 +5,7 @@ import {
   Mail, MapPin, Heart, Grid as GridIcon, Star, Search, Users, BadgePercent,
   Brush, Sparkles, DoorOpen, Zap, Fence, Droplets, Wrench, Shield, Home, Fan,
   Sofa, Trees, Leaf, Truck, Paintbrush, Bug, Droplet, Waves, Wind, Warehouse,
-  Sun, TreePine, AppWindow, LucideIcon, SlidersHorizontal
+  Sun, TreePine, AppWindow, LucideIcon, SlidersHorizontal, CheckCircle
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
@@ -153,7 +153,7 @@ const COST_GUIDES = [
     description: 'A full breakdown of what heating and cooling work actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from a basic tune-up to a full system swap.',
     author: 'BetterBuyTheBlock Team',
     date: 'SEP 5, 2026',
-    image: 'https://images.pexels.com/photos/12119564/pexels-photo-12119564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: 'https://images.pexels.com/photos/8092387/pexels-photo-8092387.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Cost Guide',
     category: 'HVAC Maintenance',
     intro: [
@@ -478,6 +478,9 @@ const App: React.FC = () => {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [requestModalBusinessId, setRequestModalBusinessId] = useState<string | undefined>(undefined);
   const [requestModalPrefill, setRequestModalPrefill] = useState<string | undefined>(undefined);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterZip, setNewsletterZip] = useState('');
+  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
   const [sortBy, setSortBy] = useState<string>('recommended');
   const [filterCategories, setFilterCategories] = useState<string[]>([]);
   const [filterStatus, setFilterStatus] = useState<string>('all');
@@ -1055,6 +1058,19 @@ const App: React.FC = () => {
     }
   };
 
+  const handleNewsletterSignup = () => {
+    const email = newsletterEmail.trim();
+    if (!email || isRateLimited('newsletterSignup', 5000)) return;
+    fetch('/api/newsletter-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, zip: newsletterZip.trim() }),
+    }).catch(() => {});
+    setNewsletterSubmitted(true);
+    setNewsletterEmail('');
+    setNewsletterZip('');
+  };
+
   const handleAddReview = (businessId: string, rating: number, text: string) => {
     if (!currentUser) return;
     if (isRateLimited(`review_${currentUser.id}_${businessId}`, 30000)) {
@@ -1509,6 +1525,18 @@ const App: React.FC = () => {
           updateCurrentUser(newUser);
           setCurrentUserId(newUser.id);
           saveState('currentUserId', newUser.id);
+          const n = neighborhoods.find(nb => nb.id === newUser.neighborhoodId);
+          fetch('/api/signup-notification', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: newUser.name,
+              email: newUser.email,
+              accountType,
+              neighborhoodName: n?.name,
+              city: n?.city,
+            }),
+          }).catch(() => {});
           if (accountType === 'business' || postLoginIntent === 'business') {
             setView('business-onboarding');
           }
@@ -1779,17 +1807,39 @@ const App: React.FC = () => {
                     <h3 className="text-2xl font-extrabold text-gray-900 mb-2">Knowledge is priceless - so our cost guides are free.</h3>
                     <p className="text-gray-500">Sign up to get free project cost info in your inbox.</p>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
-                      <input type="email" placeholder="Email address" className="pl-10 pr-4 py-3 rounded-lg border border-gray-300 w-full sm:w-64 focus:ring-2 focus:ring-primary focus:border-primary outline-none" />
-                    </div>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
-                      <input type="text" placeholder="Zip code" className="pl-10 pr-4 py-3 rounded-lg border border-gray-300 w-full sm:w-32 focus:ring-2 focus:ring-primary focus:border-primary outline-none" />
-                    </div>
-                    <Button className="py-3 px-6 rounded-lg font-bold whitespace-nowrap">Sign me up</Button>
-                  </div>
+                  {newsletterSubmitted ? (
+                    <p className="flex items-center gap-2 text-green-700 font-semibold">
+                      <CheckCircle className="w-5 h-5" /> You're on the list!
+                    </p>
+                  ) : (
+                    <form
+                      onSubmit={(e) => { e.preventDefault(); handleNewsletterSignup(); }}
+                      className="flex flex-col sm:flex-row gap-3 w-full md:w-auto"
+                    >
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                        <input
+                          type="email"
+                          required
+                          value={newsletterEmail}
+                          onChange={(e) => setNewsletterEmail(e.target.value)}
+                          placeholder="Email address"
+                          className="pl-10 pr-4 py-3 rounded-lg border border-gray-300 w-full sm:w-64 focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                        />
+                      </div>
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                        <input
+                          type="text"
+                          value={newsletterZip}
+                          onChange={(e) => setNewsletterZip(e.target.value)}
+                          placeholder="Zip code"
+                          className="pl-10 pr-4 py-3 rounded-lg border border-gray-300 w-full sm:w-32 focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                        />
+                      </div>
+                      <Button type="submit" className="py-3 px-6 rounded-lg font-bold whitespace-nowrap">Sign me up</Button>
+                    </form>
+                  )}
                 </div>
               </section>
             </div>
@@ -2576,8 +2626,8 @@ const App: React.FC = () => {
               title="Contact us"
               content={
                 <>
-                  <p>This is a local demo build of BetterBuyTheBlock - there's no live support team behind it yet. If this were a production product, this page would list a real support email and response-time expectations.</p>
-                  <p>For now, any account issues can be resolved by clearing this browser's local storage and signing up again, since all data lives only in this browser.</p>
+                  <p>Reach us anytime at <a href="mailto:support@betterbuytheblock.com" className="text-primary hover:underline font-medium">support@betterbuytheblock.com</a>. We're a small team working through Wake County, so it may take a bit to get back to you, but every message reaches a real person.</p>
+                  <p>Account issues can usually be resolved on your own: since your profile lives only in this browser's local storage, clearing your browser data and signing up again resets things.</p>
                 </>
               }
               onBack={() => setView('home')}
@@ -2627,7 +2677,7 @@ const App: React.FC = () => {
                   <p>Your BetterBuyTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently - we have no copy and no way to recover it.</p>
 
                   <h3>What actually gets sent to us</h3>
-                  <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), the service name, your description, your display name, and your neighborhood/city are sent to our server and stored so we can see real demand and reach out to businesses. This is the only visitor data that leaves your browser during normal use.</p>
+                  <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), sign up for a profile, or subscribe to our cost-guide emails, the information you enter (service details, your display name, your email, and your neighborhood/city where relevant) is sent to our server, stored so we can see real demand, and used to send an internal email notification to our team at support@betterbuytheblock.com through Resend, our email delivery provider. This is the only visitor data that leaves your browser during normal use.</p>
                   <p>If you use the AI deal-request assistant, the text you type and the business's name are sent to Google's Gemini API to generate a draft message. That's a direct request to Google's API from our server - we don't separately store what you typed for this feature.</p>
 
                   <h3>Business data</h3>
@@ -2640,7 +2690,7 @@ const App: React.FC = () => {
                   <p>We don't process payments and never collect card or bank information.</p>
 
                   <h3>Your choices</h3>
-                  <p>Clear your browser's local storage at any time to remove your profile. To have a submitted deal request removed from our records, reach out via the <button type="button" onClick={() => setView('contact')} className="text-primary hover:underline font-medium">Contact us</button> page.</p>
+                  <p>Clear your browser's local storage at any time to remove your profile. To have a submitted deal request, signup, or newsletter subscription removed from our records, email us at <a href="mailto:support@betterbuytheblock.com" className="text-primary hover:underline font-medium">support@betterbuytheblock.com</a>.</p>
 
                   <h3>Changes</h3>
                   <p>We may update this policy as the site evolves; the date above reflects the most recent change.</p>

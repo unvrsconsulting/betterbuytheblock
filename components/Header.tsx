@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { User, Notification, UserType } from '../types';
-import { HomeIcon } from './Icon';
+import { NeighborhoodIcon } from './Icon';
 import { LogOut, Settings, User as UserIcon, Bell, Sparkles, Users, Clock, MessageSquare, Menu, X as CloseIcon, ArrowLeftRight, CheckCircle } from 'lucide-react';
 
 interface HeaderProps {
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ currentUser, isAuthenticated = false, o
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2 cursor-pointer shrink-0" onClick={onLogoClick}>
           <div className="bg-primary p-1.5 sm:p-2 rounded-lg shrink-0">
-            <HomeIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+            <NeighborhoodIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
           </div>
           <h1 className="text-base sm:text-2xl font-extrabold text-gray-900 tracking-tight whitespace-nowrap">
             BetterBuyTheBlock
