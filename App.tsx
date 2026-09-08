@@ -421,6 +421,78 @@ const COST_GUIDES = [
       "Because most homes on a street need the exact same recurring service, cleaning is one of the easiest categories to bundle with neighbors for a better rate. A team already scheduled to clean one home on your street can typically add a few more houses to the same day at a meaningfully lower per-visit price than everyone booking separately, especially for standing weekly or biweekly plans.",
     ],
   },
+  {
+    slug: 'pest-control-costs-wake-county-2027',
+    title: 'Pest Control Costs in Wake County for 2027: Quarterly Plans, Termite Treatment, and Mosquito Control',
+    description: "What quarterly pest prevention, termite treatment, and mosquito control actually cost in Raleigh and Wake County heading into 2027, and why this region's climate makes pest pressure higher than most.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 8, 2026',
+    image: 'https://images.pexels.com/photos/20296321/pexels-photo-20296321.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Pest Control',
+    intro: [
+      "Wake County's warm, humid climate and clay-heavy soil make it one of the higher pest-pressure regions in the country, especially for termites. Heading into 2027, homeowners here are budgeting for everything from a standard quarterly pest plan to a full termite treatment, and the price range across those services is enormous, from under $50 a month to several thousand dollars for termite work. This guide breaks down what each type of pest service actually costs in the Raleigh area, based on current local and national pricing data.",
+      "We'll cover standard pest control plans, termite inspection and treatment, mosquito control, and what specifically drives your price up or down in this climate.",
+    ],
+    sections: [
+      {
+        heading: 'Standard Pest Control',
+        paragraphs: [
+          "A one-time general pest control visit in the Raleigh area typically runs $95 to $575, with most homeowners paying around $170 for a standard interior and exterior treatment. Most companies push customers toward an ongoing plan instead of a single visit, since recurring service keeps pest pressure from building back up between treatments.",
+          "Quarterly plans, the most common option, run about $99 to $200 per visit in the Raleigh market, while monthly plans (more common for homes with heavier pest pressure, like properties backing up to woods or water) run $40 to $65 per visit. Most quarterly plans include unlimited free re-treatments between visits if pests show up again.",
+        ],
+        bullets: [
+          'One-time visit: $95 to $575 (typical $170 for interior + exterior)',
+          'Quarterly plan: $99 to $200 per visit',
+          'Monthly plan: $40 to $65 per visit',
+        ],
+        linkLabel: 'See real pest control deals in your neighborhood',
+        linkCategory: 'Pest Control',
+      },
+      {
+        heading: 'Termite Inspection and Treatment',
+        paragraphs: [
+          "A standalone termite inspection with a written report, commonly requested before closing on a home, typically costs $75 to $325 in the Raleigh area, with most homeowners paying closer to $100 to $135. Many pest companies will do this for free or a nominal fee if you sign up for ongoing service, so it's worth asking before you pay full price for an inspection alone.",
+          "Actual termite treatment is a much bigger expense. In the Raleigh area, treatment for an active infestation runs $1,080 to $3,150, averaging around $1,800. Liquid barrier treatments (trenching and treating the soil around your foundation) run $270 to $810, while bait station systems, which use monitoring stations placed around the property, cost $720 to $1,350 to install plus ongoing annual monitoring. After initial treatment, an annual termite bond, covering yearly inspections and re-treatment if termites come back, typically costs $225 to $450 per year.",
+        ],
+        bullets: [
+          'Termite inspection alone: $75 to $325 (typical $100 to $135)',
+          'Full termite treatment: $1,080 to $3,150 (average $1,800)',
+          'Liquid barrier treatment: $270 to $810',
+          'Bait station system: $720 to $1,350 installed, plus annual monitoring',
+          'Annual termite bond: $225 to $450 per year',
+        ],
+      },
+      {
+        heading: 'Mosquito and Seasonal Pest Control',
+        paragraphs: [
+          "Mosquito barrier spray treatments, which target standing water and vegetation where mosquitoes breed, typically run $100 to $165 per visit, with Southeast regional pricing (accounting for our longer mosquito season) landing around $70 to $150. Most companies recommend treatment every 3 to 4 weeks through the warm months for it to stay effective, since the barrier breaks down with rain and new growth.",
+          "Other seasonal pests worth planning for in this region include fire ants, which are common in Wake County lawns, and stink bugs and lady beetles, which tend to move indoors as the weather cools each fall. Most quarterly pest plans already cover general seasonal pests like these as part of the standard service.",
+        ],
+        bullets: [
+          'Mosquito barrier spray: $100 to $165 per visit ($70 to $150 typical Southeast pricing)',
+          'Recommended frequency: every 3 to 4 weeks through mosquito season',
+          'Seasonal pests (fire ants, stink bugs, lady beetles) typically covered under a standard quarterly plan',
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "Home size is the most obvious factor, since larger homes take longer to treat and use more product both inside and around the foundation. Pest type and severity matter just as much: a routine quarterly visit for ants and spiders costs a fraction of what an active termite or bed bug infestation costs to resolve, since infestations require specialized treatment methods and often follow-up visits.",
+          "Proximity to woods, water, or crawl spaces also pushes pricing up in this region, since those conditions create more consistent pest pressure and sometimes require additional treatment points. Finally, whether you're booking a one-time visit or signing up for a recurring plan makes a real difference. Ongoing plans typically cost less per visit than one-off treatments, since the company is maintaining a relationship with your home instead of starting from scratch each time.",
+        ],
+        bullets: [
+          'Home size (larger homes take longer and use more product)',
+          'Pest type and severity (routine visit vs. active infestation)',
+          'Proximity to woods, water, or crawl spaces',
+          'One-time visit vs. recurring plan',
+        ],
+      },
+    ],
+    closing: [
+      "Because termite pressure and general pest issues tend to affect entire neighborhoods rather than isolated homes, especially in older subdivisions or areas near wooded lots, pest control is a strong category for bundling with neighbors. A technician already treating one home on your street can often add several more at a meaningfully better group rate than everyone booking separately, particularly for standing quarterly plans.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
