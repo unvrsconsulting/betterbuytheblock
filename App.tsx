@@ -348,6 +348,79 @@ const COST_GUIDES = [
       "Adding it all up, many Wake County homeowners spend somewhere between $1,000 and $2,400 or more per year on recurring lawn maintenance alone, before factoring in mulch refreshes or larger projects. Because most homes on a given street need roughly the same seasonal work, lawn and landscaping is one of the easiest categories to bundle with neighbors. A crew already routed through your subdivision can usually add nearby yards to the same trip for a noticeably better group rate than everyone booking separately.",
     ],
   },
+  {
+    slug: 'house-cleaning-costs-wake-county-2027',
+    title: 'House Cleaning Costs in Wake County for 2027: Standard, Deep, and Move-Out Pricing',
+    description: 'What a standard clean, a first-time deep clean, and a move-out cleaning actually cost in Raleigh and Wake County heading into 2027, and how recurring service changes the math.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 8, 2026',
+    image: 'https://images.pexels.com/photos/28542161/pexels-photo-28542161.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'House Cleaning',
+    intro: [
+      "House cleaning is one of those services almost every homeowner budgets for eventually, but the pricing is a lot less standardized than people expect. A one-time deep clean before a holiday, a recurring biweekly visit, and a move-out clean for a lease turnover are three completely different jobs with three different price tags, and Wake County pricing has its own local range on top of that. Heading into 2027, this guide breaks down what you should actually expect to pay for each type of cleaning in Raleigh, Cary, and the surrounding area.",
+      "We'll walk through standard cleaning, deep cleaning, move-in and move-out cleaning, and the factors that push your specific price up or down, based on current national pricing data and Raleigh area numbers.",
+    ],
+    sections: [
+      {
+        heading: 'Standard Cleaning',
+        paragraphs: [
+          "A standard cleaning, dusting, vacuuming, mopping, kitchen and bathroom wipe-downs, typically costs $120 to $280 per visit nationally, with an average around $176. In the Raleigh-Durham-Cary area specifically, a one-time standard clean of an average 2,000 square foot home tends to run $180 to $336, while hiring a professional cleaner more broadly in Raleigh averages about $153, with most homeowners paying between $120 and $213.",
+          "Hourly rates in Raleigh run on the lower end of the national range, averaging around $20.63 per hour for independent cleaners, though agency-booked cleaners typically charge $25 to $50 per hour depending on team size and included services. Most companies price per visit rather than strictly by the hour once they've seen your home.",
+        ],
+        bullets: [
+          'National average per visit: $120 to $280 (average $176)',
+          'Raleigh-Durham-Cary, 2,000 sq ft home: $180 to $336',
+          'Raleigh professional cleaner average: $153 ($120 to $213 typical)',
+          'Raleigh hourly rate: about $20.63/hr independent, $25 to $50/hr through an agency',
+        ],
+        linkLabel: 'See real house cleaning deals in your neighborhood',
+        linkCategory: 'House Cleaning',
+      },
+      {
+        heading: 'Deep Cleaning',
+        paragraphs: [
+          "A deep clean goes well beyond the standard checklist, covering baseboards, inside appliances, window sills, grout, and other spots that don't get touched on a routine visit. Nationally, deep cleaning runs 50% to 100% more than a standard clean, typically landing between $180 and $400 per visit, though some heavily built-up homes report $500 or more.",
+          "Locally, an intensive first-time deep clean in the Raleigh area typically scales between $300 and $540. This is the service most homeowners book once before switching to a recurring standard cleaning schedule, since it resets the home to a baseline that's much easier and cheaper to maintain going forward.",
+        ],
+        bullets: [
+          'National deep clean range: $180 to $400 (50% to 100% more than standard)',
+          'Heavy buildup or first-time deep clean: $500+',
+          'Raleigh area first-time deep clean: $300 to $540',
+        ],
+      },
+      {
+        heading: 'Move-In and Move-Out Cleaning',
+        paragraphs: [
+          "Move-out cleaning is priced closer to a deep clean, since an empty home gets a full top-to-bottom treatment, inside cabinets, closets, appliances, and every surface, ahead of a new tenant or buyer walkthrough. Nationally, this runs $250 to $600, with an average around $360, though a studio or one-bedroom apartment can come in as low as $75 to $150 while a 3,000+ square foot house can run $350 to $600 or more.",
+          "In the Raleigh area, professional move-out cleaning for a standard family-sized property typically falls between $300 and $500. Expect add-on pricing of roughly $30 to $70 per bedroom and $10 to $40 per bathroom on top of a base rate if your cleaner prices by room count rather than flat rate.",
+        ],
+        bullets: [
+          'National average: $360 ($250 to $600 typical range)',
+          'Studio or 1BR apartment: $75 to $150',
+          '3,000+ sq ft house: $350 to $600+',
+          'Raleigh area, standard family home: $300 to $500',
+          'Per-room add-ons: $30 to $70 per bedroom, $10 to $40 per bathroom',
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "Home size and bedroom or bathroom count are the biggest factors, since most companies scale pricing off square footage or room count once past a base rate. How long it's been since the last real cleaning matters just as much. A home on a strict biweekly schedule needs far less time per visit than one being cleaned for the first time in months, which is why standard and deep cleaning are priced so differently.",
+          "Recurring service is the other lever worth knowing about. Weekly and biweekly cleaning plans are consistently cheaper per visit than booking one-off appointments, since the cleaner can route your home into a fixed schedule instead of treating every visit as a new estimate. Add-ons like inside the fridge, inside the oven, interior windows, or laundry are usually priced separately, so it's worth confirming exactly what's included before comparing quotes.",
+        ],
+        bullets: [
+          'Home size and bedroom/bathroom count set the base price',
+          'Time since last real cleaning (recurring vs. first-time)',
+          'Recurring weekly or biweekly plans price lower per visit',
+          'Add-ons (fridge, oven, interior windows, laundry) usually cost extra',
+        ],
+      },
+    ],
+    closing: [
+      "Because most homes on a street need the exact same recurring service, cleaning is one of the easiest categories to bundle with neighbors for a better rate. A team already scheduled to clean one home on your street can typically add a few more houses to the same day at a meaningfully lower per-visit price than everyone booking separately, especially for standing weekly or biweekly plans.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
