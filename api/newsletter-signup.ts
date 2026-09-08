@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from 'redis';
-import { sendNotificationEmail, escapeHtml } from './_lib/email';
+import { sendNotificationEmail, escapeHtml } from './_lib/email.js';
 
 const LIST_KEY = 'newsletter_signups';
 const MAX_ENTRIES = 5000;

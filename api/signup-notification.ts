@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { sendNotificationEmail, escapeHtml } from './_lib/email';
+import { sendNotificationEmail, escapeHtml } from './_lib/email.js';
 
 // Fired once when a new local profile is created (resident or business),
 // purely to let the site owner know real signups are happening - this

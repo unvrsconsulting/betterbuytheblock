@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from 'redis';
-import { sendNotificationEmail, escapeHtml } from './_lib/email';
+import { sendNotificationEmail, escapeHtml } from './_lib/email.js';
 
 // Every real "Request a Deal" submission from the live site lands here, so the
 // owner can see aggregate real demand (which categories, which neighborhoods)
