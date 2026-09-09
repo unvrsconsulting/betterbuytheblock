@@ -62,12 +62,16 @@ export function renderPage({ head, bodyHtml }) {
 `;
 }
 
-/** A single service+business deal card — real content + a real <a href> to the business page. */
-export function renderServiceCardHtml(service, business, businessHref) {
+/** A single service+business deal card — real content + real <a href>s to the
+ * business page and (when known) this specific service's own page. */
+export function renderServiceCardHtml(service, business, businessHref, serviceHref) {
   const discountedPrice = (service.standardPrice || 0) * (1 - (service.discountPercentage || 0) / 100);
+  const titleHtml = serviceHref
+    ? `<a href="${escapeHtml(serviceHref)}" style="color:inherit;text-decoration:none;"><h3 style="font-size:17px;font-weight:800;color:#111827;margin:4px 0;">${escapeHtml(service.title)}</h3></a>`
+    : `<h3 style="font-size:17px;font-weight:800;color:#111827;margin:4px 0;">${escapeHtml(service.title)}</h3>`;
   return `<article style="border:1px solid #e5e7eb;border-radius:16px;padding:16px;background:#fff;">
     <a href="${escapeHtml(businessHref)}" style="font-size:11px;font-weight:600;color:#059669;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none;">${escapeHtml(business?.name || '')}</a>
-    <h3 style="font-size:17px;font-weight:800;color:#111827;margin:4px 0;">${escapeHtml(service.title)}</h3>
+    ${titleHtml}
     <p style="font-size:13px;color:#4b5563;margin:0 0 8px;">${escapeHtml(service.description)}</p>
     <p style="margin:0;"><strong style="font-size:20px;color:#15803d;">$${discountedPrice.toFixed(0)}</strong> <span style="font-size:13px;color:#9ca3af;text-decoration:line-through;">$${(service.standardPrice || 0).toFixed(0)}</span> <span style="font-size:11px;font-weight:700;color:#fff;background:#16a34a;border-radius:9999px;padding:2px 8px;">${service.discountPercentage}% OFF</span></p>
   </article>`;

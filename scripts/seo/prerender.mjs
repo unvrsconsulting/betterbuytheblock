@@ -15,8 +15,10 @@ import { fileURLToPath } from 'url';
 import {
   SITE_URL,
   businessPath,
+  servicePath,
   neighborhoodPath,
   getBusinessPageContent,
+  getServicePageContent,
   getNeighborhoodPageContent,
   getCategoryPageContent,
 } from '../../services/seo/pageContent.js';
@@ -80,8 +82,15 @@ function main() {
   const neighborhoods = neighborhoodsRaw.map(n => ({ ...n, homeStats: realStats[n.id] }));
 
   const allCategories = CATEGORY_GROUPS.flatMap(g => g.categories);
+  const businessById = new Map(businesses.map(b => [b.id, b]));
 
-  let counts = { category: 0, categoryCity: 0, neighborhoodIndexed: 0, neighborhoodNoindex: 0, business: 0 };
+  function hrefsFor(service) {
+    const business = businessById.get(service.businessId);
+    if (!business) return { businessHref: undefined, serviceHref: undefined };
+    return { businessHref: businessPath(business), serviceHref: servicePath(business, service) };
+  }
+
+  let counts = { category: 0, categoryCity: 0, neighborhoodIndexed: 0, neighborhoodNoindex: 0, business: 0, service: 0 };
   const sitemapUrls = [];
 
   function pageHtml({ title, description, canonicalUrl, robots, jsonLd, bodyHtml }) {
@@ -114,7 +123,7 @@ function main() {
     const content = getCategoryPageContent(categoryName, null, services);
     const cardsHtml = content.services
       .slice(0, MAX_CARDS_PER_PAGE)
-      .map(s => renderServiceCardHtml(s, businesses.find(b => b.id === s.businessId), businessPath(businesses.find(b => b.id === s.businessId) || { id: s.businessId, name: s.businessId })))
+      .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
       .join('\n        ');
     const bodyHtml = listingBody({
       heading: `${categoryName} in Wake County, NC`,
@@ -134,7 +143,7 @@ function main() {
       if (content.services.length === 0) continue; // never generate/link an empty combo
       const cardsHtml = content.services
         .slice(0, MAX_CARDS_PER_PAGE)
-        .map(s => renderServiceCardHtml(s, businesses.find(b => b.id === s.businessId), businessPath(businesses.find(b => b.id === s.businessId) || { id: s.businessId, name: s.businessId })))
+        .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
         .join('\n        ');
       const bodyHtml = listingBody({
         heading: `${categoryName} in ${cityName}, NC`,
@@ -159,7 +168,7 @@ function main() {
       : '';
     const cardsHtml = scopedServices
       .slice(0, MAX_CARDS_PER_PAGE)
-      .map(s => renderServiceCardHtml(s, businesses.find(b => b.id === s.businessId), businessPath(businesses.find(b => b.id === s.businessId) || { id: s.businessId, name: s.businessId })))
+      .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
       .join('\n        ');
     const bodyHtml = `<section style="max-width:1200px;margin:0 auto;padding:48px 24px;">
       <nav><a href="/" style="color:#059669;text-decoration:none;font-weight:600;">&larr; BetterBuyTheBlock</a></nav>
@@ -178,12 +187,14 @@ function main() {
     }
   }
 
-  // --- Business pages (1,644, all indexable per the confirmed decision) ---
-  // businessPath() is name-slug only, no id — two businesses with the same
-  // name would collide and silently overwrite each other's page. The current
-  // catalog has zero collisions (verified directly), but warn loudly if a
-  // future data change ever introduces one, rather than losing a page silently.
+  // --- Business pages (1,644, all indexable) + their nested service pages ---
+  // businessPath()/servicePath() are name-slug only, no id — two businesses
+  // with the same name (or, within one business, two identically-titled
+  // offerings) would collide and silently overwrite each other's page. The
+  // current catalog has zero collisions at either level (verified directly),
+  // but warn loudly if a future data change ever introduces one.
   const seenBusinessPaths = new Set();
+  const seenServicePaths = new Set();
   for (const business of businesses) {
     const ownServices = services.filter(s => s.businessId === business.id);
     const content = getBusinessPageContent(business, ownServices);
@@ -192,7 +203,7 @@ function main() {
     }
     seenBusinessPaths.add(content.path);
     const cardsHtml = ownServices
-      .map(s => renderServiceCardHtml(s, business, content.path))
+      .map(s => renderServiceCardHtml(s, business, content.path, servicePath(business, s)))
       .join('\n        ');
     const badgeHtml = content.honestyBadge
       ? `<div style="display:inline-block;background:#111827;color:#fff;padding:4px 12px;border-radius:9999px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">${escapeHtml(content.honestyBadge)}</div>`
@@ -213,6 +224,37 @@ function main() {
     writeRoute(content.path, pageHtml({ ...content, bodyHtml }));
     sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.6' });
     counts.business++;
+
+    // Nested service pages — real business context (name/address/price)
+    // carries each page, since the offering title alone repeats across
+    // dozens of unrelated businesses (see getServicePageContent).
+    for (const service of ownServices) {
+      const svcContent = getServicePageContent(business, service);
+      if (seenServicePaths.has(svcContent.path)) {
+        console.warn(`WARNING: service URL collision at ${svcContent.path} — "${service.title}" (${service.id}) will overwrite a previous service page for this business.`);
+      }
+      seenServicePaths.add(svcContent.path);
+      const discountedPrice = Math.round((service.standardPrice || 0) * (1 - (service.discountPercentage || 0) / 100));
+      const svcBadgeHtml = svcContent.honestyBadge
+        ? `<div style="display:inline-block;background:#111827;color:#fff;padding:4px 12px;border-radius:9999px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">${escapeHtml(svcContent.honestyBadge)}</div>`
+        : '';
+      const svcNoteHtml = svcContent.honestyNote
+        ? `<p style="color:#6b7280;font-size:14px;max-width:640px;margin:0 0 16px;">${escapeHtml(svcContent.honestyNote)}</p>`
+        : '';
+      const svcBodyHtml = `<section style="max-width:800px;margin:0 auto;padding:48px 24px;">
+      <nav><a href="/" style="color:#059669;text-decoration:none;font-weight:600;">&larr; BetterBuyTheBlock</a> &rsaquo; <a href="${escapeHtml(content.path)}" style="color:#059669;text-decoration:none;font-weight:600;">${escapeHtml(business.name)}</a></nav>
+      <h1 style="font-size:28px;font-weight:800;color:#111827;margin:16px 0 8px;">${escapeHtml(service.title)}</h1>
+      <p style="color:#6b7280;margin:0 0 16px;">by <a href="${escapeHtml(content.path)}" style="color:#059669;font-weight:600;text-decoration:none;">${escapeHtml(business.name)}</a></p>
+      ${svcBadgeHtml}
+      ${svcNoteHtml}
+      <p style="color:#374151;max-width:640px;margin:0 0 24px;">${escapeHtml(service.description)}</p>
+      <p style="margin:0 0 24px;"><strong style="font-size:32px;color:#15803d;">$${discountedPrice}</strong> <span style="font-size:16px;color:#9ca3af;text-decoration:line-through;">$${(service.standardPrice || 0).toFixed(0)}</span> <span style="font-size:13px;font-weight:700;color:#fff;background:#16a34a;border-radius:9999px;padding:3px 10px;">${service.discountPercentage}% OFF</span></p>
+      <p style="color:#6b7280;font-size:14px;">${service.currentSignups || 0} of ${service.requiredSignups} neighbors joined so far. Once enough neighbors join, ${escapeHtml(business.name)} reaches out to schedule at the bulk rate.</p>
+    </section>`;
+      writeRoute(svcContent.path, pageHtml({ ...svcContent, bodyHtml: svcBodyHtml }));
+      sitemapUrls.push({ loc: svcContent.canonicalUrl, priority: '0.5' });
+      counts.service++;
+    }
   }
 
   // --- Sitemap (replaces whatever public/sitemap.xml Vite already copied) ---
@@ -246,7 +288,8 @@ ${allUrls.map(u => `  <url>\n    <loc>${escapeHtml(u.loc)}</loc>\n    <changefre
   console.log(`  Category x City pages: ${counts.categoryCity}`);
   console.log(`  Neighborhood pages:    ${counts.neighborhoodIndexed} indexed + ${counts.neighborhoodNoindex} noindex = ${counts.neighborhoodIndexed + counts.neighborhoodNoindex}`);
   console.log(`  Business pages:        ${counts.business}`);
-  console.log(`  Total pages written:   ${counts.category + counts.categoryCity + counts.neighborhoodIndexed + counts.neighborhoodNoindex + counts.business}`);
+  console.log(`  Service pages:         ${counts.service}`);
+  console.log(`  Total pages written:   ${counts.category + counts.categoryCity + counts.neighborhoodIndexed + counts.neighborhoodNoindex + counts.business + counts.service}`);
   console.log(`  Sitemap entries:       ${allUrls.length}`);
 }
 

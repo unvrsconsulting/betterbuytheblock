@@ -23,14 +23,15 @@ interface ServiceCardProps {
   users?: User[];
   onUpdateUser?: (user: User) => void;
   onOptOut?: () => void;
-  // Real crawlable URL to this business's page, e.g. "/business/acme--real-biz-4".
-  // When provided, the logo/name click targets render as a real <a href> instead
-  // of a plain div/button — see components/Link.tsx.
+  // Real crawlable URLs, e.g. "/business/acme" and "/business/acme/carpet-clean".
+  // When provided, the logo/name/title click targets render as a real
+  // <a href> instead of a plain div/button — see components/Link.tsx.
   businessHref?: string;
+  serviceHref?: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
-  service, business, onSignUp, isSignedUp, onBusinessClick, onServiceClick, isWishlisted, onToggleWishlist, currentUser, users = [], onUpdateUser, onOptOut, businessHref
+  service, business, onSignUp, isSignedUp, onBusinessClick, onServiceClick, isWishlisted, onToggleWishlist, currentUser, users = [], onUpdateUser, onOptOut, businessHref, serviceHref
 }) => {
   const discountedPrice = (service.standardPrice || 0) * (1 - (service.discountPercentage || 0) / 100);
   const isGoalMet = (service.currentSignups || 0) >= (service.requiredSignups || 0);
@@ -79,7 +80,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 <Heart className="w-4 h-4" fill={isWishlisted ? "currentColor" : "none"} />
               </button>
               <button
-                onClick={(e) => { e.stopPropagation(); shareServiceLink(service.id); }}
+                onClick={(e) => { e.stopPropagation(); shareServiceLink(serviceHref || window.location.pathname); }}
                 className="p-2 rounded-full bg-white/90 text-gray-500 hover:text-primary-500 backdrop-blur-sm shadow-sm transition-colors"
                 title="Share Deal"
                 aria-label="Share deal"
@@ -120,7 +121,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         )}
 
-        <div className="mb-2 cursor-pointer group" onClick={onServiceClick}>
+        <div className="mb-2 group">
           <div className="flex items-center justify-between mb-1">
             {businessHref ? (
               <Link
@@ -146,10 +147,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               </div>
             ) : null}
           </div>
-          <h3 className="text-lg font-extrabold text-gray-900 leading-tight line-clamp-2 group-hover:text-primary transition-colors">{service.title}</h3>
+          {serviceHref ? (
+            <Link href={serviceHref} onNavigate={() => onServiceClick?.()} className="block">
+              <h3 className="text-lg font-extrabold text-gray-900 leading-tight line-clamp-2 group-hover:text-primary transition-colors">{service.title}</h3>
+            </Link>
+          ) : (
+            <h3
+              className="text-lg font-extrabold text-gray-900 leading-tight line-clamp-2 group-hover:text-primary transition-colors cursor-pointer"
+              onClick={onServiceClick}
+            >
+              {service.title}
+            </h3>
+          )}
         </div>
 
-        <p className="text-gray-600 text-xs mb-1 flex-grow line-clamp-2 cursor-pointer" onClick={onServiceClick}>{service.description}</p>
+        {serviceHref ? (
+          <Link href={serviceHref} onNavigate={() => onServiceClick?.()} className="text-gray-600 text-xs mb-1 flex-grow line-clamp-2 block">
+            {service.description}
+          </Link>
+        ) : (
+          <p className="text-gray-600 text-xs mb-1 flex-grow line-clamp-2 cursor-pointer" onClick={onServiceClick}>
+            {service.description}
+          </p>
+        )}
       </div>
 
       <div className="p-3 bg-green-50 border-t border-green-200 shrink-0 flex flex-col gap-3 rounded-b-2xl">
@@ -226,7 +246,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 </div>
               )}
               <Button
-                onClick={(e) => { e.stopPropagation(); shareServiceLink(service.id); }}
+                onClick={(e) => { e.stopPropagation(); shareServiceLink(serviceHref || window.location.pathname); }}
                 fullWidth
                 variant="outline"
                 className="py-2 text-xs rounded-xl flex items-center justify-center gap-1.5"

@@ -5,7 +5,7 @@ import L from 'leaflet';
 import { Service, Business, Neighborhood, User } from '../types';
 import ServiceCard from './ServiceCard';
 import { TagIcon, DollarIcon } from './Icon';
-import { businessPath } from '../services/seo/pageContent.js';
+import { businessPath, servicePath } from '../services/seo/pageContent.js';
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -108,6 +108,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
               service={service}
               business={svcBusiness}
               businessHref={svcBusiness ? businessPath(svcBusiness) : undefined}
+              serviceHref={svcBusiness ? servicePath(svcBusiness, service) : undefined}
               onSignUp={() => onSignUp(service.id)}
               isSignedUp={(service.signedUpUserIds || []).includes(currentUser?.id || '')}
               onBusinessClick={() => onBusinessClick(service.businessId)}

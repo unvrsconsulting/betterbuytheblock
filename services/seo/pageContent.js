@@ -12,6 +12,8 @@ export const SITE_URL = 'https://betterbuytheblock.com';
 const BUSINESS_HONESTY_BADGE = 'Not yet a confirmed partner';
 const BUSINESS_HONESTY_NOTE =
   "This is a real Wake County business we found in this category - they haven't joined BetterBuyTheBlock yet. The deals below are proposals, not something they've offered. Request one to help bring them here.";
+const SERVICE_HONESTY_NOTE =
+  "This is a real Wake County business we found in this category - they haven't joined BetterBuyTheBlock yet. This deal is a proposal, not something they've offered. Request it to help bring them here.";
 
 function truncate(str, maxLen) {
   if (!str || str.length <= maxLen) return str || '';
@@ -43,11 +45,27 @@ export function categoryCityPath(categoryName, cityName) {
   return `/category/${slugify(categoryName)}/${slugify(cityName)}`;
 }
 
-/** Pulls the slug segment out of a "/business/<slug>" pathname. Resolving it
- * back to an actual business requires the loaded business list (see
- * App.tsx's pendingBusinessSlug effect) since the id isn't in the URL. */
+// Nested under the business (not a standalone top-level page) — same
+// name-slug-only reasoning as businessPath, but collisions here are scoped
+// to one business's own offerings, so the odds of a real collision are far
+// lower than a county-wide title match would be.
+export function servicePath(business, service) {
+  return `${businessPath(business)}/${slugify(service.title)}`;
+}
+
+/** Pulls the slug segment(s) out of a "/business/<slug>[/<service-slug>]"
+ * pathname. Resolving either back to a real business/service requires the
+ * loaded catalog (see App.tsx's pendingBusinessSlug/pendingServiceSlug
+ * effect) since no id is in the URL. */
 export function parseBusinessSlugFromPath(pathname) {
-  return pathname.split('/').filter(Boolean).pop() || null;
+  const parts = pathname.split('/').filter(Boolean);
+  // parts[0] is "business"; parts[1] is the business slug.
+  return parts[1] || null;
+}
+
+export function parseServiceSlugFromPath(pathname) {
+  const parts = pathname.split('/').filter(Boolean);
+  return parts.length >= 3 ? parts[2] : null;
 }
 
 function cityFromAddress(address) {
@@ -96,6 +114,32 @@ export function buildLocalBusinessJsonLd(business, canonicalUrl) {
   return jsonLd;
 }
 
+export function buildServiceJsonLd(service, business, canonicalUrl) {
+  const discountedPrice = Math.round((service.standardPrice || 0) * (1 - (service.discountPercentage || 0) / 100));
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    description: service.description,
+    url: canonicalUrl,
+    ...(service.category ? { serviceType: service.category } : {}),
+    provider: {
+      '@type': 'LocalBusiness',
+      name: business.name,
+      ...(business.address ? { address: business.address } : {}),
+      ...(business.phone ? { telephone: business.phone } : {}),
+    },
+    areaServed: 'Wake County, NC',
+    offers: {
+      '@type': 'Offer',
+      price: discountedPrice,
+      priceCurrency: 'USD',
+      url: canonicalUrl,
+      availability: 'https://schema.org/InStock',
+    },
+  };
+}
+
 export function buildItemListJsonLd(items, canonicalUrl) {
   return {
     '@context': 'https://schema.org',
@@ -142,6 +186,39 @@ export function getBusinessPageContent(business, services) {
     honestyNote: business.isProspective ? BUSINESS_HONESTY_NOTE : null,
     services,
     jsonLd: [buildLocalBusinessJsonLd(business, canonicalUrl), buildBreadcrumbJsonLd(breadcrumb)],
+  };
+}
+
+/**
+ * A single offering, nested under its business (not a standalone top-level
+ * page) — real content (business name/address/price) has to carry the page,
+ * since the offering title alone ("Whole-Home Carpet Deep Clean") repeats
+ * near-verbatim across dozens of unrelated businesses.
+ * @param {object} business
+ * @param {object} service
+ */
+export function getServicePageContent(business, service) {
+  const path = servicePath(business, service);
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const discountedPrice = Math.round((service.standardPrice || 0) * (1 - (service.discountPercentage || 0) / 100));
+  const city = cityFromAddress(business.address);
+  const title = `${service.title} by ${business.name}${city ? ` - ${city}, NC` : ''} | BetterBuyTheBlock`;
+  const description = `${service.title} from ${business.name}: $${discountedPrice} (${service.discountPercentage}% off the $${service.standardPrice} standard rate) once enough neighbors join. ${truncate(service.description, 100)}`;
+  const breadcrumb = [
+    { name: 'Home', url: SITE_URL },
+    ...(business.category ? [{ name: business.category, url: `${SITE_URL}${categoryPath(business.category)}` }] : []),
+    { name: business.name, url: `${SITE_URL}${businessPath(business)}` },
+    { name: service.title, url: canonicalUrl },
+  ];
+  return {
+    path,
+    canonicalUrl,
+    title,
+    description,
+    robots: 'index, follow',
+    honestyBadge: business.isProspective ? BUSINESS_HONESTY_BADGE : null,
+    honestyNote: business.isProspective ? SERVICE_HONESTY_NOTE : null,
+    jsonLd: [buildServiceJsonLd(service, business, canonicalUrl), buildBreadcrumbJsonLd(breadcrumb)],
   };
 }
 

@@ -10,6 +10,7 @@ import AIRequestDealPanel from './AIRequestDealPanel';
 import ReviewModal from './ReviewModal';
 import Button from './Button';
 import { GoogleIcon } from './Icon';
+import { servicePath } from '../services/seo/pageContent.js';
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -369,6 +370,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                     key={service.id}
                     service={service}
                     business={business}
+                    serviceHref={servicePath(business, service)}
                     onSignUp={() => onSignUp(service.id)}
                     isSignedUp={currentUserSignedUpIds.includes(service.id)}
                     onBusinessClick={() => {}} // Already on profile
@@ -578,6 +580,7 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                   key={service.id}
                   service={service}
                   business={business}
+                  serviceHref={servicePath(business, service)}
                   onSignUp={() => {}}
                   isSignedUp={true}
                   onBusinessClick={() => {}}

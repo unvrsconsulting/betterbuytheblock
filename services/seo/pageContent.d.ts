@@ -3,10 +3,12 @@ import type { Business, Service, Neighborhood } from '../../types';
 export const SITE_URL: string;
 
 export function businessPath(business: Pick<Business, 'name'>): string;
+export function servicePath(business: Pick<Business, 'name'>, service: Pick<Service, 'title'>): string;
 export function neighborhoodPath(neighborhood: Pick<Neighborhood, 'id'>): string;
 export function categoryPath(categoryName: string): string;
 export function categoryCityPath(categoryName: string, cityName: string): string;
 export function parseBusinessSlugFromPath(pathname: string): string | null;
+export function parseServiceSlugFromPath(pathname: string): string | null;
 
 export interface BreadcrumbItem {
   name: string;
@@ -15,6 +17,7 @@ export interface BreadcrumbItem {
 
 export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]): Record<string, unknown>;
 export function buildLocalBusinessJsonLd(business: Business, canonicalUrl: string): Record<string, unknown>;
+export function buildServiceJsonLd(service: Service, business: Business, canonicalUrl: string): Record<string, unknown>;
 export function buildItemListJsonLd(
   items: { name: string; url: string }[],
   canonicalUrl: string
@@ -33,6 +36,19 @@ export interface BusinessPageContent {
 }
 
 export function getBusinessPageContent(business: Business, services: Service[]): BusinessPageContent;
+
+export interface ServicePageContent {
+  path: string;
+  canonicalUrl: string;
+  title: string;
+  description: string;
+  robots: 'index, follow' | 'noindex, follow';
+  honestyBadge: string | null;
+  honestyNote: string | null;
+  jsonLd: Record<string, unknown>[];
+}
+
+export function getServicePageContent(business: Business, service: Service): ServicePageContent;
 
 export interface NeighborhoodPageContent {
   path: string;

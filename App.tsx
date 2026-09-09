@@ -13,11 +13,14 @@ import { USERS, REVIEWS, CATEGORY_GROUPS, WAKE_COUNTY_CITIES, STARTING_BUSINESS_
 import { buildCategorySlugMap, buildCitySlugMap, slugify } from './services/seo/slugify.js';
 import {
   businessPath,
+  servicePath,
   neighborhoodPath,
   categoryPath,
   categoryCityPath,
   parseBusinessSlugFromPath,
+  parseServiceSlugFromPath,
   getBusinessPageContent,
+  getServicePageContent,
   getNeighborhoodPageContent,
   getCategoryPageContent,
   buildBreadcrumbJsonLd,
@@ -652,7 +655,8 @@ const App: React.FC = () => {
     // let the render guards below show a brief loading state, then fall back
     // to a real "not found" only once the catalog has actually loaded.
     if (path.startsWith('/business/')) {
-      return parseBusinessSlugFromPath(path) ? 'business' : 'not-found';
+      if (!parseBusinessSlugFromPath(path)) return 'not-found';
+      return parseServiceSlugFromPath(path) ? 'serviceProfile' : 'business';
     }
     if (path.startsWith('/neighborhood/')) {
       const id = path.slice('/neighborhood/'.length).split('/').filter(Boolean)[0];
@@ -677,23 +681,38 @@ const App: React.FC = () => {
     const path = window.location.pathname;
     return path.startsWith('/business/') ? parseBusinessSlugFromPath(path) : null;
   });
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
+  const [pendingServiceSlug, setPendingServiceSlug] = useState<string | null>(() => {
+    const path = window.location.pathname;
+    return path.startsWith('/business/') ? parseServiceSlugFromPath(path) : null;
+  });
 
-  // Resolves a /business/<name-slug> URL to a real business id once the
-  // catalog has loaded (the URL carries no id — see services/seo/pageContent.js
-  // businessPath). Only genuinely 404s once businesses have actually loaded
-  // and no name matches, so a fresh visit doesn't flash "not found" first.
+  // Resolves a /business/<name-slug>[/<service-slug>] URL to real ids once the
+  // catalog has loaded (the URL carries no ids — see services/seo/pageContent.js
+  // businessPath/servicePath). Only genuinely 404s once the catalog has
+  // actually loaded and nothing matches, so a fresh visit doesn't flash "not
+  // found" first. businesses and services always load together (see the
+  // loadSeedData effect above), so gating on businesses.length is enough.
   useEffect(() => {
     if (!pendingBusinessSlug || businesses.length === 0) return;
-    const match = businesses.find(b => slugify(b.name) === pendingBusinessSlug);
-    if (match) {
-      setSelectedBusinessId(match.id);
-    } else {
+    const business = businesses.find(b => slugify(b.name) === pendingBusinessSlug);
+    if (!business) {
       setView('not-found');
+    } else {
+      setSelectedBusinessId(business.id);
+      if (pendingServiceSlug) {
+        const service = services.find(s => s.businessId === business.id && slugify(s.title) === pendingServiceSlug);
+        if (service) {
+          setSelectedServiceId(service.id);
+        } else {
+          setView('not-found');
+        }
+      }
     }
     setPendingBusinessSlug(null);
-  }, [pendingBusinessSlug, businesses]);
+    setPendingServiceSlug(null);
+  }, [pendingBusinessSlug, pendingServiceSlug, businesses, services]);
 
-  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCategoryPageCategory, setSelectedCategoryPageCategory] = useState<string | null>(() => {
@@ -894,10 +913,13 @@ const App: React.FC = () => {
     // the current pathname (a no-op below) rather than incorrectly bounce to
     // '/' while the catalog fetch is still in flight.
     const businessForPath = view === 'business' && selectedBusinessId ? businesses.find(b => b.id === selectedBusinessId) : null;
+    const serviceForPath = view === 'serviceProfile' && selectedServiceId ? services.find(s => s.id === selectedServiceId) : null;
+    const serviceBusinessForPath = serviceForPath ? businesses.find(b => b.id === serviceForPath.businessId) : null;
     const path = view === 'privacy' ? '/privacy'
       : view === 'terms' ? '/terms'
       : view === 'blog' && selectedBlog ? `/guides/${selectedBlog.slug}`
       : view === 'business' && selectedBusinessId ? (businessForPath ? businessPath(businessForPath) : window.location.pathname)
+      : view === 'serviceProfile' && selectedServiceId ? (serviceForPath && serviceBusinessForPath ? servicePath(serviceBusinessForPath, serviceForPath) : window.location.pathname)
       : view === 'neighborhood' && selectedNeighborhoodPageId ? neighborhoodPath({ id: selectedNeighborhoodPageId })
       : view === 'categoryCityPage' && selectedCategoryPageCategory && selectedCategoryPageCity ? categoryCityPath(selectedCategoryPageCategory, selectedCategoryPageCity)
       : view === 'categoryPage' && selectedCategoryPageCategory ? categoryPath(selectedCategoryPageCategory)
@@ -905,7 +927,7 @@ const App: React.FC = () => {
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
-  }, [view, selectedBlog, selectedBusinessId, selectedNeighborhoodPageId, selectedCategoryPageCategory, selectedCategoryPageCity, businesses]);
+  }, [view, selectedBlog, selectedBusinessId, selectedServiceId, selectedNeighborhoodPageId, selectedCategoryPageCategory, selectedCategoryPageCity, businesses, services]);
 
   useEffect(() => {
     const onPopState = () => {
@@ -925,9 +947,12 @@ const App: React.FC = () => {
       else if (path.startsWith('/business/')) {
         const slug = parseBusinessSlugFromPath(path);
         if (slug) {
+          const serviceSlug = parseServiceSlugFromPath(path);
           setSelectedBusinessId(null);
+          setSelectedServiceId(null);
           setPendingBusinessSlug(slug);
-          setView('business');
+          setPendingServiceSlug(serviceSlug);
+          setView(serviceSlug ? 'serviceProfile' : 'business');
         } else {
           setView('not-found');
         }
@@ -1016,11 +1041,17 @@ const App: React.FC = () => {
       }
     } else if (view === 'serviceProfile' && selectedServiceId) {
       const service = services.find(s => s.id === selectedServiceId) || searchResults.find(s => s.id === selectedServiceId);
-      if (service) {
-        title = `${service.title} | BetterBuyTheBlock`;
-        description = (service.description || `${service.title} - a neighborhood bulk-pricing deal on BetterBuyTheBlock.`).slice(0, 160);
+      const business = service ? businesses.find(b => b.id === service.businessId) : null;
+      if (service && business) {
+        const content = getServicePageContent(business, service);
+        title = content.title;
+        description = content.description;
+        canonicalPath = content.path;
+        robots = content.robots;
+        extraJsonLd = content.jsonLd;
+      } else {
+        robots = 'noindex, follow';
       }
-      robots = 'noindex, follow';
     } else if (view === 'neighborhood' && selectedNeighborhoodPageId) {
       const n = neighborhoods.find(nb => nb.id === selectedNeighborhoodPageId);
       if (n) {
@@ -2717,6 +2748,7 @@ const App: React.FC = () => {
                           service={service}
                           business={svcBusiness}
                           businessHref={svcBusiness ? businessPath(svcBusiness) : undefined}
+                          serviceHref={svcBusiness ? servicePath(svcBusiness, service) : undefined}
                           onSignUp={() => handleSignUp(service.id)}
                           isSignedUp={(service.signedUpUserIds || []).includes(currentUser?.id)}
                           onBusinessClick={() => handleBusinessClick(service.businessId)}

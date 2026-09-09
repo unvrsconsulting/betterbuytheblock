@@ -8,6 +8,7 @@ import ServiceCard from './ServiceCard';
 import NeighborAvatar from './NeighborAvatar';
 import { shareServiceLink } from '../services/share';
 import { getCategoryImage, DEFAULT_CATEGORY_IMAGE } from '../services/categoryImages';
+import { servicePath } from '../services/seo/pageContent.js';
 
 const FAQ_ITEMS = [
   {
@@ -267,7 +268,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                   {isSignedUp ? (
                     <>
                       <Button
-                        onClick={() => shareServiceLink(service.id)}
+                        onClick={() => shareServiceLink(servicePath(business, service))}
                         className="w-full py-4 text-lg rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                         variant="outline"
                       >
