@@ -4,7 +4,8 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import { Service, Business, Neighborhood, User } from '../types';
 import ServiceCard from './ServiceCard';
-import { TagIcon } from './Icon';
+import { TagIcon, DollarIcon } from './Icon';
+import { businessPath } from '../services/seo/pageContent.js';
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -67,11 +68,22 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
             <MapPin className="w-4 h-4" /> {neighborhood.city}, NC
           </div>
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{neighborhood.name}</h1>
-          <p className="text-gray-600 max-w-xl">
+          <p className="text-gray-600 max-w-xl mb-4">
             {neighborhoodServices.length > 0
               ? `${neighborhoodServices.length} active neighborhood deal${neighborhoodServices.length === 1 ? '' : 's'} available in ${neighborhood.name}.`
               : `No deals in ${neighborhood.name} yet - check back soon, or request one from a business you like.`}
           </p>
+          {neighborhood.homeStats && (
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 max-w-xl">
+              <div className="flex items-center gap-1.5">
+                <DollarIcon className="w-4 h-4 text-gray-400" />
+                <span><strong className="text-gray-700">{neighborhood.homeStats.homeCount.toLocaleString()}</strong> homes</span>
+              </div>
+              <div>Avg. value <strong className="text-gray-700">${neighborhood.homeStats.avgAssessedValue.toLocaleString()}</strong></div>
+              <div>Avg. <strong className="text-gray-700">{neighborhood.homeStats.avgSqFt.toLocaleString()}</strong> sq ft</div>
+              <div>Built around <strong className="text-gray-700">{neighborhood.homeStats.avgYearBuilt}</strong></div>
+            </div>
+          )}
         </div>
         {neighborhood.lat != null && neighborhood.lng != null && (
           <div className="w-full md:w-72 h-48 rounded-2xl overflow-hidden border border-gray-200 shrink-0 z-0 relative">
@@ -88,11 +100,14 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
 
       {neighborhoodServices.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pb-16">
-          {neighborhoodServices.map(service => (
+          {neighborhoodServices.map(service => {
+            const svcBusiness = businesses.find(b => b.id === service.businessId);
+            return (
             <ServiceCard
               key={service.id}
               service={service}
-              business={businesses.find(b => b.id === service.businessId)}
+              business={svcBusiness}
+              businessHref={svcBusiness ? businessPath(svcBusiness) : undefined}
               onSignUp={() => onSignUp(service.id)}
               isSignedUp={(service.signedUpUserIds || []).includes(currentUser?.id || '')}
               onBusinessClick={() => onBusinessClick(service.businessId)}
@@ -103,7 +118,8 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
               users={users}
               onUpdateUser={onUpdateUser}
             />
-          ))}
+            );
+          })}
         </div>
       ) : (
         <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100 mb-16">

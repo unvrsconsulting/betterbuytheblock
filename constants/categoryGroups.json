@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Cleaning & Maintenance",
+    "categories": [
+      "Carpet Cleaning",
+      "Cleaning & Maid Services",
+      "Gutter Cleaning",
+      "House Cleaning",
+      "Power Washing",
+      "Window Washing"
+    ]
+  },
+  {
+    "name": "Outdoor & Yard",
+    "categories": [
+      "Deck or Porch",
+      "Fencing Service",
+      "Landscaping",
+      "Lawn Service",
+      "Pool Maintenance",
+      "Tree Service"
+    ]
+  },
+  {
+    "name": "Home Systems & Repairs",
+    "categories": [
+      "Electrical",
+      "Handyman Service",
+      "HVAC Maintenance",
+      "Plumbing",
+      "Roofing",
+      "Solar Panel Installation"
+    ]
+  },
+  {
+    "name": "Other Services",
+    "categories": [
+      "Home Security",
+      "Interior Design",
+      "Moving Services",
+      "Painting",
+      "Pest Control"
+    ]
+  }
+]

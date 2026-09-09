@@ -9,7 +9,20 @@ import {
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
-import { USERS, REVIEWS, CATEGORY_GROUPS, STARTING_BUSINESS_BALANCE } from './constants';
+import { USERS, REVIEWS, CATEGORY_GROUPS, WAKE_COUNTY_CITIES, STARTING_BUSINESS_BALANCE } from './constants';
+import { buildCategorySlugMap, buildCitySlugMap } from './services/seo/slugify.js';
+import {
+  businessPath,
+  neighborhoodPath,
+  categoryPath,
+  categoryCityPath,
+  parseBusinessIdFromPath,
+  getBusinessPageContent,
+  getNeighborhoodPageContent,
+  getCategoryPageContent,
+  buildBreadcrumbJsonLd,
+} from './services/seo/pageContent.js';
+import Link from './components/Link';
 import { loadSeedData } from './services/seedData';
 import Header from './components/Header';
 import ServiceCard from './components/ServiceCard';
@@ -557,6 +570,12 @@ const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[
 // to business-oriented views; these consumer-facing ones assume a resident account.
 const CONSUMER_ONLY_VIEWS = new Set(['home', 'profile', 'wishlist', 'connections', 'my-deals']);
 
+// Built once at module load (both lists are static, not fetched) — used to
+// resolve /category/<slug>[/<city-slug>] URLs synchronously on first render,
+// before any data fetch resolves. See services/seo/slugify.js.
+const CATEGORY_SLUG_MAP = buildCategorySlugMap(CATEGORY_GROUPS);
+const CITY_SLUG_MAP = buildCitySlugMap(WAKE_COUNTY_CITIES);
+
 const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>(() => loadState<User[]>('users', USERS));
   const [currentUserId, setCurrentUserId] = useState<string | null>(() => loadState<string | null>('currentUserId', null));
@@ -596,7 +615,7 @@ const App: React.FC = () => {
   };
 
   const selectedNeighborhoodId = currentUser.neighborhoodId ?? '';
-  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood'>(() => {
+  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood'>(() => {
     const path = window.location.pathname;
     if (path === '/privacy') return 'privacy';
     if (path === '/terms') return 'terms';
@@ -604,22 +623,55 @@ const App: React.FC = () => {
       const slug = path.slice('/guides/'.length);
       return COST_GUIDES.some(g => g.slug === slug) ? 'blog' : 'not-found';
     }
+    // Business/neighborhood existence isn't verifiable yet (the data fetch
+    // hasn't resolved on first render) — accept any well-formed path here and
+    // let the render guards below show a brief loading state, then fall back
+    // to a real "not found" only once the catalog has actually loaded.
+    if (path.startsWith('/business/')) {
+      return parseBusinessIdFromPath(path) ? 'business' : 'not-found';
+    }
+    if (path.startsWith('/neighborhood/')) {
+      const id = path.slice('/neighborhood/'.length).split('/').filter(Boolean)[0];
+      return id ? 'neighborhood' : 'not-found';
+    }
+    if (path.startsWith('/category/')) {
+      const parts = path.slice('/category/'.length).split('/').filter(Boolean);
+      if (parts.length === 1 && CATEGORY_SLUG_MAP.has(parts[0])) return 'categoryPage';
+      if (parts.length === 2 && CATEGORY_SLUG_MAP.has(parts[0]) && CITY_SLUG_MAP.has(parts[1])) return 'categoryCityPage';
+      return 'not-found';
+    }
     if (path !== '/') return 'not-found';
     return 'home';
   });
   const [searchResults, setSearchResults] = useState<Service[]>([]);
   const [lastSearchQuery, setLastSearchQuery] = useState('');
-  const [selectedBusinessId, setSelectedBusinessId] = useState<string | null>(null);
+  const [selectedBusinessId, setSelectedBusinessId] = useState<string | null>(() => parseBusinessIdFromPath(window.location.pathname));
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategoryPageCategory, setSelectedCategoryPageCategory] = useState<string | null>(() => {
+    const path = window.location.pathname;
+    if (!path.startsWith('/category/')) return null;
+    const [slug] = path.slice('/category/'.length).split('/').filter(Boolean);
+    return (slug && CATEGORY_SLUG_MAP.get(slug)) || null;
+  });
+  const [selectedCategoryPageCity, setSelectedCategoryPageCity] = useState<string | null>(() => {
+    const path = window.location.pathname;
+    if (!path.startsWith('/category/')) return null;
+    const parts = path.slice('/category/'.length).split('/').filter(Boolean);
+    return (parts[1] && CITY_SLUG_MAP.get(parts[1])) || null;
+  });
   const [selectedBlog, setSelectedBlog] = useState<typeof COST_GUIDES[0] | null>(() => {
     const path = window.location.pathname;
     if (!path.startsWith('/guides/')) return null;
     const slug = path.slice('/guides/'.length);
     return COST_GUIDES.find(g => g.slug === slug) || null;
   });
-  const [selectedNeighborhoodPageId, setSelectedNeighborhoodPageId] = useState<string | null>(null);
+  const [selectedNeighborhoodPageId, setSelectedNeighborhoodPageId] = useState<string | null>(() => {
+    const path = window.location.pathname;
+    if (!path.startsWith('/neighborhood/')) return null;
+    return path.slice('/neighborhood/'.length).split('/').filter(Boolean)[0] || null;
+  });
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [requestModalBusinessId, setRequestModalBusinessId] = useState<string | undefined>(undefined);
   const [requestModalPrefill, setRequestModalPrefill] = useState<string | undefined>(undefined);
@@ -784,14 +836,23 @@ const App: React.FC = () => {
   // keeps showing the 404 rather than silently bouncing to home.
   useEffect(() => {
     if (view === 'not-found') return;
+    // For 'business', the canonical path needs the business's name (for the
+    // slug), which may not have loaded yet on a fresh visit — fall back to
+    // the current pathname (a no-op below) rather than incorrectly bounce to
+    // '/' while the catalog fetch is still in flight.
+    const businessForPath = view === 'business' && selectedBusinessId ? businesses.find(b => b.id === selectedBusinessId) : null;
     const path = view === 'privacy' ? '/privacy'
       : view === 'terms' ? '/terms'
       : view === 'blog' && selectedBlog ? `/guides/${selectedBlog.slug}`
+      : view === 'business' && selectedBusinessId ? (businessForPath ? businessPath(businessForPath) : window.location.pathname)
+      : view === 'neighborhood' && selectedNeighborhoodPageId ? neighborhoodPath({ id: selectedNeighborhoodPageId })
+      : view === 'categoryCityPage' && selectedCategoryPageCategory && selectedCategoryPageCity ? categoryCityPath(selectedCategoryPageCategory, selectedCategoryPageCity)
+      : view === 'categoryPage' && selectedCategoryPageCategory ? categoryPath(selectedCategoryPageCategory)
       : '/';
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
-  }, [view, selectedBlog]);
+  }, [view, selectedBlog, selectedBusinessId, selectedNeighborhoodPageId, selectedCategoryPageCategory, selectedCategoryPageCity, businesses]);
 
   useEffect(() => {
     const onPopState = () => {
@@ -806,6 +867,44 @@ const App: React.FC = () => {
           setView('blog');
         } else {
           setView('not-found');
+        }
+      }
+      else if (path.startsWith('/business/')) {
+        const id = parseBusinessIdFromPath(path);
+        if (id) {
+          setSelectedBusinessId(id);
+          setView('business');
+        } else {
+          setView('not-found');
+        }
+      }
+      else if (path.startsWith('/neighborhood/')) {
+        const id = path.slice('/neighborhood/'.length).split('/').filter(Boolean)[0];
+        if (id) {
+          setSelectedNeighborhoodPageId(id);
+          setView('neighborhood');
+        } else {
+          setView('not-found');
+        }
+      }
+      else if (path.startsWith('/category/')) {
+        const parts = path.slice('/category/'.length).split('/').filter(Boolean);
+        const categoryName = parts[0] ? CATEGORY_SLUG_MAP.get(parts[0]) : undefined;
+        if (!categoryName) {
+          setView('not-found');
+        } else if (parts.length === 1) {
+          setSelectedCategoryPageCategory(categoryName);
+          setSelectedCategoryPageCity(null);
+          setView('categoryPage');
+        } else {
+          const cityName = CITY_SLUG_MAP.get(parts[1]);
+          if (!cityName) {
+            setView('not-found');
+          } else {
+            setSelectedCategoryPageCategory(categoryName);
+            setSelectedCategoryPageCity(cityName);
+            setView('categoryCityPage');
+          }
         }
       }
       else if (path === '/') setView('home');
@@ -826,6 +925,9 @@ const App: React.FC = () => {
     let description = DEFAULT_DESCRIPTION;
     let image = DEFAULT_IMAGE;
     let canonicalPath = '/';
+    let robots = 'index, follow';
+    /** @type {Record<string, unknown>[]} */
+    let extraJsonLd: Record<string, unknown>[] = [];
 
     if (view === 'blog' && selectedBlog) {
       title = `${selectedBlog.title} | BetterBuyTheBlock`;
@@ -843,14 +945,20 @@ const App: React.FC = () => {
     } else if (view === 'not-found') {
       title = `Page Not Found | BetterBuyTheBlock`;
       description = 'The page you were looking for doesn\'t exist.';
+      robots = 'noindex, follow';
     } else if (view === 'results') {
       title = lastSearchQuery ? `${lastSearchQuery} deals in Wake County | BetterBuyTheBlock` : `Search Results | BetterBuyTheBlock`;
       description = `Bulk-pricing home service deals ${lastSearchQuery ? `for ${lastSearchQuery} ` : ''}in your Wake County neighborhood.`;
+      robots = 'noindex, follow';
     } else if (view === 'business' && selectedBusinessId) {
       const business = businesses.find(b => b.id === selectedBusinessId);
       if (business) {
-        title = `${business.name} | BetterBuyTheBlock`;
-        description = (business.description || `${business.name} on BetterBuyTheBlock - ${business.category || 'home services'} in Wake County, NC.`).slice(0, 160);
+        const content = getBusinessPageContent(business, services.filter(s => s.businessId === business.id));
+        title = content.title;
+        description = content.description;
+        canonicalPath = content.path;
+        robots = content.robots;
+        extraJsonLd = content.jsonLd;
       }
     } else if (view === 'serviceProfile' && selectedServiceId) {
       const service = services.find(s => s.id === selectedServiceId) || searchResults.find(s => s.id === selectedServiceId);
@@ -858,15 +966,35 @@ const App: React.FC = () => {
         title = `${service.title} | BetterBuyTheBlock`;
         description = (service.description || `${service.title} - a neighborhood bulk-pricing deal on BetterBuyTheBlock.`).slice(0, 160);
       }
+      robots = 'noindex, follow';
     } else if (view === 'neighborhood' && selectedNeighborhoodPageId) {
       const n = neighborhoods.find(nb => nb.id === selectedNeighborhoodPageId);
       if (n) {
-        title = `Home Service Deals in ${n.name}, ${n.city} | BetterBuyTheBlock`;
-        description = `Bulk-pricing home service deals available to residents of ${n.name} in ${n.city}, NC.`;
+        const content = getNeighborhoodPageContent(n, services.filter(s => (s.neighborhoodIds || []).includes(n.id) || (s.servedCities || []).includes(n.city)));
+        title = content.title;
+        description = content.description;
+        canonicalPath = content.path;
+        robots = content.robots;
+        extraJsonLd = content.jsonLd;
       }
+    } else if (view === 'categoryPage' && selectedCategoryPageCategory) {
+      const content = getCategoryPageContent(selectedCategoryPageCategory, null, services);
+      title = content.title;
+      description = content.description;
+      canonicalPath = content.path;
+      robots = content.robots;
+      extraJsonLd = content.jsonLd;
+    } else if (view === 'categoryCityPage' && selectedCategoryPageCategory && selectedCategoryPageCity) {
+      const content = getCategoryPageContent(selectedCategoryPageCategory, selectedCategoryPageCity, services);
+      title = content.title;
+      description = content.description;
+      canonicalPath = content.path;
+      robots = content.robots;
+      extraJsonLd = content.jsonLd;
     } else if (view === 'businesses') {
       title = `Local Businesses | BetterBuyTheBlock`;
       description = 'Browse real Wake County home service businesses on BetterBuyTheBlock.';
+      robots = 'noindex, follow';
     } else if (view === 'how-it-works') {
       title = `How It Works | BetterBuyTheBlock`;
     } else if (view === 'help') {
@@ -882,6 +1010,7 @@ const App: React.FC = () => {
     document.title = title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl);
+    document.querySelector('meta[name="robots"]')?.setAttribute('content', robots);
     document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
     document.querySelector('meta[property="og:image"]')?.setAttribute('content', image);
@@ -915,8 +1044,21 @@ const App: React.FC = () => {
       });
       document.head.appendChild(script);
     }
+
+    // Same idea, generalized: business/neighborhood/category(+city) pages can
+    // carry more than one JSON-LD block (e.g. LocalBusiness + BreadcrumbList),
+    // built by services/seo/pageContent.js — the same functions the build-time
+    // prerender script uses, so the crawled and hydrated pages never drift.
+    document.querySelectorAll('script[data-seo-jsonld]').forEach(el => el.remove());
+    extraJsonLd.forEach((jsonLd, i) => {
+      const script = document.createElement('script');
+      script.dataset.seoJsonld = String(i);
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, selectedBusinessId, selectedServiceId, selectedNeighborhoodPageId, lastSearchQuery, selectedBlog]);
+  }, [view, selectedBusinessId, selectedServiceId, selectedNeighborhoodPageId, selectedCategoryPageCategory, selectedCategoryPageCity, lastSearchQuery, selectedBlog, businesses, services, neighborhoods]);
 
   useEffect(() => {
     if (currentUser.type === UserType.BUSINESS && CONSUMER_ONLY_VIEWS.has(view)) {
@@ -1285,6 +1427,17 @@ const App: React.FC = () => {
     setCategoryMinPrice('');
     setCategoryMaxPrice('');
     setView('category');
+  };
+
+  // Real, indexable /category/<slug>[/<city-slug>] pages — deliberately
+  // independent of session state (selectedNeighborhoodId etc.), unlike the
+  // `category` view above, so the same URL always shows the same content for
+  // every visitor and for a crawler with no session at all. See
+  // services/seo/pageContent.js#getCategoryPageContent.
+  const handleCategoryPageClick = (categoryName: string, cityName?: string | null) => {
+    setSelectedCategoryPageCategory(categoryName);
+    setSelectedCategoryPageCity(cityName || null);
+    setView(cityName ? 'categoryCityPage' : 'categoryPage');
   };
 
   const handleBlogClick = (blog: typeof COST_GUIDES[0]) => {
@@ -2184,7 +2337,7 @@ const App: React.FC = () => {
                 </div>
               </div>
             </section>
-          ) : view === 'business' && selectedBusinessId ? (
+          ) : view === 'business' && selectedBusinessId && businesses.some(b => b.id === selectedBusinessId) ? (
             <BusinessProfile
               business={businesses.find(b => b.id === selectedBusinessId)!}
               services={services.filter(s => s.businessId === selectedBusinessId && ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId || (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity))))}
@@ -2204,6 +2357,12 @@ const App: React.FC = () => {
               onRequestService={() => handleOpenRequestModal(selectedBusinessId)}
               onBusinessClick={handleBusinessClick}
             />
+          ) : view === 'business' && selectedBusinessId ? (
+            // A direct visit to /business/<slug>--<id> lands here before the
+            // catalog fetch resolves (businesses starts empty) — the static
+            // prerendered page already showed real content, this is just the
+            // brief gap until the SPA's own data loads and re-renders above.
+            <div className="text-center py-24 text-gray-400">Loading…</div>
           ) : view === 'businesses' ? (
             <BusinessDirectory
               businesses={businesses}
@@ -2319,6 +2478,60 @@ const App: React.FC = () => {
                 )}
               </div>
             </section>
+          ) : (view === 'categoryPage' || view === 'categoryCityPage') && selectedCategoryPageCategory ? (
+            (() => {
+              const cityScope = view === 'categoryCityPage' ? selectedCategoryPageCity : null;
+              const content = getCategoryPageContent(selectedCategoryPageCategory, cityScope, services);
+              const breadcrumbItems: BreadcrumbItem[] = [
+                { label: 'Home', onClick: () => setView('home') },
+                ...(cityScope
+                  ? [{ label: selectedCategoryPageCategory, onClick: () => handleCategoryPageClick(selectedCategoryPageCategory) }]
+                  : []),
+                { label: cityScope ? `${selectedCategoryPageCategory} in ${cityScope}` : selectedCategoryPageCategory },
+              ];
+              return (
+                <section className="pt-12">
+                  <Breadcrumbs items={breadcrumbItems} />
+                  <h1 className="text-4xl font-extrabold text-gray-900 mb-2 mt-4">
+                    {cityScope ? `${selectedCategoryPageCategory} in ${cityScope}, NC` : `${selectedCategoryPageCategory} in Wake County, NC`}
+                  </h1>
+                  <p className="text-gray-500 mb-8 max-w-2xl">
+                    {content.services.length > 0
+                      ? `${content.services.length} real ${selectedCategoryPageCategory.toLowerCase()} deal${content.services.length === 1 ? '' : 's'} ${cityScope ? `in ${cityScope}` : 'across Wake County'}. Join with your neighbors to unlock bulk pricing.`
+                      : `No ${selectedCategoryPageCategory.toLowerCase()} deals ${cityScope ? `in ${cityScope}` : 'in Wake County'} yet. Request one and we'll let local businesses know there's interest.`}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    {content.services.length > 0 ? (
+                      content.services.map(service => {
+                        const svcBusiness = businesses.find(b => b.id === service.businessId);
+                        return (
+                        <ServiceCard
+                          key={service.id}
+                          service={service}
+                          business={svcBusiness}
+                          businessHref={svcBusiness ? businessPath(svcBusiness) : undefined}
+                          onSignUp={() => handleSignUp(service.id)}
+                          isSignedUp={(service.signedUpUserIds || []).includes(currentUser?.id)}
+                          onBusinessClick={() => handleBusinessClick(service.businessId)}
+                          onServiceClick={() => handleServiceClick(service.id)}
+                          isWishlisted={(currentUser?.wishlist || []).includes(service.id)}
+                          onToggleWishlist={() => handleToggleWishlist(service.id)}
+                          currentUser={currentUser}
+                          users={users}
+                          onUpdateUser={updateCurrentUser}
+                        />
+                        );
+                      })
+                    ) : (
+                      <div className="col-span-full text-center py-16 bg-gray-50 rounded-2xl">
+                        <p className="text-gray-500 mb-4">No {selectedCategoryPageCategory.toLowerCase()} deals {cityScope ? `in ${cityScope}` : 'in Wake County'} right now.</p>
+                        <Button onClick={() => handleOpenRequestModal()}>Request a Deal</Button>
+                      </div>
+                    )}
+                  </div>
+                </section>
+              );
+            })()
           ) : view === 'blog' && selectedBlog ? (
             <section className="pt-12 max-w-3xl mx-auto">
               <button
@@ -2904,7 +3117,7 @@ const App: React.FC = () => {
         )}
         </React.Suspense>
       </main>
-      <Footer onNavigate={(page) => setView(page as any)} />
+      <Footer onNavigate={(page) => setView(page as any)} onCategoryClick={(category) => handleCategoryPageClick(category)} />
       <CookieConsentBanner onViewPrivacyPolicy={() => setView('privacy')} />
       <RequestServiceModal
         isOpen={isRequestModalOpen}

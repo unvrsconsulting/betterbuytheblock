@@ -1,5 +1,7 @@
 
 import { Business, User, Service, UserType, Review } from './types';
+import categoryGroupsData from './constants/categoryGroups.json';
+import wakeCountyCitiesData from './constants/cities.json';
 
 // Every business account starts with this simulated dollar balance, used to pay for
 // neighborhood-targeting costs when publishing or expanding deals. Not real money —
@@ -21,51 +23,17 @@ export const DEMO_NEIGHBORHOOD_IDS = [
 
 const DEFAULT_NEIGHBORHOOD_ID = DEMO_NEIGHBORHOOD_IDS[0];
 
-export const CATEGORY_GROUPS = [
-  {
-    name: 'Cleaning & Maintenance',
-    categories: [
-      'Carpet Cleaning',
-      'Cleaning & Maid Services',
-      'Gutter Cleaning',
-      'House Cleaning',
-      'Power Washing',
-      'Window Washing'
-    ]
-  },
-  {
-    name: 'Outdoor & Yard',
-    categories: [
-      'Deck or Porch',
-      'Fencing Service',
-      'Landscaping',
-      'Lawn Service',
-      'Pool Maintenance',
-      'Tree Service'
-    ]
-  },
-  {
-    name: 'Home Systems & Repairs',
-    categories: [
-      'Electrical',
-      'Handyman Service',
-      'HVAC Maintenance',
-      'Plumbing',
-      'Roofing',
-      'Solar Panel Installation'
-    ]
-  },
-  {
-    name: 'Other Services',
-    categories: [
-      'Home Security',
-      'Interior Design',
-      'Moving Services',
-      'Painting',
-      'Pest Control'
-    ]
-  }
-];
+// Data lives in constants/categoryGroups.json so build-time scripts (which run
+// under plain Node, not Vite/TS) can read the same category list without
+// duplicating it — see scripts/seo/prerender.mjs.
+export const CATEGORY_GROUPS: { name: string; categories: string[] }[] = categoryGroupsData;
+
+// The 15 real Wake County cities services can be scoped to (see
+// scripts/data/ingest-real-businesses.mjs CITIES + "Wake County" for
+// unincorporated areas) — kept as static data (not fetched) so slug
+// resolution for /category/<slug>/<city-slug> URLs works synchronously on
+// first render, before any data fetch resolves.
+export const WAKE_COUNTY_CITIES: string[] = wakeCountyCitiesData;
 
 // Pre-launch site: no real businesses have joined yet, so there are no real deals to
 // show. These are purely illustrative — a generic category + pricing mechanic, never

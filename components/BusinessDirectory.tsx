@@ -2,6 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { Business, Service, Neighborhood } from '../types';
 import { Search, Star, MapPin, Tag, Building2 } from 'lucide-react';
 import { DEFAULT_CATEGORY_IMAGE } from '../services/categoryImages';
+import { businessPath } from '../services/seo/pageContent.js';
+import Link from './Link';
 
 interface BusinessDirectoryProps {
   businesses: Business[];
@@ -136,10 +138,11 @@ const BusinessDirectory: React.FC<BusinessDirectoryProps> = ({ businesses, servi
             const cats = Array.from(businessCategories.get(business.id) || []);
             const cities = Array.from(businessCities.get(business.id) || []);
             return (
-              <button
+              <Link
                 key={business.id}
-                onClick={() => onBusinessClick(business.id)}
-                className="text-left bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-primary-200 transition-all p-5 flex flex-col"
+                href={businessPath(business)}
+                onNavigate={() => onBusinessClick(business.id)}
+                className="text-left block bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-primary-200 transition-all p-5 flex flex-col"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <img
@@ -178,7 +181,7 @@ const BusinessDirectory: React.FC<BusinessDirectoryProps> = ({ businesses, servi
                     </span>
                   )}
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>

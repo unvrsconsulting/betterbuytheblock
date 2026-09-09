@@ -1,13 +1,19 @@
 import React from 'react';
+import Link from './Link';
+import { CATEGORY_GROUPS } from '../constants';
+import { categoryPath } from '../services/seo/pageContent.js';
 
 interface FooterProps {
   onNavigate?: (page: string) => void;
+  onCategoryClick?: (categoryName: string) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {} }) => {
+const ALL_CATEGORIES = CATEGORY_GROUPS.flatMap(g => g.categories);
+
+const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {}, onCategoryClick = (_c: string) => {} }) => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800 mt-auto">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-5 gap-8">
         <div>
           <h3 className="text-white text-xl font-extrabold mb-4 tracking-tight">BetterBuyTheBlock</h3>
           <p className="text-sm text-gray-400 leading-relaxed">
@@ -20,6 +26,18 @@ const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {} }) =
             <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-white transition-colors">How it works</button></li>
             <li><button onClick={() => onNavigate('results')} className="hover:text-white transition-colors">Find a pro</button></li>
             <li><button onClick={() => onNavigate('articles')} className="hover:text-white transition-colors">Cost guides</button></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Browse by category</h4>
+          <ul className="space-y-3 text-sm columns-2 md:columns-1">
+            {ALL_CATEGORIES.map(category => (
+              <li key={category}>
+                <Link href={categoryPath(category)} onNavigate={() => onCategoryClick(category)} className="hover:text-white transition-colors">
+                  {category}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

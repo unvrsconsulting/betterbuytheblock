@@ -8,6 +8,7 @@ import { Users, Star, Heart, Share2, Clock, Sparkles } from 'lucide-react';
 import NeighborAvatar from './NeighborAvatar';
 import { shareServiceLink } from '../services/share';
 import { getCategoryImage, DEFAULT_CATEGORY_IMAGE } from '../services/categoryImages';
+import Link from './Link';
 
 interface ServiceCardProps {
   service: Service;
@@ -22,10 +23,14 @@ interface ServiceCardProps {
   users?: User[];
   onUpdateUser?: (user: User) => void;
   onOptOut?: () => void;
+  // Real crawlable URL to this business's page, e.g. "/business/acme--real-biz-4".
+  // When provided, the logo/name click targets render as a real <a href> instead
+  // of a plain div/button — see components/Link.tsx.
+  businessHref?: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
-  service, business, onSignUp, isSignedUp, onBusinessClick, onServiceClick, isWishlisted, onToggleWishlist, currentUser, users = [], onUpdateUser, onOptOut
+  service, business, onSignUp, isSignedUp, onBusinessClick, onServiceClick, isWishlisted, onToggleWishlist, currentUser, users = [], onUpdateUser, onOptOut, businessHref
 }) => {
   const discountedPrice = (service.standardPrice || 0) * (1 - (service.discountPercentage || 0) / 100);
   const isGoalMet = (service.currentSignups || 0) >= (service.requiredSignups || 0);
@@ -88,26 +93,52 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
       <div className="p-4 flex-grow flex flex-col relative pt-8">
         {/* Overlapping Business Logo */}
-        <div 
-          className="absolute -top-6 left-4 p-1 bg-white rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
-          onClick={onBusinessClick}
-        >
-          <img
-            src={business?.logoUrl || `https://picsum.photos/seed/${business?.name || 'biz'}/100`}
-            alt={business?.name}
-            className="w-12 h-12 rounded-lg object-cover"
-            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = DEFAULT_CATEGORY_IMAGE; }}
-          />
-        </div>
+        {businessHref ? (
+          <Link
+            href={businessHref}
+            onNavigate={() => onBusinessClick?.()}
+            className="absolute -top-6 left-4 p-1 bg-white rounded-xl shadow-md hover:scale-105 transition-transform block"
+          >
+            <img
+              src={business?.logoUrl || `https://picsum.photos/seed/${business?.name || 'biz'}/100`}
+              alt={business?.name}
+              className="w-12 h-12 rounded-lg object-cover"
+              onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = DEFAULT_CATEGORY_IMAGE; }}
+            />
+          </Link>
+        ) : (
+          <div
+            className="absolute -top-6 left-4 p-1 bg-white rounded-xl shadow-md cursor-pointer hover:scale-105 transition-transform"
+            onClick={onBusinessClick}
+          >
+            <img
+              src={business?.logoUrl || `https://picsum.photos/seed/${business?.name || 'biz'}/100`}
+              alt={business?.name}
+              className="w-12 h-12 rounded-lg object-cover"
+              onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = DEFAULT_CATEGORY_IMAGE; }}
+            />
+          </div>
+        )}
 
         <div className="mb-2 cursor-pointer group" onClick={onServiceClick}>
           <div className="flex items-center justify-between mb-1">
-            <p 
-              className="text-[10px] font-semibold text-primary-600 uppercase tracking-wider cursor-pointer hover:underline truncate pr-2"
-              onClick={(e) => { e.stopPropagation(); onBusinessClick?.(); }}
-            >
-              {business?.name}
-            </p>
+            {businessHref ? (
+              <Link
+                href={businessHref}
+                onNavigate={() => onBusinessClick?.()}
+                onClick={(e) => e.stopPropagation()}
+                className="text-[10px] font-semibold text-primary-600 uppercase tracking-wider hover:underline truncate pr-2"
+              >
+                {business?.name}
+              </Link>
+            ) : (
+              <p
+                className="text-[10px] font-semibold text-primary-600 uppercase tracking-wider cursor-pointer hover:underline truncate pr-2"
+                onClick={(e) => { e.stopPropagation(); onBusinessClick?.(); }}
+              >
+                {business?.name}
+              </p>
+            )}
             {business?.rating ? (
               <div className="flex items-center text-[10px] font-bold text-gray-700 bg-gray-100 px-1.5 py-0.5 rounded-full shrink-0">
                 <Star className="w-2.5 h-2.5 text-yellow-500 fill-yellow-500 mr-1" />
