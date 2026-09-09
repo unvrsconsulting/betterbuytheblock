@@ -608,6 +608,11 @@ const App: React.FC = () => {
   const [currentUserId, setCurrentUserId] = useState<string | null>(() => loadState<string | null>('currentUserId', null));
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [postLoginIntent, setPostLoginIntent] = useState<'business' | null>(null);
+  // A signed-out visitor clicking the wishlist heart gets prompted to sign
+  // in/up first (see handleToggleWishlist below); this remembers which
+  // service they were trying to wishlist so it applies automatically once
+  // they finish, instead of silently discarding the click's intent.
+  const [pendingWishlistServiceId, setPendingWishlistServiceId] = useState<string | null>(null);
   // Seed catalog (523 businesses, 886 offerings) is fetched as static JSON
   // rather than bundled as a JS literal — see services/seedData.ts. A
   // returning visitor's own localStorage copy (their joined/wishlisted
@@ -1312,6 +1317,17 @@ const App: React.FC = () => {
   };
 
   const handleToggleWishlist = (serviceId: string) => {
+    // currentUser always falls back to a demo USERS[0] even when signed out,
+    // so this must check real auth state directly — otherwise the click
+    // silently no-ops onto that shared demo user instead of the visitor's
+    // own account. See the AuthModal's onSignUp/onSignIn below for where
+    // pendingWishlistServiceId gets applied once they finish signing in.
+    if (!isAuthenticated) {
+      setPendingWishlistServiceId(serviceId);
+      setPostLoginIntent(null);
+      setIsAuthModalOpen(true);
+      return;
+    }
     if (!currentUser) return;
     const newWishlist = currentUser.wishlist?.includes(serviceId)
       ? currentUser.wishlist.filter(id => id !== serviceId)
@@ -1958,9 +1974,13 @@ const App: React.FC = () => {
         defaultAccountType={postLoginIntent === 'business' ? 'business' : 'resident'}
         lockAccountType
         onSignUp={(newUser, accountType) => {
-          updateCurrentUser(newUser);
+          const userToSave = pendingWishlistServiceId
+            ? { ...newUser, wishlist: [...(newUser.wishlist || []), pendingWishlistServiceId] }
+            : newUser;
+          updateCurrentUser(userToSave);
           setCurrentUserId(newUser.id);
           saveState('currentUserId', newUser.id);
+          setPendingWishlistServiceId(null);
           const n = neighborhoods.find(nb => nb.id === newUser.neighborhoodId);
           fetch('/api/signup-notification', {
             method: 'POST',
@@ -1981,6 +2001,13 @@ const App: React.FC = () => {
         onSignIn={(userId) => {
           setCurrentUserId(userId);
           saveState('currentUserId', userId);
+          if (pendingWishlistServiceId) {
+            const signedInUser = users.find(u => u.id === userId);
+            if (signedInUser && !(signedInUser.wishlist || []).includes(pendingWishlistServiceId)) {
+              updateCurrentUser({ ...signedInUser, wishlist: [...(signedInUser.wishlist || []), pendingWishlistServiceId] });
+            }
+            setPendingWishlistServiceId(null);
+          }
           if (postLoginIntent === 'business') {
             const signedInUser = users.find(u => u.id === userId);
             setView(signedInUser?.type === UserType.BUSINESS ? 'business-hub' : 'business-onboarding');

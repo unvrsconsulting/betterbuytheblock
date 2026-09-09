@@ -268,7 +268,12 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
               <p className="text-gray-700 max-w-2xl text-lg">{business.description || 'Local home service professional.'}</p>
             </div>
 
-            <div className="flex flex-col gap-3 min-w-[200px]">
+            <div className="flex flex-col gap-3 min-w-[200px] bg-gray-50 border border-gray-200 rounded-2xl p-5">
+              {business.category && (
+                <span className="inline-flex items-center gap-1 bg-primary-50 text-primary-700 text-xs font-bold px-2.5 py-1 rounded-full border border-primary-100 self-start">
+                  <Tag className="w-3 h-3" /> {business.category}
+                </span>
+              )}
               {business.address ? (
                 <div className="flex items-center gap-3 text-gray-600">
                   <MapPin className="w-5 h-5 text-gray-500 shrink-0" />
