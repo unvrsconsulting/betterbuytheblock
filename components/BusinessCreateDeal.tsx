@@ -848,7 +848,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
               <MapContainer center={[centerLat, centerLng]} zoom={11} scrollWheelZoom={true} style={{ height: '100%', width: '100%' }}>
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <MapUpdater lat={centerLat} lng={centerLng} />
                 <DrawAreaClickHandler active={isDrawMode} onPick={(lat, lng) => setDrawCenter({ lat, lng })} />

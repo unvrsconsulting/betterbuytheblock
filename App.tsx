@@ -695,7 +695,13 @@ const App: React.FC = () => {
   // loadSeedData effect above), so gating on businesses.length is enough.
   useEffect(() => {
     if (!pendingBusinessSlug || businesses.length === 0) return;
-    const business = businesses.find(b => slugify(b.name) === pendingBusinessSlug);
+    // Business URLs briefly carried a "--<id>" suffix before being dropped
+    // (see services/seo/pageContent.js businessPath history) — anything
+    // already indexed/bookmarked under that shape still resolves here, and
+    // the pushState effect below then corrects the address bar to the
+    // current canonical URL automatically once selectedBusinessId is set.
+    const business = businesses.find(b => slugify(b.name) === pendingBusinessSlug)
+      || businesses.find(b => pendingBusinessSlug.endsWith(`--${b.id}`));
     if (!business) {
       setView('not-found');
     } else {
@@ -2488,6 +2494,7 @@ const App: React.FC = () => {
               onServiceClick={handleServiceClick}
               onRequestService={() => handleOpenRequestModal(selectedBusinessId)}
               onBusinessClick={handleBusinessClick}
+              onCategoryCityClick={(category, city) => handleCategoryPageClick(category, city)}
             />
           ) : view === 'business' ? (
             // A direct visit to /business/<slug> lands here before the catalog

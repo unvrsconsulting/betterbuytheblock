@@ -10,7 +10,8 @@ import AIRequestDealPanel from './AIRequestDealPanel';
 import ReviewModal from './ReviewModal';
 import Button from './Button';
 import { GoogleIcon } from './Icon';
-import { servicePath } from '../services/seo/pageContent.js';
+import { servicePath, categoryCityPath } from '../services/seo/pageContent.js';
+import Link from './Link';
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -37,6 +38,7 @@ interface BusinessProfileProps {
   onServiceClick: (serviceId: string) => void;
   onRequestService: () => void;
   onBusinessClick: (businessId: string) => void;
+  onCategoryCityClick?: (categoryName: string, cityName: string) => void;
 }
 
 const FaqAccordion: React.FC<{ items: { q: string; a: string }[] }> = ({ items }) => {
@@ -81,7 +83,8 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
   onBack,
   onServiceClick,
   onRequestService,
-  onBusinessClick
+  onBusinessClick,
+  onCategoryCityClick
 }) => {
   const [isAIPanelOpen, setIsAIPanelOpen] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
@@ -155,6 +158,9 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
 
   const servedNeighborhoodIds = Array.from(new Set(businessOwnServices.flatMap(s => s.neighborhoodIds || [])));
   const servedNeighborhoods = neighborhoods.filter(n => servedNeighborhoodIds.includes(n.id) && n.lat != null && n.lng != null);
+  // The real, full service area — a business serves its whole city, not just
+  // the small neighborhoodIds sample used for the map markers above.
+  const servedCities: string[] = Array.from(new Set<string>(businessOwnServices.flatMap(s => s.servedCities || []))).sort();
   const mapCenter: [number, number] = servedNeighborhoods.length > 0
     ? [servedNeighborhoods[0].lat as number, servedNeighborhoods[0].lng as number]
     : [35.7847, -78.6319];
@@ -471,23 +477,48 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
         )}
 
         {/* Service Area Coverage Map */}
-        {servedNeighborhoods.length > 0 && (
+        {(servedNeighborhoods.length > 0 || servedCities.length > 0) && (
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Service Area Coverage</h2>
             <p className="text-gray-500 text-sm mb-4">
               {business.name} currently serves {servedNeighborhoods.length} neighborhood{servedNeighborhoods.length === 1 ? '' : 's'}.
             </p>
+            {servedCities.length > 0 && (() => {
+              const category = business.category;
+              return (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {servedCities.map(city => (
+                    category && onCategoryCityClick ? (
+                      <Link
+                        key={city}
+                        href={categoryCityPath(category, city)}
+                        onNavigate={() => onCategoryCityClick(category, city)}
+                        className="inline-flex items-center bg-primary-50 text-primary-700 text-sm font-medium px-3 py-1.5 rounded-full border border-primary-100 hover:bg-primary-100 transition-colors"
+                      >
+                        {city}
+                      </Link>
+                    ) : (
+                      <span key={city} className="inline-flex items-center bg-gray-100 text-gray-600 text-sm font-medium px-3 py-1.5 rounded-full">
+                        {city}
+                      </span>
+                    )
+                  ))}
+                </div>
+              );
+            })()}
+            {servedNeighborhoods.length > 0 && (
             <div className="h-80 rounded-2xl overflow-hidden border border-gray-200 z-0 relative">
               <MapContainer center={mapCenter} zoom={11} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {servedNeighborhoods.map(n => (
                   <Marker key={n.id} position={[n.lat as number, n.lng as number]} />
                 ))}
               </MapContainer>
             </div>
+            )}
           </div>
         )}
 
