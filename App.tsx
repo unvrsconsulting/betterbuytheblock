@@ -42,7 +42,7 @@ import { loadState, saveState, resetIfStaleSeed } from './services/localStore';
 // demo data (see SEED_VERSION comment in services/localStore.ts).
 resetIfStaleSeed();
 import { useNeighborhoods } from './hooks/useNeighborhoods';
-import { findNearestNeighborhood } from './services/neighborhoods';
+import { findNearestNeighborhood, searchNeighborhoods } from './services/neighborhoods';
 import { isRateLimited } from './services/contentModeration';
 import NeighborhoodPage from './components/NeighborhoodPage';
 
@@ -576,6 +576,30 @@ const CONSUMER_ONLY_VIEWS = new Set(['home', 'profile', 'wishlist', 'connections
 const CATEGORY_SLUG_MAP = buildCategorySlugMap(CATEGORY_GROUPS);
 const CITY_SLUG_MAP = buildCitySlugMap(WAKE_COUNTY_CITIES);
 
+// Shared by both the legacy `category` view's categoryPageServices and the
+// real /category/<slug> pages' categoryPageFilteredServices below, so the
+// sort options behave identically in both places.
+function sortServicesByMode(list: Service[], sortBy: string): Service[] {
+  const results = [...list];
+  switch (sortBy) {
+    case 'price_low':
+      results.sort((a, b) => (a.standardPrice * (1 - a.discountPercentage / 100)) - (b.standardPrice * (1 - b.discountPercentage / 100)));
+      break;
+    case 'price_high':
+      results.sort((a, b) => (b.standardPrice * (1 - b.discountPercentage / 100)) - (a.standardPrice * (1 - a.discountPercentage / 100)));
+      break;
+    case 'discount_high':
+      results.sort((a, b) => b.discountPercentage - a.discountPercentage);
+      break;
+    case 'closest_to_unlocking':
+      results.sort((a, b) => (b.currentSignups / b.requiredSignups) - (a.currentSignups / a.requiredSignups));
+      break;
+    default:
+      break;
+  }
+  return results;
+}
+
 const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>(() => loadState<User[]>('users', USERS));
   const [currentUserId, setCurrentUserId] = useState<string | null>(() => loadState<string | null>('currentUserId', null));
@@ -687,6 +711,12 @@ const App: React.FC = () => {
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState<boolean>(false);
   const [categoryMinPrice, setCategoryMinPrice] = useState<string>('');
   const [categoryMaxPrice, setCategoryMaxPrice] = useState<string>('');
+  // Neighborhood narrowing + sort/price filters on the real /category/<slug>
+  // pages (session-independent, unlike the older `category` view above —
+  // these just narrow the already-loaded county/city list client-side).
+  const [categoryPageNeighborhoodId, setCategoryPageNeighborhoodId] = useState<string | null>(null);
+  const [categoryPageNeighborhoodSearch, setCategoryPageNeighborhoodSearch] = useState('');
+  const [showCategoryPageNeighborhoodDropdown, setShowCategoryPageNeighborhoodDropdown] = useState(false);
   const [isLocationPromptOpen, setIsLocationPromptOpen] = useState(false);
   const [reviews, setReviews] = useState<Review[]>(() => loadState<Review[]>('reviews', REVIEWS));
   const [dealRequests, setDealRequests] = useState<DealRequest[]>(() => loadState<DealRequest[]>('dealRequests', []));
@@ -1437,6 +1467,11 @@ const App: React.FC = () => {
   const handleCategoryPageClick = (categoryName: string, cityName?: string | null) => {
     setSelectedCategoryPageCategory(categoryName);
     setSelectedCategoryPageCity(cityName || null);
+    setCategoryPageNeighborhoodId(null);
+    setCategoryPageNeighborhoodSearch('');
+    setCategorySortBy('recommended');
+    setCategoryMinPrice('');
+    setCategoryMaxPrice('');
     setView(cityName ? 'categoryCityPage' : 'categoryPage');
   };
 
@@ -1545,6 +1580,48 @@ const App: React.FC = () => {
     }
     return results;
   }, [filteredServices, selectedCategory, categoryMinPrice, categoryMaxPrice, categorySortBy]);
+
+  // The real, session-independent /category/<slug>[/<city-slug>] pages: base
+  // list comes from getCategoryPageContent (same function the prerender
+  // script uses), then optionally narrowed to one neighborhood, then the
+  // same price/sort filters as the legacy category view above.
+  const categoryPageBaseServices = useMemo(() => {
+    if (!selectedCategoryPageCategory) return [];
+    const cityScope = view === 'categoryCityPage' ? selectedCategoryPageCity : null;
+    return getCategoryPageContent(selectedCategoryPageCategory, cityScope, services).services;
+  }, [selectedCategoryPageCategory, selectedCategoryPageCity, view, services]);
+
+  const categoryPageNeighborhood = categoryPageNeighborhoodId
+    ? neighborhoods.find(n => n.id === categoryPageNeighborhoodId)
+    : null;
+
+  const categoryPageFilteredServices = useMemo(() => {
+    let results = categoryPageBaseServices;
+    if (categoryPageNeighborhood) {
+      results = results.filter(s =>
+        (s.neighborhoodIds || []).includes(categoryPageNeighborhood.id) ||
+        (s.servedCities || []).includes(categoryPageNeighborhood.city)
+      );
+    }
+    if (categoryMinPrice.trim()) {
+      const min = Number(categoryMinPrice);
+      if (!Number.isNaN(min)) {
+        results = results.filter(s => (s.standardPrice * (1 - s.discountPercentage / 100)) >= min);
+      }
+    }
+    if (categoryMaxPrice.trim()) {
+      const max = Number(categoryMaxPrice);
+      if (!Number.isNaN(max)) {
+        results = results.filter(s => (s.standardPrice * (1 - s.discountPercentage / 100)) <= max);
+      }
+    }
+    return sortServicesByMode(results, categorySortBy);
+  }, [categoryPageBaseServices, categoryPageNeighborhood, categoryMinPrice, categoryMaxPrice, categorySortBy]);
+
+  const categoryPageNeighborhoodResults = useMemo(
+    () => searchNeighborhoods(neighborhoods, categoryPageNeighborhoodSearch, 8),
+    [neighborhoods, categoryPageNeighborhoodSearch]
+  );
 
   const activeDealsCount = useMemo(() => {
     const now = Date.now();
@@ -2481,7 +2558,9 @@ const App: React.FC = () => {
           ) : (view === 'categoryPage' || view === 'categoryCityPage') && selectedCategoryPageCategory ? (
             (() => {
               const cityScope = view === 'categoryCityPage' ? selectedCategoryPageCity : null;
-              const content = getCategoryPageContent(selectedCategoryPageCategory, cityScope, services);
+              const scopeLabel = categoryPageNeighborhood
+                ? `${categoryPageNeighborhood.name}, ${categoryPageNeighborhood.city}`
+                : (cityScope || 'Wake County');
               const breadcrumbItems: BreadcrumbItem[] = [
                 { label: 'Home', onClick: () => setView('home') },
                 ...(cityScope
@@ -2496,13 +2575,116 @@ const App: React.FC = () => {
                     {cityScope ? `${selectedCategoryPageCategory} in ${cityScope}, NC` : `${selectedCategoryPageCategory} in Wake County, NC`}
                   </h1>
                   <p className="text-gray-500 mb-8 max-w-2xl">
-                    {content.services.length > 0
-                      ? `${content.services.length} real ${selectedCategoryPageCategory.toLowerCase()} deal${content.services.length === 1 ? '' : 's'} ${cityScope ? `in ${cityScope}` : 'across Wake County'}. Join with your neighbors to unlock bulk pricing.`
-                      : `No ${selectedCategoryPageCategory.toLowerCase()} deals ${cityScope ? `in ${cityScope}` : 'in Wake County'} yet. Request one and we'll let local businesses know there's interest.`}
+                    {categoryPageFilteredServices.length > 0
+                      ? `${categoryPageFilteredServices.length} real ${selectedCategoryPageCategory.toLowerCase()} deal${categoryPageFilteredServices.length === 1 ? '' : 's'} in ${scopeLabel}. Join with your neighbors to unlock bulk pricing.`
+                      : `No ${selectedCategoryPageCategory.toLowerCase()} deals in ${scopeLabel} yet. Request one and we'll let local businesses know there's interest.`}
                   </p>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-8 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                    <div className="relative flex-1 min-w-[220px]">
+                      <label className="text-sm font-medium text-gray-600 whitespace-nowrap block mb-1">Neighborhood</label>
+                      <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
+                        <MapPin className="w-4 h-4 text-gray-500 shrink-0" />
+                        <input
+                          type="text"
+                          value={categoryPageNeighborhood ? `${categoryPageNeighborhood.name}, ${categoryPageNeighborhood.city}` : categoryPageNeighborhoodSearch}
+                          onChange={(e) => {
+                            setCategoryPageNeighborhoodId(null);
+                            setCategoryPageNeighborhoodSearch(e.target.value);
+                            setShowCategoryPageNeighborhoodDropdown(true);
+                          }}
+                          onFocus={() => setShowCategoryPageNeighborhoodDropdown(true)}
+                          onBlur={() => setTimeout(() => setShowCategoryPageNeighborhoodDropdown(false), 150)}
+                          placeholder={`Search a neighborhood in ${cityScope || 'Wake County'}...`}
+                          className="w-full bg-transparent border-none focus:ring-0 text-sm outline-none p-0"
+                        />
+                        {categoryPageNeighborhood && (
+                          <button
+                            type="button"
+                            onClick={() => { setCategoryPageNeighborhoodId(null); setCategoryPageNeighborhoodSearch(''); }}
+                            className="text-gray-400 hover:text-gray-600 text-xs font-bold shrink-0"
+                            aria-label="Clear neighborhood filter"
+                          >
+                            &times;
+                          </button>
+                        )}
+                      </div>
+                      {showCategoryPageNeighborhoodDropdown && !categoryPageNeighborhood && (
+                        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-xl max-h-60 overflow-y-auto text-left">
+                          {categoryPageNeighborhoodResults.length > 0 ? (
+                            categoryPageNeighborhoodResults.map(n => (
+                              <div
+                                key={n.id}
+                                className="px-4 py-2.5 hover:bg-gray-50 cursor-pointer"
+                                onMouseDown={() => {
+                                  setCategoryPageNeighborhoodId(n.id);
+                                  setCategoryPageNeighborhoodSearch('');
+                                  setShowCategoryPageNeighborhoodDropdown(false);
+                                }}
+                              >
+                                <div className="font-medium text-gray-900 text-sm">{n.name}</div>
+                                <div className="text-xs text-gray-500">{n.city}, NC</div>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="px-4 py-2.5 text-sm text-gray-500">No neighborhoods found</div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm font-medium text-gray-600 whitespace-nowrap">Sort by</label>
+                      <select
+                        value={categorySortBy}
+                        onChange={(e) => setCategorySortBy(e.target.value)}
+                        className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                      >
+                        <option value="recommended">Recommended</option>
+                        <option value="closest_to_unlocking">Closest to Unlocking</option>
+                        <option value="discount_high">Highest Discount</option>
+                        <option value="price_low">Price: Low to High</option>
+                        <option value="price_high">Price: High to Low</option>
+                      </select>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm font-medium text-gray-600 whitespace-nowrap">Price</label>
+                      <input
+                        type="number"
+                        min={0}
+                        placeholder="Min"
+                        value={categoryMinPrice}
+                        onChange={(e) => setCategoryMinPrice(e.target.value)}
+                        className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                      />
+                      <span className="text-gray-500">&ndash;</span>
+                      <input
+                        type="number"
+                        min={0}
+                        placeholder="Max"
+                        value={categoryMaxPrice}
+                        onChange={(e) => setCategoryMaxPrice(e.target.value)}
+                        className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                      />
+                    </div>
+                    {(categoryMinPrice || categoryMaxPrice || categorySortBy !== 'recommended' || categoryPageNeighborhoodId) && (
+                      <button
+                        onClick={() => {
+                          setCategorySortBy('recommended');
+                          setCategoryMinPrice('');
+                          setCategoryMaxPrice('');
+                          setCategoryPageNeighborhoodId(null);
+                          setCategoryPageNeighborhoodSearch('');
+                        }}
+                        className="text-sm font-medium text-primary-600 hover:underline sm:ml-auto"
+                      >
+                        Clear filters
+                      </button>
+                    )}
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                    {content.services.length > 0 ? (
-                      content.services.map(service => {
+                    {categoryPageFilteredServices.length > 0 ? (
+                      categoryPageFilteredServices.map(service => {
                         const svcBusiness = businesses.find(b => b.id === service.businessId);
                         return (
                         <ServiceCard
@@ -2524,7 +2706,7 @@ const App: React.FC = () => {
                       })
                     ) : (
                       <div className="col-span-full text-center py-16 bg-gray-50 rounded-2xl">
-                        <p className="text-gray-500 mb-4">No {selectedCategoryPageCategory.toLowerCase()} deals {cityScope ? `in ${cityScope}` : 'in Wake County'} right now.</p>
+                        <p className="text-gray-500 mb-4">No {selectedCategoryPageCategory.toLowerCase()} deals in {scopeLabel} right now.</p>
                         <Button onClick={() => handleOpenRequestModal()}>Request a Deal</Button>
                       </div>
                     )}
