@@ -179,9 +179,18 @@ function main() {
   }
 
   // --- Business pages (1,644, all indexable per the confirmed decision) ---
+  // businessPath() is name-slug only, no id — two businesses with the same
+  // name would collide and silently overwrite each other's page. The current
+  // catalog has zero collisions (verified directly), but warn loudly if a
+  // future data change ever introduces one, rather than losing a page silently.
+  const seenBusinessPaths = new Set();
   for (const business of businesses) {
     const ownServices = services.filter(s => s.businessId === business.id);
     const content = getBusinessPageContent(business, ownServices);
+    if (seenBusinessPaths.has(content.path)) {
+      console.warn(`WARNING: business URL collision at ${content.path} — "${business.name}" (${business.id}) will overwrite a previous business's page. Businesses need a disambiguated slug.`);
+    }
+    seenBusinessPaths.add(content.path);
     const cardsHtml = ownServices
       .map(s => renderServiceCardHtml(s, business, content.path))
       .join('\n        ');

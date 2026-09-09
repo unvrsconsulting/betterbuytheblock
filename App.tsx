@@ -10,13 +10,13 @@ import {
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
 import { USERS, REVIEWS, CATEGORY_GROUPS, WAKE_COUNTY_CITIES, STARTING_BUSINESS_BALANCE } from './constants';
-import { buildCategorySlugMap, buildCitySlugMap } from './services/seo/slugify.js';
+import { buildCategorySlugMap, buildCitySlugMap, slugify } from './services/seo/slugify.js';
 import {
   businessPath,
   neighborhoodPath,
   categoryPath,
   categoryCityPath,
-  parseBusinessIdFromPath,
+  parseBusinessSlugFromPath,
   getBusinessPageContent,
   getNeighborhoodPageContent,
   getCategoryPageContent,
@@ -652,7 +652,7 @@ const App: React.FC = () => {
     // let the render guards below show a brief loading state, then fall back
     // to a real "not found" only once the catalog has actually loaded.
     if (path.startsWith('/business/')) {
-      return parseBusinessIdFromPath(path) ? 'business' : 'not-found';
+      return parseBusinessSlugFromPath(path) ? 'business' : 'not-found';
     }
     if (path.startsWith('/neighborhood/')) {
       const id = path.slice('/neighborhood/'.length).split('/').filter(Boolean)[0];
@@ -669,7 +669,30 @@ const App: React.FC = () => {
   });
   const [searchResults, setSearchResults] = useState<Service[]>([]);
   const [lastSearchQuery, setLastSearchQuery] = useState('');
-  const [selectedBusinessId, setSelectedBusinessId] = useState<string | null>(() => parseBusinessIdFromPath(window.location.pathname));
+  // The URL only carries the business's name-slug now (no id), so it can't be
+  // resolved to a real id until the business catalog has loaded — see the
+  // pendingBusinessSlug effect below, which resolves this once `businesses` arrives.
+  const [selectedBusinessId, setSelectedBusinessId] = useState<string | null>(null);
+  const [pendingBusinessSlug, setPendingBusinessSlug] = useState<string | null>(() => {
+    const path = window.location.pathname;
+    return path.startsWith('/business/') ? parseBusinessSlugFromPath(path) : null;
+  });
+
+  // Resolves a /business/<name-slug> URL to a real business id once the
+  // catalog has loaded (the URL carries no id — see services/seo/pageContent.js
+  // businessPath). Only genuinely 404s once businesses have actually loaded
+  // and no name matches, so a fresh visit doesn't flash "not found" first.
+  useEffect(() => {
+    if (!pendingBusinessSlug || businesses.length === 0) return;
+    const match = businesses.find(b => slugify(b.name) === pendingBusinessSlug);
+    if (match) {
+      setSelectedBusinessId(match.id);
+    } else {
+      setView('not-found');
+    }
+    setPendingBusinessSlug(null);
+  }, [pendingBusinessSlug, businesses]);
+
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -900,9 +923,10 @@ const App: React.FC = () => {
         }
       }
       else if (path.startsWith('/business/')) {
-        const id = parseBusinessIdFromPath(path);
-        if (id) {
-          setSelectedBusinessId(id);
+        const slug = parseBusinessSlugFromPath(path);
+        if (slug) {
+          setSelectedBusinessId(null);
+          setPendingBusinessSlug(slug);
           setView('business');
         } else {
           setView('not-found');
@@ -2434,11 +2458,12 @@ const App: React.FC = () => {
               onRequestService={() => handleOpenRequestModal(selectedBusinessId)}
               onBusinessClick={handleBusinessClick}
             />
-          ) : view === 'business' && selectedBusinessId ? (
-            // A direct visit to /business/<slug>--<id> lands here before the
-            // catalog fetch resolves (businesses starts empty) — the static
-            // prerendered page already showed real content, this is just the
-            // brief gap until the SPA's own data loads and re-renders above.
+          ) : view === 'business' ? (
+            // A direct visit to /business/<slug> lands here before the catalog
+            // fetch resolves and the slug is matched to a real id (businesses
+            // starts empty) — the static prerendered page already showed real
+            // content, this is just the brief gap until the SPA's own data
+            // loads and re-renders above.
             <div className="text-center py-24 text-gray-400">Loading…</div>
           ) : view === 'businesses' ? (
             <BusinessDirectory

@@ -2,11 +2,11 @@ import type { Business, Service, Neighborhood } from '../../types';
 
 export const SITE_URL: string;
 
-export function businessPath(business: Pick<Business, 'id' | 'name'>): string;
+export function businessPath(business: Pick<Business, 'name'>): string;
 export function neighborhoodPath(neighborhood: Pick<Neighborhood, 'id'>): string;
 export function categoryPath(categoryName: string): string;
 export function categoryCityPath(categoryName: string, cityName: string): string;
-export function parseBusinessIdFromPath(pathname: string): string | null;
+export function parseBusinessSlugFromPath(pathname: string): string | null;
 
 export interface BreadcrumbItem {
   name: string;

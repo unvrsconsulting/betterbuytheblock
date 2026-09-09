@@ -20,8 +20,15 @@ function truncate(str, maxLen) {
 
 // --- URL path builders (also used directly by components for real <a href>s) ---
 
+// No id suffix — just the slugified business name. The current catalog has
+// zero name collisions (verified directly against the real data), and a
+// clean /business/<name> URL is worth more than defending against a
+// hypothetical future duplicate name. If a real collision ever appears, the
+// second business's page will simply overwrite the first's at build time —
+// scripts/seo/prerender.mjs logs a warning when that happens so it's caught,
+// not silent.
 export function businessPath(business) {
-  return `/business/${slugify(business.name)}--${business.id}`;
+  return `/business/${slugify(business.name)}`;
 }
 
 export function neighborhoodPath(neighborhood) {
@@ -36,11 +43,11 @@ export function categoryCityPath(categoryName, cityName) {
   return `/category/${slugify(categoryName)}/${slugify(cityName)}`;
 }
 
-/** Recovers the business id from a "/business/<slug>--<id>" pathname. */
-export function parseBusinessIdFromPath(pathname) {
-  const seg = pathname.split('/').filter(Boolean).pop() || '';
-  const idx = seg.lastIndexOf('--');
-  return idx === -1 ? null : seg.slice(idx + 2);
+/** Pulls the slug segment out of a "/business/<slug>" pathname. Resolving it
+ * back to an actual business requires the loaded business list (see
+ * App.tsx's pendingBusinessSlug effect) since the id isn't in the URL. */
+export function parseBusinessSlugFromPath(pathname) {
+  return pathname.split('/').filter(Boolean).pop() || null;
 }
 
 function cityFromAddress(address) {
