@@ -686,6 +686,13 @@ const App: React.FC = () => {
   // service they were trying to wishlist so it applies automatically once
   // they finish, instead of silently discarding the click's intent.
   const [pendingWishlistServiceId, setPendingWishlistServiceId] = useState<string | null>(null);
+  // Same pattern as pendingWishlistServiceId, for the two other actions that
+  // require a real (non-demo) account: joining/requesting a specific deal,
+  // and opening the "Request a Deal" form. See handleSignUp and
+  // handleOpenRequestModal below for where the sign-in gate lives, and the
+  // AuthModal onSignUp/onSignIn callbacks for where these resume afterward.
+  const [pendingSignUpServiceId, setPendingSignUpServiceId] = useState<string | null>(null);
+  const [pendingRequestModal, setPendingRequestModal] = useState<{ businessId?: string; prefillServiceName?: string } | null>(null);
   // Seed catalog (523 businesses, 886 offerings) is fetched as static JSON
   // rather than bundled as a JS literal — see services/seedData.ts. A
   // returning visitor's own localStorage copy (their joined/wishlisted
@@ -1236,22 +1243,27 @@ const App: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser.type, view]);
 
-  const handleSignUp = (serviceId: string) => {
+  // The actual join/request mutation, unconditional on auth state — called
+  // once we already know `user` is a real signed-in account, either directly
+  // from handleSignUp or resumed from the AuthModal callbacks below once a
+  // signed-out visitor finishes signing up/in.
+  const performDealJoin = (serviceId: string, user: User) => {
     const service = services.find(s => s.id === serviceId) || searchResults.find(s => s.id === serviceId);
-    if (!service || !currentUser || (service.signedUpUserIds || []).includes(currentUser.id)) return;
+    if (!service || (service.signedUpUserIds || []).includes(user.id)) return;
 
     // Proposed deals aren't real yet — the business hasn't actually turned them
     // on. "Joining" would be fake, so redirect into the real request flow
     // instead, tied to this specific business (stronger outreach evidence than
-    // a generic request).
+    // a generic request). Calls the unconditional opener directly (not the
+    // gated handleOpenRequestModal) since auth is already confirmed here.
     if (service.isProspective) {
-      handleOpenRequestModal(service.businessId, service.title);
+      openRequestModalNow(service.businessId, service.title);
       return;
     }
 
     if (service.closeAfterThreshold && service.currentSignups >= service.requiredSignups) return;
 
-    const newSignedUpUserIds = [...service.signedUpUserIds, currentUser.id];
+    const newSignedUpUserIds = [...service.signedUpUserIds, user.id];
     const newCurrentSignups = service.currentSignups + 1;
 
     const applyUpdate = (s: Service) =>
@@ -1267,6 +1279,25 @@ const App: React.FC = () => {
 
     setSearchResults(prevResults => prevResults.map(applyUpdate));
 
+    // Best-effort copy to the server, keyed to this specific deal, so the
+    // business can be handed a full lead list (name, email, neighborhood) for
+    // everyone who joined — not just an anonymous signup count trapped in
+    // each visitor's own browser.
+    fetch('/api/deal-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        serviceId: service.id,
+        serviceName: service.title,
+        businessId: service.businessId,
+        userId: user.id,
+        userName: user.name,
+        userEmail: user.email,
+        neighborhoodId: user.neighborhoodId,
+        city: neighborhoods.find(n => n.id === user.neighborhoodId)?.city,
+      }),
+    }).catch(() => {});
+
     const justUnlocked = newCurrentSignups === service.requiredSignups;
     const almostUnlocked = !justUnlocked && (service.requiredSignups - newCurrentSignups === 1);
     if (justUnlocked || almostUnlocked) {
@@ -1281,6 +1312,23 @@ const App: React.FC = () => {
         });
       });
     }
+  };
+
+  const handleSignUp = (serviceId: string) => {
+    // currentUser always falls back to a demo USERS[0] even when signed out
+    // (see its definition above), so joining/requesting a deal must gate on
+    // real auth state directly — otherwise a signed-out visitor's click
+    // silently lands on that shared demo account instead of requiring them
+    // to actually sign up, and the "lead" saved for the business would be
+    // fake. See the AuthModal's onSignUp/onSignIn below for where
+    // pendingSignUpServiceId resumes this once they finish.
+    if (!isAuthenticated) {
+      setPendingSignUpServiceId(serviceId);
+      setPostLoginIntent(null);
+      setIsAuthModalOpen(true);
+      return;
+    }
+    performDealJoin(serviceId, currentUser);
   };
 
   const handleOptOut = (serviceId: string) => {
@@ -1429,10 +1477,27 @@ const App: React.FC = () => {
     setView('neighborhood');
   };
 
-  const handleOpenRequestModal = (businessId?: string, prefillServiceName?: string) => {
+  // Unconditional opener — assumes auth is already confirmed. Used directly
+  // by performDealJoin and by the AuthModal resume callbacks, both of which
+  // already know the user is real at the point they call this.
+  const openRequestModalNow = (businessId?: string, prefillServiceName?: string) => {
     setRequestModalBusinessId(businessId);
     setRequestModalPrefill(prefillServiceName);
     setIsRequestModalOpen(true);
+  };
+
+  const handleOpenRequestModal = (businessId?: string, prefillServiceName?: string) => {
+    // Same sign-in gate as handleSignUp — every "Request a Deal" entry point
+    // routes through here, so gating here covers all of them, not just the
+    // per-service "Request This Deal" button. See pendingRequestModal's
+    // resume in the AuthModal callbacks below.
+    if (!isAuthenticated) {
+      setPendingRequestModal({ businessId, prefillServiceName });
+      setPostLoginIntent(null);
+      setIsAuthModalOpen(true);
+      return;
+    }
+    openRequestModalNow(businessId, prefillServiceName);
   };
 
   const handleUpdateProfile = async (updates: Partial<User>) => {
@@ -2054,6 +2119,14 @@ const App: React.FC = () => {
           setCurrentUserId(newUser.id);
           saveState('currentUserId', newUser.id);
           setPendingWishlistServiceId(null);
+          if (pendingSignUpServiceId) {
+            performDealJoin(pendingSignUpServiceId, userToSave);
+            setPendingSignUpServiceId(null);
+          }
+          if (pendingRequestModal) {
+            openRequestModalNow(pendingRequestModal.businessId, pendingRequestModal.prefillServiceName);
+            setPendingRequestModal(null);
+          }
           const n = neighborhoods.find(nb => nb.id === newUser.neighborhoodId);
           fetch('/api/signup-notification', {
             method: 'POST',
@@ -2074,15 +2147,22 @@ const App: React.FC = () => {
         onSignIn={(userId) => {
           setCurrentUserId(userId);
           saveState('currentUserId', userId);
+          const signedInUser = users.find(u => u.id === userId);
           if (pendingWishlistServiceId) {
-            const signedInUser = users.find(u => u.id === userId);
             if (signedInUser && !(signedInUser.wishlist || []).includes(pendingWishlistServiceId)) {
               updateCurrentUser({ ...signedInUser, wishlist: [...(signedInUser.wishlist || []), pendingWishlistServiceId] });
             }
             setPendingWishlistServiceId(null);
           }
+          if (pendingSignUpServiceId && signedInUser) {
+            performDealJoin(pendingSignUpServiceId, signedInUser);
+            setPendingSignUpServiceId(null);
+          }
+          if (pendingRequestModal) {
+            openRequestModalNow(pendingRequestModal.businessId, pendingRequestModal.prefillServiceName);
+            setPendingRequestModal(null);
+          }
           if (postLoginIntent === 'business') {
-            const signedInUser = users.find(u => u.id === userId);
             setView(signedInUser?.type === UserType.BUSINESS ? 'business-hub' : 'business-onboarding');
             setPostLoginIntent(null);
           }
