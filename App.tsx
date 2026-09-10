@@ -65,6 +65,7 @@ const BusinessHub = React.lazy(() => import('./components/BusinessHub'));
 const BusinessCreateDeal = React.lazy(() => import('./components/BusinessCreateDeal'));
 const BusinessEditProfile = React.lazy(() => import('./components/BusinessEditProfile'));
 const SettingsPage = React.lazy(() => import('./components/SettingsPage'));
+const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
 
 const ALL_CATEGORIES = [
   'Carpet Cleaning',
@@ -725,8 +726,12 @@ const App: React.FC = () => {
   };
 
   const selectedNeighborhoodId = currentUser.neighborhoodId ?? '';
-  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood'>(() => {
+  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood' | 'admin'>(() => {
     const path = window.location.pathname;
+    // Not linked anywhere in the UI on purpose — reached only by typing the
+    // URL directly. Gated by its own password prompt (see AdminDashboard),
+    // not by anything here.
+    if (path === '/admin') return 'admin';
     if (path === '/privacy') return 'privacy';
     if (path === '/terms') return 'terms';
     if (path.startsWith('/guides/')) {
@@ -1003,6 +1008,7 @@ const App: React.FC = () => {
     const serviceBusinessForPath = serviceForPath ? businesses.find(b => b.id === serviceForPath.businessId) : null;
     const path = view === 'privacy' ? '/privacy'
       : view === 'terms' ? '/terms'
+      : view === 'admin' ? '/admin'
       : view === 'blog' && selectedBlog ? `/guides/${selectedBlog.slug}`
       : view === 'business' && selectedBusinessId ? (businessForPath ? businessPath(businessForPath) : window.location.pathname)
       : view === 'serviceProfile' && selectedServiceId ? (serviceForPath && serviceBusinessForPath ? servicePath(serviceBusinessForPath, serviceForPath) : window.location.pathname)
@@ -1020,6 +1026,7 @@ const App: React.FC = () => {
       const path = window.location.pathname;
       if (path === '/privacy') setView('privacy');
       else if (path === '/terms') setView('terms');
+      else if (path === '/admin') setView('admin');
       else if (path.startsWith('/guides/')) {
         const slug = path.slice('/guides/'.length);
         const guide = COST_GUIDES.find(g => g.slug === slug);
@@ -1107,6 +1114,11 @@ const App: React.FC = () => {
       title = `Terms & Conditions | BetterBuyTheBlock`;
       description = 'The terms that apply to using BetterBuyTheBlock.';
       canonicalPath = '/terms';
+    } else if (view === 'admin') {
+      title = `Admin | BetterBuyTheBlock`;
+      description = 'Internal admin dashboard.';
+      canonicalPath = '/admin';
+      robots = 'noindex, nofollow';
     } else if (view === 'not-found') {
       title = `Page Not Found | BetterBuyTheBlock`;
       description = 'The page you were looking for doesn\'t exist.';
@@ -1284,6 +1296,7 @@ const App: React.FC = () => {
         userId: user.id,
         userName: user.name,
         userEmail: user.email,
+        userPhone: user.phone,
         neighborhoodId: user.neighborhoodId,
         city: neighborhoods.find(n => n.id === user.neighborhoodId)?.city,
       }),
@@ -3001,6 +3014,7 @@ const App: React.FC = () => {
                     googleBusinessUrl: businessData.googleBusinessUrl,
                     balance: STARTING_BUSINESS_BALANCE,
                     billingHistory: [],
+                    leadsAccessKey: crypto.randomUUID(),
                   };
                   setBusinesses(prev => {
                     const next = [...prev, newBusiness];
@@ -3374,6 +3388,8 @@ const App: React.FC = () => {
               }
               onBack={() => setView('home')}
             />
+          ) : view === 'admin' ? (
+            <AdminDashboard businesses={businesses} />
           ) : view === 'not-found' ? (
             <div className="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
               <p className="text-primary font-bold text-lg mb-2">404</p>

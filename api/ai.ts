@@ -20,15 +20,51 @@ function isRateLimited(ip: string): boolean {
   return recent.length > RATE_LIMIT_MAX;
 }
 
+const MAX_IMAGE_BYTES = 8 * 1024 * 1024; // 8MB
+const DATA_URL_PATTERN = /^data:([^;]+);base64,(.+)$/s;
+
+// Turns either a data: URL (already-read file upload) or an https URL
+// (pasted link) into raw base64 + mime type Gemini can actually look at.
+// Earlier this just pasted the URL string into the text prompt, which Gemini
+// has no way to fetch — it was never actually looking at the image, just
+// guessing from the filename/URL text.
+async function fetchImageAsBase64(imageUrl: string): Promise<{ mimeType: string; data: string }> {
+  const dataUrlMatch = imageUrl.match(DATA_URL_PATTERN);
+  if (dataUrlMatch) {
+    const [, mimeType, data] = dataUrlMatch;
+    const approxBytes = (data.length * 3) / 4;
+    if (approxBytes > MAX_IMAGE_BYTES) throw new Error('Image is too large to verify.');
+    return { mimeType, data };
+  }
+
+  if (!/^https?:\/\//i.test(imageUrl)) throw new Error('Image must be a valid image file or https URL.');
+
+  const imgRes = await fetch(imageUrl, { signal: AbortSignal.timeout(10000) });
+  if (!imgRes.ok) throw new Error('Could not fetch that image URL.');
+  const mimeType = imgRes.headers.get('content-type') || '';
+  if (!mimeType.startsWith('image/')) throw new Error('That URL is not an image.');
+  const buffer = await imgRes.arrayBuffer();
+  if (buffer.byteLength > MAX_IMAGE_BYTES) throw new Error('Image is too large to verify.');
+  return { mimeType, data: Buffer.from(buffer).toString('base64') };
+}
+
 async function verifyDealImage(imageUrl: string) {
+  const { mimeType, data } = await fetchImageAsBase64(imageUrl);
+
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-  const prompt = `Analyze this image URL: ${imageUrl}
-  Is this image appropriate for a home service business deal? It should not contain explicit content, violence, or highly offensive material.
-  Return a JSON object with 'isAppropriate' (boolean) and 'reason' (string).`;
+  const prompt = `Look at this image, which a home-service business wants to use on a neighborhood deals listing site.
+  Is it appropriate for that context? It must not contain explicit/sexual content, graphic violence, hate symbols, or other highly offensive material.
+  It's fine if the image is unrelated or low-quality — only flag it for actually inappropriate content, not for being a bad fit.
+  Return a JSON object with 'isAppropriate' (boolean) and 'reason' (a short string explaining the decision either way).`;
 
   const response = await ai.models.generateContent({
     model: 'gemini-3.1-pro-preview',
-    contents: prompt,
+    contents: [
+      {
+        role: 'user',
+        parts: [{ text: prompt }, { inlineData: { mimeType, data } }],
+      },
+    ],
     config: {
       responseMimeType: 'application/json',
       responseSchema: {

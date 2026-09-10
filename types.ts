@@ -124,6 +124,15 @@ export interface Business {
   website?: string;
   phone?: string;
   googleBusinessUrl?: string;
+  // Generated once at business account creation, never shown in the UI or
+  // any URL. Sent alongside businessId whenever the Business Hub fetches its
+  // own leads (see api/deal-signup.ts, api/deal-request.ts) — the server
+  // trusts-on-first-use, binding this key to the businessId on the first
+  // request it sees for it, so a stranger who only knows/guesses a
+  // businessId still can't read another business's residents' contact info.
+  // Businesses seeded before this existed simply have no key and no leads
+  // access — there's no real signup history to protect there anyway.
+  leadsAccessKey?: string;
   galleryPhotoIds?: string[];
   highlights?: string[];
   memberships?: string[];

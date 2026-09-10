@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from 'redis';
 import { sendNotificationEmail, escapeHtml } from './_lib/email.js';
+import { authorizeBusinessLeadsAccess } from './_lib/leadsAuth.js';
 
 // Every real "Request a Deal" submission from the live site lands here, so the
 // owner can see aggregate real demand (which categories, which neighborhoods)
@@ -102,27 +103,40 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (req.method === 'GET') {
     const token = req.query.token;
-    if (!token || token !== process.env.ADMIN_TOKEN) {
-      return res.status(401).json({ error: 'unauthorized' });
-    }
+    const isAdmin = !!token && token === process.env.ADMIN_TOKEN;
+
+    const businessId = req.query.businessId ? String(req.query.businessId) : null;
+    const key = req.query.key ? String(req.query.key) : null;
 
     try {
+      let authorizedBusinessId: string | null = null;
+      if (!isAdmin) {
+        if (!businessId || !key) {
+          return res.status(401).json({ error: 'unauthorized' });
+        }
+        const authorized = await withClient(client => authorizeBusinessLeadsAccess(client, businessId, key));
+        if (!authorized) return res.status(401).json({ error: 'unauthorized' });
+        authorizedBusinessId = businessId;
+      }
+
       const items = await withClient(async (client) => {
         const raw = await client.lRange(LIST_KEY, 0, -1);
         return raw.map((r: string) => JSON.parse(String(r)));
       });
 
+      const scoped = authorizedBusinessId ? items.filter((i: any) => i.businessId === authorizedBusinessId) : items;
+
       const byCategory: Record<string, number> = {};
       const byNeighborhood: Record<string, number> = {};
-      for (const item of items) {
-        const key = item.serviceName || 'unknown';
-        byCategory[key] = (byCategory[key] || 0) + 1;
+      for (const item of scoped) {
+        const cat = item.serviceName || 'unknown';
+        byCategory[cat] = (byCategory[cat] || 0) + 1;
         if (item.neighborhoodId) {
           byNeighborhood[item.neighborhoodId] = (byNeighborhood[item.neighborhoodId] || 0) + 1;
         }
       }
 
-      return res.status(200).json({ count: items.length, byCategory, byNeighborhood, items });
+      return res.status(200).json({ count: scoped.length, byCategory, byNeighborhood, items: scoped });
     } catch (err) {
       console.error('deal-request fetch failed', err);
       return res.status(500).json({ error: 'failed to read requests' });

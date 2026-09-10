@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { User, Business, Service, DealRequest } from '../types';
-import { Plus, TrendingUp, Users, Eye, Heart, Clock, Mail, MessageSquare, Check, X, Pencil, Settings, CheckCircle, MapPin, ChevronDown, ChevronUp, Wallet, Receipt, DollarSign, Download } from 'lucide-react';
+import { Plus, TrendingUp, Users, Eye, Heart, Clock, Mail, MessageSquare, Check, X, Pencil, Settings, CheckCircle, MapPin, ChevronDown, ChevronUp, Wallet, Receipt, DollarSign, Download, RefreshCw, Phone as PhoneIcon } from 'lucide-react';
 import Button from './Button';
 import ServiceCard from './ServiceCard';
 import { DEFAULT_CATEGORY_IMAGE } from '../services/categoryImages';
@@ -9,6 +9,16 @@ import { STARTING_BUSINESS_BALANCE } from '../constants';
 import AddFundsControl from './AddFundsControl';
 import { toCsv, downloadCsv } from '../services/csv';
 import { BillingTransaction } from '../types';
+
+interface BusinessLead {
+  date: string;
+  dealTitle: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  city: string | null;
+  source: 'joined' | 'requested';
+}
 
 interface BusinessHubProps {
   currentUser: User | null;
@@ -32,6 +42,65 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
   // 'YYYY-MM-DD' strings from the date inputs below, or '' when unset.
   const [billingFromDate, setBillingFromDate] = useState('');
   const [billingToDate, setBillingToDate] = useState('');
+
+  // Real leads — who actually joined or requested one of this business's
+  // deals, with contact info — live server-side (see api/deal-signup.ts and
+  // api/deal-request.ts), not in the services/dealRequests props above.
+  // Those props only reflect whatever happened to sync into *this* browser's
+  // localStorage, which for any visitor other than the person currently
+  // looking at this screen is nothing — there's no shared account database.
+  const [leads, setLeads] = useState<BusinessLead[]>([]);
+  const [leadsLoading, setLeadsLoading] = useState(false);
+  const [leadsError, setLeadsError] = useState('');
+  const [leadsFetchedAt, setLeadsFetchedAt] = useState<Date | null>(null);
+
+  const fetchLeads = useCallback(async () => {
+    if (!business?.id || !business.leadsAccessKey) return;
+    setLeadsLoading(true);
+    setLeadsError('');
+    try {
+      const qs = `businessId=${encodeURIComponent(business.id)}&key=${encodeURIComponent(business.leadsAccessKey)}`;
+      const [signupsRes, requestsRes] = await Promise.all([
+        fetch(`/api/deal-signup?${qs}`),
+        fetch(`/api/deal-request?${qs}`),
+      ]);
+      if (!signupsRes.ok || !requestsRes.ok) throw new Error('Leads request failed');
+      const signupsData = await signupsRes.json();
+      const requestsData = await requestsRes.json();
+
+      const fromSignups: BusinessLead[] = (signupsData.items || []).map((item: any) => ({
+        date: item.capturedAt,
+        dealTitle: item.serviceName || 'Deal',
+        name: item.userName || 'Neighbor',
+        email: item.userEmail || null,
+        phone: item.userPhone || null,
+        city: item.city || null,
+        source: 'joined' as const,
+      }));
+      const fromRequests: BusinessLead[] = (requestsData.items || []).map((item: any) => ({
+        date: item.capturedAt,
+        dealTitle: item.serviceName || 'Deal',
+        name: item.userName || 'Neighbor',
+        email: null,
+        phone: null,
+        city: item.city || null,
+        source: 'requested' as const,
+      }));
+
+      setLeads([...fromSignups, ...fromRequests].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()));
+      setLeadsFetchedAt(new Date());
+    } catch (err) {
+      console.error('Failed to load leads', err);
+      setLeadsError("Couldn't load leads right now — try again.");
+    } finally {
+      setLeadsLoading(false);
+    }
+  }, [business?.id, business?.leadsAccessKey]);
+
+  useEffect(() => {
+    fetchLeads();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [business?.id]);
 
   if (!business) return null;
 
@@ -120,6 +189,21 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
     const csv = toCsv(['Date', 'Description', 'Amount'], rows);
     const todayStamp = new Date().toISOString().slice(0, 10);
     downloadCsv(`billing-history-${business.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}-${todayStamp}.csv`, csv);
+  };
+
+  const handleExportLeadsCsv = () => {
+    const rows = leads.map(lead => [
+      new Date(lead.date).toISOString().slice(0, 10),
+      lead.dealTitle,
+      lead.name,
+      lead.email || '',
+      lead.phone || '',
+      lead.city || '',
+      lead.source === 'joined' ? 'Joined deal' : 'Requested deal',
+    ]);
+    const csv = toCsv(['Date', 'Deal', 'Name', 'Email', 'Phone', 'City', 'Type'], rows);
+    const todayStamp = new Date().toISOString().slice(0, 10);
+    downloadCsv(`leads-${business.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}-${todayStamp}.csv`, csv);
   };
 
   return (
@@ -276,6 +360,90 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
             </div>
           )}
         </div>
+      </div>
+
+      {/* Leads */}
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mb-12">
+        <div className="p-6 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-700 flex items-center justify-center shrink-0">
+              <Users className="w-5 h-5" />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">Your Leads</h2>
+              <p className="text-xs text-gray-500">
+                Everyone who's joined or requested one of your deals, across every visitor — not just this browser.
+                {leadsFetchedAt && <> Updated {leadsFetchedAt.toLocaleTimeString()}.</>}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={fetchLeads}
+              disabled={leadsLoading || !business.leadsAccessKey}
+              className="flex items-center gap-1.5"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${leadsLoading ? 'animate-spin' : ''}`} /> Refresh
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleExportLeadsCsv}
+              disabled={leads.length === 0}
+              className="flex items-center gap-1.5"
+            >
+              <Download className="w-3.5 h-3.5" /> Export CSV
+            </Button>
+          </div>
+        </div>
+
+        {!business.leadsAccessKey ? (
+          <div className="p-6 text-sm text-gray-500">
+            Lead tracking isn't available for this business account — it was created before this feature existed.
+          </div>
+        ) : leadsError ? (
+          <div className="p-6 text-sm text-red-600">{leadsError}</div>
+        ) : leadsLoading && leads.length === 0 ? (
+          <div className="p-12 text-center text-gray-500 text-sm">Loading leads...</div>
+        ) : leads.length === 0 ? (
+          <div className="p-12 text-center text-gray-500 text-sm">No leads yet — they'll show up here as neighbors join or request your deals.</div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs uppercase tracking-wider text-gray-500 border-b border-gray-100">
+                  <th className="px-6 py-3 font-medium">Name</th>
+                  <th className="px-6 py-3 font-medium">Contact</th>
+                  <th className="px-6 py-3 font-medium">Deal</th>
+                  <th className="px-6 py-3 font-medium">City</th>
+                  <th className="px-6 py-3 font-medium">Date</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {leads.map((lead, idx) => (
+                  <tr key={idx} className="hover:bg-gray-50">
+                    <td className="px-6 py-3 font-medium text-gray-900">
+                      {lead.name}
+                      <span className={`ml-2 inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${lead.source === 'joined' ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'}`}>
+                        {lead.source === 'joined' ? 'Joined' : 'Requested'}
+                      </span>
+                    </td>
+                    <td className="px-6 py-3 text-gray-600">
+                      {lead.email && <div className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-gray-500 shrink-0" /> {lead.email}</div>}
+                      {lead.phone && <div className="flex items-center gap-1.5 mt-0.5"><PhoneIcon className="w-3.5 h-3.5 text-gray-500 shrink-0" /> {lead.phone}</div>}
+                      {!lead.email && !lead.phone && <span className="text-gray-400">—</span>}
+                    </td>
+                    <td className="px-6 py-3 text-gray-600">{lead.dealTitle}</td>
+                    <td className="px-6 py-3 text-gray-600">{lead.city || '—'}</td>
+                    <td className="px-6 py-3 text-gray-500">{new Date(lead.date).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
 
       {/* Deal Requests */}

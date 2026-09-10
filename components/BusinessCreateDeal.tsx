@@ -137,18 +137,29 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
     setRequiredSignups(rec.requiredSignups);
   };
 
-  const handleImageBlur = async () => {
-    if (!imageUrl) {
-      setImageError('');
-      return;
-    }
+  // Shared by both entry points (pasted URL on blur, uploaded file once
+  // dimensions check out) so neither can skip the content check the other
+  // gets — a business can't bypass moderation just by uploading a file
+  // instead of pasting a link.
+  const runImageVerification = async (urlOrDataUrl: string) => {
     setIsVerifyingImage(true);
     setImageError('');
-    const result = await verifyDealImage(imageUrl);
+    const result = await verifyDealImage(urlOrDataUrl);
     if (!result.isAppropriate) {
-      setImageError(result.reason || 'Image is not appropriate.');
+      setImageError(result.reason || 'That image could not be used.');
     }
     setIsVerifyingImage(false);
+  };
+
+  const handleImageBlur = async () => {
+    if (!imageUrl || imageUrl.startsWith('data:')) {
+      // data: URLs are already verified right after upload, in
+      // handleImageFileChange — re-running here on blur would just repeat
+      // the same check for no reason.
+      if (!imageUrl) setImageError('');
+      return;
+    }
+    await runImageVerification(imageUrl);
   };
 
   const handleImageFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -168,7 +179,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
     reader.onload = () => {
       const dataUrl = reader.result as string;
       const img = new Image();
-      img.onload = () => {
+      img.onload = async () => {
         if (img.naturalWidth < MIN_IMAGE_WIDTH || img.naturalHeight < MIN_IMAGE_HEIGHT) {
           setImageError(
             `Image is ${img.naturalWidth}×${img.naturalHeight}px - minimum required is ${MIN_IMAGE_WIDTH}×${MIN_IMAGE_HEIGHT}px.`
@@ -178,6 +189,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
         }
         setImageUrl(dataUrl);
         setIsUploadingImage(false);
+        await runImageVerification(dataUrl);
       };
       img.onerror = () => {
         setImageError('Could not read that image file.');
@@ -981,7 +993,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
           <Button 
             onClick={handleNext} 
             disabled={
-              (step === 1 && (!title || !category || !standardPrice || !discountPercentage || !requiredSignups || !!imageError)) ||
+              (step === 1 && (!title || !category || !standardPrice || !discountPercentage || !requiredSignups || !!imageError || isVerifyingImage)) ||
               (step === 2 && selectedNeighborhoods.length === 0) ||
               (step === 3 && insufficientFunds)
             }

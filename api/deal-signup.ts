@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from 'redis';
 import { sendNotificationEmail, escapeHtml } from './_lib/email.js';
+import { authorizeBusinessLeadsAccess } from './_lib/leadsAuth.js';
 
 // Captures every real "Join Deal" / "Request Deal" click against a specific,
 // already-existing service — the counterpart to /api/deal-request, which
@@ -29,7 +30,7 @@ async function withClient<T>(fn: (client: any) => Promise<T>): Promise<T> {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'POST') {
     const body = req.body || {};
-    const { serviceId, serviceName, businessId, userId, userName, userEmail, neighborhoodId, city } = body;
+    const { serviceId, serviceName, businessId, userId, userName, userEmail, userPhone, neighborhoodId, city } = body;
 
     if (!serviceId || !userId) {
       return res.status(400).json({ error: 'serviceId and userId are required' });
@@ -58,6 +59,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       userId: String(userId),
       userName: userName ? String(userName).slice(0, 200) : null,
       userEmail: userEmail ? String(userEmail).slice(0, 200) : null,
+      userPhone: userPhone ? String(userPhone).slice(0, 20) : null,
       neighborhoodId: neighborhoodId ? String(neighborhoodId) : null,
       city: city ? String(city).slice(0, 100) : null,
       capturedAt: new Date().toISOString(),
@@ -80,6 +82,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
        <p><strong>Deal:</strong> ${escapeHtml(entry.serviceName || entry.serviceId)}</p>
        <p><strong>From:</strong> ${escapeHtml(entry.userName || entry.userId)}</p>
        ${entry.userEmail ? `<p><strong>Email:</strong> ${escapeHtml(entry.userEmail)}</p>` : ''}
+       ${entry.userPhone ? `<p><strong>Phone:</strong> ${escapeHtml(entry.userPhone)}</p>` : ''}
        ${entry.city ? `<p><strong>City:</strong> ${escapeHtml(entry.city)}</p>` : ''}
        ${entry.businessId ? `<p><strong>Business ID:</strong> ${escapeHtml(entry.businessId)}</p>` : ''}`
     ).catch(() => {});
@@ -89,22 +92,37 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (req.method === 'GET') {
     const token = req.query.token;
-    if (!token || token !== process.env.ADMIN_TOKEN) {
-      return res.status(401).json({ error: 'unauthorized' });
-    }
+    const isAdmin = !!token && token === process.env.ADMIN_TOKEN;
+
+    const businessId = req.query.businessId ? String(req.query.businessId) : null;
+    const key = req.query.key ? String(req.query.key) : null;
 
     try {
+      let authorizedBusinessId: string | null = null;
+      if (!isAdmin) {
+        if (!businessId || !key) {
+          return res.status(401).json({ error: 'unauthorized' });
+        }
+        const authorized = await withClient(client => authorizeBusinessLeadsAccess(client, businessId, key));
+        if (!authorized) return res.status(401).json({ error: 'unauthorized' });
+        authorizedBusinessId = businessId;
+      }
+
       const items = await withClient(async (client) => {
         const raw = await client.lRange(LIST_KEY, 0, -1);
         return raw.map((r: string) => JSON.parse(String(r)));
       });
 
+      // A business-scoped request is hard-filtered to its own businessId
+      // regardless of what serviceId/businessId query params it sends — the
+      // key only ever proves ownership of authorizedBusinessId, nothing else.
+      const scoped = authorizedBusinessId ? items.filter((i: any) => i.businessId === authorizedBusinessId) : items;
       const requestedServiceId = req.query.serviceId ? String(req.query.serviceId) : null;
-      const filtered = requestedServiceId ? items.filter((i: any) => i.serviceId === requestedServiceId) : items;
+      const filtered = requestedServiceId ? scoped.filter((i: any) => i.serviceId === requestedServiceId) : scoped;
 
       const byService: Record<string, number> = {};
       const byBusiness: Record<string, number> = {};
-      for (const item of items) {
+      for (const item of scoped) {
         if (item.serviceId) byService[item.serviceId] = (byService[item.serviceId] || 0) + 1;
         if (item.businessId) byBusiness[item.businessId] = (byBusiness[item.businessId] || 0) + 1;
       }

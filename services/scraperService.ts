@@ -17,7 +17,9 @@ export const verifyDealImage = async (imageUrl: string) => {
     return await callAi('verifyDealImage', { imageUrl });
   } catch (error) {
     console.error('Error verifying image:', error);
-    return { isAppropriate: true, reason: 'Verification failed, assuming appropriate.' };
+    // Fail closed, not open — a moderation check that silently approves
+    // whatever it couldn't check defeats the point of having one.
+    return { isAppropriate: false, reason: "Couldn't verify this image right now — please try again." };
   }
 };
 
