@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, User as UserIcon, Building2, Users as UsersIcon, MapPin, Navigation, Phone, CheckCircle2, Home } from 'lucide-react';
+import { X, Mail, User as UserIcon, Building2, Users as UsersIcon, MapPin, Navigation, Phone, CheckCircle2, Home, Lock } from 'lucide-react';
 import Button from './Button';
 import { User, UserType } from '../types';
 import { useNeighborhoods } from '../hooks/useNeighborhoods';
@@ -10,9 +10,8 @@ import { CATEGORY_GROUPS } from '../constants';
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
-  users: User[];
   onSignUp: (user: User, accountType: 'resident' | 'business') => void;
-  onSignIn: (userId: string) => void;
+  onSignIn: (user: User) => void;
   defaultAccountType?: 'resident' | 'business';
   // When set, sign-up only ever creates this account type — the entry
   // point already said which one (the "List Services" button is
@@ -21,11 +20,13 @@ interface AuthModalProps {
   lockAccountType?: boolean;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp, onSignIn, defaultAccountType, lockAccountType }) => {
+const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSignUp, onSignIn, defaultAccountType, lockAccountType }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [accountType, setAccountType] = useState<'resident' | 'business'>(defaultAccountType || 'resident');
   const [neighborhoodId, setNeighborhoodId] = useState('');
   const [neighborhoodSearch, setNeighborhoodSearch] = useState('');
@@ -61,6 +62,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
 
   const resetAndClose = () => {
     setEmail('');
+    setPassword('');
     setName('');
     setError('');
     setIsLogin(true);
@@ -199,7 +201,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
 
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -207,14 +209,33 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
       setError('Please enter a valid email address.');
       return;
     }
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters.');
+      return;
+    }
 
     if (isLogin) {
-      const existing = users.find(u => u.email?.toLowerCase() === email.trim().toLowerCase());
-      if (!existing) {
-        setError('No local profile found with that email. Try signing up instead.');
-        return;
+      setIsSubmitting(true);
+      try {
+        const res = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ action: 'login', email: email.trim(), password }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error || 'Incorrect email or password.');
+          return;
+        }
+        onSignIn(data.user);
+        resetAndClose();
+      } catch (err) {
+        console.error('Login failed', err);
+        setError('Could not sign in right now — please try again.');
+      } finally {
+        setIsSubmitting(false);
       }
-      onSignIn(existing.id);
     } else {
       if (!name.trim() || !email.trim()) {
         setError('Name and email are required.');
@@ -241,14 +262,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
           return;
         }
       }
-      if (users.some(u => u.email?.toLowerCase() === email.trim().toLowerCase())) {
-        setError('A profile with that email already exists. Try signing in instead.');
-        return;
-      }
-      const newUser: User = {
-        id: `local-${Date.now()}`,
+
+      const newUserFields: Partial<User> = {
         name: name.trim(),
-        email: email.trim(),
         type: UserType.RESIDENT,
         avatarUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(name.trim())}&background=random`,
         neighborhoodId,
@@ -262,9 +278,29 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
           interestedCategories,
         } : {}),
       };
-      onSignUp(newUser, accountType);
+
+      setIsSubmitting(true);
+      try {
+        const res = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ action: 'signup', email: email.trim(), password, user: newUserFields }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setError(data.error || 'Could not create your account — please try again.');
+          return;
+        }
+        onSignUp(data.user, accountType);
+        resetAndClose();
+      } catch (err) {
+        console.error('Signup failed', err);
+        setError('Could not create your account right now — please try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
-    resetAndClose();
   };
 
   return (
@@ -289,7 +325,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                 {isLogin ? 'Welcome Back' : accountType === 'business' ? 'List Your Business' : 'Join the Neighborhood'}
               </h2>
               <p className="text-xs text-gray-500 text-center mb-6">
-                Free local profile - stored only in this browser, no password needed.
+                Free profile — works from any device, sign in with your email and password.
               </p>
 
               {error && (
@@ -509,8 +545,25 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, users, onSignUp,
                   </div>
                 </div>
 
-                <Button type="submit" className="w-full py-3 rounded-xl font-bold mt-2">
-                  {isLogin ? 'Sign In' : accountType === 'business' ? 'Create Business Account' : 'Create Profile'}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="pl-10 pr-4 py-2.5 w-full rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                      placeholder={isLogin ? 'Your password' : 'At least 8 characters'}
+                      autoComplete={isLogin ? 'current-password' : 'new-password'}
+                      minLength={8}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <Button type="submit" className="w-full py-3 rounded-xl font-bold mt-2" disabled={isSubmitting}>
+                  {isSubmitting ? 'Please wait...' : isLogin ? 'Sign In' : accountType === 'business' ? 'Create Business Account' : 'Create Profile'}
                 </Button>
               </form>
 

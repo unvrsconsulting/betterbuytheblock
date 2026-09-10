@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
   Mail, MapPin, Heart, Grid as GridIcon, Star, Search, Users, BadgePercent,
@@ -7,7 +7,7 @@ import {
   Sofa, Trees, Leaf, Truck, Paintbrush, Bug, Droplet, Waves, Wind, Warehouse,
   Sun, TreePine, AppWindow, LucideIcon, SlidersHorizontal, CheckCircle
 } from 'lucide-react';
-import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
+import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
 import { USERS, REVIEWS, CATEGORY_GROUPS, WAKE_COUNTY_CITIES } from './constants';
 import { buildCategorySlugMap, buildCitySlugMap, slugify } from './services/seo/slugify.js';
@@ -679,6 +679,36 @@ function sortServicesByMode(list: Service[], sortBy: string): Service[] {
 const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>(() => loadState<User[]>('users', USERS));
   const [currentUserId, setCurrentUserId] = useState<string | null>(() => loadState<string | null>('currentUserId', null));
+
+  // Verifies the cached currentUserId against a real server session on
+  // load — the local id is just a fast-path guess so the UI doesn't flash
+  // signed-out on a normal reload; the session cookie (see api/_lib/auth.ts)
+  // is the actual source of truth. An account created before real login
+  // existed has no server session at all, so this correctly signs it out
+  // rather than leaving the app pretending an unverifiable local id is a
+  // real, logged-in account.
+  useEffect(() => {
+    fetch('/api/auth', { credentials: 'same-origin' })
+      .then(r => r.json())
+      .then(data => {
+        if (data.user) {
+          setUsers(prev => {
+            const exists = prev.some(u => u.id === data.user.id);
+            const next = exists ? prev.map(u => (u.id === data.user.id ? data.user : u)) : [...prev, data.user];
+            saveState('users', next);
+            return next;
+          });
+          setCurrentUserId(data.user.id);
+          saveState('currentUserId', data.user.id);
+        } else {
+          setCurrentUserId(null);
+          saveState('currentUserId', null);
+        }
+      })
+      .catch(err => console.error('Session check failed', err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [postLoginIntent, setPostLoginIntent] = useState<'business' | null>(null);
   // A signed-out visitor clicking the wishlist heart gets prompted to sign
@@ -700,15 +730,67 @@ const App: React.FC = () => {
   const [services, setServices] = useState<Service[]>(() => loadState<Service[]>('services', []));
   const [businesses, setBusinesses] = useState<Business[]>(() => loadState<Business[]>('businesses', []));
 
+  // Real (server-backed, not seed) businesses/services live in the same
+  // `businesses`/`services` arrays as the static seed catalog — merged in by
+  // the effect below — so the hundreds of existing reads across this file
+  // don't need to know or care which kind of entry they're looking at. These
+  // refs are how the few call sites that DO need to know (performDealJoin,
+  // and the seed-reload effect immediately below, which must not clobber a
+  // real entry when it replaces the seed portion) can tell the two apart
+  // without a full state/prop round-trip.
+  const realBusinessIdsRef = useRef<Set<string>>(new Set());
+  const realServiceIdsRef = useRef<Set<string>>(new Set());
+  // True once the real-catalog fetch below has resolved (success or
+  // failure) — a /business/<slug> lookup that doesn't match yet must wait
+  // for this before committing to "not found", since the match might be a
+  // real business that just hasn't arrived from the server yet.
+  const [realCatalogSettled, setRealCatalogSettled] = useState(false);
+
   useEffect(() => {
     if (loadState<Service[]>('services', []).length > 0 || loadState<Business[]>('businesses', []).length > 0) return;
     loadSeedData().then(({ businesses: seedBusinesses, services: seedServices }) => {
-      setBusinesses(seedBusinesses);
-      setServices(seedServices);
+      setBusinesses(prev => [...seedBusinesses, ...prev.filter(b => realBusinessIdsRef.current.has(b.id))]);
+      setServices(prev => [...seedServices, ...prev.filter(s => realServiceIdsRef.current.has(s.id))]);
       saveState('businesses', seedBusinesses);
       saveState('services', seedServices);
     });
   }, []);
+
+  // Real businesses/services created through the actual signup/onboarding/
+  // create-deal flows (see api/businesses.ts, api/services.ts) — fetched
+  // fresh on every load and merged in by id (server always wins over
+  // whatever a previous session happened to cache locally), so a business's
+  // real, published deal is visible to every visitor, not just the browser
+  // that created it.
+  useEffect(() => {
+    const businessesFetch = fetch('/api/businesses')
+      .then(r => r.json())
+      .then(data => {
+        const real: Business[] = data.businesses || [];
+        real.forEach(b => realBusinessIdsRef.current.add(b.id));
+        const realIds = new Set(real.map(b => b.id));
+        setBusinesses(prev => [...prev.filter(b => !realIds.has(b.id)), ...real]);
+      })
+      .catch(err => console.error('Failed to load real businesses', err));
+
+    const servicesFetch = fetch('/api/services')
+      .then(r => r.json())
+      .then(data => {
+        const real: Service[] = data.services || [];
+        real.forEach(s => realServiceIdsRef.current.add(s.id));
+        const realIds = new Set(real.map(s => s.id));
+        setServices(prev => [...prev.filter(s => !realIds.has(s.id)), ...real]);
+      })
+      .catch(err => console.error('Failed to load real deals', err));
+
+    // Both requests racing the (much larger, static) seed-catalog load means
+    // a /business/<slug> URL for a real business can resolve to "not found"
+    // before this ever gets a chance to merge it in — see the
+    // pendingBusinessSlug effect below, which waits on this flag before it's
+    // willing to commit to a 404.
+    Promise.allSettled([businessesFetch, servicesFetch]).then(() => setRealCatalogSettled(true));
+  }, []);
+
   const { neighborhoods } = useNeighborhoods();
 
   const isAuthenticated = currentUserId !== null && users.some(u => u.id === currentUserId);
@@ -777,10 +859,10 @@ const App: React.FC = () => {
 
   // Resolves a /business/<name-slug>[/<service-slug>] URL to real ids once the
   // catalog has loaded (the URL carries no ids — see services/seo/pageContent.js
-  // businessPath/servicePath). Only genuinely 404s once the catalog has
-  // actually loaded and nothing matches, so a fresh visit doesn't flash "not
-  // found" first. businesses and services always load together (see the
-  // loadSeedData effect above), so gating on businesses.length is enough.
+  // businessPath/servicePath). Only genuinely 404s once BOTH the seed catalog
+  // and the real (server-backed) catalog have settled — a real business's
+  // page must never flash "not found" just because the (much larger) static
+  // seed fetch happened to resolve first, before its actual data arrived.
   useEffect(() => {
     if (!pendingBusinessSlug || businesses.length === 0) return;
     // Business URLs briefly carried a "--<id>" suffix before being dropped
@@ -791,6 +873,10 @@ const App: React.FC = () => {
     const business = businesses.find(b => slugify(b.name) === pendingBusinessSlug)
       || businesses.find(b => pendingBusinessSlug.endsWith(`--${b.id}`));
     if (!business) {
+      // Don't give up yet — the real catalog may still be in flight. Leaving
+      // pendingBusinessSlug set means this effect simply runs again the next
+      // time `businesses` changes (e.g. once the real fetch resolves).
+      if (!realCatalogSettled) return;
       setView('not-found');
     } else {
       setSelectedBusinessId(business.id);
@@ -798,14 +884,16 @@ const App: React.FC = () => {
         const service = services.find(s => s.businessId === business.id && slugify(s.title) === pendingServiceSlug);
         if (service) {
           setSelectedServiceId(service.id);
-        } else {
+        } else if (realCatalogSettled) {
           setView('not-found');
+        } else {
+          return; // same reasoning — the service may just not have arrived yet
         }
       }
     }
     setPendingBusinessSlug(null);
     setPendingServiceSlug(null);
-  }, [pendingBusinessSlug, pendingServiceSlug, businesses, services]);
+  }, [pendingBusinessSlug, pendingServiceSlug, businesses, services, realCatalogSettled]);
 
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -1282,6 +1370,28 @@ const App: React.FC = () => {
 
     setSearchResults(prevResults => prevResults.map(applyUpdate));
 
+    // Real (server-backed) deals also get persisted server-side, so the
+    // join is visible to every visitor, not just this browser — the local
+    // update above already made the UI feel instant; this reconciles with
+    // whatever the server's actual count ends up being (in case another
+    // visitor joined the same deal in the same moment).
+    if (realServiceIdsRef.current.has(serviceId)) {
+      fetch('/api/services', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ action: 'join', serviceId }),
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (!data.service) return;
+          const applyServerTruth = (s: Service) => (s.id === serviceId ? data.service : s);
+          setServices(prev => prev.map(applyServerTruth));
+          setSearchResults(prev => prev.map(applyServerTruth));
+        })
+        .catch(err => console.error('Failed to persist deal join', err));
+    }
+
     // Best-effort copy to the server, keyed to this specific deal, so the
     // business can be handed a full lead list (name, email, neighborhood) for
     // everyone who joined — not just an anonymous signup count trapped in
@@ -1355,6 +1465,23 @@ const App: React.FC = () => {
       return next;
     });
     setSearchResults(prev => prev.map(applyUpdate));
+
+    if (realServiceIdsRef.current.has(serviceId)) {
+      fetch('/api/services', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ action: 'leave', serviceId }),
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (!data.service) return;
+          const applyServerTruth = (s: Service) => (s.id === serviceId ? data.service : s);
+          setServices(prev => prev.map(applyServerTruth));
+          setSearchResults(prev => prev.map(applyServerTruth));
+        })
+        .catch(err => console.error('Failed to persist deal leave', err));
+    }
   };
 
   const handleCompleteDeal = (serviceId: string) => {
@@ -1376,44 +1503,6 @@ const App: React.FC = () => {
         serviceId: service.id,
         businessId: service.businessId,
       });
-    });
-  };
-
-  // Records one payment for publishing/expanding a deal — pay-per-deal, not a
-  // prepaid balance (see BusinessCreateDeal.tsx's checkout step, which is
-  // where the actual "Publish & Pay" happens). A no-op for a zero-amount
-  // charge (e.g. editing a deal without adding any new targeting), so
-  // history stays untouched.
-  const chargeBusiness = (
-    businessId: string,
-    amount: number,
-    dealId: string,
-    dealTitle: string,
-    neighborhoodIds: string[],
-    cities: string[],
-    type: BillingTransaction['type']
-  ) => {
-    if (amount <= 0) return;
-    setBusinesses(prev => {
-      const next = prev.map(b => {
-        if (b.id !== businessId) return b;
-        const transaction: BillingTransaction = {
-          id: `txn_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-          date: new Date().toISOString(),
-          dealId,
-          dealTitle,
-          neighborhoodIds,
-          cities,
-          amount,
-          type,
-        };
-        return {
-          ...b,
-          billingHistory: [...(b.billingHistory || []), transaction],
-        };
-      });
-      saveState('businesses', next);
-      return next;
     });
   };
 
@@ -1459,7 +1548,27 @@ const App: React.FC = () => {
 
   const handleUpdateProfile = async (updates: Partial<User>) => {
     if (!currentUser) return;
+    // Optimistic local update first so the UI never waits on the network -
+    // then push to the server so the change actually follows the account
+    // across devices, not just this browser.
     updateCurrentUser({ ...currentUser, ...updates });
+    if (!isAuthenticated) return;
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({ action: 'update', updates }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.user) updateCurrentUser(data.user);
+      }
+    } catch (err) {
+      console.error('Profile update failed to sync to server', err);
+      // The optimistic local update above already applied — a network
+      // hiccup here just means it hasn't propagated to other devices yet.
+    }
   };
 
   // Business-side accept/decline for any deal requests submitted before the
@@ -1612,10 +1721,27 @@ const App: React.FC = () => {
     }
   };
 
-  const handleSwitchAccount = () => {
+  const handleSwitchAccount = async () => {
     if (!currentUser.linkedUserId) return;
-    const linked = users.find(u => u.id === currentUser.linkedUserId);
-    if (!linked) return;
+    let linked = users.find(u => u.id === currentUser.linkedUserId);
+    if (!linked) {
+      // Not cached locally yet — first time switching on this device.
+      try {
+        const res = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ action: 'getLinked' }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.user) return;
+        linked = data.user;
+        updateCurrentUser(linked);
+      } catch (err) {
+        console.error('Failed to load linked account', err);
+        return;
+      }
+    }
     setCurrentUserId(linked.id);
     saveState('currentUserId', linked.id);
     setView(linked.type === UserType.BUSINESS ? 'business-hub' : 'home');
@@ -1756,6 +1882,12 @@ const App: React.FC = () => {
     setCurrentUserId(null);
     saveState('currentUserId', null);
     setView('home');
+    fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify({ action: 'logout' }),
+    }).catch(err => console.error('Server logout failed', err));
   };
 
   const CAROUSEL_ACCENTS = {
@@ -2003,10 +2135,15 @@ const App: React.FC = () => {
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}
-        users={users}
         defaultAccountType={postLoginIntent === 'business' ? 'business' : 'resident'}
         lockAccountType
         onSignUp={(newUser, accountType) => {
+          // The account itself (with its real, server-assigned id) already
+          // exists server-side by the time this fires — AuthModal only
+          // calls onSignUp after a successful /api/auth signup. This just
+          // reconciles local state (wishlist etc. stay browser-local for now)
+          // and resumes whatever the visitor was trying to do before they
+          // were asked to sign in.
           const userToSave = pendingWishlistServiceId
             ? { ...newUser, wishlist: [...(newUser.wishlist || []), pendingWishlistServiceId] }
             : newUser;
@@ -2035,22 +2172,26 @@ const App: React.FC = () => {
           }
           setPostLoginIntent(null);
         }}
-        onSignIn={(userId) => {
-          setCurrentUserId(userId);
-          saveState('currentUserId', userId);
-          const signedInUser = users.find(u => u.id === userId);
+        onSignIn={(signedInUser) => {
+          // Server-verified login — signedInUser may not have existed in
+          // this browser's local cache at all (a different device/browser
+          // logging in for the first time here). updateCurrentUser adds it
+          // if it's new, updates it if it's already cached.
+          updateCurrentUser(signedInUser);
+          setCurrentUserId(signedInUser.id);
+          saveState('currentUserId', signedInUser.id);
           if (pendingWishlistServiceId) {
-            if (signedInUser && !(signedInUser.wishlist || []).includes(pendingWishlistServiceId)) {
+            if (!(signedInUser.wishlist || []).includes(pendingWishlistServiceId)) {
               updateCurrentUser({ ...signedInUser, wishlist: [...(signedInUser.wishlist || []), pendingWishlistServiceId] });
             }
             setPendingWishlistServiceId(null);
           }
-          if (pendingSignUpServiceId && signedInUser) {
+          if (pendingSignUpServiceId) {
             performDealJoin(pendingSignUpServiceId, signedInUser);
             setPendingSignUpServiceId(null);
           }
           if (postLoginIntent === 'business') {
-            setView(signedInUser?.type === UserType.BUSINESS ? 'business-hub' : 'business-onboarding');
+            setView(signedInUser.type === UserType.BUSINESS ? 'business-hub' : 'business-onboarding');
             setPostLoginIntent(null);
           }
         }}
@@ -2977,39 +3118,52 @@ const App: React.FC = () => {
             <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <BusinessOnboarding
                 currentUser={currentUser}
-                onComplete={(businessData) => {
-                  const newBusiness: Business = {
-                    ...businessData,
-                    id: `biz_${Date.now()}`,
-                    name: businessData.name || '',
-                    logoUrl: businessData.logoUrl || '',
-                    billingHistory: [],
-                    leadsAccessKey: crypto.randomUUID(),
-                  };
-                  setBusinesses(prev => {
-                    const next = [...prev, newBusiness];
-                    saveState('businesses', next);
-                    return next;
-                  });
+                onComplete={async (businessData) => {
+                  try {
+                    const createRes = await fetch('/api/businesses', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      credentials: 'same-origin',
+                      body: JSON.stringify({ action: 'create', business: businessData }),
+                    });
+                    const createData = await createRes.json();
+                    if (!createRes.ok || !createData.business) {
+                      alert(createData.error || 'Could not create your business — please try again.');
+                      return;
+                    }
+                    const newBusiness: Business = createData.business;
+                    realBusinessIdsRef.current.add(newBusiness.id);
+                    setBusinesses(prev => [...prev, newBusiness]);
 
-                  // A business gets its own account, separate from the resident
-                  // account that created it, linked both ways so the owner can
-                  // switch between their personal and business identities.
-                  const businessUserId = `biz-user-${Date.now()}`;
-                  const businessUser: User = {
-                    id: businessUserId,
-                    name: newBusiness.name,
-                    type: UserType.BUSINESS,
-                    avatarUrl: newBusiness.logoUrl,
-                    email: currentUser.email,
-                    businessId: newBusiness.id,
-                    linkedUserId: currentUser.id,
-                  };
-                  updateCurrentUser(businessUser);
-                  updateCurrentUser({ ...currentUser, linkedUserId: businessUserId });
-                  setCurrentUserId(businessUserId);
-                  saveState('currentUserId', businessUserId);
-                  setView('business-hub');
+                    // A business gets its own account, separate from the resident
+                    // account that created it, linked both ways so the owner can
+                    // switch between their personal and business identities.
+                    const identityRes = await fetch('/api/auth', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      credentials: 'same-origin',
+                      body: JSON.stringify({
+                        action: 'createBusinessIdentity',
+                        name: newBusiness.name,
+                        avatarUrl: newBusiness.logoUrl,
+                        businessId: newBusiness.id,
+                      }),
+                    });
+                    const identityData = await identityRes.json();
+                    if (!identityRes.ok || !identityData.businessUser) {
+                      alert(identityData.error || 'Business created, but switching to it failed — try signing in again.');
+                      setView('home');
+                      return;
+                    }
+                    updateCurrentUser(identityData.businessUser);
+                    updateCurrentUser(identityData.resident);
+                    setCurrentUserId(identityData.businessUser.id);
+                    saveState('currentUserId', identityData.businessUser.id);
+                    setView('business-hub');
+                  } catch (err) {
+                    console.error('Business onboarding failed', err);
+                    alert('Something went wrong creating your business — please try again.');
+                  }
                 }}
                 onCancel={() => setView('home')}
               />
@@ -3035,13 +3189,29 @@ const App: React.FC = () => {
             <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <BusinessEditProfile
                 business={businesses.find(b => b.id === currentUser.businessId)!}
-                onSave={(updates) => {
-                  setBusinesses(prev => {
-                    const next = prev.map(b => b.id === currentUser.businessId ? { ...b, ...updates } : b);
-                    saveState('businesses', next);
-                    return next;
-                  });
+                onSave={async (updates) => {
+                  const businessId = currentUser.businessId;
+                  if (!businessId) return;
+                  // Optimistic local update, then reconcile with the server —
+                  // same pattern as handleUpdateProfile.
+                  setBusinesses(prev => prev.map(b => b.id === businessId ? { ...b, ...updates } : b));
                   setView('business-hub');
+                  try {
+                    const res = await fetch('/api/businesses', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      credentials: 'same-origin',
+                      body: JSON.stringify({ action: 'update', businessId, updates }),
+                    });
+                    const data = await res.json();
+                    if (res.ok && data.business) {
+                      setBusinesses(prev => prev.map(b => b.id === businessId ? data.business : b));
+                    } else {
+                      console.error('Business update rejected by server', data.error);
+                    }
+                  } catch (err) {
+                    console.error('Business update failed to sync to server', err);
+                  }
                 }}
                 onCancel={() => setView('business-hub')}
               />
@@ -3051,57 +3221,68 @@ const App: React.FC = () => {
               <BusinessCreateDeal
                 business={businesses.find(b => b.id === currentUser.businessId)!}
                 initialService={editingServiceId ? services.find(s => s.id === editingServiceId) : undefined}
-                onComplete={(serviceData, selectedNeighborhoods, billing) => {
-                  if (editingServiceId) {
-                    setServices(prev => {
-                      const next = prev.map(s => s.id === editingServiceId
-                        ? { ...s, ...serviceData, id: s.id, neighborhoodIds: selectedNeighborhoods } as Service
-                        : s);
-                      saveState('services', next);
-                      return next;
-                    });
-                    if (currentUser.businessId && billing.amount > 0) {
-                      chargeBusiness(
-                        currentUser.businessId,
-                        billing.amount,
-                        editingServiceId,
-                        serviceData.title || '',
-                        billing.chargedNeighborhoodIds,
-                        billing.chargedCities,
-                        'add_neighborhoods'
-                      );
-                    }
-                    setEditingServiceId(null);
-                    setView('business-hub');
-                    return;
-                  }
+                onComplete={async (serviceData, selectedNeighborhoods, billing) => {
+                  const businessId = currentUser.businessId;
+                  if (!businessId) return;
+                  const serviceWithNeighborhoods = { ...serviceData, neighborhoodIds: selectedNeighborhoods };
 
-                  if (isRateLimited(`createDeal_${currentUser.businessId}`, 5000)) {
-                    alert("You're creating deals too quickly - please wait a moment and try again.");
-                    return;
+                  try {
+                    if (editingServiceId) {
+                      const res = await fetch('/api/services', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'same-origin',
+                        body: JSON.stringify({
+                          action: 'update',
+                          serviceId: editingServiceId,
+                          updates: serviceWithNeighborhoods,
+                          chargeAmount: billing.amount,
+                          chargedNeighborhoodIds: billing.chargedNeighborhoodIds,
+                          chargedCities: billing.chargedCities,
+                        }),
+                      });
+                      const data = await res.json();
+                      if (!res.ok || !data.service) {
+                        alert(data.error || 'Could not save your changes — please try again.');
+                        return;
+                      }
+                      setServices(prev => prev.map(s => s.id === editingServiceId ? data.service : s));
+                      if (data.business) setBusinesses(prev => prev.map(b => b.id === businessId ? data.business : b));
+                      setEditingServiceId(null);
+                      setView('business-hub');
+                      return;
+                    }
+
+                    if (isRateLimited(`createDeal_${businessId}`, 5000)) {
+                      alert("You're creating deals too quickly - please wait a moment and try again.");
+                      return;
+                    }
+                    const res = await fetch('/api/services', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      credentials: 'same-origin',
+                      body: JSON.stringify({
+                        action: 'create',
+                        businessId,
+                        service: serviceWithNeighborhoods,
+                        chargeAmount: billing.amount,
+                        chargedNeighborhoodIds: billing.chargedNeighborhoodIds,
+                        chargedCities: billing.chargedCities,
+                      }),
+                    });
+                    const data = await res.json();
+                    if (!res.ok || !data.service) {
+                      alert(data.error || 'Could not publish your deal — please try again.');
+                      return;
+                    }
+                    realServiceIdsRef.current.add(data.service.id);
+                    setServices(prev => [...prev, data.service]);
+                    if (data.business) setBusinesses(prev => prev.map(b => b.id === businessId ? data.business : b));
+                    setView('business-hub');
+                  } catch (err) {
+                    console.error('Deal publish/update failed', err);
+                    alert('Something went wrong — please try again.');
                   }
-                  const newService: Service = {
-                    ...serviceData,
-                    id: `srv_${Date.now()}`,
-                    neighborhoodIds: selectedNeighborhoods,
-                  } as Service;
-                  setServices(prev => {
-                    const next = [...prev, newService];
-                    saveState('services', next);
-                    return next;
-                  });
-                  if (currentUser.businessId && billing.amount > 0) {
-                    chargeBusiness(
-                      currentUser.businessId,
-                      billing.amount,
-                      newService.id,
-                      newService.title,
-                      billing.chargedNeighborhoodIds,
-                      billing.chargedCities,
-                      'publish'
-                    );
-                  }
-                  setView('business-hub');
                 }}
                 onCancel={() => { setEditingServiceId(null); setView('business-hub'); }}
               />
