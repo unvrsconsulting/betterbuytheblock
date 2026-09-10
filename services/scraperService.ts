@@ -22,12 +22,3 @@ export const verifyDealImage = async (imageUrl: string) => {
     return { isAppropriate: false, reason: "Couldn't verify this image right now — please try again." };
   }
 };
-
-export const generateDealRecommendations = async (category: string, businessName: string) => {
-  try {
-    return await callAi('generateDealRecommendations', { category, businessName });
-  } catch (error) {
-    console.error('Error generating deal recommendations:', error);
-    return [];
-  }
-};

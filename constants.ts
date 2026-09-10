@@ -3,11 +3,6 @@ import { Business, User, Service, UserType, Review } from './types';
 import categoryGroupsData from './constants/categoryGroups.json';
 import wakeCountyCitiesData from './constants/cities.json';
 
-// Every business account starts with this simulated dollar balance, used to pay for
-// neighborhood-targeting costs when publishing or expanding deals. Not real money —
-// see the "no real payment processing" note on the Terms page.
-export const STARTING_BUSINESS_BALANCE = 500;
-
 // Real Wake County neighborhoods (see public/data/wake-neighborhoods.json). Used as
 // the default location for a signed-out visitor before they pick their own.
 export const DEMO_NEIGHBORHOOD_IDS = [

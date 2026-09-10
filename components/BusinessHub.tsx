@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { User, Business, Service, DealRequest } from '../types';
-import { Plus, TrendingUp, Users, Eye, Heart, Clock, Mail, MessageSquare, Check, X, Pencil, Settings, CheckCircle, MapPin, ChevronDown, ChevronUp, Wallet, Receipt, DollarSign, Download, RefreshCw, Phone as PhoneIcon } from 'lucide-react';
+import { Plus, TrendingUp, Users, Eye, Heart, Clock, Mail, MessageSquare, Check, X, Pencil, Settings, CheckCircle, MapPin, ChevronDown, ChevronUp, Receipt, DollarSign, Download, RefreshCw, Phone as PhoneIcon } from 'lucide-react';
 import Button from './Button';
 import ServiceCard from './ServiceCard';
 import { DEFAULT_CATEGORY_IMAGE } from '../services/categoryImages';
 import { useNeighborhoods } from '../hooks/useNeighborhoods';
-import { STARTING_BUSINESS_BALANCE } from '../constants';
-import AddFundsControl from './AddFundsControl';
 import { toCsv, downloadCsv } from '../services/csv';
 import { BillingTransaction } from '../types';
 
@@ -33,10 +31,9 @@ interface BusinessHubProps {
   onUpdateUser: (user: User) => void;
   onEditProfile: () => void;
   onCompleteDeal: (serviceId: string) => void;
-  onAddFunds: (amount: number) => void;
 }
 
-const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, services, users, dealRequests, onUpdateDealRequestStatus, onCreateDeal, onEditDeal, onServiceClick, onUpdateUser, onEditProfile, onCompleteDeal, onAddFunds }) => {
+const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, services, users, dealRequests, onUpdateDealRequestStatus, onCreateDeal, onEditDeal, onServiceClick, onUpdateUser, onEditProfile, onCompleteDeal }) => {
   const { neighborhoods } = useNeighborhoods();
   const [expandedBreakdownIds, setExpandedBreakdownIds] = useState<Set<string>>(new Set());
   // 'YYYY-MM-DD' strings from the date inputs below, or '' when unset.
@@ -150,7 +147,6 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
   const totalWishlists = myDeals.reduce((sum, s) => sum + wishlistCountFor(s.id), 0);
   const pendingRequests = dealRequests.filter(r => r.status === 'pending');
 
-  const balance = business.balance ?? STARTING_BUSINESS_BALANCE;
   const billingHistory = [...(business.billingHistory || [])].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -169,8 +165,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
 
   // Same label shown in the table row's title, reused for the CSV export so the
   // two stay in lockstep.
-  const getTransactionDescription = (txn: BillingTransaction): string =>
-    txn.type === 'add_funds' ? 'Funds Added' : (txn.dealTitle || 'Deal');
+  const getTransactionDescription = (txn: BillingTransaction): string => txn.dealTitle || 'Deal';
 
   const handleClearBillingFilter = () => {
     setBillingFromDate('');
@@ -179,11 +174,10 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
 
   const handleExportCsv = () => {
     const rows = filteredBillingHistory.map(txn => {
-      const signedAmount = txn.type === 'add_funds' ? txn.amount : -txn.amount;
       return [
         new Date(txn.date).toISOString().slice(0, 10),
         getTransactionDescription(txn),
-        signedAmount.toFixed(2),
+        txn.amount.toFixed(2),
       ];
     });
     const csv = toCsv(['Date', 'Description', 'Amount'], rows);
@@ -264,25 +258,16 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
         </div>
       </div>
 
-      {/* Billing */}
+      {/* Payment History */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mb-12">
-        <div className="p-6 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-700 flex items-center justify-center shrink-0">
-              <Wallet className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500">Account Balance</p>
-              <p className={`text-2xl font-black ${balance < 0 ? 'text-red-600' : 'text-gray-900'}`}>${balance.toFixed(2)}</p>
-            </div>
-          </div>
-          <AddFundsControl onAddFunds={onAddFunds} />
+        <div className="p-6 border-b border-gray-100">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5 shrink-0">
+            <Receipt className="w-3.5 h-3.5" /> Payment History
+          </h3>
+          <p className="text-xs text-gray-500 mt-1">You pay per deal at publish time — no prepaid balance to manage.</p>
         </div>
         <div className="p-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5 shrink-0">
-              <Receipt className="w-3.5 h-3.5" /> Billing History
-            </h3>
+          <div className="flex justify-end gap-4 mb-4">
             {billingHistory.length > 0 && (
               <div className="flex flex-wrap items-end gap-3">
                 <label className="flex flex-col text-xs font-medium text-gray-500">
@@ -335,6 +320,11 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
             <div className="divide-y divide-gray-100">
               {filteredBillingHistory.map(txn => {
                 const neighborhoodCount = txn.neighborhoodIds?.length ?? 0;
+                const cityCount = txn.cities?.length ?? 0;
+                const targetingParts = [
+                  neighborhoodCount > 0 ? `${neighborhoodCount} neighborhood${neighborhoodCount === 1 ? '' : 's'}` : null,
+                  cityCount > 0 ? `${cityCount} whole cit${cityCount === 1 ? 'y' : 'ies'}` : null,
+                ].filter(Boolean);
                 return (
                   <div key={txn.id} className="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <div>
@@ -343,16 +333,12 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
                       </p>
                       <p className="text-xs text-gray-500">
                         {new Date(txn.date).toLocaleDateString()} &middot;{' '}
-                        {txn.type === 'publish' && 'Deal published'}
-                        {txn.type === 'add_neighborhoods' && 'Neighborhoods added'}
-                        {txn.type === 'add_funds' && 'Manual balance top-up'}
-                        {txn.type !== 'add_funds' && (
-                          <> &middot; {neighborhoodCount} neighborhood{neighborhoodCount === 1 ? '' : 's'} targeted</>
-                        )}
+                        {txn.type === 'publish' ? 'Deal published' : 'Neighborhoods added'}
+                        {targetingParts.length > 0 && <> &middot; {targetingParts.join(' + ')} targeted</>}
                       </p>
                     </div>
-                    <span className={`text-sm font-bold shrink-0 ${txn.type === 'add_funds' ? 'text-green-600' : 'text-red-600'}`}>
-                      {txn.type === 'add_funds' ? '+' : '-'}${txn.amount.toFixed(2)}
+                    <span className="text-sm font-bold shrink-0 text-gray-900">
+                      ${txn.amount.toFixed(2)}
                     </span>
                   </div>
                 );

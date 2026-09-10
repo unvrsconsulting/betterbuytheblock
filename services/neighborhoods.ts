@@ -1,4 +1,4 @@
-import { Neighborhood } from '../types';
+import { Neighborhood, CityStats } from '../types';
 
 const DATA_URL = '/data/wake-neighborhoods.json';
 const STATS_URL = '/data/wake-neighborhood-stats.json';
@@ -32,6 +32,15 @@ export const estimateHomeCount = (neighborhoodId: string): number => {
 export const estimateNeighborhoodPrice = (neighborhood: Neighborhood): number => {
   const homes = neighborhood.estimatedHomes ?? estimateHomeCount(neighborhood.id);
   return Math.max(5, Math.round(homes * 0.07));
+};
+
+// Same per-home rate as estimateNeighborhoodPrice, on real city-wide home counts
+// (see CityStats) rather than a single neighborhood's — a whole city is a much
+// bigger commitment, so the floor is proportionally higher. Falls back to a flat
+// $150 when real stats haven't loaded yet for that city.
+export const estimateCityPrice = (cityStats: CityStats | undefined): number => {
+  if (!cityStats?.homeCount) return 150;
+  return Math.max(75, Math.round(cityStats.homeCount * 0.07));
 };
 
 export const loadNeighborhoods = (): Promise<Neighborhood[]> => {

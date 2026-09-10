@@ -112,18 +112,54 @@ export interface NeighborhoodAudience {
   neighborhoodIds: string[];
 }
 
+export interface BusinessOffering {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  // Cities this specific offering is available in — a lighter-weight
+  // location tag than a Service's neighborhoodIds/servedCities, since an
+  // offering isn't a group-buy deal and doesn't need per-neighborhood pricing.
+  cities: string[];
+}
+
 export interface Business {
   id: string;
   name: string;
   logoUrl: string;
+  // The banner shown across the top of the business's public profile —
+  // settable at registration/edit now, not just seeded (see
+  // scripts/data/fetch-images.mjs for how seed businesses get one).
+  coverImageUrl?: string;
   category?: string;
+  // Composed from street/city/state/zip below at submission time — kept as a
+  // single string since that's what every existing consumer (map geocoding,
+  // display, businessPath slugs) already expects. street/city/state/zip are
+  // the actual structured source of truth going forward; address is derived.
   address?: string;
+  street?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
   description?: string;
   rating?: number;
   reviewCount?: number;
   website?: string;
   phone?: string;
+  // The business's own public contact email — distinct from the owner's
+  // personal login email on their linked resident account (see User.email).
+  email?: string;
   googleBusinessUrl?: string;
+  // Declared at registration (or later in Edit Profile), used as the
+  // pre-selected default targeting when creating a new deal — see
+  // BusinessCreateDeal.tsx. Purely a UX default; a deal's actual targeting
+  // (Service.neighborhoodIds/servedCities) can still diverge from this.
+  serviceAreaCities?: string[];
+  serviceAreaNeighborhoodIds?: string[];
+  // Up to 10 lightweight "what we offer" listings shown on the public
+  // profile — unrelated to Service (the group-buy deal entity): no pricing,
+  // discount, or signup-threshold mechanics, just a description of the work.
+  offerings?: BusinessOffering[];
   // Generated once at business account creation, never shown in the UI or
   // any URL. Sent alongside businessId whenever the Business Hub fetches its
   // own leads (see api/deal-signup.ts, api/deal-request.ts) — the server
@@ -139,12 +175,10 @@ export interface Business {
   isLicensed?: boolean;
   licenseNumber?: string;
   amenities?: string[];
-  // Simulated dollar balance used to pay for neighborhood-targeting costs when
-  // publishing or expanding a deal. Missing on older persisted records — callers
-  // should fall back to STARTING_BUSINESS_BALANCE (see constants.ts) when absent.
-  balance?: number;
-  // Reverse-chronological is a display concern, not a storage concern — entries
-  // are appended in the order they occur.
+  // Every deal-publish / neighborhood-expansion payment, oldest last — the
+  // business's payment history (see BusinessCreateDeal.tsx's checkout step).
+  // Reverse-chronological is a display concern, not a storage concern; each
+  // entry is just a paid line item, not a running balance.
   billingHistory?: BillingTransaction[];
   // Real business (name/category/address/phone all real, sourced via
   // scripts/data/ingest-real-businesses.mjs) that has NOT signed up or agreed to
@@ -152,24 +186,19 @@ export interface Business {
   // license is ever fabricated for one of these; the UI must show a clear
   // "not yet confirmed" badge and never imply affiliation or endorsement.
   isProspective?: boolean;
-  // Real photo (via Pexels, see scripts/data/fetch-images.mjs), matching one of
-  // this business's own service offering images — never a generic/unrelated
-  // stock photo. Falls back to the category default image when absent.
-  coverImageUrl?: string;
 }
 
 export interface BillingTransaction {
   id: string;
   date: string;
-  // Present for a deal-related charge ('publish' / 'add_neighborhoods'). Omitted
-  // for a manual balance top-up ('add_funds'), which isn't tied to any deal.
   dealId?: string;
   dealTitle?: string;
-  // The neighborhoods this specific charge paid to target — for a new deal, all
-  // of them; for an edit, only the newly-added ones. Omitted for 'add_funds'.
+  // What this specific charge paid to target — for a new deal, everything
+  // selected; for an edit, only what's newly added.
   neighborhoodIds?: string[];
+  cities?: string[];
   amount: number;
-  type: 'publish' | 'add_neighborhoods' | 'add_funds';
+  type: 'publish' | 'add_neighborhoods';
 }
 
 export interface Review {

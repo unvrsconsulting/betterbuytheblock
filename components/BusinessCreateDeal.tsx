@@ -5,15 +5,14 @@ import L from 'leaflet';
 import Button from './Button';
 import CategoryPicker from './CategoryPicker';
 import ServiceCard from './ServiceCard';
-import { CheckCircle, MapPin, DollarSign, Users, Tag, Sparkles, Loader2, Image as ImageIcon, Search, Pencil, X, AlertCircle, Upload, Bookmark, FileUp } from 'lucide-react';
-import { verifyDealImage, generateDealRecommendations } from '../services/scraperService';
+import { CheckCircle, MapPin, DollarSign, Users, Tag, Loader2, Image as ImageIcon, Search, Pencil, X, AlertCircle, Upload, Bookmark, FileUp, Building2, Download } from 'lucide-react';
+import { verifyDealImage } from '../services/scraperService';
 import { useNeighborhoods } from '../hooks/useNeighborhoods';
 import { useCityStats } from '../hooks/useCityStats';
-import { searchNeighborhoods, getCities, neighborhoodsWithinRadius, estimateNeighborhoodPrice, estimateHomeCount } from '../services/neighborhoods';
+import { searchNeighborhoods, getCities, neighborhoodsWithinRadius, estimateNeighborhoodPrice, estimateHomeCount, estimateCityPrice } from '../services/neighborhoods';
 import { checkContent } from '../services/contentModeration';
 import { loadState, saveState } from '../services/localStore';
-import { STARTING_BUSINESS_BALANCE } from '../constants';
-import AddFundsControl from './AddFundsControl';
+import { toCsv, downloadCsv } from '../services/csv';
 
 const MIN_IMAGE_WIDTH = 800;
 const MIN_IMAGE_HEIGHT = 400;
@@ -42,13 +41,13 @@ function DrawAreaClickHandler({ active, onPick }: { active: boolean; onPick: (la
 }
 
 export interface DealBillingInfo {
-  // Exactly the amount shown as "Total Due Today" (new deal) or "Additional Cost
-  // for New Neighborhoods" (edit) on the review step. Zero when an edit adds no
-  // new neighborhoods.
+  // Exactly the amount shown as "Total Due" on the checkout step. Zero when
+  // an edit adds no new targeting.
   amount: number;
-  // The neighborhoods this charge actually paid for — all selected neighborhoods
-  // for a new deal, or only the newly-added ones for an edit.
+  // What this charge actually paid for — everything selected for a new deal,
+  // or only what's newly added for an edit.
   chargedNeighborhoodIds: string[];
+  chargedCities: string[];
 }
 
 interface BusinessCreateDealProps {
@@ -56,10 +55,9 @@ interface BusinessCreateDealProps {
   initialService?: Service;
   onComplete: (service: Partial<Service>, selectedNeighborhoods: string[], billing: DealBillingInfo) => void;
   onCancel: () => void;
-  onAddFunds: (amount: number) => void;
 }
 
-const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initialService, onComplete, onCancel, onAddFunds }) => {
+const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initialService, onComplete, onCancel }) => {
   const isEditing = !!initialService;
   const [step, setStep] = useState(1);
   const [title, setTitle] = useState(initialService?.title || '');
@@ -78,10 +76,21 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
       ? new Date(initialService.expiresAt).toISOString().split('T')[0]
       : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
   );
-  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState<string[]>(initialService?.neighborhoodIds || []);
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState<string[]>(
+    initialService?.neighborhoodIds || business.serviceAreaNeighborhoodIds || []
+  );
   const originalNeighborhoodIds = useMemo(() => new Set(initialService?.neighborhoodIds || []), [initialService]);
-  const [recommendations, setRecommendations] = useState<any[]>([]);
-  const [isGettingRecs, setIsGettingRecs] = useState(false);
+  // Whole-city targeting, kept as its own list — separate from individual
+  // neighborhoods, not merged into it, so a resident search-matching against
+  // a deal can tell "targets your whole city" apart from "targets your exact
+  // neighborhood" (see Service.servedCities vs neighborhoodIds in types.ts).
+  const [selectedCities, setSelectedCities] = useState<string[]>(() => {
+    if (initialService) return initialService.servedCities || [];
+    // New deal: default to the business's own declared service area, since
+    // that's almost always what they actually want to target.
+    return business.serviceAreaCities || [];
+  });
+  const originalCities = useMemo(() => new Set(initialService?.servedCities || []), [initialService]);
   const [neighborhoodSearch, setNeighborhoodSearch] = useState('');
   const [cityFilter, setCityFilter] = useState('All Cities');
   const [savedAudiences, setSavedAudiences] = useState<NeighborhoodAudience[]>(
@@ -120,22 +129,6 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
   const extraSelectedCards = allExtraSelected.slice(0, 30);
   const hiddenSelectedCount = allExtraSelected.length - extraSelectedCards.length;
   const visibleNeighborhoods = [...extraSelectedCards, ...filteredCandidates];
-
-  const handleGetRecommendations = async () => {
-    if (!category) return;
-    setIsGettingRecs(true);
-    const recs = await generateDealRecommendations(category, business.name);
-    setRecommendations(recs);
-    setIsGettingRecs(false);
-  };
-
-  const applyRecommendation = (rec: any) => {
-    setTitle(rec.title);
-    setDescription(rec.description);
-    setStandardPrice(rec.standardPrice);
-    setDiscountPercentage(rec.discountPercentage);
-    setRequiredSignups(rec.requiredSignups);
-  };
 
   // Shared by both entry points (pasted URL on blur, uploaded file once
   // dimensions check out) so neither can skip the content check the other
@@ -242,7 +235,7 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
     });
   };
 
-  const handleClearSelection = () => setSelectedNeighborhoods([]);
+  const handleClearSelection = () => { setSelectedNeighborhoods([]); setSelectedCities([]); };
 
   const neighborhoodsInDrawArea = useMemo(
     () => (drawCenter ? neighborhoodsWithinRadius(neighborhoods, drawCenter.lat, drawCenter.lng, drawRadiusMiles) : []),
@@ -290,6 +283,46 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
 
   const normalizeNeighborhoodName = (s: string) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
+  // The exact header row handleBulkUploadFile expects — matching it lets the
+  // parser skip the header line instead of trying (and failing) to match it
+  // as a neighborhood, and lets us tell a business "your file doesn't look
+  // like the template" instead of silently mismatching every row.
+  const TEMPLATE_HEADER = 'Neighborhood,City';
+
+  const handleDownloadTemplate = () => {
+    // A few real examples so the format is obvious without extra instructions,
+    // rather than a bare header with nothing to copy from.
+    const sample = neighborhoods.slice(0, 5).map(n => [n.name, n.city]);
+    const csv = toCsv(['Neighborhood', 'City'], sample);
+    downloadCsv('neighborhood-list-template.csv', csv);
+  };
+
+  // Splits one CSV line into fields, honoring double-quoted fields (which may
+  // contain commas) per RFC 4180 — a plain line.split(',') would break on any
+  // neighborhood or city name someone quoted defensively.
+  const splitCsvLine = (line: string): string[] => {
+    const fields: string[] = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQuotes) {
+        if (ch === '"' && line[i + 1] === '"') { current += '"'; i++; }
+        else if (ch === '"') { inQuotes = false; }
+        else { current += ch; }
+      } else if (ch === '"') {
+        inQuotes = true;
+      } else if (ch === ',') {
+        fields.push(current);
+        current = '';
+      } else {
+        current += ch;
+      }
+    }
+    fields.push(current);
+    return fields.map(f => f.trim());
+  };
+
   const handleBulkUploadFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     e.target.value = '';
@@ -298,7 +331,13 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
     const reader = new FileReader();
     reader.onload = () => {
       const text = (reader.result as string) || '';
-      const lines = text.split(/\r?\n|,/).map(l => l.trim()).filter(Boolean);
+      let lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+
+      // Checked against the template, not just assumed — the first line only
+      // ever gets dropped as a header if it actually reads like one.
+      if (lines.length > 0 && normalizeNeighborhoodName(lines[0]) === normalizeNeighborhoodName(TEMPLATE_HEADER)) {
+        lines = lines.slice(1);
+      }
 
       const byName = new Map<string, Neighborhood[]>();
       neighborhoods.forEach(n => {
@@ -312,11 +351,14 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
       const unmatched: string[] = [];
 
       lines.forEach(line => {
-        const [namePart, cityPart] = line.split(/\s*[-—]\s*|\s*\|\s*/);
-        const key = normalizeNeighborhoodName(namePart || line);
+        const [namePart, cityPart] = splitCsvLine(line);
+        if (!namePart) return;
+        const key = normalizeNeighborhoodName(namePart);
+        // Checked against the database — a name that isn't a real Wake
+        // County neighborhood is reported back, never silently dropped.
         const candidates = byName.get(key);
         if (!candidates || candidates.length === 0) {
-          unmatched.push(line);
+          unmatched.push(cityPart ? `${namePart}, ${cityPart}` : namePart);
           return;
         }
         if (candidates.length === 1 || !cityPart) {
@@ -324,7 +366,11 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
           return;
         }
         const cityMatch = candidates.find(c => normalizeNeighborhoodName(c.city) === normalizeNeighborhoodName(cityPart));
-        matchedIds.add((cityMatch || candidates[0]).id);
+        if (!cityMatch) {
+          unmatched.push(`${namePart}, ${cityPart} (that name exists, but not in ${cityPart})`);
+          return;
+        }
+        matchedIds.add(cityMatch.id);
       });
 
       setSelectedNeighborhoods(prev => Array.from(new Set([...prev, ...matchedIds])));
@@ -364,9 +410,11 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
         imageUrl,
         expiresAt: new Date(expiresAt).toISOString(),
         closeAfterThreshold,
+        servedCities: selectedCities,
       }, selectedNeighborhoods, {
         amount: totalCost,
         chargedNeighborhoodIds: isEditing ? newNeighborhoodIds : selectedNeighborhoods,
+        chargedCities: isEditing ? newCities : selectedCities,
       });
     }
   };
@@ -377,20 +425,19 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
   );
   const getNeighborhoodCost = (id: string) => neighborhoodPrices.get(id) ?? 5;
   const newNeighborhoodIds = selectedNeighborhoods.filter(id => !originalNeighborhoodIds.has(id));
-  const totalCost = (isEditing ? newNeighborhoodIds : selectedNeighborhoods).reduce(
+  const cityPrices = useMemo(
+    () => new Map(selectedCities.map(c => [c, estimateCityPrice(cityStats[c])])),
+    [selectedCities, cityStats]
+  );
+  const getCityCost = (city: string) => cityPrices.get(city) ?? 150;
+  const newCities = selectedCities.filter(c => !originalCities.has(c));
+  const neighborhoodCost = (isEditing ? newNeighborhoodIds : selectedNeighborhoods).reduce(
     (sum, id) => sum + getNeighborhoodCost(id),
     0
   );
 
-  const currentBalance = business.balance ?? STARTING_BUSINESS_BALANCE;
-  // A zero-cost edit (no new neighborhoods added) never needs blocking, even if
-  // a legacy balance happens to be negative — there's nothing to charge for.
-  const insufficientFunds = totalCost > 0 && totalCost > currentBalance;
-  const shortfall = insufficientFunds ? totalCost - currentBalance : 0;
-  // Balance After always equals Current Balance minus the cost shown on this
-  // review step — the same totalCost used for the "Pay $X & Publish/Save"
-  // button and the billing history entry that gets recorded on completion.
-  const balanceAfter = currentBalance - totalCost;
+  const cityCost = (isEditing ? newCities : selectedCities).reduce((sum, c) => sum + getCityCost(c), 0);
+  const totalCost = neighborhoodCost + cityCost;
 
   const centerLat = selectedNeighborhoodObjs[0]?.lat ?? filteredCandidates[0]?.lat ?? 35.7847;
   const centerLng = selectedNeighborhoodObjs[0]?.lng ?? filteredCandidates[0]?.lng ?? -78.6319;
@@ -426,40 +473,8 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
           <div className="space-y-6 flex-1 min-w-0 max-w-2xl">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <div className="flex-1 min-w-0">
-                  <CategoryPicker value={category} onChange={setCategory} />
-                </div>
-                <Button
-                  variant="outline"
-                  onClick={handleGetRecommendations}
-                  disabled={!category || isGettingRecs}
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto shrink-0"
-                >
-                  {isGettingRecs ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4 text-primary" />}
-                  Get Ideas
-                </Button>
-              </div>
+              <CategoryPicker value={category} onChange={setCategory} />
             </div>
-
-            {recommendations.length > 0 && (
-              <div className="bg-primary-50 p-4 rounded-xl border border-primary-100">
-                <h3 className="text-sm font-bold text-primary-900 mb-3 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" /> AI Recommendations
-                </h3>
-                <div className="space-y-3">
-                  {recommendations.map((rec, idx) => (
-                    <div key={idx} className="bg-white p-3 rounded-lg border border-primary-100 flex justify-between items-center">
-                      <div>
-                        <div className="font-bold text-gray-900 text-sm">{rec.title}</div>
-                        <div className="text-xs text-gray-500">{rec.discountPercentage}% off • {rec.requiredSignups} signups</div>
-                      </div>
-                      <Button variant="outline" size="sm" onClick={() => applyRecommendation(rec)}>Apply</Button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Deal Title</label>
@@ -628,6 +643,33 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
               <h2 className="text-xl font-bold text-gray-900 mb-2">Target Neighborhoods</h2>
               <p className="text-sm text-gray-600 mb-4">Select the neighborhoods where you want to offer this deal. Cost per neighborhood scales with its estimated home count.</p>
 
+              <div className="border border-gray-200 rounded-lg p-3 space-y-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
+                  <Building2 className="w-3.5 h-3.5" /> Whole Cities <span className="font-normal normal-case text-gray-400">(separate from specific neighborhoods below)</span>
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {cities.map(c => {
+                    const isSelected = selectedCities.includes(c);
+                    return (
+                      <button
+                        key={c}
+                        type="button"
+                        onClick={() => setSelectedCities(prev => isSelected ? prev.filter(x => x !== c) : [...prev, c])}
+                        className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors flex items-center gap-1 ${
+                          isSelected ? 'border-primary bg-primary-50 text-primary-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                        }`}
+                      >
+                        {c}
+                        {isSelected && <span className="text-gray-500 font-normal">${getCityCost(c).toFixed(0)}</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+                {business.serviceAreaCities && business.serviceAreaCities.length > 0 && (
+                  <p className="text-[11px] text-gray-400">Pre-filled from your declared service area — edit anytime in Edit Profile.</p>
+                )}
+              </div>
+
               <div className="flex gap-2">
                 <select
                   value={cityFilter}
@@ -698,22 +740,36 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                 {isDrawMode ? 'Drawing on map - click to place area' : 'Draw a service area on the map'}
               </button>
 
-              <label className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium border border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer transition-colors">
-                <FileUp className="w-4 h-4" />
-                Upload neighborhood name list
-                <input type="file" accept=".txt,.csv" onChange={handleBulkUploadFile} className="hidden" />
-              </label>
-              {bulkUploadResult && (
-                <div className="text-xs bg-gray-50 border border-gray-200 rounded-lg p-3 space-y-1">
-                  <p className="text-gray-700">
-                    Matched <strong>{bulkUploadResult.matched}</strong> neighborhood{bulkUploadResult.matched === 1 ? '' : 's'}
-                    {bulkUploadResult.unmatched.length > 0 && `, ${bulkUploadResult.unmatched.length} not found`}.
-                  </p>
-                  {bulkUploadResult.unmatched.length > 0 && (
-                    <p className="text-gray-500">Not found: {bulkUploadResult.unmatched.slice(0, 8).join(', ')}{bulkUploadResult.unmatched.length > 8 ? '…' : ''}</p>
-                  )}
+              <div className="border border-gray-200 rounded-lg p-3 space-y-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1">
+                  <FileUp className="w-3.5 h-3.5" /> Upload a Neighborhood List
+                </p>
+                <p className="text-xs text-gray-500">Two columns: Neighborhood, City. Each row is checked against our real Wake County neighborhood database.</p>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={handleDownloadTemplate}
+                    className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    <Download className="w-4 h-4" /> Download Template
+                  </button>
+                  <label className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border border-gray-300 text-gray-700 hover:bg-gray-50 cursor-pointer transition-colors">
+                    <FileUp className="w-4 h-4" /> Upload CSV
+                    <input type="file" accept=".csv,.txt" onChange={handleBulkUploadFile} className="hidden" />
+                  </label>
                 </div>
-              )}
+                {bulkUploadResult && (
+                  <div className="text-xs bg-gray-50 border border-gray-200 rounded-lg p-3 space-y-1">
+                    <p className={bulkUploadResult.matched > 0 ? 'text-gray-700' : 'text-red-600'}>
+                      Matched <strong>{bulkUploadResult.matched}</strong> neighborhood{bulkUploadResult.matched === 1 ? '' : 's'}
+                      {bulkUploadResult.unmatched.length > 0 && `, ${bulkUploadResult.unmatched.length} not found`}.
+                    </p>
+                    {bulkUploadResult.unmatched.length > 0 && (
+                      <p className="text-gray-500">Not found: {bulkUploadResult.unmatched.slice(0, 8).join('; ')}{bulkUploadResult.unmatched.length > 8 ? '…' : ''}</p>
+                    )}
+                  </div>
+                )}
+              </div>
 
               {savedAudiences.length > 0 && (
                 <div className="border border-gray-200 rounded-lg p-3 space-y-2">
@@ -838,13 +894,16 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
               <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-200">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-gray-600">Selected:</span>
-                  <span className="font-bold text-gray-900">{selectedNeighborhoods.length}</span>
+                  <span className="font-bold text-gray-900">
+                    {selectedNeighborhoods.length} neighborhood{selectedNeighborhoods.length === 1 ? '' : 's'}
+                    {selectedCities.length > 0 && <>, {selectedCities.length} whole cit{selectedCities.length === 1 ? 'y' : 'ies'}</>}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center text-lg mb-2">
                   <span className="font-bold text-gray-900">Total Cost:</span>
-                  <span className="font-black text-primary">${totalCost}</span>
+                  <span className="font-black text-primary">${totalCost.toFixed(2)}</span>
                 </div>
-                {selectedNeighborhoods.length > 0 && (
+                {(selectedNeighborhoods.length > 0 || selectedCities.length > 0) && (
                   <button
                     type="button"
                     onClick={handleClearSelection}
@@ -925,18 +984,31 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
             </div>
 
             <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-8">
-              <h4 className="font-bold text-gray-900 mb-4 border-b pb-2">{isEditing ? 'Targeting' : 'Targeting & Cost'}</h4>
+              <h4 className="font-bold text-gray-900 mb-4 border-b pb-2">Targeting</h4>
               <div className="space-y-2 mb-4 max-h-64 overflow-y-auto pr-1">
+                {selectedCities.map(city => {
+                  const isNew = isEditing && !originalCities.has(city);
+                  const show = !isEditing || isNew;
+                  return (
+                    <div key={city} className="flex justify-between text-sm">
+                      <span className="text-gray-600 flex items-center gap-1">
+                        <Building2 className="w-3 h-3" /> {city} <span className="text-gray-400">(whole city)</span>
+                        {isNew && <span className="text-primary-600 font-semibold">(new)</span>}
+                      </span>
+                      {show && <span className="text-gray-900 font-medium">${getCityCost(city).toFixed(2)}</span>}
+                    </div>
+                  );
+                })}
                 {selectedNeighborhoodObjs.slice(0, 50).map(n => {
                   const isNew = isEditing && !originalNeighborhoodIds.has(n.id);
+                  const show = !isEditing || isNew;
                   return (
                     <div key={n.id} className="flex justify-between text-sm">
                       <span className="text-gray-600 flex items-center gap-1">
                         <MapPin className="w-3 h-3"/> {n.name}, {n.city}
                         {isNew && <span className="text-primary-600 font-semibold">(new)</span>}
                       </span>
-                      {!isEditing && <span className="text-gray-900 font-medium">${getNeighborhoodCost(n.id)}.00</span>}
-                      {isEditing && isNew && <span className="text-gray-900 font-medium">${getNeighborhoodCost(n.id)}.00</span>}
+                      {show && <span className="text-gray-900 font-medium">${getNeighborhoodCost(n.id).toFixed(2)}</span>}
                     </div>
                   );
                 })}
@@ -945,44 +1017,24 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
                     + {selectedNeighborhoodObjs.length - 50} more neighborhood{selectedNeighborhoodObjs.length - 50 === 1 ? '' : 's'}
                   </p>
                 )}
+                {selectedCities.length === 0 && selectedNeighborhoodObjs.length === 0 && (
+                  <p className="text-sm text-gray-500">No targeting selected.</p>
+                )}
               </div>
-              {(!isEditing || newNeighborhoodIds.length > 0) && (
-                <div className="flex justify-between items-center pt-4 border-t border-gray-200 text-lg">
-                  <span className="font-bold text-gray-900">{isEditing ? 'Additional Cost for New Neighborhoods' : 'Total Due Today'}</span>
-                  <span className="font-black text-primary">${totalCost}.00</span>
-                </div>
-              )}
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-8">
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-sm font-medium text-gray-600">Current Balance</span>
-                <span data-testid="review-balance" className={`font-bold ${currentBalance < 0 ? 'text-red-600' : 'text-gray-900'}`}>${currentBalance.toFixed(2)}</span>
-              </div>
-              {totalCost > 0 && (
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-medium text-gray-600">{isEditing ? 'Additional Cost' : 'Deal Cost'}</span>
-                  <span data-testid="review-cost" className="font-bold text-gray-900">-${totalCost.toFixed(2)}</span>
+            {totalCost > 0 && (
+              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-8">
+                <h4 className="font-bold text-gray-900 mb-4 border-b pb-2">Checkout</h4>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-base font-bold text-gray-900">Total Due</span>
+                  <span data-testid="review-total" className="text-xl font-black text-primary">${totalCost.toFixed(2)}</span>
                 </div>
-              )}
-              <div className="flex items-center justify-between pt-2 mt-1 border-t border-gray-100">
-                <span className="text-sm font-semibold text-gray-900">Balance After</span>
-                <span data-testid="review-balance-after" className={`font-bold ${balanceAfter < 0 ? 'text-red-600' : 'text-gray-900'}`}>${balanceAfter.toFixed(2)}</span>
-              </div>
-              {insufficientFunds && (
-                <p className="flex items-start gap-1.5 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mt-3">
-                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                  <span>
-                    Your balance is too low to {isEditing ? 'save these changes' : 'publish this deal'} - you need{' '}
-                    <strong>${shortfall.toFixed(2)}</strong> more to cover this cost.
-                  </span>
+                <p className="text-xs text-gray-500 mt-3">
+                  You're billed per deal, not a prepaid balance — this covers {isEditing ? 'the targeting you just added' : 'everything targeted above'}.
                 </p>
-              )}
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Add Funds</p>
-                <AddFundsControl onAddFunds={onAddFunds} />
               </div>
-            </div>
+            )}
           </div>
         )}
 
@@ -990,16 +1042,15 @@ const BusinessCreateDeal: React.FC<BusinessCreateDealProps> = ({ business, initi
           <Button variant="outline" onClick={step === 1 ? onCancel : () => setStep(step - 1)}>
             {step === 1 ? 'Cancel' : 'Back'}
           </Button>
-          <Button 
-            onClick={handleNext} 
+          <Button
+            onClick={handleNext}
             disabled={
               (step === 1 && (!title || !category || !standardPrice || !discountPercentage || !requiredSignups || !!imageError || isVerifyingImage)) ||
-              (step === 2 && selectedNeighborhoods.length === 0) ||
-              (step === 3 && insufficientFunds)
+              (step === 2 && selectedNeighborhoods.length === 0 && selectedCities.length === 0)
             }
           >
             {step === 3
-              ? (isEditing ? (totalCost > 0 ? `Pay $${totalCost} & Save Changes` : 'Save Changes') : `Pay $${totalCost} & Publish Deal`)
+              ? (totalCost > 0 ? `Pay $${totalCost.toFixed(2)} & ${isEditing ? 'Save Changes' : 'Publish Deal'}` : (isEditing ? 'Save Changes' : 'Publish Deal'))
               : 'Continue'}
           </Button>
         </div>

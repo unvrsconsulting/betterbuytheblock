@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
-import { Star, MapPin, Phone, Globe, ShieldCheck, MessageSquarePlus, Award, CheckCircle, ChevronDown, ThumbsUp, Images, Search, Tag } from 'lucide-react';
+import { Star, MapPin, Phone, Mail, Globe, ShieldCheck, MessageSquarePlus, Award, CheckCircle, ChevronDown, ThumbsUp, Images, Search, Tag } from 'lucide-react';
 import { Business, Service, Review, User, Neighborhood } from '../types';
 import { DEFAULT_CATEGORY_IMAGE, buildUnsplashUrl, getCategoryImage } from '../services/categoryImages';
 import ServiceCard from './ServiceCard';
@@ -285,6 +285,12 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                   <a href={`tel:${business.phone}`} className="hover:text-primary transition-colors">{business.phone}</a>
                 </div>
               )}
+              {business.email && (
+                <div className="flex items-center gap-3 text-gray-600">
+                  <Mail className="w-5 h-5 text-gray-500 shrink-0" />
+                  <a href={`mailto:${business.email}`} className="hover:text-primary transition-colors truncate">{business.email}</a>
+                </div>
+              )}
               {business.website && (
                 <div className="flex items-center gap-3 text-gray-600">
                   <Globe className="w-5 h-5 text-gray-500 shrink-0" />
@@ -319,6 +325,28 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
           </div>
         </div>
       </div>
+
+      {(business.offerings?.length || 0) > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Services We Offer</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {business.offerings!.map(o => (
+              <div key={o.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                {o.imageUrl && (
+                  <img src={o.imageUrl} alt={o.title} className="w-full h-40 object-cover" />
+                )}
+                <div className="p-5">
+                  <h3 className="font-bold text-gray-900 mb-1">{o.title}</h3>
+                  {o.description && <p className="text-sm text-gray-600 mb-2">{o.description}</p>}
+                  {o.cities.length > 0 && (
+                    <p className="text-xs text-gray-400 flex items-center gap-1"><MapPin className="w-3 h-3" /> {o.cities.join(', ')}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div>
         <div className="flex items-center justify-between mb-6">

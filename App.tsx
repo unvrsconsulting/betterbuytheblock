@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { User, Service, Business, UserType, DealRequest, Review, Notification, NotificationType, BillingTransaction } from './types';
 import { DEFAULT_CATEGORY_IMAGE } from './services/categoryImages';
-import { USERS, REVIEWS, CATEGORY_GROUPS, WAKE_COUNTY_CITIES, STARTING_BUSINESS_BALANCE } from './constants';
+import { USERS, REVIEWS, CATEGORY_GROUPS, WAKE_COUNTY_CITIES } from './constants';
 import { buildCategorySlugMap, buildCitySlugMap, slugify } from './services/seo/slugify.js';
 import {
   businessPath,
@@ -1379,60 +1379,36 @@ const App: React.FC = () => {
     });
   };
 
-  // Deducts a neighborhood-targeting charge from a business's simulated balance and
-  // appends one billing transaction. A no-op for a zero-amount charge (e.g. editing
-  // a deal without adding any new neighborhoods), so balance/history stay untouched.
+  // Records one payment for publishing/expanding a deal — pay-per-deal, not a
+  // prepaid balance (see BusinessCreateDeal.tsx's checkout step, which is
+  // where the actual "Publish & Pay" happens). A no-op for a zero-amount
+  // charge (e.g. editing a deal without adding any new targeting), so
+  // history stays untouched.
   const chargeBusiness = (
     businessId: string,
     amount: number,
     dealId: string,
     dealTitle: string,
     neighborhoodIds: string[],
+    cities: string[],
     type: BillingTransaction['type']
   ) => {
     if (amount <= 0) return;
     setBusinesses(prev => {
       const next = prev.map(b => {
         if (b.id !== businessId) return b;
-        const currentBalance = b.balance ?? STARTING_BUSINESS_BALANCE;
         const transaction: BillingTransaction = {
           id: `txn_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
           date: new Date().toISOString(),
           dealId,
           dealTitle,
           neighborhoodIds,
+          cities,
           amount,
           type,
         };
         return {
           ...b,
-          balance: currentBalance - amount,
-          billingHistory: [...(b.billingHistory || []), transaction],
-        };
-      });
-      saveState('businesses', next);
-      return next;
-    });
-  };
-
-  // Simulates a business topping up its balance. Defensive amount guard mirrors
-  // the validation already done in AddFundsControl — this never silently clamps
-  // a bad value, it just refuses to touch balance/history.
-  const handleAddFunds = (businessId: string, amount: number) => {
-    if (!Number.isFinite(amount) || amount <= 0) return;
-    setBusinesses(prev => {
-      const next = prev.map(b => {
-        if (b.id !== businessId) return b;
-        const currentBalance = b.balance ?? STARTING_BUSINESS_BALANCE;
-        const transaction: BillingTransaction = {
-          id: `txn_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-          date: new Date().toISOString(),
-          amount,
-          type: 'add_funds',
-        };
-        return {
-          ...b,
-          balance: currentBalance + amount,
           billingHistory: [...(b.billingHistory || []), transaction],
         };
       });
@@ -3003,16 +2979,10 @@ const App: React.FC = () => {
                 currentUser={currentUser}
                 onComplete={(businessData) => {
                   const newBusiness: Business = {
+                    ...businessData,
                     id: `biz_${Date.now()}`,
                     name: businessData.name || '',
                     logoUrl: businessData.logoUrl || '',
-                    category: businessData.category,
-                    address: businessData.address,
-                    description: businessData.description,
-                    website: businessData.website,
-                    phone: businessData.phone,
-                    googleBusinessUrl: businessData.googleBusinessUrl,
-                    balance: STARTING_BUSINESS_BALANCE,
                     billingHistory: [],
                     leadsAccessKey: crypto.randomUUID(),
                   };
@@ -3059,7 +3029,6 @@ const App: React.FC = () => {
                 onUpdateUser={updateCurrentUser}
                 onEditProfile={() => setView('business-edit-profile')}
                 onCompleteDeal={handleCompleteDeal}
-                onAddFunds={(amount) => currentUser.businessId && handleAddFunds(currentUser.businessId, amount)}
               />
             </section>
           ) : view === 'business-edit-profile' ? (
@@ -3098,6 +3067,7 @@ const App: React.FC = () => {
                         editingServiceId,
                         serviceData.title || '',
                         billing.chargedNeighborhoodIds,
+                        billing.chargedCities,
                         'add_neighborhoods'
                       );
                     }
@@ -3127,13 +3097,13 @@ const App: React.FC = () => {
                       newService.id,
                       newService.title,
                       billing.chargedNeighborhoodIds,
+                      billing.chargedCities,
                       'publish'
                     );
                   }
                   setView('business-hub');
                 }}
                 onCancel={() => { setEditingServiceId(null); setView('business-hub'); }}
-                onAddFunds={(amount) => currentUser.businessId && handleAddFunds(currentUser.businessId, amount)}
               />
             </section>
           ) : view === 'connections' ? (
