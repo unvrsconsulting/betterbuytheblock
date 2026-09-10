@@ -148,6 +148,13 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
   const googleReviewCount = business.reviewCount || 0;
   const platformReviewCount = reviews.length;
 
+  // City only, never the street address, on the public profile. Newer
+  // records have a structured `city`; older/seed ones only have the
+  // composed `address` string ("street, city, state zip"), so the city is
+  // pulled out of that — falling back to nothing (not the raw address)
+  // rather than ever risking a street address leaking through.
+  const cityOnly = business.city || business.address?.split(',')[1]?.trim() || null;
+
   const servicesOffered = Array.from(new Set(businessOwnServices.map(s => s.title)));
 
   const servedNeighborhoodIds = Array.from(new Set(businessOwnServices.flatMap(s => s.neighborhoodIds || [])));
@@ -268,10 +275,10 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                   <Tag className="w-3 h-3" /> {business.category}
                 </span>
               )}
-              {business.address ? (
+              {cityOnly ? (
                 <div className="flex items-center gap-3 text-gray-600">
                   <MapPin className="w-5 h-5 text-gray-500 shrink-0" />
-                  <span>{business.address}</span>
+                  <span>{cityOnly}, NC</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-3 text-gray-600">
