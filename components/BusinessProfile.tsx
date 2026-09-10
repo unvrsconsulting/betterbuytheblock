@@ -6,7 +6,6 @@ import { Star, MapPin, Phone, Globe, ShieldCheck, MessageSquarePlus, Award, Chec
 import { Business, Service, Review, User, Neighborhood } from '../types';
 import { DEFAULT_CATEGORY_IMAGE, buildUnsplashUrl, getCategoryImage } from '../services/categoryImages';
 import ServiceCard from './ServiceCard';
-import AIRequestDealPanel from './AIRequestDealPanel';
 import ReviewModal from './ReviewModal';
 import Button from './Button';
 import { GoogleIcon } from './Icon';
@@ -32,11 +31,9 @@ interface BusinessProfileProps {
   currentUser?: User | null;
   users?: User[];
   isAuthenticated?: boolean;
-  onSubmitDealRequest: (serviceName: string, description: string) => void;
   onAddReview: (rating: number, text: string) => void;
   onBack: () => void;
   onServiceClick: (serviceId: string) => void;
-  onRequestService: () => void;
   onBusinessClick: (businessId: string) => void;
   onCategoryCityClick?: (categoryName: string, cityName: string) => void;
 }
@@ -78,15 +75,12 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
   currentUser,
   users = [],
   isAuthenticated,
-  onSubmitDealRequest,
   onAddReview,
   onBack,
   onServiceClick,
-  onRequestService,
   onBusinessClick,
   onCategoryCityClick
 }) => {
-  const [isAIPanelOpen, setIsAIPanelOpen] = useState(false);
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   const [dealSearch, setDealSearch] = useState('');
   const [dealCategoryFilter, setDealCategoryFilter] = useState('All');
@@ -329,12 +323,6 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
       <div>
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Active Neighborhood Deals</h2>
-          <button
-            onClick={() => setIsAIPanelOpen(true)}
-            className="text-sm font-semibold text-primary-600 hover:underline"
-          >
-            Request a deal
-          </button>
         </div>
 
         {activeServices.length > 0 && (
@@ -655,14 +643,6 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
           </>
         )}
       </div>
-
-      <AIRequestDealPanel
-        isOpen={isAIPanelOpen}
-        onClose={() => setIsAIPanelOpen(false)}
-        business={business}
-        currentUser={currentUser}
-        onSubmitRequest={onSubmitDealRequest}
-      />
 
       <ReviewModal
         isOpen={isReviewModalOpen}

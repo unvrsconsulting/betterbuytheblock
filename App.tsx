@@ -33,7 +33,6 @@ import AIDealFinder from './components/AIDealFinder';
 import BusinessProfile from './components/BusinessProfile';
 import BusinessDirectory from './components/BusinessDirectory';
 import ServiceProfile from './components/ServiceProfile';
-import RequestServiceModal from './components/RequestServiceModal';
 import LocationPromptModal from './components/LocationPromptModal';
 import Button from './components/Button';
 import { TagIcon } from './components/Icon';
@@ -686,13 +685,12 @@ const App: React.FC = () => {
   // service they were trying to wishlist so it applies automatically once
   // they finish, instead of silently discarding the click's intent.
   const [pendingWishlistServiceId, setPendingWishlistServiceId] = useState<string | null>(null);
-  // Same pattern as pendingWishlistServiceId, for the two other actions that
-  // require a real (non-demo) account: joining/requesting a specific deal,
-  // and opening the "Request a Deal" form. See handleSignUp and
-  // handleOpenRequestModal below for where the sign-in gate lives, and the
-  // AuthModal onSignUp/onSignIn callbacks for where these resume afterward.
+  // Same pattern as pendingWishlistServiceId, for joining/requesting a
+  // specific deal (real or prospective — both go through the same one-click
+  // join, see performDealJoin). See handleSignUp below for where the sign-in
+  // gate lives, and the AuthModal onSignUp/onSignIn callbacks for where this
+  // resumes afterward.
   const [pendingSignUpServiceId, setPendingSignUpServiceId] = useState<string | null>(null);
-  const [pendingRequestModal, setPendingRequestModal] = useState<{ businessId?: string; prefillServiceName?: string } | null>(null);
   // Seed catalog (523 businesses, 886 offerings) is fetched as static JSON
   // rather than bundled as a JS literal — see services/seedData.ts. A
   // returning visitor's own localStorage copy (their joined/wishlisted
@@ -829,9 +827,6 @@ const App: React.FC = () => {
     if (!path.startsWith('/neighborhood/')) return null;
     return path.slice('/neighborhood/'.length).split('/').filter(Boolean)[0] || null;
   });
-  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
-  const [requestModalBusinessId, setRequestModalBusinessId] = useState<string | undefined>(undefined);
-  const [requestModalPrefill, setRequestModalPrefill] = useState<string | undefined>(undefined);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterZip, setNewsletterZip] = useState('');
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
@@ -1251,16 +1246,12 @@ const App: React.FC = () => {
     const service = services.find(s => s.id === serviceId) || searchResults.find(s => s.id === serviceId);
     if (!service || (service.signedUpUserIds || []).includes(user.id)) return;
 
-    // Proposed deals aren't real yet — the business hasn't actually turned them
-    // on. "Joining" would be fake, so redirect into the real request flow
-    // instead, tied to this specific business (stronger outreach evidence than
-    // a generic request). Calls the unconditional opener directly (not the
-    // gated handleOpenRequestModal) since auth is already confirmed here.
-    if (service.isProspective) {
-      openRequestModalNow(service.businessId, service.title);
-      return;
-    }
-
+    // Prospective deals (business hasn't joined the platform yet) use this
+    // exact same join — "requesting" one is just a join against a service
+    // that happens to be proposed rather than confirmed. No separate
+    // free-text request form: the fixed, real service/business/price shown
+    // on the page IS the request, so there's nothing for the resident to
+    // change or add.
     if (service.closeAfterThreshold && service.currentSignups >= service.requiredSignups) return;
 
     const newSignedUpUserIds = [...service.signedUpUserIds, user.id];
@@ -1477,101 +1468,16 @@ const App: React.FC = () => {
     setView('neighborhood');
   };
 
-  // Unconditional opener — assumes auth is already confirmed. Used directly
-  // by performDealJoin and by the AuthModal resume callbacks, both of which
-  // already know the user is real at the point they call this.
-  const openRequestModalNow = (businessId?: string, prefillServiceName?: string) => {
-    setRequestModalBusinessId(businessId);
-    setRequestModalPrefill(prefillServiceName);
-    setIsRequestModalOpen(true);
-  };
-
-  const handleOpenRequestModal = (businessId?: string, prefillServiceName?: string) => {
-    // Same sign-in gate as handleSignUp — every "Request a Deal" entry point
-    // routes through here, so gating here covers all of them, not just the
-    // per-service "Request This Deal" button. See pendingRequestModal's
-    // resume in the AuthModal callbacks below.
-    if (!isAuthenticated) {
-      setPendingRequestModal({ businessId, prefillServiceName });
-      setPostLoginIntent(null);
-      setIsAuthModalOpen(true);
-      return;
-    }
-    openRequestModalNow(businessId, prefillServiceName);
-  };
-
   const handleUpdateProfile = async (updates: Partial<User>) => {
     if (!currentUser) return;
     updateCurrentUser({ ...currentUser, ...updates });
   };
 
-  const submitDealRequest = (serviceName: string, description: string, businessId?: string, honeypot?: string) => {
-    if (!currentUser) return;
-    if (honeypot) return; // bot filled the hidden field — silently drop
-    if (isRateLimited(`dealRequest_${currentUser.id}`, 15000)) {
-      alert("You're submitting requests too quickly - please wait a moment and try again.");
-      return;
-    }
-    const newRequest: DealRequest = {
-      id: Math.random().toString(36).substr(2, 9),
-      userId: currentUser.id,
-      userName: currentUser.name,
-      userAvatarUrl: currentUser.avatarUrl,
-      serviceName,
-      description,
-      businessId,
-      status: 'pending',
-      date: new Date().toISOString(),
-    };
-
-    setDealRequests(prev => {
-      const next = [newRequest, ...prev];
-      saveState('dealRequests', next);
-      return next;
-    });
-
-    // Best-effort copy to the server so real demand is visible across visitors,
-    // not trapped in this one browser's localStorage. Never blocks or surfaces
-    // an error to the resident — their local request already succeeded above.
-    fetch('/api/deal-request', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        serviceName,
-        description,
-        businessId,
-        userId: currentUser.id,
-        userName: currentUser.name,
-        neighborhoodId: currentUser.neighborhoodId,
-        city: neighborhoods.find(n => n.id === currentUser.neighborhoodId)?.city,
-        website: '',
-      }),
-    }).catch(() => {});
-
-    if (businessId) {
-      const owner = users.find(u => u.businessId === businessId && u.type === UserType.BUSINESS);
-      if (owner) {
-        addNotification({
-          userId: owner.id,
-          type: 'deal_request_received',
-          message: `${currentUser.name} requested "${serviceName}"`,
-          businessId,
-          dealRequestId: newRequest.id,
-        });
-      }
-    }
-  };
-
-  const handleRequestSubmit = async (details: { serviceName: string; description: string; website?: string }) => {
-    if (!currentUser || !isAuthenticated) {
-      alert("Please sign in to request a deal.");
-      return;
-    }
-
-    submitDealRequest(details.serviceName, details.description, requestModalBusinessId, details.website);
-    alert(`Your request for "${details.serviceName}" has been submitted!`);
-  };
-
+  // Business-side accept/decline for any deal requests submitted before the
+  // free-text "request a custom deal" flow was removed — kept so older,
+  // already-saved requests in a business's local storage still work, even
+  // though nothing creates new ones anymore (see performDealJoin, which
+  // handles both real and prospective deals through the same one-click join).
   const handleUpdateDealRequestStatus = (requestId: string, status: 'accepted' | 'declined') => {
     const request = dealRequests.find(r => r.id === requestId);
     setDealRequests(prev => {
@@ -2123,10 +2029,6 @@ const App: React.FC = () => {
             performDealJoin(pendingSignUpServiceId, userToSave);
             setPendingSignUpServiceId(null);
           }
-          if (pendingRequestModal) {
-            openRequestModalNow(pendingRequestModal.businessId, pendingRequestModal.prefillServiceName);
-            setPendingRequestModal(null);
-          }
           const n = neighborhoods.find(nb => nb.id === newUser.neighborhoodId);
           fetch('/api/signup-notification', {
             method: 'POST',
@@ -2157,10 +2059,6 @@ const App: React.FC = () => {
           if (pendingSignUpServiceId && signedInUser) {
             performDealJoin(pendingSignUpServiceId, signedInUser);
             setPendingSignUpServiceId(null);
-          }
-          if (pendingRequestModal) {
-            openRequestModalNow(pendingRequestModal.businessId, pendingRequestModal.prefillServiceName);
-            setPendingRequestModal(null);
           }
           if (postLoginIntent === 'business') {
             setView(signedInUser?.type === UserType.BUSINESS ? 'business-hub' : 'business-onboarding');
@@ -2258,9 +2156,8 @@ const App: React.FC = () => {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">No deals found here yet</h3>
                     <p className="text-gray-500 max-w-md mx-auto mb-6">
-                      Don't see what you need? Request a deal and we'll let local businesses know your neighborhood is interested.
+                      Check back soon, or browse another category — new deals are added regularly.
                     </p>
-                    <Button onClick={() => handleOpenRequestModal()}>Request a Deal</Button>
                  </motion.div>
               )}
 
@@ -2628,9 +2525,8 @@ const App: React.FC = () => {
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">No deals match your filters</h3>
                       <p className="text-gray-500 max-w-md mx-auto mb-6">
-                        Try adjusting your filters, or request this deal and we'll let local businesses know.
+                        Try adjusting your filters to see more deals.
                       </p>
-                      <Button onClick={() => handleOpenRequestModal()}>Request a Deal</Button>
                     </div>
                   )}
 
@@ -2668,11 +2564,9 @@ const App: React.FC = () => {
               currentUser={currentUser}
               users={users}
               isAuthenticated={isAuthenticated}
-              onSubmitDealRequest={(serviceName, description) => submitDealRequest(serviceName, description, selectedBusinessId)}
               onAddReview={(rating, text) => handleAddReview(selectedBusinessId, rating, text)}
               onBack={() => setView(searchResults.length > 0 ? 'results' : 'home')}
               onServiceClick={handleServiceClick}
-              onRequestService={() => handleOpenRequestModal(selectedBusinessId)}
               onBusinessClick={handleBusinessClick}
               onCategoryCityClick={(category, city) => handleCategoryPageClick(category, city)}
             />
@@ -2793,7 +2687,6 @@ const App: React.FC = () => {
                 ) : (
                   <div className="col-span-full text-center py-16 bg-gray-50 rounded-2xl">
                     <p className="text-gray-500 mb-4">No deals found for {selectedCategory} in {currentNeighborhood?.name || 'your neighborhood'} right now.</p>
-                    <Button onClick={() => handleOpenRequestModal()}>Request a Deal</Button>
                   </div>
                 )}
               </div>
@@ -2951,7 +2844,6 @@ const App: React.FC = () => {
                     ) : (
                       <div className="col-span-full text-center py-16 bg-gray-50 rounded-2xl">
                         <p className="text-gray-500 mb-4">No {selectedCategoryPageCategory.toLowerCase()} deals in {scopeLabel} right now.</p>
-                        <Button onClick={() => handleOpenRequestModal()}>Request a Deal</Button>
                       </div>
                     )}
                   </div>
@@ -3545,13 +3437,6 @@ const App: React.FC = () => {
       </main>
       <Footer onNavigate={(page) => setView(page as any)} onCategoryClick={(category) => handleCategoryPageClick(category)} />
       <CookieConsentBanner onViewPrivacyPolicy={() => setView('privacy')} />
-      <RequestServiceModal
-        isOpen={isRequestModalOpen}
-        onClose={() => setIsRequestModalOpen(false)}
-        businessName={requestModalBusinessId ? businesses.find(b => b.id === requestModalBusinessId)?.name : undefined}
-        initialServiceName={requestModalPrefill}
-        onSubmit={handleRequestSubmit}
-      />
     </div>
   );
 };

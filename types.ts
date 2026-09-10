@@ -44,6 +44,20 @@ export interface User {
   // Resident-only — a business account has no neighborhood of its own.
   neighborhoodId?: string;
   email?: string;
+  // Street address entered at signup, used to auto-match neighborhoodId via
+  // /api/geocode — kept alongside neighborhoodId (not a replacement for it)
+  // since the neighborhood match can be wrong and everything else in the app
+  // keys off neighborhoodId, not this raw string.
+  address?: string;
+  phone?: string;
+  // True once /api/phone-verify's check step returns "approved" for `phone`.
+  // Left undefined for accounts created before phone verification existed,
+  // or created while the verification service was unconfigured.
+  phoneVerified?: boolean;
+  // Category names (matching constants/categoryGroups.json) the resident
+  // said they're interested in at signup — optional, not tied to any
+  // specific deal.
+  interestedCategories?: string[];
   isAnonymous?: boolean;
   wishlist?: string[];
   connections?: string[];
