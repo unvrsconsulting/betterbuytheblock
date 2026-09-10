@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
-import { Star, MapPin, Phone, Mail, Globe, ShieldCheck, MessageSquarePlus, Award, CheckCircle, ChevronDown, ThumbsUp, Images, Search, Tag } from 'lucide-react';
+import { Star, MapPin, Building2, Mail, Globe, ShieldCheck, MessageSquarePlus, Award, CheckCircle, ChevronDown, ThumbsUp, Images, Search, Tag } from 'lucide-react';
 import { Business, Service, Review, User, Neighborhood } from '../types';
 import { DEFAULT_CATEGORY_IMAGE, buildUnsplashUrl, getCategoryImage } from '../services/categoryImages';
 import ServiceCard from './ServiceCard';
@@ -279,10 +279,19 @@ const BusinessProfile: React.FC<BusinessProfileProps> = ({
                   <span>Serves your area</span>
                 </div>
               )}
-              {business.phone && (
-                <div className="flex items-center gap-3 text-gray-600">
-                  <Phone className="w-5 h-5 text-gray-500 shrink-0" />
-                  <a href={`tel:${business.phone}`} className="hover:text-primary transition-colors">{business.phone}</a>
+              {(business.serviceAreaCities?.length || 0) > 0 && (
+                <div className="flex items-start gap-3 text-gray-600">
+                  <Building2 className="w-5 h-5 text-gray-500 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Serves</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {business.serviceAreaCities!.map(c => (
+                        <span key={c} className="inline-flex items-center bg-white border border-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded-full">
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
               {business.email && (
