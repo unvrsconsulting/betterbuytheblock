@@ -126,7 +126,7 @@ function main() {
       .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
       .join('\n        ');
     const bodyHtml = listingBody({
-      heading: `${categoryName} in Wake County, NC`,
+      heading: `Cheap ${categoryName} in Wake County, NC`,
       intro: content.description,
       cardsHtml,
       count: content.services.length,
@@ -146,7 +146,7 @@ function main() {
         .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
         .join('\n        ');
       const bodyHtml = listingBody({
-        heading: `${categoryName} in ${cityName}, NC`,
+        heading: `Cheap ${categoryName} in ${cityName}, NC`,
         intro: content.description,
         cardsHtml,
         count: content.services.length,

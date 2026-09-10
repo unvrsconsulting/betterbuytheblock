@@ -2697,11 +2697,11 @@ const App: React.FC = () => {
                 <section className="pt-12">
                   <Breadcrumbs items={breadcrumbItems} />
                   <h1 className="text-4xl font-extrabold text-gray-900 mb-2 mt-4">
-                    {cityScope ? `${selectedCategoryPageCategory} in ${cityScope}, NC` : `${selectedCategoryPageCategory} in Wake County, NC`}
+                    {cityScope ? `Cheap ${selectedCategoryPageCategory} in ${cityScope}, NC` : `Cheap ${selectedCategoryPageCategory} in Wake County, NC`}
                   </h1>
                   <p className="text-gray-500 mb-8 max-w-2xl">
                     {categoryPageFilteredServices.length > 0
-                      ? `${categoryPageFilteredServices.length} real ${selectedCategoryPageCategory.toLowerCase()} deal${categoryPageFilteredServices.length === 1 ? '' : 's'} in ${scopeLabel}. Join with your neighbors to unlock bulk pricing.`
+                      ? `${categoryPageFilteredServices.length} real, affordable ${selectedCategoryPageCategory.toLowerCase()} deal${categoryPageFilteredServices.length === 1 ? '' : 's'} in ${scopeLabel}. Join with your neighbors to unlock discount bulk pricing.`
                       : `No ${selectedCategoryPageCategory.toLowerCase()} deals in ${scopeLabel} yet. Request one and we'll let local businesses know there's interest.`}
                   </p>
 

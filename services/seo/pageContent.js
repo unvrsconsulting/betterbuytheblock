@@ -271,12 +271,16 @@ export function getCategoryPageContent(categoryName, cityName, allServices) {
   const services = allServices.filter(
     s => s.category === categoryName && (!cityName || (s.servedCities || []).includes(cityName))
   );
+  // "Cheap" carries the title (the single highest-value SEO signal on the
+  // page); the description varies the phrasing ("discount"/"affordable")
+  // rather than repeating "cheap" verbatim, on purpose - real search-term
+  // coverage without reading as keyword-stuffed to either Google or a visitor.
   const title = cityName
-    ? `${categoryName} in ${cityName}, NC - Bulk Deal Pricing | BetterBuyTheBlock`
-    : `${categoryName} in Wake County, NC - Bulk Deal Pricing | BetterBuyTheBlock`;
+    ? `Cheap ${categoryName} in ${cityName}, NC - Bulk Discount Pricing | BetterBuyTheBlock`
+    : `Cheap ${categoryName} in Wake County, NC - Bulk Discount Pricing | BetterBuyTheBlock`;
   const description = cityName
-    ? `Compare real ${categoryName.toLowerCase()} pricing and bulk-signup deals from local businesses in ${cityName}, NC.`
-    : `Compare real ${categoryName.toLowerCase()} pricing and bulk-signup deals from local businesses across Wake County, NC.`;
+    ? `Find cheap ${categoryName.toLowerCase()} in ${cityName}, NC. Real, affordable bulk-discount pricing from local businesses - join with your neighbors to unlock the lowest rate.`
+    : `Find cheap ${categoryName.toLowerCase()} in Wake County, NC. Real, affordable bulk-discount pricing from local businesses - join with your neighbors to unlock the lowest rate.`;
   const breadcrumb = [
     { name: 'Home', url: SITE_URL },
     { name: categoryName, url: `${SITE_URL}${categoryPath(categoryName)}` },
