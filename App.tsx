@@ -509,6 +509,79 @@ const COST_GUIDES = [
       "Because termite pressure and general pest issues tend to affect entire neighborhoods rather than isolated homes, especially in older subdivisions or areas near wooded lots, pest control is a strong category for bundling with neighbors. A technician already treating one home on your street can often add several more at a meaningfully better group rate than everyone booking separately, particularly for standing quarterly plans.",
     ],
   },
+  {
+    slug: 'gutter-cleaning-costs-wake-county-2027',
+    title: 'Gutter Cleaning Costs in Wake County for 2027: Cleaning, Repairs, and Gutter Guards',
+    description: "What twice-a-year gutter cleaning, common repairs, and gutter guard installation actually cost in Raleigh and Wake County heading into 2027, and why the region's tree coverage changes the math.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 10, 2026',
+    image: 'https://images.pexels.com/photos/35153375/pexels-photo-35153375.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Gutter Cleaning',
+    intro: [
+      "Wake County's tree canopy, heavy spring pollen, and summer storms mean gutters fill up faster here than in a lot of the country, and letting them sit clogged is one of the more expensive things a homeowner can put off. Backed-up water is what causes fascia rot, foundation cracking near the drip line, and crawl space or basement moisture down the road. Heading into 2027, homeowners here are budgeting for the twice-a-year cleaning most local contractors recommend, repairs when something actually breaks, and increasingly, gutter guards to cut down on how often the whole thing needs doing at all.",
+      "This guide covers standard cleaning costs, common repairs, gutter guard installation, and what pushes your specific price up or down in this climate.",
+    ],
+    sections: [
+      {
+        heading: 'Standard Gutter Cleaning',
+        paragraphs: [
+          "National pricing for a standard cleaning runs $0.95 to $2.25 per linear foot, with most homeowners paying between $119 and $234 total, averaging around $168 for a typical 125 to 200 foot system. Price scales directly with story height: single-story homes run $1.25 to $1.75 per foot, two-story homes run $1.75 to $2.50 per foot, and anything three stories or taller climbs to $2.50 to $3.75 per foot, since ladder work and safety equipment both add time.",
+          "Locally, Wake County actually runs a bit cheaper than the national picture. Raleigh homeowners average around $117 per cleaning, with most paying between $89 and $151, and per-foot pricing landing at $0.67 to $1.58. That's the upside of lower regional labor costs, but it comes with a catch: with the amount of mature tree canopy across Raleigh, Cary, and the rest of Wake County, most contractors recommend cleaning twice a year rather than once, typically in late spring after pollen season and again in late fall after leaf drop, so budget for two visits rather than one.",
+        ],
+        bullets: [
+          'National average: $168 per visit ($119 to $234 typical)',
+          'Per linear foot, national: $0.95 to $2.25, climbing with story height',
+          'Raleigh area average: $117 per visit ($89 to $151 typical)',
+          'Raleigh per linear foot: $0.67 to $1.58',
+          'Recommended frequency here: twice a year, late spring and late fall',
+        ],
+        linkLabel: 'See real gutter cleaning deals in your neighborhood',
+        linkCategory: 'Gutter Cleaning',
+      },
+      {
+        heading: 'Repairs: Resealing, Reattaching, and Downspouts',
+        paragraphs: [
+          "Not every gutter problem needs a full replacement. Nationally, gutter repair averages $395, with most jobs falling between $194 and $636 depending on what's actually wrong. The cheapest fixes, resealing a leaky seam or reattaching a section that's pulled away from the fascia, typically run $75 to $150, and are often billed at a handyman's hourly rate of $40 to $80 plus materials rather than a flat project fee.",
+          "Downspout issues are their own line item. Repairing a clogged or disconnected downspout usually costs $75 to $180, while a full downspout replacement runs about $8 per linear foot, more on a two-story home where the run is longer and harder to access. Catching a small leak or a loose section early is almost always cheaper than waiting, since standing water at the fascia line is what eventually turns a $100 repair into a full gutter replacement.",
+        ],
+        bullets: [
+          'National average repair: $395 ($194 to $636 typical)',
+          'Resealing or reattaching a section: $75 to $150',
+          'Downspout repair: $75 to $180',
+          'Downspout replacement: about $8 per linear foot, more for two-story homes',
+        ],
+      },
+      {
+        heading: 'Gutter Guards',
+        paragraphs: [
+          "For homeowners tired of paying for cleanings twice a year, gutter guards are the most common upgrade, and Wake County's tree coverage makes them a genuinely reasonable investment rather than an upsell. Installation in the Raleigh area averages $1,048, with most homeowners spending between $863 and $1,973 depending on gutter length and guard type. Per linear foot, pricing runs $8 to $15 for most materials, with premium micro-mesh systems landing at $11 to $13 or more per foot.",
+          "Most Raleigh area homes need 150 to 200 linear feet of guards to cover the full system, which is where that total project cost comes from. Guards don't eliminate cleaning entirely, since fine debris and shingle grit still build up over time, but they stretch the interval between professional cleanings significantly and cut down on how much accumulates between visits.",
+        ],
+        bullets: [
+          'Raleigh area installation average: $1,048 ($863 to $1,973 typical)',
+          'Per linear foot: $8 to $15, premium micro-mesh $11 to $13+',
+          'Typical Raleigh home needs: 150 to 200 linear feet of coverage',
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "Story height is the single biggest factor, since two- and three-story homes require more time, more safety equipment, and more careful ladder placement than a one-story ranch. Tree coverage matters almost as much in this region specifically. A home shaded by mature oaks or pines needs more frequent cleanings and heavier debris removal than one on a more open lot, regardless of square footage.",
+          "How long it's been since the last cleaning changes the job too. A system that's gone two or three years without attention often has compacted debris, standing water, or even small plants taking root, which takes meaningfully longer to clear than one on a regular six-month schedule. Accessibility, a steep roof pitch, landscaping that blocks ladder placement, a second story over a pool or deck, can also push a quote higher than the base per-foot rate would suggest.",
+        ],
+        bullets: [
+          'Story height (1-story vs. 2-story vs. 3-story)',
+          'Tree coverage over the home',
+          'Time since last cleaning (compacted debris takes longer to clear)',
+          'Accessibility: roof pitch, landscaping, obstacles like a pool or deck below',
+        ],
+      },
+    ],
+    closing: [
+      "Because tree coverage and storm debris tend to hit an entire street at once rather than a single house, gutter cleaning is one of the easier categories to bundle with neighbors, especially heading into fall cleaning season. A crew already on a ladder at one house can often add two or three more on the same block for a meaningfully better rate than everyone scheduling separately once demand peaks later in the season.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {

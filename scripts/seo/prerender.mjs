@@ -272,6 +272,7 @@ function main() {
     'lawn-care-landscaping-costs-wake-county-2027',
     'house-cleaning-costs-wake-county-2027',
     'pest-control-costs-wake-county-2027',
+    'gutter-cleaning-costs-wake-county-2027',
   ];
   for (const slug of guideSlugs) staticUrls.push({ loc: `${SITE_URL}/guides/${slug}`, priority: '0.7' });
 
