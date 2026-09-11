@@ -582,6 +582,81 @@ const COST_GUIDES = [
       "Because tree coverage and storm debris tend to hit an entire street at once rather than a single house, gutter cleaning is one of the easier categories to bundle with neighbors, especially heading into fall cleaning season. A crew already on a ladder at one house can often add two or three more on the same block for a meaningfully better rate than everyone scheduling separately once demand peaks later in the season.",
     ],
   },
+  {
+    slug: 'tree-service-costs-wake-county-2027',
+    title: 'Tree Removal & Trimming Costs in Wake County for 2027: What to Expect Before You Call an Arborist',
+    description: "What tree trimming, full tree removal, and stump grinding actually cost in Raleigh and Wake County heading into 2027, and why size, hazard level, and proximity to structures swing the price so much.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 11, 2026',
+    image: 'https://images.pexels.com/photos/35606516/pexels-photo-35606516.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Tree Service',
+    intro: [
+      "Fall is when tree work spikes across Wake County. Storm-damaged limbs from summer thunderstorms need clearing, leaves are dropping into gutters and onto roofs, and homeowners are getting ahead of the risk of a dead or overgrown tree before winter ice storms turn a manageable trim into an emergency removal. Tree work is also one of the widest-ranging categories to price, since a small ornamental in an open yard and a hazardous oak leaning over a roofline can differ in cost by 10x or more for what looks like a similar-sized job on paper.",
+      "This guide covers trimming, full removal by tree size, stump grinding, and the specific factors, like proximity to power lines and structures, that push Wake County quotes above the national averages.",
+    ],
+    sections: [
+      {
+        heading: 'Tree Trimming & Pruning',
+        paragraphs: [
+          "Routine trimming and pruning is the cheaper, more frequent service most trees need on a one to three year cycle. Nationally, tree trimming averages around $420 per tree, with most homeowners paying between $255 and $655, though the full range stretches from about $75 for a small, easy-access tree up to $1,800 for a large, complex job requiring bucket trucks or climbing gear.",
+          "Price depends mostly on tree height and how much canopy needs to come out. A small tree under 30 feet is typically the $75 to $400 range, a medium tree in the 30 to 60 foot range runs $300 to $700, and anything over 60 feet, mature oaks and pines common across older Wake County neighborhoods, can run $700 to $1,800 depending on access and how much deadwood or overgrowth needs removing.",
+        ],
+        bullets: [
+          'National average: $420 per tree ($255 to $655 typical)',
+          'Small tree (under 30 ft): $75 to $400',
+          'Medium tree (30 to 60 ft): $300 to $700',
+          'Large tree (over 60 ft): $700 to $1,800',
+          'Recommended cycle: every 1 to 3 years for mature shade trees',
+        ],
+        linkLabel: 'See real tree service deals in your neighborhood',
+        linkCategory: 'Tree Service',
+      },
+      {
+        heading: 'Full Tree Removal',
+        paragraphs: [
+          "Removal costs more than trimming since the whole tree, not just excess growth, has to come down safely and be hauled away. Nationally, removal averages around $850, with most jobs between $385 and $1,070. Wake County's own averages track a bit differently: Raleigh homeowners report paying around $737 per removal on average, with a much wider real-world range of $196 to $1,964 depending on the tree.",
+          "Size and difficulty drive most of that spread. A small, easy-access tree, think a 20-foot ornamental in an open front yard, can run as low as $147 to $300. A typical medium tree in a standard Raleigh yard usually lands in the $800 to $1,200 range. Large or hazardous trees are where costs jump sharply: anything leaning toward a house, growing through or near power lines, or requiring a crane and specialty rigging to bring down in sections can climb to $9,820 or more. If a tree is anywhere near a structure or utility line, get an on-site quote rather than assuming the average applies.",
+        ],
+        bullets: [
+          'National average: $850 ($385 to $1,070 typical)',
+          'Raleigh area average: $737 ($196 to $1,964 typical range)',
+          'Small, easy-access tree: $147 to $300',
+          'Typical medium removal: $800 to $1,200',
+          'Large or hazardous tree near structures/power lines: up to $9,820+',
+        ],
+      },
+      {
+        heading: 'Stump Grinding & Removal',
+        paragraphs: [
+          "Most removal quotes don't automatically include the stump, so it's worth asking whether grinding is bundled in or billed separately. Nationally, stump removal as an add-on service runs $180 to $525. In the Raleigh area, stump grinding is commonly priced per diameter inch, typically $2 to $3 per inch measured across the top of the stump, or as a flat $60 to $350 for smaller stumps and $100 to $650 for larger ones depending on wood density and root spread.",
+          "Grinding down a stump also opens up replanting options sooner, since a ground-out stump can usually be covered with soil and grass within a season, while a stump left in place can keep sprouting new growth from the roots for years.",
+        ],
+        bullets: [
+          'National stump removal add-on: $180 to $525',
+          'Raleigh per-diameter-inch pricing: $2 to $3 per inch',
+          'Flat pricing: $60 to $350 (smaller stumps), $100 to $650 (larger stumps)',
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "Height and trunk diameter are the starting point for any quote, but access and hazard level usually matter more. A tree a crew can drop straight into an open yard is a completely different job from one that has to be taken down in sections with ropes and a crane because it's growing next to a house, over a fence, or through power lines.",
+          "Storm damage adds urgency pricing in some cases, especially for a tree that's already cracked, leaning, or partially fallen after a summer thunderstorm, since crews have to treat it as higher-risk work regardless of size. Wood disposal is another line item some quotes include and others don't; ask whether hauling and chipping debris is part of the price or billed separately, since a large tree can leave several truckloads of material behind.",
+        ],
+        bullets: [
+          'Tree height and trunk diameter',
+          'Proximity to structures, fences, and power lines',
+          'Whether the tree is already storm-damaged or leaning',
+          'Access for equipment (crane vs. bucket truck vs. climbing)',
+          'Whether debris hauling and chipping is included in the quote',
+        ],
+      },
+    ],
+    closing: [
+      "Storm cleanup and fall trimming tend to hit whole streets at once, since the same line of mature oaks or pines usually runs down an entire block rather than a single lot. That makes tree service one of the more natural categories to bundle with neighbors: a crew that's already mobilized with a crane or bucket truck for one property can often work down the street for several more homes at a meaningfully better per-tree rate than everyone booking separately later in the season.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
