@@ -657,6 +657,87 @@ const COST_GUIDES = [
       "Storm cleanup and fall trimming tend to hit whole streets at once, since the same line of mature oaks or pines usually runs down an entire block rather than a single lot. That makes tree service one of the more natural categories to bundle with neighbors: a crew that's already mobilized with a crane or bucket truck for one property can often work down the street for several more homes at a meaningfully better per-tree rate than everyone booking separately later in the season.",
     ],
   },
+  {
+    slug: 'cheap-discount-home-services-wake-county-nc',
+    title: 'How to Actually Find Cheap House Cleaners, Lawn Care, and Pest Control in Wake County',
+    description: "Real ways Cary, Raleigh, and Apex homeowners are finding cheap house cleaners, discount lawn care, and affordable pest control right now, from negotiation tactics that actually work to the neighborhood-bundling trick contractors already use to cut their own costs.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 12, 2026',
+    image: 'https://images.pexels.com/photos/8497884/pexels-photo-8497884.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Search \"cheap house cleaners Cary\" or \"discount lawn care Raleigh\" and most of what comes back is the same handful of coupon sites and lead-gen listings, recycled across every city in the country with the town name swapped in. They rarely reflect what a cheap or discounted price actually looks like on the ground in Wake County, and following them can just as easily lead to an unlicensed operator or a bait-and-switch quote as to a real deal.",
+      "The good news is that real discounts on home services aren't a myth, they just come from a smaller set of places than the search results suggest: negotiating directly, timing the request right, and, increasingly, buying as a group instead of as a single household. Here's what actually works in Cary, Raleigh, Apex, and the rest of Wake County.",
+    ],
+    sections: [
+      {
+        heading: 'Why Coupon Sites Aren\'t the Real Discount',
+        paragraphs: [
+          "Sites like Groupon and LivingSocial built a business on home service coupons, but the discount is usually funded by a bait price meant to get a foot in the door, with upsells for anything beyond the bare minimum scope once the crew is actually on site. It's not that these deals are fake, it's that the real price only shows up after the add-ons, which defeats the point of looking for cheap in the first place.",
+          "A more reliable discount comes from the pricing structure itself. Cleaning, lawn care, and pest control companies typically run on wide margins, commonly cited around 30 to 50 percent for residential cleaning, which means there's real room to negotiate directly with a provider rather than waiting for a coupon code to show up.",
+        ],
+      },
+      {
+        heading: 'Finding Cheap House Cleaners in Cary, Raleigh, and Apex',
+        paragraphs: [
+          "Independent cleaners and small local crews are consistently the cheapest option compared to national franchise brands, since franchise pricing has to cover a corporate fee on top of the actual labor. The tradeoff is that independents are harder to vet, so a platform with real reviews and neighbor activity in your own part of Wake County matters more than it would with a bigger, more heavily-marketed company.",
+          "Recurring service is the single biggest lever on price. Committing to biweekly or monthly cleaning instead of a one-time deep clean typically brings the rate down 20 to 40 percent, since it guarantees the cleaner predictable income and cuts down on the setup time a first-time visit requires.",
+        ],
+        bullets: [
+          'Independent cleaners are usually cheaper than franchise brands',
+          'Recurring (biweekly/monthly) service: roughly 20-40% cheaper than one-time cleanings',
+          'Get 2-3 quotes before committing so you know if a price is actually good',
+          'Ask directly: "What\'s your best rate for a committed recurring client?"',
+        ],
+        linkLabel: 'See real house cleaning deals in your neighborhood',
+        linkCategory: 'House Cleaning',
+      },
+      {
+        heading: 'Affordable Lawn Care and Landscaping Without the Contract Trap',
+        paragraphs: [
+          "Lawn care is one of the easiest categories to overpay for, mostly because of how contracts are structured. A lot of companies quote an attractively low per-visit rate, then lock it into a season-long or year-long agreement with cancellation fees buried in the fine print. Before signing anything, confirm whether the price is per visit or bundled into a contract, and what it actually costs to walk away if the service turns out to be inconsistent.",
+          "Bundling services with the same crew is where the real savings show up. A company already mowing your yard can usually add mulching, edging, or a seasonal cleanup for less than booking a separate landscaper, since they're already on site with equipment loaded and don't have to absorb a second trip's worth of drive time.",
+        ],
+        bullets: [
+          'Ask if pricing is per-visit or contract-locked before signing',
+          'Bundling mowing with mulching/edging/cleanup with one crew is cheaper than separate providers',
+          'Off-season booking (late fall/winter) often gets a better rate than peak spring demand',
+        ],
+        linkLabel: 'See real lawn care deals in your neighborhood',
+        linkCategory: 'Lawn Service',
+      },
+      {
+        heading: 'Discount Pest Control That Isn\'t Cutting Corners',
+        paragraphs: [
+          "Pest control is one category where going with the absolute cheapest one-time treatment usually costs more in the long run, since a single visit rarely breaks a real infestation cycle in Wake County's climate. The actual discount here comes from committing to a quarterly plan instead of paying for emergency one-off visits every time ants or roaches show up again, which most companies price noticeably lower per treatment than standalone service calls.",
+          "As with cleaning and lawn care, asking whether a company will match or beat a competing quote is a normal, expected part of the conversation in this industry, not an awkward one. Pest control margins support it, and most local companies would rather adjust a quote than lose a recurring quarterly customer entirely.",
+        ],
+        bullets: [
+          'Quarterly plans price noticeably lower per treatment than one-off emergency visits',
+          'A competing quote is normal leverage, most companies will match or beat it',
+          'Ask what\'s actually covered between visits if pests come back before the next scheduled treatment',
+        ],
+        linkLabel: 'See real pest control deals in your neighborhood',
+        linkCategory: 'Pest Control',
+      },
+      {
+        heading: '5 Negotiation Tactics That Work Across Every Category',
+        paragraphs: [
+          "The same handful of tactics show up across cleaning, lawn care, pest control, and most other home services, because they all target the same cost drivers: a provider's downtime, drive time, and payment processing fees.",
+        ],
+        bullets: [
+          'Commit to recurring service and ask for the "committed client" rate up front',
+          'Offer cash, check, or a payment app instead of a card, some providers pass along the processing savings',
+          'Bring 2-3 real competing quotes into the conversation instead of negotiating blind',
+          'Ask about scope adjustments (skip a room, reduce frequency) instead of only pushing on price',
+          'Ask about slower days or off-season timing, some providers discount to fill a light schedule',
+        ],
+      },
+    ],
+    closing: [
+      "There's a sixth tactic that doesn't show up on most money-saving lists, because most homeowners aren't set up to use it: booking alongside neighbors who need the same service at the same time. It's the same logic contractors already use internally, since a crew that can do three houses on one block in one trip saves on drive time and setup regardless of what any individual homeowner negotiates on their own, and that saved cost is exactly what gets passed back as a lower group rate. That's the whole idea behind BetterBuyTheBlock: instead of every household on a street separately hunting for a cheap house cleaner or a discount lawn crew, neighbors lock in the same real discount together.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
