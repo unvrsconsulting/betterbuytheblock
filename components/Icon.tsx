@@ -3,20 +3,16 @@ import React from 'react';
 
 type IconProps = React.SVGProps<SVGSVGElement>;
 
-// Brand mark: a tiny clustered "neighborhood" of houses at slightly
-// different sizes/heights (a miniature diorama, not a single house), with a
-// drop-shadow duplicate under each for a minimal pseudo-3D/miniature-model
-// look. Pure fill + opacity (no stroke), so a single `currentColor` (set via
-// the usual text-color className) drives both the solid houses and their
-// softer shadow layer.
+// Brand mark: three equal houses joined by a single connecting bar underneath
+// - the block, not one standout house. Pure fill + opacity (no stroke), so a
+// single `currentColor` (set via the usual text-color className) drives both
+// the solid houses and the softer connector.
 export const NeighborhoodIcon: React.FC<IconProps> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor" {...props}>
-    <path opacity="0.35" d="M14,84 L44,84 L44,67.5 L29,51 L14,67.5 Z" />
-    <path opacity="0.35" d="M41,88 L81,88 L81,66 L61,44 L41,66 Z" />
-    <path opacity="0.35" d="M74,80 L100,80 L100,65.7 L87,51.4 L74,65.7 Z" />
-    <path d="M11,80 L41,80 L41,63.5 L26,47 L11,63.5 Z" />
-    <path d="M38,84 L78,84 L78,62 L58,40 L38,62 Z" />
-    <path d="M71,76 L97,76 L97,61.7 L84,47.4 L71,61.7 Z" />
+    <rect opacity="0.4" x="2" y="83" width="96" height="8" rx="4" />
+    <path d="M17,47 L2,63.5 L2,80 L32,80 L32,63.5 Z" />
+    <path d="M50,47 L35,63.5 L35,80 L65,80 L65,63.5 Z" />
+    <path d="M83,47 L68,63.5 L68,80 L98,80 L98,63.5 Z" />
   </svg>
 );
 
