@@ -857,8 +857,21 @@ const App: React.FC = () => {
           setCurrentUserId(data.user.id);
           saveState('currentUserId', data.user.id);
         } else {
-          setCurrentUserId(null);
-          saveState('currentUserId', null);
+          // Don't clobber a local anonymous guest identity (id 'guest') —
+          // it was never server-verified to begin with, so no session
+          // existing for it isn't a sign-out condition. Reading the LIVE
+          // value via the functional updater (not the id captured when this
+          // effect was created) matters: a guest picking their neighborhood
+          // via handleShareLocation/handleSelectNeighborhood right after
+          // this fetch was kicked off sets currentUserId to 'guest' before
+          // this resolves, and this used to unconditionally reset it back
+          // to null the instant the fetch came back, making the selection
+          // look like it silently failed to save.
+          setCurrentUserId(prev => {
+            if (prev === 'guest') return prev;
+            saveState('currentUserId', null);
+            return null;
+          });
         }
       })
       .catch(err => console.error('Session check failed', err));
