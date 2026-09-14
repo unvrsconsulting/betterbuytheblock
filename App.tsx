@@ -738,6 +738,77 @@ const COST_GUIDES = [
       "There's a sixth tactic that doesn't show up on most money-saving lists, because most homeowners aren't set up to use it: booking alongside neighbors who need the same service at the same time. It's the same logic contractors already use internally, since a crew that can do three houses on one block in one trip saves on drive time and setup regardless of what any individual homeowner negotiates on their own, and that saved cost is exactly what gets passed back as a lower group rate. That's the whole idea behind BetterBuyTheBlock: instead of every household on a street separately hunting for a cheap house cleaner or a discount lawn crew, neighbors lock in the same real discount together.",
     ],
   },
+  {
+    slug: 'plumbing-costs-wake-county-2027',
+    title: 'Plumbing Repair Costs in Wake County for 2027: Drains, Leaks, and Water Heaters',
+    description: "What clogged drains, pipe leaks, toilet repairs, and water heater replacement actually cost in Raleigh and Wake County heading into 2027, and how to tell a normal repair bill from an inflated one.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 14, 2026',
+    image: 'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Plumbing',
+    intro: [
+      "Plumbing is one of the few home service categories where most homeowners have zero pricing reference point going in, since a clogged drain or a leaking pipe doesn't wait for a convenient time to compare quotes. That makes it one of the easier categories to get overcharged in, especially when a call comes in as an emergency. Heading into 2027, Wake County homeowners are dealing with the same core repairs everywhere else in the country, drain clogs, pipe leaks, toilet issues, and aging water heaters, just at slightly different local rates.",
+      "This guide covers standard hourly rates, the most common repairs, water heater replacement, and how to spot the difference between a fair emergency rate and a padded one.",
+    ],
+    sections: [
+      {
+        heading: 'Standard Plumber Rates',
+        paragraphs: [
+          "Nationally, plumbers charge $75 to $150 per hour, with most common repairs totaling $150 to $500 once parts and labor are both figured in. Wake County tracks toward the lower end of that national range: Raleigh-area plumbers typically charge $45 to $150 per hour, with a full job averaging $125 to $450. Most companies also carry a minimum service or trip fee of $50 to $200, which covers showing up and diagnosing the problem even if the fix itself takes ten minutes.",
+          "Emergency calls, nights, weekends, and holidays, run noticeably higher. Expect double to triple the standard rate, or roughly $125 to $170 per hour, which is normal industry pricing rather than a sign of being overcharged. The way to actually save on plumbing isn't avoiding the emergency rate when you genuinely have one, it's catching small issues (a slow drain, a minor drip) before they become a 2am call in the first place.",
+        ],
+        bullets: [
+          'National hourly rate: $75 to $150',
+          'Raleigh area hourly rate: $45 to $150, average job $125 to $450',
+          'Typical trip/minimum service fee: $50 to $200',
+          'After-hours/emergency rate: roughly double to triple standard, $125 to $170 per hour',
+        ],
+        linkLabel: 'See real plumbing deals in your neighborhood',
+        linkCategory: 'Plumbing',
+      },
+      {
+        heading: 'Drain Cleaning and Clogged Toilets',
+        paragraphs: [
+          "Clearing a single clogged drain typically costs $100 to $275 for straightforward snaking, or $150 to $400 for a fuller drain cleaning service. A clogged toilet specifically runs $100 to $275 to clear, with broader toilet repair (a running toilet, a faulty flapper, a wobbly base) landing at $100 to $400 overall, and most median jobs falling in the $150 to $250 range.",
+          "A main sewer line clog is a different scale of problem. Clearing it averages around $380, with a realistic range of $200 to $600 for a standard snake job, climbing to $1,600 when a video inspection and hydro-jetting are needed for a major blockage. Recurring clogs in the same spot are usually a sign of a deeper line issue, not just bad luck, and are worth diagnosing with a camera inspection rather than paying to re-snake the same clog every few months.",
+        ],
+        bullets: [
+          'Single drain clog: $100 to $275 (snaking) or $150 to $400 (fuller cleaning)',
+          'Clogged toilet: $100 to $275 to clear; broader toilet repair $100 to $400',
+          'Main sewer line clog: $380 average ($200 to $600 typical, up to $1,600 for video inspection + hydro-jetting)',
+        ],
+      },
+      {
+        heading: 'Pipe Leaks and Water Damage',
+        paragraphs: [
+          "An accessible, simple pipe leak, one behind an open cabinet or in a crawl space, typically costs $150 to $500 to repair. The number changes fast once the leak is hidden inside a wall or ceiling: expect $500 to $5,000 or more, since the job usually involves cutting into drywall, repairing the pipe itself, and then patching and repainting the opened section, plus water damage remediation if the leak went undetected for a while.",
+          "This is the category where fast action matters most for cost control. A small leak caught early is a $150 to $500 fix; the same leak left for months can mean drywall replacement, mold remediation, and flooring damage on top of the original plumbing repair. A slow drip under a sink or a damp spot on a ceiling is worth a same-week call, not a someday one.",
+        ],
+        bullets: [
+          'Simple, accessible leak: $150 to $500',
+          'Leak inside a wall or ceiling: $500 to $5,000+',
+          'Emergency repairs (burst pipe, sewer backup) with water damage: $1,500 to $5,000+',
+        ],
+      },
+      {
+        heading: 'Water Heater Replacement',
+        paragraphs: [
+          "Water heater replacement is the single biggest plumbing expense most homeowners face. Nationally, a full replacement averages around $3,550, with a typical range of $1,600 to $5,500. The type of unit matters more than almost anything else: a standard tank water heater runs $900 to $2,500 installed, while a tankless system runs $2,500 to $5,000 or more, since tankless units often require additional venting or electrical work during installation.",
+          "A professional tune-up, rather than a full replacement, runs $100 to $500 and covers a drain and flush, corrosion and leak inspection, burner cleaning, and a check of the valves and water composition. If a water heater is more than eight years old and starting to show rust-colored water, inconsistent temperature, or unusual noise, a tune-up is worth getting before deciding whether it needs a full replacement or just maintenance.",
+        ],
+        bullets: [
+          'National replacement average: $3,550 ($1,600 to $5,500 typical)',
+          'Tank water heater installed: $900 to $2,500',
+          'Tankless water heater installed: $2,500 to $5,000+',
+          'Tune-up (no replacement): $100 to $500',
+        ],
+      },
+    ],
+    closing: [
+      "Plumbing doesn't bundle with neighbors quite the same way exterior categories like gutter cleaning or tree service do, since most plumbing problems are inside a single house rather than shared across a block. Where it does bundle well is on planned work: a water heater replacement, a whole-house repipe, or fixture upgrades scheduled ahead of time rather than during an emergency, since a plumber already quoting one job on a street can often extend the same rate to a neighbor who reaches out during that same visit window.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
