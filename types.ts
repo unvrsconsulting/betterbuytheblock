@@ -169,6 +169,12 @@ export interface Business {
   // Businesses seeded before this existed simply have no key and no leads
   // access — there's no real signup history to protect there anyway.
   leadsAccessKey?: string;
+  // Set only on a real, server-backed business (see api/businesses.ts
+  // create) — the account that registered it. Never present on a seed/
+  // directory listing, which makes this the reliable signal for whether a
+  // business has an actual Redis document behind it (editable/deletable via
+  // api/admin.ts) versus being read-only static catalog data.
+  ownerUserId?: string;
   galleryPhotoIds?: string[];
   highlights?: string[];
   memberships?: string[];

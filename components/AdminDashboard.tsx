@@ -131,7 +131,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses }) => {
 
       {tab === 'leads' && <LeadsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
       {tab === 'users' && <UsersTab token={authedToken} onAuthFailed={handleLogOut} />}
-      {tab === 'businesses' && <BusinessesTab token={authedToken} onAuthFailed={handleLogOut} />}
+      {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
       {tab === 'analytics' && <AnalyticsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
     </div>
   );
@@ -575,8 +575,18 @@ const UsersTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ token
 // Businesses
 // ---------------------------------------------------------------------------
 
-const BusinessesTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ token, onAuthFailed }) => {
-  const [businesses, setBusinesses] = useState<Business[]>([]);
+const BusinessesTab: React.FC<{ token: string; businesses: Business[]; onAuthFailed: () => void }> = ({ token, businesses: catalogBusinesses, onAuthFailed }) => {
+  // The full directory (seed/prospective listings + real registered ones,
+  // "real wins" - see App.tsx's real-catalog-merge effect) is already loaded
+  // client-side and passed down as `businesses`; that's the base list so
+  // every business shows here, not just the ones with a Redis document.
+  // Refresh re-fetches only the real ones from /api/admin (Redis is the
+  // source of truth for those) and overlays them on top by id, so a change
+  // made from another admin session shows up without dropping the ~1,600
+  // seed listings that have no Redis document to fetch in the first place.
+  const [businesses, setBusinesses] = useState<Business[]>(catalogBusinesses);
+  useEffect(() => { setBusinesses(catalogBusinesses); }, [catalogBusinesses]);
+
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState('');
   const [search, setSearch] = useState('');
@@ -584,7 +594,7 @@ const BusinessesTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ 
   const [draft, setDraft] = useState<Partial<Business>>({});
   const [isSaving, setIsSaving] = useState(false);
 
-  const fetchBusinesses = async () => {
+  const fetchRealBusinesses = async () => {
     setIsLoading(true);
     setLoadError('');
     try {
@@ -592,19 +602,18 @@ const BusinessesTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ 
       if (res.status === 401) return onAuthFailed();
       if (!res.ok) throw new Error('Request failed');
       const data = await res.json();
-      setBusinesses(data.businesses || []);
+      const real: Business[] = data.businesses || [];
+      const realIds = new Set(real.map(b => b.id));
+      setBusinesses(prev => [...prev.filter(b => !realIds.has(b.id)), ...real]);
     } catch (err) {
       console.error('Admin businesses fetch failed', err);
-      setLoadError("Couldn't load businesses — try again.");
+      setLoadError("Couldn't refresh registered businesses — showing the last-loaded directory.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchBusinesses();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const realCount = useMemo(() => businesses.filter(b => !!b.ownerUserId).length, [businesses]);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -673,14 +682,15 @@ const BusinessesTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ 
   return (
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-        <p className="text-gray-500 text-sm">Every real (server-backed) business — registered listings, not the static seed directory.</p>
-        <Button variant="outline" size="sm" onClick={fetchBusinesses} disabled={isLoading} className="flex items-center gap-1.5 w-fit">
+        <p className="text-gray-500 text-sm">Every business on the site — the full directory plus real registered accounts. Only registered ones (real owner behind them) can be edited or deleted here.</p>
+        <Button variant="outline" size="sm" onClick={fetchRealBusinesses} disabled={isLoading} className="flex items-center gap-1.5 w-fit">
           <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} /> Refresh
         </Button>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
         <StatCard label="Total Businesses" value={businesses.length} />
+        <StatCard label="Registered / Directory" value={`${realCount} / ${businesses.length - realCount}`} />
         <StatCard label="Distinct Categories" value={new Set(businesses.map(b => b.category).filter(Boolean)).size} />
       </div>
 
@@ -716,6 +726,7 @@ const BusinessesTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ 
                   <th className="px-6 py-3 font-medium">Category</th>
                   <th className="px-6 py-3 font-medium">City</th>
                   <th className="px-6 py-3 font-medium">Rating</th>
+                  <th className="px-6 py-3 font-medium">Status</th>
                   <th className="px-6 py-3 font-medium"></th>
                 </tr>
               </thead>
@@ -726,8 +737,17 @@ const BusinessesTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ 
                     <td className="px-6 py-3 text-gray-600">{b.category || '—'}</td>
                     <td className="px-6 py-3 text-gray-600">{b.city || '—'}</td>
                     <td className="px-6 py-3 text-gray-600">{b.rating ? `${b.rating} (${b.reviewCount || 0})` : '—'}</td>
+                    <td className="px-6 py-3">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${b.ownerUserId ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                        {b.ownerUserId ? 'Registered' : 'Directory'}
+                      </span>
+                    </td>
                     <td className="px-6 py-3 text-right">
-                      <button onClick={() => openEdit(b)} className="text-primary font-bold hover:underline">Edit</button>
+                      {b.ownerUserId ? (
+                        <button onClick={() => openEdit(b)} className="text-primary font-bold hover:underline">Edit</button>
+                      ) : (
+                        <span className="text-gray-300">—</span>
+                      )}
                     </td>
                   </tr>
                 ))}
