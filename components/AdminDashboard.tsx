@@ -1,10 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Lock, Search, Download, LogOut, RefreshCw, Mail, Phone, Users as UsersIcon, Briefcase, BarChart3, ListChecks, Trash2, X as CloseIcon, Eye, ExternalLink } from 'lucide-react';
-import { Business, User, Service, Review, Neighborhood } from '../types';
+import { Lock, Search, Download, LogOut, RefreshCw, Mail, Phone, Users as UsersIcon, Briefcase, BarChart3, ListChecks, Trash2, X as CloseIcon, Eye } from 'lucide-react';
+import { Business, User } from '../types';
 import Button from './Button';
-import BusinessProfile from './BusinessProfile';
 import { toCsv, downloadCsv } from '../services/csv';
-import { businessPath, SITE_URL } from '../services/seo/pageContent.js';
 
 const TOKEN_STORAGE_KEY = 'nn_admin_token';
 
@@ -19,54 +17,15 @@ interface AdminLead {
   source: 'joined' | 'requested';
 }
 
-// Shared by LeadsTab and BusinessDetailOverlay - same merge/shape logic,
-// kept as one function so a business's lead list in its detail view can
-// never drift from what the main Leads tab shows for it.
-async function fetchAllLeads(token: string): Promise<{ leads: AdminLead[]; unauthorized: boolean }> {
-  const [signupsRes, requestsRes] = await Promise.all([
-    fetch(`/api/deal-signup?token=${encodeURIComponent(token)}`),
-    fetch(`/api/deal-request?token=${encodeURIComponent(token)}`),
-  ]);
-  if (signupsRes.status === 401 || requestsRes.status === 401) {
-    return { leads: [], unauthorized: true };
-  }
-  if (!signupsRes.ok || !requestsRes.ok) throw new Error('Request failed');
-
-  const signupsData = await signupsRes.json();
-  const requestsData = await requestsRes.json();
-
-  const fromSignups: AdminLead[] = (signupsData.items || []).map((item: any) => ({
-    date: item.capturedAt,
-    businessId: item.businessId || null,
-    dealTitle: item.serviceName || 'Deal',
-    name: item.userName || 'Neighbor',
-    email: item.userEmail || null,
-    phone: item.userPhone || null,
-    city: item.city || null,
-    source: 'joined' as const,
-  }));
-  const fromRequests: AdminLead[] = (requestsData.items || []).map((item: any) => ({
-    date: item.capturedAt,
-    businessId: item.businessId || null,
-    dealTitle: item.serviceName || 'Deal',
-    name: item.userName || 'Neighbor',
-    email: null,
-    phone: null,
-    city: item.city || null,
-    source: 'requested' as const,
-  }));
-
-  return {
-    leads: [...fromSignups, ...fromRequests].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
-    unauthorized: false,
-  };
-}
-
 interface AdminDashboardProps {
   businesses: Business[];
-  services: Service[];
-  reviews: Review[];
-  neighborhoods: Neighborhood[];
+  // Navigates to the real, live business profile page (same route/component
+  // a visitor sees) - clicking a business in the admin panel doesn't open a
+  // separate preview, it takes you to the actual public page, which shows
+  // an admin bar (see BusinessAdminBar.tsx) with analytics and an edit
+  // shortcut layered on top. WordPress-style: the exact public page, plus
+  // admin chrome, not a simulation of the public page.
+  onViewBusiness: (businessId: string) => void;
 }
 
 type Tab = 'leads' | 'users' | 'businesses' | 'analytics';
@@ -78,7 +37,7 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'analytics', label: 'Analytics', icon: <BarChart3 className="w-4 h-4" /> },
 ];
 
-const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, services, reviews, neighborhoods }) => {
+const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, onViewBusiness }) => {
   const [tokenInput, setTokenInput] = useState('');
   const [authedToken, setAuthedToken] = useState<string | null>(() => {
     try {
@@ -179,7 +138,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, services, r
 
       {tab === 'leads' && <LeadsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
       {tab === 'users' && <UsersTab token={authedToken} onAuthFailed={handleLogOut} />}
-      {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} services={services} reviews={reviews} neighborhoods={neighborhoods} onAuthFailed={handleLogOut} />}
+      {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} onViewBusiness={onViewBusiness} onAuthFailed={handleLogOut} />}
       {tab === 'analytics' && <AnalyticsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
     </div>
   );
@@ -434,158 +393,6 @@ function confirmDelete(label: string): boolean {
   return window.confirm(`Delete ${label}? This can't be undone.`);
 }
 
-// Per-business drill-down: page views (from the same analytics store the
-// Analytics tab reads) and this business's own leads. Works for every
-// business, directory listing or registered, since a visitor can land on
-// and be tracked viewing either kind of profile page equally.
-const BusinessDetailOverlay: React.FC<{
-  token: string;
-  business: Business;
-  allBusinesses: Business[];
-  services: Service[];
-  reviews: Review[];
-  neighborhoods: Neighborhood[];
-  onClose: () => void;
-  onEdit?: () => void;
-  onAuthFailed: () => void;
-}> = ({ token, business, allBusinesses, services, reviews, neighborhoods, onClose, onEdit, onAuthFailed }) => {
-  const [pageViews, setPageViews] = useState<number | null>(null);
-  const [leads, setLeads] = useState<AdminLead[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState('');
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      setIsLoading(true);
-      setLoadError('');
-      try {
-        const [analyticsRes, leadsResult] = await Promise.all([
-          fetch(`/api/analytics?token=${encodeURIComponent(token)}`),
-          fetchAllLeads(token),
-        ]);
-        if (analyticsRes.status === 401 || leadsResult.unauthorized) {
-          onAuthFailed();
-          return;
-        }
-        if (!analyticsRes.ok) throw new Error('Request failed');
-        const analyticsData = await analyticsRes.json();
-        if (cancelled) return;
-        setPageViews(analyticsData.businessViews?.[business.id] ?? 0);
-        setLeads(leadsResult.leads.filter(l => l.businessId === business.id));
-      } catch (err) {
-        console.error('Business detail fetch failed', err);
-        if (!cancelled) setLoadError("Couldn't load this business's activity — try again.");
-      } finally {
-        if (!cancelled) setIsLoading(false);
-      }
-    })();
-    return () => { cancelled = true; };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [business.id]);
-
-  const joinedCount = leads.filter(l => l.source === 'joined').length;
-  const requestedCount = leads.filter(l => l.source === 'requested').length;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
-      <div className="w-full max-w-[1400px] h-[92vh] bg-white rounded-2xl shadow-xl border border-gray-200 flex flex-col overflow-hidden">
-        <div className="flex items-start justify-between px-6 py-4 border-b border-gray-100 shrink-0">
-          <div>
-            <h3 className="font-bold text-gray-900 text-lg">{business.name}</h3>
-            <p className="text-sm text-gray-500">
-              {business.category || 'Uncategorized'} • {business.city || 'No city on file'}
-              {' • '}
-              <span className={business.ownerUserId ? 'text-green-700 font-bold' : 'text-gray-500 font-bold'}>
-                {business.ownerUserId ? 'Registered' : 'Directory listing'}
-              </span>
-            </p>
-          </div>
-          <div className="flex items-center gap-3 shrink-0">
-            {business.ownerUserId && onEdit && (
-              <button onClick={onEdit} className="text-sm font-bold text-primary hover:underline">Edit</button>
-            )}
-            <a
-              href={`${SITE_URL}${businessPath(business)}`}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1.5 text-sm font-bold text-primary hover:underline"
-            >
-              Open in new tab <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-            <button onClick={onClose} className="p-1 text-gray-400 hover:text-gray-700">
-              <CloseIcon className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        <div className="flex-1 flex flex-col lg:flex-row min-h-0">
-          <div className="lg:w-80 shrink-0 px-6 py-4 overflow-y-auto space-y-6 border-b lg:border-b-0 lg:border-r border-gray-100">
-            {loadError && <p className="text-sm text-red-600">{loadError}</p>}
-
-            <div className="grid grid-cols-1 gap-3">
-              <StatCard label="Page Views" value={isLoading ? '…' : (pageViews ?? 0)} />
-              <StatCard label="Deals Joined" value={isLoading ? '…' : joinedCount} />
-              <StatCard label="Deals Requested" value={isLoading ? '…' : requestedCount} />
-            </div>
-
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Leads for this business</h4>
-              {isLoading ? (
-                <p className="text-sm text-gray-400 py-6 text-center">Loading...</p>
-              ) : leads.length === 0 ? (
-                <p className="text-sm text-gray-400 py-6 text-center bg-gray-50 rounded-xl">No leads yet.</p>
-              ) : (
-                <div className="space-y-2">
-                  {leads.map((lead, idx) => (
-                    <div key={idx} className="border border-gray-200 rounded-lg px-3 py-2">
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium text-gray-900 text-sm">{lead.name}</span>
-                        <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${lead.source === 'joined' ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'}`}>
-                          {lead.source === 'joined' ? 'Joined' : 'Requested'}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-0.5">{lead.dealTitle} • {new Date(lead.date).toLocaleDateString()}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="flex-1 min-h-0 bg-gray-50 overflow-y-auto">
-            {/* The real public profile component, rendered read-only inside
-                the admin overlay - not an iframe, so it always matches
-                exactly what BusinessProfile.tsx renders with no separate
-                page load or same-origin framing concerns. Interactive
-                actions (join a deal, add a review, click into another
-                business/service) are no-ops here; this is a preview, not a
-                real browsing session, and admin has no "current user" to
-                act as anyway. */}
-            <div className="max-w-4xl mx-auto px-4 py-6">
-              <BusinessProfile
-                business={business}
-                services={services.filter(s => s.businessId === business.id)}
-                allServices={services}
-                reviews={reviews.filter(r => r.businessId === business.id)}
-                allBusinesses={allBusinesses}
-                neighborhoods={neighborhoods}
-                onSignUp={() => {}}
-                currentUserSignedUpIds={[]}
-                isAuthenticated={false}
-                onAddReview={() => {}}
-                onBack={onClose}
-                onServiceClick={() => {}}
-                onBusinessClick={() => {}}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 // ---------------------------------------------------------------------------
 // Users
 // ---------------------------------------------------------------------------
@@ -778,11 +585,9 @@ const UsersTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ token
 const BusinessesTab: React.FC<{
   token: string;
   businesses: Business[];
-  services: Service[];
-  reviews: Review[];
-  neighborhoods: Neighborhood[];
+  onViewBusiness: (businessId: string) => void;
   onAuthFailed: () => void;
-}> = ({ token, businesses: catalogBusinesses, services, reviews, neighborhoods, onAuthFailed }) => {
+}> = ({ token, businesses: catalogBusinesses, onViewBusiness, onAuthFailed }) => {
   // The full directory (seed/prospective listings + real registered ones,
   // "real wins" - see App.tsx's real-catalog-merge effect) is already loaded
   // client-side and passed down as `businesses`; that's the base list so
@@ -800,7 +605,6 @@ const BusinessesTab: React.FC<{
   const [editingBusiness, setEditingBusiness] = useState<Business | null>(null);
   const [draft, setDraft] = useState<Partial<Business>>({});
   const [isSaving, setIsSaving] = useState(false);
-  const [viewingBusiness, setViewingBusiness] = useState<Business | null>(null);
 
   const fetchRealBusinesses = async () => {
     setIsLoading(true);
@@ -942,7 +746,7 @@ const BusinessesTab: React.FC<{
                 {filtered.map(b => (
                   <tr key={b.id} className="hover:bg-gray-50">
                     <td className="px-6 py-3 font-medium text-gray-900">
-                      <button onClick={() => setViewingBusiness(b)} className="flex items-center gap-1.5 hover:text-primary hover:underline text-left">
+                      <button onClick={() => onViewBusiness(b.id)} className="flex items-center gap-1.5 hover:text-primary hover:underline text-left">
                         <Eye className="w-3.5 h-3.5 text-gray-400 shrink-0" /> {b.name}
                       </button>
                     </td>
@@ -986,20 +790,6 @@ const BusinessesTab: React.FC<{
             />
           </label>
         </EditOverlay>
-      )}
-
-      {viewingBusiness && (
-        <BusinessDetailOverlay
-          token={token}
-          business={viewingBusiness}
-          allBusinesses={businesses}
-          services={services}
-          reviews={reviews}
-          neighborhoods={neighborhoods}
-          onClose={() => setViewingBusiness(null)}
-          onAuthFailed={onAuthFailed}
-          onEdit={() => { openEdit(viewingBusiness); setViewingBusiness(null); }}
-        />
       )}
     </div>
   );

@@ -31,6 +31,7 @@ import Header from './components/Header';
 import ServiceCard from './components/ServiceCard';
 import AIDealFinder from './components/AIDealFinder';
 import BusinessProfile from './components/BusinessProfile';
+import BusinessAdminBar from './components/BusinessAdminBar';
 import BusinessDirectory from './components/BusinessDirectory';
 import ServiceProfile from './components/ServiceProfile';
 import LocationPromptModal from './components/LocationPromptModal';
@@ -2963,6 +2964,11 @@ const App: React.FC = () => {
               </div>
             </section>
           ) : view === 'business' && selectedBusinessId && businesses.some(b => b.id === selectedBusinessId) ? (
+            <>
+            <BusinessAdminBar
+              business={businesses.find(b => b.id === selectedBusinessId)!}
+              onGoToAdmin={() => setView('admin')}
+            />
             <BusinessProfile
               business={businesses.find(b => b.id === selectedBusinessId)!}
               services={services.filter(s => s.businessId === selectedBusinessId && ((s.neighborhoodIds || []).includes(selectedNeighborhoodId) || (s as any).neighborhoodId === selectedNeighborhoodId || (selectedNeighborhoodCity && (s.servedCities || []).includes(selectedNeighborhoodCity))))}
@@ -2981,6 +2987,7 @@ const App: React.FC = () => {
               onBusinessClick={handleBusinessClick}
               onCategoryCityClick={(category, city) => handleCategoryPageClick(category, city)}
             />
+            </>
           ) : view === 'business' ? (
             // A direct visit to /business/<slug> lands here before the catalog
             // fetch resolves and the slug is matched to a real id (businesses
@@ -3821,7 +3828,7 @@ const App: React.FC = () => {
               onBack={() => setView('home')}
             />
           ) : view === 'admin' ? (
-            <AdminDashboard businesses={businesses} services={services} reviews={reviews} neighborhoods={neighborhoods} />
+            <AdminDashboard businesses={businesses} onViewBusiness={handleBusinessClick} />
           ) : view === 'not-found' ? (
             <div className="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
               <p className="text-primary font-bold text-lg mb-2">404</p>
