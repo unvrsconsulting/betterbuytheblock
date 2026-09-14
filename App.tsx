@@ -663,7 +663,7 @@ const COST_GUIDES = [
     description: "Real ways Cary, Raleigh, and Apex homeowners are finding cheap house cleaners, discount lawn care, and affordable pest control right now, from negotiation tactics that actually work to the neighborhood-bundling trick contractors already use to cut their own costs.",
     author: 'BetterBuyTheBlock Team',
     date: 'SEP 12, 2026',
-    image: 'https://images.pexels.com/photos/8497884/pexels-photo-8497884.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: 'https://images.pexels.com/photos/3305/numbers-money-calculating-calculation.jpg?auto=compress&cs=tinysrgb&h=650&w=940',
     type: 'Money-Saving Guide',
     intro: [
       "Search \"cheap house cleaners Cary\" or \"discount lawn care Raleigh\" and most of what comes back is the same handful of coupon sites and lead-gen listings, recycled across every city in the country with the town name swapped in. They rarely reflect what a cheap or discounted price actually looks like on the ground in Wake County, and following them can just as easily lead to an unlicensed operator or a bait-and-switch quote as to a real deal.",
