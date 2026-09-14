@@ -3821,7 +3821,7 @@ const App: React.FC = () => {
               onBack={() => setView('home')}
             />
           ) : view === 'admin' ? (
-            <AdminDashboard businesses={businesses} />
+            <AdminDashboard businesses={businesses} services={services} reviews={reviews} neighborhoods={neighborhoods} />
           ) : view === 'not-found' ? (
             <div className="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
               <p className="text-primary font-bold text-lg mb-2">404</p>

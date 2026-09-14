@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Lock, Search, Download, LogOut, RefreshCw, Mail, Phone, Users as UsersIcon, Briefcase, BarChart3, ListChecks, Trash2, X as CloseIcon, Eye, ExternalLink } from 'lucide-react';
-import { Business, User } from '../types';
+import { Business, User, Service, Review, Neighborhood } from '../types';
 import Button from './Button';
+import BusinessProfile from './BusinessProfile';
 import { toCsv, downloadCsv } from '../services/csv';
 import { businessPath, SITE_URL } from '../services/seo/pageContent.js';
 
@@ -63,6 +64,9 @@ async function fetchAllLeads(token: string): Promise<{ leads: AdminLead[]; unaut
 
 interface AdminDashboardProps {
   businesses: Business[];
+  services: Service[];
+  reviews: Review[];
+  neighborhoods: Neighborhood[];
 }
 
 type Tab = 'leads' | 'users' | 'businesses' | 'analytics';
@@ -74,7 +78,7 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'analytics', label: 'Analytics', icon: <BarChart3 className="w-4 h-4" /> },
 ];
 
-const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses }) => {
+const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, services, reviews, neighborhoods }) => {
   const [tokenInput, setTokenInput] = useState('');
   const [authedToken, setAuthedToken] = useState<string | null>(() => {
     try {
@@ -175,7 +179,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses }) => {
 
       {tab === 'leads' && <LeadsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
       {tab === 'users' && <UsersTab token={authedToken} onAuthFailed={handleLogOut} />}
-      {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
+      {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} services={services} reviews={reviews} neighborhoods={neighborhoods} onAuthFailed={handleLogOut} />}
       {tab === 'analytics' && <AnalyticsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
     </div>
   );
@@ -434,7 +438,17 @@ function confirmDelete(label: string): boolean {
 // Analytics tab reads) and this business's own leads. Works for every
 // business, directory listing or registered, since a visitor can land on
 // and be tracked viewing either kind of profile page equally.
-const BusinessDetailOverlay: React.FC<{ token: string; business: Business; onClose: () => void; onEdit?: () => void; onAuthFailed: () => void }> = ({ token, business, onClose, onEdit, onAuthFailed }) => {
+const BusinessDetailOverlay: React.FC<{
+  token: string;
+  business: Business;
+  allBusinesses: Business[];
+  services: Service[];
+  reviews: Review[];
+  neighborhoods: Neighborhood[];
+  onClose: () => void;
+  onEdit?: () => void;
+  onAuthFailed: () => void;
+}> = ({ token, business, allBusinesses, services, reviews, neighborhoods, onClose, onEdit, onAuthFailed }) => {
   const [pageViews, setPageViews] = useState<number | null>(null);
   const [leads, setLeads] = useState<AdminLead[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -475,8 +489,8 @@ const BusinessDetailOverlay: React.FC<{ token: string; business: Business; onClo
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-gray-200 max-h-[90vh] flex flex-col">
-        <div className="flex items-start justify-between px-6 py-4 border-b border-gray-100">
+      <div className="w-full max-w-[1400px] h-[92vh] bg-white rounded-2xl shadow-xl border border-gray-200 flex flex-col overflow-hidden">
+        <div className="flex items-start justify-between px-6 py-4 border-b border-gray-100 shrink-0">
           <div>
             <h3 className="font-bold text-gray-900 text-lg">{business.name}</h3>
             <p className="text-sm text-gray-500">
@@ -491,63 +505,80 @@ const BusinessDetailOverlay: React.FC<{ token: string; business: Business; onClo
             {business.ownerUserId && onEdit && (
               <button onClick={onEdit} className="text-sm font-bold text-primary hover:underline">Edit</button>
             )}
+            <a
+              href={`${SITE_URL}${businessPath(business)}`}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-sm font-bold text-primary hover:underline"
+            >
+              Open in new tab <ExternalLink className="w-3.5 h-3.5" />
+            </a>
             <button onClick={onClose} className="p-1 text-gray-400 hover:text-gray-700">
               <CloseIcon className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="px-6 py-4 overflow-y-auto space-y-6">
-          {loadError && <p className="text-sm text-red-600">{loadError}</p>}
+        <div className="flex-1 flex flex-col lg:flex-row min-h-0">
+          <div className="lg:w-80 shrink-0 px-6 py-4 overflow-y-auto space-y-6 border-b lg:border-b-0 lg:border-r border-gray-100">
+            {loadError && <p className="text-sm text-red-600">{loadError}</p>}
 
-          <div className="grid grid-cols-3 gap-4">
-            <StatCard label="Page Views" value={isLoading ? '…' : (pageViews ?? 0)} />
-            <StatCard label="Deals Joined" value={isLoading ? '…' : joinedCount} />
-            <StatCard label="Deals Requested" value={isLoading ? '…' : requestedCount} />
+            <div className="grid grid-cols-1 gap-3">
+              <StatCard label="Page Views" value={isLoading ? '…' : (pageViews ?? 0)} />
+              <StatCard label="Deals Joined" value={isLoading ? '…' : joinedCount} />
+              <StatCard label="Deals Requested" value={isLoading ? '…' : requestedCount} />
+            </div>
+
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Leads for this business</h4>
+              {isLoading ? (
+                <p className="text-sm text-gray-400 py-6 text-center">Loading...</p>
+              ) : leads.length === 0 ? (
+                <p className="text-sm text-gray-400 py-6 text-center bg-gray-50 rounded-xl">No leads yet.</p>
+              ) : (
+                <div className="space-y-2">
+                  {leads.map((lead, idx) => (
+                    <div key={idx} className="border border-gray-200 rounded-lg px-3 py-2">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-gray-900 text-sm">{lead.name}</span>
+                        <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${lead.source === 'joined' ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'}`}>
+                          {lead.source === 'joined' ? 'Joined' : 'Requested'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-0.5">{lead.dealTitle} • {new Date(lead.date).toLocaleDateString()}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
-          <a
-            href={`${SITE_URL}${businessPath(business)}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline"
-          >
-            View live profile <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-2">Leads for this business</h4>
-            {isLoading ? (
-              <p className="text-sm text-gray-400 py-6 text-center">Loading...</p>
-            ) : leads.length === 0 ? (
-              <p className="text-sm text-gray-400 py-6 text-center bg-gray-50 rounded-xl">No leads yet.</p>
-            ) : (
-              <div className="border border-gray-200 rounded-xl overflow-hidden">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="text-left text-xs uppercase tracking-wider text-gray-500 border-b border-gray-100 bg-gray-50">
-                      <th className="px-4 py-2 font-medium">Name</th>
-                      <th className="px-4 py-2 font-medium">Deal</th>
-                      <th className="px-4 py-2 font-medium">Date</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    {leads.map((lead, idx) => (
-                      <tr key={idx}>
-                        <td className="px-4 py-2 font-medium text-gray-900">
-                          {lead.name}
-                          <span className={`ml-2 inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${lead.source === 'joined' ? 'bg-green-50 text-green-700' : 'bg-amber-50 text-amber-700'}`}>
-                            {lead.source === 'joined' ? 'Joined' : 'Requested'}
-                          </span>
-                        </td>
-                        <td className="px-4 py-2 text-gray-600">{lead.dealTitle}</td>
-                        <td className="px-4 py-2 text-gray-500">{new Date(lead.date).toLocaleDateString()}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+          <div className="flex-1 min-h-0 bg-gray-50 overflow-y-auto">
+            {/* The real public profile component, rendered read-only inside
+                the admin overlay - not an iframe, so it always matches
+                exactly what BusinessProfile.tsx renders with no separate
+                page load or same-origin framing concerns. Interactive
+                actions (join a deal, add a review, click into another
+                business/service) are no-ops here; this is a preview, not a
+                real browsing session, and admin has no "current user" to
+                act as anyway. */}
+            <div className="max-w-4xl mx-auto px-4 py-6">
+              <BusinessProfile
+                business={business}
+                services={services.filter(s => s.businessId === business.id)}
+                allServices={services}
+                reviews={reviews.filter(r => r.businessId === business.id)}
+                allBusinesses={allBusinesses}
+                neighborhoods={neighborhoods}
+                onSignUp={() => {}}
+                currentUserSignedUpIds={[]}
+                isAuthenticated={false}
+                onAddReview={() => {}}
+                onBack={onClose}
+                onServiceClick={() => {}}
+                onBusinessClick={() => {}}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -744,7 +775,14 @@ const UsersTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ token
 // Businesses
 // ---------------------------------------------------------------------------
 
-const BusinessesTab: React.FC<{ token: string; businesses: Business[]; onAuthFailed: () => void }> = ({ token, businesses: catalogBusinesses, onAuthFailed }) => {
+const BusinessesTab: React.FC<{
+  token: string;
+  businesses: Business[];
+  services: Service[];
+  reviews: Review[];
+  neighborhoods: Neighborhood[];
+  onAuthFailed: () => void;
+}> = ({ token, businesses: catalogBusinesses, services, reviews, neighborhoods, onAuthFailed }) => {
   // The full directory (seed/prospective listings + real registered ones,
   // "real wins" - see App.tsx's real-catalog-merge effect) is already loaded
   // client-side and passed down as `businesses`; that's the base list so
@@ -954,6 +992,10 @@ const BusinessesTab: React.FC<{ token: string; businesses: Business[]; onAuthFai
         <BusinessDetailOverlay
           token={token}
           business={viewingBusiness}
+          allBusinesses={businesses}
+          services={services}
+          reviews={reviews}
+          neighborhoods={neighborhoods}
           onClose={() => setViewingBusiness(null)}
           onAuthFailed={onAuthFailed}
           onEdit={() => { openEdit(viewingBusiness); setViewingBusiness(null); }}
