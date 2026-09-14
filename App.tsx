@@ -903,6 +903,30 @@ function sortServicesByMode(list: Service[], sortBy: string): Service[] {
   return results;
 }
 
+// Fire-and-forget event logging for the admin dashboard's analytics tab
+// (business page views, search counts by term/city - see api/analytics.ts).
+// Only fires once the visitor has accepted analytics via the cookie banner,
+// same consent flag CookieConsentBanner.tsx already gates Google Tag
+// Manager on. Never awaited by a caller and never throws - a dropped
+// analytics ping should never be visible to a real visitor.
+type AnalyticsEvent =
+  | { type: 'business_view'; businessId: string }
+  | { type: 'search'; term?: string; city?: string };
+
+function logAnalyticsEvent(event: AnalyticsEvent) {
+  try {
+    if (localStorage.getItem('analyticsConsent') !== 'accepted') return;
+  } catch {
+    return;
+  }
+  fetch('/api/analytics', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(event),
+    keepalive: true,
+  }).catch(() => {});
+}
+
 const App: React.FC = () => {
   const [users, setUsers] = useState<User[]>(() => loadState<User[]>('users', USERS));
   const [currentUserId, setCurrentUserId] = useState<string | null>(() => loadState<string | null>('currentUserId', null));
@@ -1134,6 +1158,21 @@ const App: React.FC = () => {
     setPendingBusinessSlug(null);
     setPendingServiceSlug(null);
   }, [pendingBusinessSlug, pendingServiceSlug, businesses, services, realCatalogSettled]);
+
+  // Counts toward the admin dashboard's "page visits per business" - fires
+  // once per business per session (not once per render), so navigating away
+  // and back doesn't inflate the count, and covers both an in-app click
+  // (handleBusinessClick) and a direct/deep-link visit (the slug-resolution
+  // effect above), since both end up here the same way: view identifies the
+  // page, this effect just watches for it. Respects the same analytics
+  // consent choice as Google Tag Manager (see CookieConsentBanner.tsx).
+  const loggedBusinessViewsRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (view !== 'business' || !selectedBusinessId) return;
+    if (loggedBusinessViewsRef.current.has(selectedBusinessId)) return;
+    loggedBusinessViewsRef.current.add(selectedBusinessId);
+    logAnalyticsEvent({ type: 'business_view', businessId: selectedBusinessId });
+  }, [view, selectedBusinessId]);
 
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -2466,6 +2505,7 @@ const App: React.FC = () => {
                 setFilterCategories([]);
                 setFilterStatus('all');
                 setLastSearchQuery(query.trim());
+                logAnalyticsEvent({ type: 'search', term: query.trim(), city: selectedNeighborhoodCity });
               }}
             />
           </div>
@@ -2753,6 +2793,7 @@ const App: React.FC = () => {
                       setFilterCategories([]);
                       setFilterStatus('all');
                       setLastSearchQuery(query.trim());
+                      logAnalyticsEvent({ type: 'search', term: query.trim(), city: selectedNeighborhoodCity });
                     }}
                     compact={true}
                   />
