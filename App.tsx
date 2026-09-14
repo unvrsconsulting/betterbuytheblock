@@ -3644,7 +3644,7 @@ const App: React.FC = () => {
             </section>
           ) : view === 'articles' ? (
             <ArticlesPage 
-              articles={COST_GUIDES} 
+              articles={[...COST_GUIDES].reverse()} 
               onArticleClick={handleBlogClick} 
               onBack={() => setView('home')} 
             />
@@ -3812,14 +3812,14 @@ const App: React.FC = () => {
             <div className="max-w-[95%] mx-auto">
               <div className="flex items-end justify-between mb-8">
                 <div>
-                  <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Popular cost guides</h2>
+                  <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Latest from the blog</h2>
                   <p className="text-gray-600">From average costs to expert advice, get all the answers you need to get your job done.</p>
                 </div>
                 <Button onClick={() => setView('articles')} variant="outline" className="hidden sm:block bg-white border-gray-300 text-gray-800 hover:bg-gray-50">See all articles</Button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {COST_GUIDES.slice(0, 3).map(guide => (
+                {COST_GUIDES.slice(-3).reverse().map(guide => (
                   <div 
                     key={guide.title} 
                     onClick={() => handleBlogClick(guide)}
