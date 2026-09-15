@@ -810,6 +810,79 @@ const COST_GUIDES = [
       "Plumbing doesn't bundle with neighbors quite the same way exterior categories like gutter cleaning or tree service do, since most plumbing problems are inside a single house rather than shared across a block. Where it does bundle well is on planned work: a water heater replacement, a whole-house repipe, or fixture upgrades scheduled ahead of time rather than during an emergency, since a plumber already quoting one job on a street can often extend the same rate to a neighbor who reaches out during that same visit window.",
     ],
   },
+  {
+    slug: 'electrical-costs-wake-county-2027',
+    title: 'Electrical Costs in Wake County for 2027: Panel Upgrades, EV Chargers, and Wiring',
+    description: "What panel upgrades, EV charger installation, and common electrical repairs actually cost in Raleigh and Wake County heading into 2027, and how panel capacity and access change the price.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 15, 2026',
+    image: 'https://images.pexels.com/photos/27928760/pexels-photo-27928760.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Electrical',
+    intro: [
+      "Electrical work covers an unusually wide range, from a ten-minute outlet swap to a full panel replacement that takes a full day and a permit. Heading into 2027, the two jobs driving the most calls in Wake County are the same two nationally: EV charger installation, as more households add a second electric vehicle, and panel upgrades, since a lot of the county's older homes still have panels sized for a house with far less electrical load than modern kitchens, HVAC systems, and chargers actually draw.",
+      "This guide covers standard hourly rates, EV charger installation, panel upgrades, and what actually pushes an electrical quote up or down.",
+    ],
+    sections: [
+      {
+        heading: 'Standard Electrician Rates',
+        paragraphs: [
+          "Nationally, licensed electricians charge $75 to $150 per hour for residential work, with a separate service call fee of $79 to $179 just to show up. Wake County actually runs cheaper than that national range: Raleigh-area electricians typically charge $37 to $75 per hour, though the first hour of any job costs more than the rest, averaging around $112, since it has to cover the drive and initial diagnosis before the per-hour rate applies to the remaining work.",
+          "That first-hour premium is worth knowing about when comparing quotes: a job quoted at $112 for the first hour plus $50 per hour after isn't more expensive than a flat $75-per-hour quote, it's just structured differently. Ask how the quote breaks down before assuming a higher first number means a worse deal.",
+        ],
+        bullets: [
+          'National hourly rate: $75 to $150, plus a $79 to $179 service call fee',
+          'Raleigh area hourly rate: $37 to $75',
+          'First-hour average (covers drive + diagnosis): around $112',
+        ],
+        linkLabel: 'See real electrical deals in your neighborhood',
+        linkCategory: 'Electrical',
+      },
+      {
+        heading: 'EV Charger Installation',
+        paragraphs: [
+          "Installing a Level 2 EV charger typically costs $400 to $1,500 total for a home whose panel already has the capacity to support it, covering the charger itself ($300 to $900), 2 to 4 hours of electrician labor at $100 to $150 per hour, and a permit ($50 to $200). For homes with a 200-amp panel and a straightforward run, that's often the full cost, with pricing landing toward $800 to $2,500 once outdoor installation is involved.",
+          "Outdoor installations run $200 to $1,000 more than an indoor garage install, since the charger and wiring both need weatherproof-rated materials and conduit. The single biggest cost swing, though, is panel capacity: if the existing panel doesn't have room for the additional circuit, the job becomes a panel upgrade first, which changes the total from four figures to potentially $2,300 to $6,000 combined. Worth noting heading into 2027: the federal tax credit that covered 30% of installation cost (up to $1,000) expired for anything installed after June 30, 2026, so budget the full cost without that offset now.",
+        ],
+        bullets: [
+          'Typical total (panel already has capacity): $400 to $1,500',
+          'Charger unit: $300 to $900',
+          'Labor: 2 to 4 hours at $100 to $150 per hour',
+          'Outdoor installation: add $200 to $1,000 for weatherproofing',
+          'If a panel upgrade is also needed: $2,300 to $6,000 combined',
+        ],
+      },
+      {
+        heading: 'Panel Upgrades',
+        paragraphs: [
+          "A standard 100-amp to 200-amp panel upgrade in the Raleigh area runs $1,500 to $4,000 including permit and inspection, with the local average landing around $1,571 to $3,024 depending on the source and the specific job. That's actually in line with, or slightly below, the national range of $1,800 to $3,500 for the same upgrade. Moving from 200-amp to 400-amp, typically only relevant for larger homes running a lot of modern electric load, runs $2,500 to $4,500.",
+          "A full panel replacement typically takes 20 to 30 hours of work once permitting, inspection, and the actual swap are all accounted for, not something that happens in an afternoon. Older Wake County homes, especially anything built before modern code updates, are the most likely candidates for needing this, since their original panels were sized for a house with far less electrical demand than today's appliances and HVAC systems actually draw.",
+        ],
+        bullets: [
+          'Raleigh area 100A to 200A upgrade: $1,500 to $4,000 (average $1,571 to $3,024)',
+          'National 100A to 200A upgrade: $1,800 to $3,500',
+          '200A to 400A upgrade: $2,500 to $4,500',
+          'Typical job length: 20 to 30 hours including permit and inspection',
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "Panel capacity is the single biggest factor for anything involving new load, an EV charger, a hot tub, an addition, since it determines whether the job is a simple new-circuit install or a full panel upgrade first. Distance from the panel to wherever the new work is happening matters almost as much: a garage charger 10 feet from the panel is a different job than one requiring a long conduit run across the house or outside to a detached structure.",
+          "Home age and existing wiring condition affect both cost and complexity, since older wiring sometimes needs updating to safely support new work, not just extending. Permits and inspections are non-negotiable for panel work and most new circuits in Wake County, and while they add cost, skipping them isn't a real way to save money, it's a real safety and resale problem waiting to surface at a home inspection later.",
+        ],
+        bullets: [
+          'Panel capacity (does it need an upgrade to support the new load?)',
+          'Distance from the panel to the work',
+          'Home age and existing wiring condition',
+          'Permit and inspection requirements (not worth skipping)',
+        ],
+      },
+    ],
+    closing: [
+      "Panel upgrades and EV charger installs are both strong candidates for neighborhood bundling, more so than most electrical work, since an electrician already pulling a permit and doing panel work at one house can often quote a meaningfully better rate for a second or third job on the same street scheduled during the same trip. If you know a neighbor is also eyeing an EV charger or knows their panel is aging out, reaching out before either of you books separately is worth the five-minute conversation.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
