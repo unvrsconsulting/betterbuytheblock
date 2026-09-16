@@ -883,6 +883,78 @@ const COST_GUIDES = [
       "Panel upgrades and EV charger installs are both strong candidates for neighborhood bundling, more so than most electrical work, since an electrician already pulling a permit and doing panel work at one house can often quote a meaningfully better rate for a second or third job on the same street scheduled during the same trip. If you know a neighbor is also eyeing an EV charger or knows their panel is aging out, reaching out before either of you books separately is worth the five-minute conversation.",
     ],
   },
+  {
+    slug: 'painting-costs-wake-county-2027',
+    title: 'Painting Costs in Wake County for 2027: Interior, Exterior, and What Drives the Price',
+    description: "What interior and exterior house painting actually costs in Raleigh and Wake County heading into 2027, and why labor, not paint, makes up most of the bill.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 16, 2026',
+    image: 'https://images.pexels.com/photos/994164/pexels-photo-994164.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Painting',
+    intro: [
+      "Fall is prime exterior painting season in Wake County, cooler temperatures and lower humidity than summer make for better paint adhesion and drying, and it's the last real window before winter weather makes exterior work impractical. Heading into 2027, painting remains one of the more predictable categories to budget for, since pricing scales fairly directly with square footage and the number of coats, but the range between a basic job and a full prep-and-paint job is still wide enough to catch homeowners off guard.",
+      "This guide covers interior painting, exterior painting, and the biggest factor in almost every quote: how much prep work the job actually needs.",
+    ],
+    sections: [
+      {
+        heading: 'Interior Painting',
+        paragraphs: [
+          "Nationally, interior painting runs $2 to $6 per square foot, with walls alone landing around $2.75 per square foot and a full job including trim and ceilings pushing closer to $4.70 per square foot. For a full standard-home interior repaint, that works out to roughly $2,000 to $6,000 total nationally.",
+          "Raleigh pricing runs a bit higher than that national midpoint in practice: local averages land around $5,119 to $6,798 for a full interior job, with a realistic range of $4,279 to $7,638 depending on home size and how many rooms are included. For a single room, most Raleigh homeowners pay $300 to $800, smaller rooms like bedrooms and bathrooms toward the lower end, larger living spaces toward the higher end.",
+        ],
+        bullets: [
+          'National: $2 to $6 per square foot ($2,000 to $6,000 for a full interior)',
+          'Raleigh area full interior job: $5,119 to $6,798 typical ($4,279 to $7,638 range)',
+          'Single room in Raleigh: $300 to $800',
+        ],
+        linkLabel: 'See real painting deals in your neighborhood',
+        linkCategory: 'Painting',
+      },
+      {
+        heading: 'Exterior Painting',
+        paragraphs: [
+          "Exterior painting nationally runs $1.50 to $4 per square foot of paintable surface, with full projects landing at $3,000 to $12,000 or more depending on home size, siding type, and how much prep the surface needs. Raleigh contractors price in a similar $1.50 to $4.30 per square foot range, with the local average full job landing around $4,455 to $5,844, and a realistic range of $3,760 to $6,539.",
+          "Home size drives most of the spread: a small 1,200 to 1,500 square foot home runs $4,500 to $7,500 in the Raleigh area, a medium 1,800 to 2,200 square foot home runs $7,000 to $9,500, and a large 2,500 to 3,000 square foot home runs $9,500 to $15,500. Siding type matters too, since brick and stucco need different prep and materials than vinyl or wood siding, and older wood siding especially can need scraping and priming that adds real time to the job.",
+        ],
+        bullets: [
+          'National: $1.50 to $4 per square foot ($3,000 to $12,000+ full project)',
+          'Raleigh area full job: $4,455 to $5,844 typical ($3,760 to $6,539 range)',
+          'Small home (1,200-1,500 sq ft): $4,500 to $7,500',
+          'Medium home (1,800-2,200 sq ft): $7,000 to $9,500',
+          'Large home (2,500-3,000 sq ft): $9,500 to $15,500',
+        ],
+      },
+      {
+        heading: 'Labor Rates',
+        paragraphs: [
+          "Painters typically charge $25 to $100 per hour nationally, which usually works out to $1 to $3.50 per square foot depending on experience level and region. Raleigh rates run $20 to $50 per hour for most contractors, climbing to $75 or more per hour for painters with extensive experience or specialty finish work.",
+          "Labor, not paint or materials, is what actually drives the bill: it typically makes up 70 to 80% of the total cost on any painting job. That's worth keeping in mind when a quote looks high relative to a DIY estimate from a paint calculator, since the math on a professional quote is mostly paying for skilled time, not marked-up materials.",
+        ],
+        bullets: [
+          'National hourly rate: $25 to $100, roughly $1 to $3.50 per square foot',
+          'Raleigh area hourly rate: $20 to $50, up to $75+ for experienced painters',
+          'Labor accounts for 70% to 80% of total project cost',
+        ],
+      },
+      {
+        heading: 'What Actually Drives Your Price',
+        paragraphs: [
+          "Prep work is the biggest swing factor in any painting quote. Scraping peeling paint, sanding rough spots, patching holes, and priming bare or stained surfaces all take real time before a single coat of finish paint goes on, and a home that's been neglected for years costs meaningfully more to paint well than one that's just due for a refresh. Access matters too: high ceilings, tall exterior walls needing ladders or lifts, and hard-to-reach trim all add labor time beyond the base square footage.",
+          "Number of coats is a direct cost driver, each additional coat beyond the standard two adds roughly $50 to $70 per 300 to 400 square feet. A dramatic color change, going from a dark wall to white or vice versa, often needs an extra coat or a tinted primer to actually cover evenly, which is worth asking about upfront rather than getting surprised by a coverage issue after the first coat dries.",
+        ],
+        bullets: [
+          'Prep work needed (scraping, sanding, patching, priming)',
+          'Access (ceiling height, exterior wall height, trim detail)',
+          'Number of coats (each extra coat: $50 to $70 per 300-400 sq ft)',
+          'Dramatic color changes often need an extra coat or tinted primer',
+        ],
+      },
+    ],
+    closing: [
+      "Exterior painting bundles well with neighbors for the same reason roofing and gutter work does: similarly aged homes on the same street tend to need repainting around the same time, and a crew already set up with ladders, drop cloths, and a color-matching visit at one house can often extend a meaningfully better per-square-foot rate to a second or third house nearby scheduled in the same window, especially heading into the last good weather stretch before winter.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {

@@ -277,6 +277,7 @@ function main() {
     'cheap-discount-home-services-wake-county-nc',
     'plumbing-costs-wake-county-2027',
     'electrical-costs-wake-county-2027',
+    'painting-costs-wake-county-2027',
   ];
   for (const slug of guideSlugs) staticUrls.push({ loc: `${SITE_URL}/guides/${slug}`, priority: '0.7' });
 
