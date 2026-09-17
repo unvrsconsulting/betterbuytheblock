@@ -955,6 +955,67 @@ const COST_GUIDES = [
       "Exterior painting bundles well with neighbors for the same reason roofing and gutter work does: similarly aged homes on the same street tend to need repainting around the same time, and a crew already set up with ladders, drop cloths, and a color-matching visit at one house can often extend a meaningfully better per-square-foot rate to a second or third house nearby scheduled in the same window, especially heading into the last good weather stretch before winter.",
     ],
   },
+  {
+    slug: 'home-security-costs-wake-county-2027',
+    title: 'Home Security Costs in Wake County for 2027: Cameras, Monitoring, and Smart Locks',
+    description: "What security cameras, professional installation, monthly monitoring, and smart locks actually cost in Raleigh and Wake County heading into 2027, and what's worth paying for versus skipping.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 17, 2026',
+    image: 'https://images.pexels.com/photos/30932198/pexels-photo-30932198.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Home Security',
+    intro: [
+      "Shorter days and darker evenings heading into fall and winter are when home security searches spike every year, and it's also prime season for package theft as holiday shopping ramps up. Heading into 2027, the category has genuinely split into two different purchases: a DIY smart-camera setup homeowners install themselves in an afternoon, and a professionally installed, professionally monitored system, and the price gap between them is bigger than most homeowners expect going in.",
+      "This guide covers installation costs, individual devices like cameras and doorbells, monthly monitoring, and what actually determines whether professional installation is worth paying for.",
+    ],
+    sections: [
+      {
+        heading: 'System Installation',
+        paragraphs: [
+          "Nationally, a full home security system installation runs $300 to $1,238, with most homeowners paying around $746 on average once cameras, sensors, and a control panel are all included. Raleigh pricing tracks lower for entry-level setups: a basic system starts around $280, with the average homeowner paying closer to $700 for a complete system with home automation features included.",
+          "Professional installation labor itself, separate from the equipment, typically runs $99 to $225 depending on how much gear is going in and whether any walls need to be opened for hardwired devices. Some Raleigh-area providers, including a few larger regional companies, offer free installation when bundled with a monitoring contract, which is worth asking about directly since it isn't always advertised upfront.",
+        ],
+        bullets: [
+          'National full system average: $746 ($300 to $1,238 typical)',
+          'Raleigh area: $280 basic system, ~$700 average with home automation',
+          'Professional installation labor only: $99 to $225',
+          'Some providers waive installation cost with a monitoring contract',
+        ],
+        linkLabel: 'See real home security deals in your neighborhood',
+        linkCategory: 'Home Security',
+      },
+      {
+        heading: 'Cameras, Doorbells, and Smart Locks',
+        paragraphs: [
+          "Individual security cameras run $40 to $150 for budget models and $100 to $400 for higher-end ones, with full camera installation projects averaging $1,296 nationally ($593 to $2,040 typical) once multiple cameras and labor are included. Doorbell cameras cost $120 to $300 for the device itself, with installation adding $50 to $600, commonly around $300 on average; a basic doorbell swap without a camera runs cheaper, $115 to $244 installed.",
+          "Smart locks run $100 to $450 for the hardware, with installation typically $95 to $227 per lock. If new wiring is needed anywhere in the process, expect to add an electrician at $50 to $100 per hour on top of the security installer's rate. Most modern camera systems also rely on cloud video storage rather than a local hard drive, which adds a small recurring cost, usually $5 to $15 per month, for video history and review.",
+        ],
+        bullets: [
+          'Security cameras: $40 to $150 (budget) to $100 to $400 (higher-end)',
+          'Full camera installation project: $1,296 average ($593 to $2,040 typical)',
+          'Doorbell camera: $120 to $300 device, $50 to $600 installed (~$300 average)',
+          'Smart lock: $100 to $450 device, $95 to $227 installed',
+          'Cloud video storage: $5 to $15 per month',
+        ],
+      },
+      {
+        heading: 'Monthly Monitoring',
+        paragraphs: [
+          "Professional monitoring runs $10 to $80 per month nationally, with most homeowners landing in the $25 to $40 range. Raleigh-area providers span that same range depending on the brand and package: budget self-monitoring options start around $15 to $20 per month, while full professional monitoring with a contract, the kind that dispatches police or fire directly, runs $30 to $55 per month with major providers.",
+          "Monitoring is the part of the budget that's easy to underestimate, since a $700 system sounds like a one-time cost but actually commits to $360 to $660 a year in ongoing fees if professionally monitored. That's not a reason to skip it, a monitored system is genuinely different from an unmonitored camera setup when something actually happens, but it's worth budgeting as a real annual line item, not an afterthought.",
+        ],
+        bullets: [
+          'National average: $10 to $80 per month, most homeowners $25 to $40',
+          'Self-monitoring (no dispatch): $15 to $20 per month',
+          'Full professional monitoring with dispatch: $30 to $55 per month',
+          'Also watch for: activation fees ($0 to $230), alarm permits (up to $100)',
+        ],
+      },
+    ],
+    closing: [
+      "Package theft and break-ins tend to cluster on the same streets rather than spreading evenly across a neighborhood, which makes home security one of the more naturally motivating categories to bundle with neighbors heading into the holidays. An installer already running cable and mounting cameras at one house can usually quote a meaningfully better rate for a neighbor doing the same setup on the same visit, and a block where several homes have visible cameras and monitored systems is a genuinely less attractive target than one where only a single house does.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
