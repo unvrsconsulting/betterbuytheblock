@@ -1016,6 +1016,66 @@ const COST_GUIDES = [
       "Package theft and break-ins tend to cluster on the same streets rather than spreading evenly across a neighborhood, which makes home security one of the more naturally motivating categories to bundle with neighbors heading into the holidays. An installer already running cable and mounting cameras at one house can usually quote a meaningfully better rate for a neighbor doing the same setup on the same visit, and a block where several homes have visible cameras and monitored systems is a genuinely less attractive target than one where only a single house does.",
     ],
   },
+  {
+    slug: 'power-washing-costs-wake-county-2027',
+    title: 'Power Washing Costs in Wake County for 2027: House, Driveway, Deck, and Roof',
+    description: "What power washing a house, driveway, deck, and roof actually costs in Raleigh and Wake County heading into 2027, and why bundling surfaces together saves real money.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 18, 2026',
+    image: 'https://images.pexels.com/photos/5652626/pexels-photo-5652626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Power Washing',
+    intro: [
+      "Fall is when Wake County's pollen, mildew, and a summer's worth of grime finally catch up with siding, driveways, and decks, and it's also the last stretch of mild weather before winter makes exterior cleaning a colder, slower job. Heading into 2027, power washing remains one of the more affordable exterior categories, but pricing splits meaningfully by surface: a driveway, a deck, and a roof each call for different pressure levels and techniques, and quoting them separately versus together changes the total more than most homeowners expect.",
+      "This guide covers house washing, driveways, decks, roofs, and the biggest reason to bundle rather than book each surface separately.",
+    ],
+    sections: [
+      {
+        heading: 'House Washing',
+        paragraphs: [
+          "Nationally, pressure washing a house exterior costs $200 to $600 for a typical 1,500 to 2,500 square foot home, averaging around $300 for a standard single-story wash. Raleigh pricing runs a bit lower than that national average: local house washes average around $221, with most homeowners paying between $157 and $298, and some providers quoting closer to $275 as a flat starting rate.",
+          "Per square foot, standard pressure washing runs $0.20 to $0.50 nationally, while true power washing (using heated water, more effective against mold and grime) runs $0.35 to $0.77 per square foot. Raleigh contractors commonly price by the hour instead, $45 to $150 per hour, which usually works out similarly once the job's actual square footage is factored in.",
+        ],
+        bullets: [
+          'National house wash: $300 average ($200 to $600 typical)',
+          'Raleigh area house wash: $221 average ($157 to $298 typical)',
+          'Per square foot: $0.20 to $0.50 standard, $0.35 to $0.77 heated power washing',
+          'Raleigh hourly rate: $45 to $150',
+        ],
+        linkLabel: 'See real power washing deals in your neighborhood',
+        linkCategory: 'Power Washing',
+      },
+      {
+        heading: 'Driveways, Decks, and Fences',
+        paragraphs: [
+          "Driveway cleaning nationally runs $100 to $500, with most homeowners paying around $210, or $0.25 to $0.35 per square foot for a straightforward concrete surface. In Raleigh specifically, a standard driveway lands in the $100 to $250 range, with a four-car driveway averaging $249 on its own but often discounted to about $50 when added onto a house wash, since the crew is already on site with equipment running.",
+          "Deck and patio cleaning runs $150 to $400 nationally, averaging around $225 for a 400 square foot wood or composite deck, or $0.44 to $0.54 per square foot. Fences are the cheapest of the common add-on surfaces: pressure washing a fence typically costs $150 to $300, or $0.30 to $0.50 per square foot, with a 6-foot-tall, 100-foot privacy fence running $180 to $300 on its own.",
+        ],
+        bullets: [
+          'Driveway: $100 to $500 nationally ($210 average); Raleigh $100 to $250 ($249 for a 4-car driveway alone, ~$50 if bundled with a house wash)',
+          'Deck/patio: $150 to $400 ($225 average for 400 sq ft), $0.44 to $0.54 per square foot',
+          'Fence: $150 to $300, $0.30 to $0.50 per square foot',
+          'House + driveway together in Raleigh: $349 typical, notably less than booking separately',
+        ],
+      },
+      {
+        heading: 'Roof Cleaning',
+        paragraphs: [
+          "Roof cleaning is priced and handled differently from every other surface in this guide. Professional roof cleaning always uses soft washing, a lower-pressure, chemical-assisted method, rather than high-pressure water, since direct high-pressure spray can strip granules off asphalt shingles and shorten roof life. Roof washing runs $300 to $700 depending on roof size, pitch, and material, or $0.15 to $0.60 per square foot for soft washing specifically.",
+          "Given that gutter cleaning and roof checks are already common fall maintenance in Wake County, a roof soft-wash is worth scheduling in the same conversation as those, both because it's genuinely a different skill and equipment set than driveway or siding washing, and because a contractor already on a ladder for gutters can often quote roof washing at a better combined rate than a separate visit later.",
+        ],
+        bullets: [
+          'Roof soft washing: $300 to $700 depending on size, pitch, and material',
+          'Per square foot: $0.15 to $0.60',
+          'Always soft-washed, never high-pressure (protects shingle granules)',
+          'Worth bundling with fall gutter cleaning for a combined visit',
+        ],
+      },
+    ],
+    closing: [
+      "Power washing bundles well within a single property (house plus driveway is already cheaper together than apart) and across a neighborhood at the same time, since a crew with a trailer-mounted rig already set up at one house has essentially zero extra setup cost to add a second or third driveway or deck on the same street. Fall is the natural moment to coordinate it, both because the weather cooperates and because it clears the way for exterior painting or holiday hosting before the last good outdoor-work weeks run out.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
