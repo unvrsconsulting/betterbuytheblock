@@ -1076,6 +1076,67 @@ const COST_GUIDES = [
       "Power washing bundles well within a single property (house plus driveway is already cheaper together than apart) and across a neighborhood at the same time, since a crew with a trailer-mounted rig already set up at one house has essentially zero extra setup cost to add a second or third driveway or deck on the same street. Fall is the natural moment to coordinate it, both because the weather cooperates and because it clears the way for exterior painting or holiday hosting before the last good outdoor-work weeks run out.",
     ],
   },
+  {
+    slug: 'pool-maintenance-costs-wake-county-2027',
+    title: 'Pool Maintenance Costs in Wake County for 2027: Weekly Service, Closing, and Repairs',
+    description: "What weekly pool service, winterizing/closing, and common repairs actually cost in Raleigh and Wake County heading into 2027, and why closing your pool right the first time matters.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 20, 2026',
+    image: 'https://images.pexels.com/photos/17410701/pexels-photo-17410701.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Pool Maintenance',
+    intro: [
+      "Fall in Wake County means one specific pool task is on the clock: closing and winterizing before the first real cold snap, since an improperly closed pool can mean cracked plumbing or a damaged liner by spring. Heading into 2027, pool costs break down into three fairly distinct buckets, ongoing weekly service, the seasonal open/close, and repairs, and pricing across all three tracks close to the national picture with a modest Raleigh discount.",
+      "This guide covers weekly maintenance, winterizing and closing, and the repair costs most pool owners eventually run into.",
+    ],
+    sections: [
+      {
+        heading: 'Weekly Service',
+        paragraphs: [
+          "Nationally, a single professional pool visit averages $236, with most homeowners paying $116 to $357 depending on pool size and type. On a weekly cadence, that works out to $150 to $350 or more per month for a full-service plan, or roughly $37.50 to $75 per individual visit.",
+          "Raleigh pricing runs a bit more favorably: local pool maintenance averages $284 per month, with a typical range of $211 to $470, and individual cleaning visits landing at $30 to $40 each, on the lower end of the national range. Most Raleigh pros charge $50 to $150 per hour when billing hourly rather than by visit, averaging around $100. One local wrinkle worth knowing: Wake County's heavy spring pollen can clog pool equipment fast, which sometimes pushes homeowners toward more frequent service in April and May even if they scale back the rest of the year.",
+        ],
+        bullets: [
+          'National single visit average: $236 ($116 to $357 typical)',
+          'National weekly service: $150 to $350+ per month',
+          'Raleigh area monthly average: $284 ($211 to $470 typical)',
+          'Raleigh per-visit cost: $30 to $40',
+          'Raleigh hourly rate: $50 to $150 (average around $100)',
+        ],
+        linkLabel: 'See real pool maintenance deals in your neighborhood',
+        linkCategory: 'Pool Maintenance',
+      },
+      {
+        heading: 'Winterizing and Closing',
+        paragraphs: [
+          "Closing a pool for winter nationally runs $365 to $650 for pools up to 20 by 40 feet, covering draining the water below the freeze line, clearing water out of the plumbing lines, removing ladders and diving boards, and fitting a winter cover. Raleigh pricing for closing a well-maintained pool tends to run notably lower, around $100 to $160, assuming the pool doesn't need extra work beyond the standard closing steps.",
+          "The gap between those numbers usually comes down to condition and complexity: a pool that's been well-maintained all season closes faster and cheaper than one with algae buildup, a damaged cover, or equipment that needs winterizing beyond the basics. Skipping professional closing to save money is one of the more expensive shortcuts a pool owner can take, since a cracked line from inadequately drained plumbing after a hard freeze usually costs far more than the closing service itself would have.",
+        ],
+        bullets: [
+          'National closing cost: $365 to $650 (pools up to 20x40 ft)',
+          'Raleigh area closing cost: $100 to $160 for a well-maintained pool',
+          'Includes: draining below freeze line, clearing plumbing lines, removing ladders/diving boards, fitting a cover',
+          'A poorly closed pool risks cracked plumbing by spring, a far more expensive fix',
+        ],
+      },
+      {
+        heading: 'Common Repairs',
+        paragraphs: [
+          "Pool pump repair averages $350 nationally, with a typical range of $150 to $500 and smaller fixes sometimes as low as $120 to $190 including materials and labor. When a pump can't be repaired and needs full replacement, budget $700 to $1,300 depending on the pump's power and type.",
+          "Leak repairs vary more than almost any other pool cost, since the price depends entirely on where the leak actually is. Most leak repairs run $120 to $350 for straightforward, accessible sources like a pump connection, while the broader range for inground pool leak repair spans $100 to $5,000, since a leak in the shell or underground plumbing is a fundamentally bigger job than a fitting that just needs resealing. A pool that's consistently losing water faster than evaporation alone explains is worth a real leak inspection rather than just repeatedly topping it off.",
+        ],
+        bullets: [
+          'Pool pump repair: $350 average ($150 to $500 typical, small fixes $120 to $190)',
+          'Pool pump replacement: $700 to $1,300',
+          'Leak repair, accessible source: $120 to $350',
+          'Leak repair, inground/shell: $100 to $5,000 depending on severity',
+        ],
+      },
+    ],
+    closing: [
+      "Pool closing is one of the more naturally schedulable categories to bundle with neighbors, since most Wake County pools need to close within roughly the same few-week window each fall regardless of pool size or brand. A pool service crew already draining lines and fitting covers at one house can usually add a neighbor's pool to the same day's route for a meaningfully better rate than each household booking a separate appointment once the first cold snap actually arrives and demand spikes.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
