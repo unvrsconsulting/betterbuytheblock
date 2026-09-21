@@ -1137,6 +1137,66 @@ const COST_GUIDES = [
       "Pool closing is one of the more naturally schedulable categories to bundle with neighbors, since most Wake County pools need to close within roughly the same few-week window each fall regardless of pool size or brand. A pool service crew already draining lines and fitting covers at one house can usually add a neighbor's pool to the same day's route for a meaningfully better rate than each household booking a separate appointment once the first cold snap actually arrives and demand spikes.",
     ],
   },
+  {
+    slug: 'fencing-costs-wake-county-2027',
+    title: 'Fencing Costs in Wake County for 2027: Wood, Vinyl, Chain Link, and Repairs',
+    description: "What fence installation by material and common fence repairs actually cost in Raleigh and Wake County heading into 2027, and why fall is the last real window to get it installed before winter.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 21, 2026',
+    image: 'https://images.pexels.com/photos/36617431/pexels-photo-36617431.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Fencing Service',
+    intro: [
+      "Fence installation has a real deadline every fall that most other exterior categories don't: post holes need to be dug into unfrozen ground, and once the ground starts hardening in winter, installers either have to wait until spring or charge more for the extra work. Heading into 2027, material choice is what drives most of the price spread in this category, wood, vinyl, chain link, and aluminum all land in meaningfully different price bands, and Raleigh pricing runs a bit higher than the national picture across the board.",
+      "This guide covers installation costs by material, what a typical Raleigh backyard project runs in total, and common repair costs.",
+    ],
+    sections: [
+      {
+        heading: 'Installation by Material',
+        paragraphs: [
+          "Wood fencing nationally runs $10 to $45 per linear foot installed, with a standard 6-foot privacy fence averaging $25 to $40 per foot; pressure-treated pine is the cheapest common option at $12 to $25 per foot, with cedar and redwood running higher. Raleigh pricing for wood starts around $38 per linear foot, tracking at or above the national range.",
+          "Vinyl runs $30 to $60 per linear foot nationally, with a 6-foot privacy version averaging $30 to $50 per foot; Raleigh vinyl starts around $47 per linear foot. Chain link is the budget option across the board, $8 to $35 per linear foot nationally and $10 to $24 per foot in Raleigh, with black vinyl-coated chain link running $3 to $5 more per foot than standard galvanized. Aluminum fencing, less common but popular for pool enclosures and decorative yards, runs $25 to $50 per foot nationally and starts around $53 per foot in Raleigh, the priciest of the common materials.",
+        ],
+        bullets: [
+          'Wood: $10 to $45/ft national, $25 to $40/ft for 6-ft privacy; Raleigh starts ~$38/ft',
+          'Vinyl: $30 to $60/ft national, $30 to $50/ft for 6-ft privacy; Raleigh starts ~$47/ft',
+          'Chain link: $8 to $35/ft national, $10 to $24/ft in Raleigh (cheapest option)',
+          'Aluminum: $25 to $50/ft national; Raleigh starts ~$53/ft (priciest common option)',
+        ],
+        linkLabel: 'See real fencing deals in your neighborhood',
+        linkCategory: 'Fencing Service',
+      },
+      {
+        heading: 'Typical Full Project Cost',
+        paragraphs: [
+          "For a full Raleigh-area project, total cost to install a fence ranges from $1,480 to $7,880, with most homeowners landing around $3,450 depending on yard size and material. A typical 150-linear-foot backyard, a common size for a standard suburban lot, runs $5,700 to $7,050 for wood or vinyl privacy fencing fully installed, including one gate.",
+          "Gates are usually priced as an add-on rather than folded into the per-foot rate: expect $150 to $500 per gate depending on size and material, with a wide double-drive gate for equipment or trailer access landing at the higher end. Installation labor alone in Raleigh runs $45 to $55 per hour, though most fence companies quote the whole job as a flat project price rather than pure hourly billing once material and linear footage are known.",
+        ],
+        bullets: [
+          'Full Raleigh project range: $1,480 to $7,880 (average around $3,450)',
+          'Typical 150 linear foot backyard, wood or vinyl: $5,700 to $7,050 including one gate',
+          'Each additional gate: $150 to $500',
+          'Raleigh installation labor: $45 to $55 per hour',
+        ],
+      },
+      {
+        heading: 'Common Repairs',
+        paragraphs: [
+          "Fence repair averages $618 overall, with most homeowners paying $304 to $948 depending on the extent of damage and the material involved. A single rotted or broken post replacement runs $120 to $350, or $150 to $400 including full excavation of the old post, new concrete, and reattaching the panels or rails around it. Replacing an entire damaged panel or section runs $150 to $400, with vinyl sections specifically at $50 to $150 for the material alone before installation.",
+          "By material, ongoing repair costs per linear foot roughly track installation costs: wood repairs run $20 to $35 per foot, vinyl $25 to $45 per foot, and wrought iron the most expensive to repair at $30 to $60 per foot given the specialized welding and fabrication skills involved. Minor fixes, like swapping a single cracked board, are the cheapest real repair on the list at $100 to $300.",
+        ],
+        bullets: [
+          'Overall average repair: $618 ($304 to $948 typical)',
+          'Single post replacement: $120 to $350 ($150 to $400 with full excavation/concrete)',
+          'Panel/section replacement: $150 to $400',
+          'Minor repair (single board): $100 to $300',
+        ],
+      },
+    ],
+    closing: [
+      "Fence projects bundle especially well between adjoining neighbors, since a shared property line fence is sometimes literally the same project split two ways, and even a non-shared fence job benefits when a crew already has post-hole equipment and material delivered to one address on a street. With the fall installation window closing as the ground firms up for winter, reaching out to a neighbor who's also mentioned wanting a new fence is worth doing now rather than waiting until spring demand (and spring pricing) picks back up.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
