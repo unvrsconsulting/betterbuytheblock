@@ -1197,6 +1197,54 @@ const COST_GUIDES = [
       "Fence projects bundle especially well between adjoining neighbors, since a shared property line fence is sometimes literally the same project split two ways, and even a non-shared fence job benefits when a crew already has post-hole equipment and material delivered to one address on a street. With the fall installation window closing as the ground firms up for winter, reaching out to a neighbor who's also mentioned wanting a new fence is worth doing now rather than waiting until spring demand (and spring pricing) picks back up. That's a real discount on a real installer, not a cheap material swap that fails early.",
     ],
   },
+  {
+    slug: 'carpet-cleaning-costs-wake-county-2027',
+    title: 'Cheap Carpet Cleaning in Wake County for 2027: Per Room, Whole Home, and Pet Stain Costs',
+    description: "What professional carpet cleaning actually costs in Raleigh and Wake County heading into 2027, and how to find a cheap, affordable carpet cleaner before the holiday hosting season fills every good time slot.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 22, 2026',
+    image: 'https://images.pexels.com/photos/9462139/pexels-photo-9462139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Carpet Cleaning',
+    intro: [
+      "Fall is when carpet cleaning bookings pick up across Wake County, both because a summer of foot traffic, yard work, and open windows has actually caught up with carpets, and because Thanksgiving and holiday hosting season is close enough that homeowners want it done before guests arrive rather than after. Heading into 2027, pricing for a standard clean is pretty predictable, the real cost variation shows up once pet stains, odor treatment, or upholstery get added to the job.",
+      "This guide covers per-room and whole-home pricing, pet stain and odor treatment, and how to find a genuinely cheap, affordable carpet cleaner before the pre-holiday rush books up the good time slots.",
+    ],
+    sections: [
+      {
+        heading: 'Per Room and Whole Home Pricing',
+        paragraphs: [
+          "Nationally, professional carpet cleaning runs $0.20 to $0.50 per square foot, or $25 to $75 per room, with a full home averaging $183 total, most homeowners paying $123 to $242. Most carpet cleaning companies also carry a minimum job fee of $100 to $150, which matters if you're only getting one or two small rooms done, since the per-room rate alone might undersell what you'll actually be charged.",
+          "Raleigh pricing runs in a similar band but with real spread depending on the company: $30 to $200 per room broadly, with most standard jobs landing at $40 to $100 per room. A full whole-home cleaning for an average Raleigh house runs $400 to $1,900 depending on square footage and carpet condition. Local promotional pricing is common here too, several Raleigh companies advertise flat per-room rates in the $35 to $40 range for 3 or more rooms, which is worth comparing against a whole-home flat quote before booking.",
+        ],
+        bullets: [
+          'National: $0.20 to $0.50 per sq ft, $25 to $75 per room, $183 average whole home',
+          'Minimum job fee: $100 to $150 regardless of room count',
+          'Raleigh per room: $30 to $200 broadly, $40 to $100 typical',
+          'Raleigh whole home: $400 to $1,900',
+        ],
+        linkLabel: 'See real carpet cleaning deals in your neighborhood',
+        linkCategory: 'Carpet Cleaning',
+      },
+      {
+        heading: 'Pet Stains, Odor, and Upholstery',
+        paragraphs: [
+          "Pet-related treatment is where carpet cleaning costs actually diverge the most. Mild odors get resolved with basic cleaning and deodorizing at $150 to $300, but stronger, deeper-set odors requiring enzyme treatment or ozone/thermal fogging run $300 to $800. Pet odor removal specifically averages $350, with a typical range of $100 to $700, climbing as high as $2,000 in severe cases where odor has penetrated the padding and subfloor, not just the carpet fibers.",
+          "Persistent stain removal beyond standard cleaning runs $100 to $500 depending on severity and how set-in the stain is. Upholstery, sofas, chairs, and pet beds, is priced separately from carpet and runs $200 to $700 for steam or ozone treatment, with combined carpet-plus-upholstery pet odor jobs landing around $300 to $600 total.",
+        ],
+        bullets: [
+          'Mild odor treatment: $150 to $300',
+          'Deep odor treatment (enzyme/ozone/thermal fogging): $300 to $800',
+          'Pet odor removal average: $350 ($100 to $700 typical, up to $2,000 severe)',
+          'Persistent stain removal: $100 to $500',
+          'Upholstery cleaning: $200 to $700',
+        ],
+      },
+    ],
+    closing: [
+      "Carpet cleaning bundles naturally with neighbors heading into the holidays, since so many households are booking the same service in the same few-week window before guests arrive. A cleaning company already running an extraction machine and van at one house can typically add a neighbor's rooms to the same visit for a meaningfully cheaper combined rate than two separate appointments booked during the busiest weeks of the season, when good time slots are the scarcest thing in the whole transaction, not the price itself.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
