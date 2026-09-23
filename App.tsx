@@ -1245,6 +1245,68 @@ const COST_GUIDES = [
       "Carpet cleaning bundles naturally with neighbors heading into the holidays, since so many households are booking the same service in the same few-week window before guests arrive. A cleaning company already running an extraction machine and van at one house can typically add a neighbor's rooms to the same visit for a meaningfully cheaper combined rate than two separate appointments booked during the busiest weeks of the season, when good time slots are the scarcest thing in the whole transaction, not the price itself.",
     ],
   },
+  {
+    slug: 'handyman-costs-wake-county-2027',
+    title: 'Cheap Handyman Services in Wake County for 2027: Hourly Rates and Common Job Costs',
+    description: "What a handyman actually charges in Raleigh and Wake County heading into 2027, from hourly rates to flat-rate jobs like ceiling fans and drywall repair, and how to find a cheap, affordable handyman without hiring the wrong one.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 23, 2026',
+    image: 'https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Handyman Service',
+    intro: [
+      "Fall is when the honey-do list finally gets tackled: the loose railing, the sticking door, the ceiling fan that's been on the someday list since spring, all the small jobs a homeowner wants done before winter and holiday guests make them harder to ignore. Heading into 2027, handyman pricing is one of the more approachable categories to budget for, since most small jobs are either billed hourly or quoted flat, but rates vary widely between a solo independent and a franchise-backed company.",
+      "This guide covers hourly rates, flat-rate pricing for the most common jobs, and how to find a genuinely cheap, affordable handyman without ending up with the wrong person for the job.",
+    ],
+    sections: [
+      {
+        heading: 'Hourly Rates',
+        paragraphs: [
+          "Nationally, handymen charge $50 to $125 per hour, with the average landing around $75, though most homeowners pay $60 to $70 for a typical independent. The type of business matters more than almost anything else: a self-employed handyman typically charges $50 to $80 per hour, while a corporate or franchise-backed one runs $75 to $125, and emergency or after-hours calls climb to $120 to $200 per hour.",
+          "Raleigh runs noticeably cheaper than the national numbers, which is one of the genuine upsides of the region: local handyman rates land around $25 to $75 per hour on average, with $40 to $80 per hour being what homeowners typically pay when hiring for a specific project. Most handymen also carry a minimum charge, commonly a 2-hour minimum, which means even a 20-minute task can bill as $60 to $150 minimum depending on the person, so bundling several small jobs into one visit is the single easiest way to get real value from that minimum.",
+        ],
+        bullets: [
+          'National hourly rate: $50 to $125 (average around $75)',
+          'Self-employed: $50 to $80/hr; corporate/franchise: $75 to $125/hr',
+          'Raleigh average: $25 to $75/hr, typically $40 to $80 for a specific project',
+          'Minimum charge: commonly $60 to $150 (often a 2-hour minimum)',
+          'Emergency/after-hours: $120 to $200/hr',
+        ],
+        linkLabel: 'See real handyman deals in your neighborhood',
+        linkCategory: 'Handyman Service',
+      },
+      {
+        heading: 'Common Job Costs',
+        paragraphs: [
+          "Most handyman jobs fall between $100 and $350 total, with flat-rate jobs of predictable scope typically running $150 to $600. Ceiling fan installation runs $100 to $250 and usually takes 1 to 2 hours. TV mounting is $75 to $120 for a basic wall mount on drywall with stud-finding and leveling, with in-wall cord concealment adding another $75 to $150. Drywall repair for a patch or hole runs $75 to $250 and takes 45 to 90 minutes, and interior door replacement runs $150 to $400 depending on the door type.",
+          "Smaller plumbing-adjacent tasks a handyman commonly handles, like a faucet repair (30 to 60 minutes) or a garbage disposal replacement (60 to 90 minutes), tend to bill closer to the hourly rate plus parts rather than a flat fee. Anything involving new wiring, gas lines, or structural work is a licensed-trade job, not handyman work, and worth pricing separately with an actual electrician, plumber, or contractor rather than asking a handyman to stretch past what they're licensed for.",
+        ],
+        bullets: [
+          'Ceiling fan installation: $100 to $250 (1 to 2 hours)',
+          'TV mounting: $75 to $120, plus $75 to $150 for in-wall cord concealment',
+          'Drywall repair: $75 to $250 (45 to 90 minutes)',
+          'Interior door replacement: $150 to $400',
+          'Typical total for most small jobs: $100 to $350',
+        ],
+      },
+      {
+        heading: 'How to Get the Best Value',
+        paragraphs: [
+          "The cheapest way to hire a handyman isn't finding the lowest hourly rate, it's batching. A handyman billing a 2-hour minimum costs the same whether they fix one thing or five, so collecting the full honey-do list, the ceiling fan, the door, the drywall patch, the TV mount, into a single visit turns a $150 minimum into effectively $30 per task. That's a real, immediate discount that requires no negotiating at all.",
+          "The other lever is who you hire: independents typically charge 30 to 40% less per hour than franchise-backed companies for the same tasks, though franchises sometimes offer insurance and warranty coverage that a solo handyman won't. For simple, low-risk jobs, a well-reviewed independent is usually the affordable move; for anything that could cause real damage if done wrong, the extra insurance coverage can be worth paying for.",
+        ],
+        bullets: [
+          'Batch multiple small jobs into one visit to beat the minimum charge',
+          'Independents typically run 30-40% cheaper per hour than franchises',
+          'Franchises may include insurance/warranty coverage, worth it for higher-risk jobs',
+          'Never ask a handyman to stretch into licensed electrical, gas, or structural work',
+        ],
+      },
+    ],
+    closing: [
+      "Handyman work is one of the easiest categories to bundle with neighbors, since a handyman with a truck full of tools and a 2-hour minimum can usually fill an afternoon across two or three households on the same street far more efficiently than a single-household visit. Sharing that minimum charge across neighbors is exactly how a cheap, discounted rate becomes real rather than hypothetical, and it's one of the few home services where splitting the fixed trip cost with a neighbor is a clean, honest win for everyone involved.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
