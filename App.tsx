@@ -1307,6 +1307,65 @@ const COST_GUIDES = [
       "Handyman work is one of the easiest categories to bundle with neighbors, since a handyman with a truck full of tools and a 2-hour minimum can usually fill an afternoon across two or three households on the same street far more efficiently than a single-household visit. Sharing that minimum charge across neighbors is exactly how a cheap, discounted rate becomes real rather than hypothetical, and it's one of the few home services where splitting the fixed trip cost with a neighbor is a clean, honest win for everyone involved.",
     ],
   },
+  {
+    slug: 'deck-porch-costs-wake-county-2027',
+    title: 'Cheap Deck Builders in Wake County for 2027: Build, Repair, Staining, and Sealing Costs',
+    description: "What building, repairing, staining, and sealing a deck actually costs in Raleigh and Wake County heading into 2027, and how to find a cheap, affordable deck builder before fall's dry weather window closes.",
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 24, 2026',
+    image: 'https://images.pexels.com/photos/36220309/pexels-photo-36220309.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Deck or Porch',
+    intro: [
+      "Fall is the last good stretch of the year for deck work in Wake County: stain and sealant need dry, mild weather to cure properly, and a deck that goes into winter unsealed takes a full season of moisture and freeze-thaw damage that shows up as splintering and gray, weathered boards by spring. Heading into 2027, deck pricing splits into two very different conversations, building a new deck, which is a multi-thousand-dollar project driven almost entirely by material choice, and maintaining an existing one, which is a few hundred dollars that decides whether you ever need to build a new one.",
+      "This guide covers new deck construction by material, what a typical Raleigh project runs in total, and the staining, sealing, and refinishing costs that keep an existing deck alive, plus how to find a cheap, affordable deck builder without paying for corners cut on framing.",
+    ],
+    sections: [
+      {
+        heading: 'Building a New Deck',
+        paragraphs: [
+          "Nationally, new deck construction runs $25 to $60 per square foot installed, and the biggest lever is material. Pressure-treated lumber is the budget option at $25 to $35 per square foot, cedar runs $30 to $50, composite (the low-maintenance option) runs $40 to $60, and tropical hardwood sits at the top at $50 to $70 per square foot.",
+          "Raleigh-area projects average around $7,209 total, with a realistic range of $3,969 to $10,595 depending on size, height, and railings. Labor alone runs $13 to $30 per square foot locally. Composite is the outlier: most Raleigh composite deck projects budget $8,000 to $20,000 once stairs, railings, and site conditions are included, since the upfront premium over pressure-treated buys years of not restaining. The trade-off is straightforward: pressure-treated is the cheapest to build but needs regular maintenance in Raleigh's humid climate, while composite costs more upfront and almost nothing afterward.",
+        ],
+        bullets: [
+          'Pressure-treated: $25 to $35/sq ft installed (cheapest to build, needs upkeep)',
+          'Cedar: $30 to $50/sq ft installed',
+          'Composite: $40 to $60/sq ft installed (low maintenance)',
+          'Raleigh average project: $7,209 ($3,969 to $10,595 range)',
+          'Raleigh labor: $13 to $30 per sq ft; composite projects often $8,000 to $20,000 total',
+        ],
+        linkLabel: 'See real deck and porch deals in your neighborhood',
+        linkCategory: 'Deck or Porch',
+      },
+      {
+        heading: 'Staining and Sealing',
+        paragraphs: [
+          "Staining a deck runs $100 to $1,465 nationally, averaging around $850 or $2 to $4 per square foot depending on deck size and the stain's quality. Sealing alone is similar, $550 to $1,400 on average, or $0.75 to $4 per square foot, and many contractors quote stain-and-seal as a single combined job since the two are usually done together.",
+          "This is the cheapest way to spend money on a deck that actually pays for itself: a well-stained and sealed deck routinely lasts years longer before boards need replacing, and fall is the right time to do it, since stain applied in cool, dry weather cures evenly, while stain applied right before a wet winter can fail early and need redoing in spring.",
+        ],
+        bullets: [
+          'Staining: $100 to $1,465 (around $850 average, $2 to $4 per sq ft)',
+          'Sealing: $550 to $1,400 average ($0.75 to $4 per sq ft)',
+          'Best applied in dry, mild fall weather for even curing',
+        ],
+      },
+      {
+        heading: 'Refinishing and Repairs',
+        paragraphs: [
+          "Full deck refinishing, which covers cleaning, sanding, and restaining or resealing a weathered deck, averages about $980 nationally, with most homeowners paying $900 to $2,720 depending on deck size and condition, or $3 to $6.80 per square foot. That's the number to compare against replacement: a deck with sound framing and boards that's simply weathered is almost always cheaper to refinish than to rebuild, often by a factor of five or more.",
+          "The real deciding factor is what's underneath. Surface graying and minor splintering are refinish problems; rot in the joists, ledger board, or posts is not, since those are structural. Any deck showing soft spots, sagging, or a loose ledger connection to the house needs a real inspection before anyone quotes a cosmetic fix, because staining over structural rot just hides a safety problem.",
+        ],
+        bullets: [
+          'Full refinishing: $980 average ($900 to $2,720 typical, $3 to $6.80 per sq ft)',
+          'Refinish vs. rebuild: refinishing is often 5x cheaper if framing is sound',
+          'Structural rot (joists, ledger, posts) is a repair or rebuild job, not a cosmetic one',
+        ],
+      },
+    ],
+    closing: [
+      "Deck maintenance bundles well with neighbors, since staining and sealing crews already have the power washer, sprayer, and materials mobilized at one house, and a same-day visit to a neighbor's deck costs them almost nothing extra in setup. New deck construction is a different scale of project, but even there, a builder already framing one deck on a street can often quote a meaningfully better rate for a second, which is how a cheap, discounted deck price becomes real rather than a lowball quote that skips permits or proper footings.",
+    ],
+  },
 ];
 
 const CollapsibleCategoryGroup: React.FC<{ group: any, filterCategories: string[], setFilterCategories: (cats: string[]) => void }> = ({ group, filterCategories, setFilterCategories }) => {
