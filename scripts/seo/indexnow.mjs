@@ -7,6 +7,8 @@
 //
 // Run AFTER a deploy is live:   npm run seo:indexnow
 // Google does not participate in IndexNow; this helps every other engine.
+// Bing's endpoint is used directly (it relays to all IndexNow participants);
+// the generic api.indexnow.org endpoint returned 403 on first use.
 
 import { readFileSync } from 'fs';
 import path from 'path';
@@ -18,7 +20,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const core = readFileSync(path.join(__dirname, '..', '..', 'dist', 'sitemap-core.xml'), 'utf-8');
 const urlList = [...core.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 
-const res = await fetch('https://api.indexnow.org/indexnow', {
+const res = await fetch('https://www.bing.com/indexnow', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json; charset=utf-8' },
   body: JSON.stringify({ host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList }),
