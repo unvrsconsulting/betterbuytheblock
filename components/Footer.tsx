@@ -1,16 +1,24 @@
 import React from 'react';
 import Link from './Link';
 import { CATEGORY_GROUPS } from '../constants';
-import { categoryPath } from '../services/seo/pageContent.js';
+import { categoryPath, guidePath, GUIDES_HUB_PATH } from '../services/seo/pageContent.js';
+import { COST_GUIDES } from '../services/seo/guides.js';
 
 interface FooterProps {
   onNavigate?: (page: string) => void;
   onCategoryClick?: (categoryName: string) => void;
+  onGuideClick?: (guide: any) => void;
 }
 
 const ALL_CATEGORIES = CATEGORY_GROUPS.flatMap(g => g.categories);
 
-const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {}, onCategoryClick = (_c: string) => {} }) => {
+// Newest guides first - every page on the site carries these links, which is
+// the strongest internal-link signal a young blog can get.
+const LATEST_GUIDES = [...COST_GUIDES]
+  .sort((a, b) => (new Date(b.date).getTime() || 0) - (new Date(a.date).getTime() || 0))
+  .slice(0, 6);
+
+const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {}, onCategoryClick = (_c: string) => {}, onGuideClick = (_g: any) => {} }) => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800 mt-auto">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-5 gap-8">
@@ -25,7 +33,17 @@ const Footer: React.FC<FooterProps> = ({ onNavigate = (_page: string) => {}, onC
           <ul className="space-y-3 text-sm">
             <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-white transition-colors">How it works</button></li>
             <li><button onClick={() => onNavigate('results')} className="hover:text-white transition-colors">Find a pro</button></li>
-            <li><button onClick={() => onNavigate('articles')} className="hover:text-white transition-colors">Cost guides</button></li>
+            <li><Link href={GUIDES_HUB_PATH} onNavigate={() => onNavigate('articles')} className="hover:text-white transition-colors">Cost guides</Link></li>
+          </ul>
+          <h4 className="text-white font-bold mt-8 mb-4 uppercase tracking-wider text-sm">Latest guides</h4>
+          <ul className="space-y-3 text-sm">
+            {LATEST_GUIDES.map(guide => (
+              <li key={guide.slug}>
+                <Link href={guidePath(guide.slug)} onNavigate={() => onGuideClick(guide)} className="hover:text-white transition-colors">
+                  {guide.title.replace(/ in Wake County for 2027.*$/, '')}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

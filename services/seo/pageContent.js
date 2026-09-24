@@ -6,6 +6,7 @@
 // hydrated page can never drift apart.
 
 import { slugify } from './slugify.js';
+import { COST_GUIDES } from './guides.js';
 
 export const SITE_URL = 'https://betterbuytheblock.com';
 
@@ -215,7 +216,11 @@ export function getServicePageContent(business, service) {
     canonicalUrl,
     title,
     description,
-    robots: 'index, follow',
+    // A prospective business's deal is a proposal that near-duplicates its
+    // business page (same description, same price) - advertising thousands of
+    // those dilutes a young domain's crawl budget and quality signals. Only a
+    // real, confirmed business's live deal earns its own indexable page.
+    robots: business.isProspective ? 'noindex, follow' : 'index, follow',
     honestyBadge: business.isProspective ? BUSINESS_HONESTY_BADGE : null,
     honestyNote: business.isProspective ? SERVICE_HONESTY_NOTE : null,
     jsonLd: [buildServiceJsonLd(service, business, canonicalUrl), buildBreadcrumbJsonLd(breadcrumb)],
@@ -293,6 +298,140 @@ export function getCategoryPageContent(categoryName, cityName, allServices) {
     description,
     robots: 'index, follow',
     services,
+    insights: getCategoryInsights(services),
+    guides: getGuidesForCategory(categoryName),
     jsonLd: [buildBreadcrumbJsonLd(breadcrumb)],
+  };
+}
+
+/**
+ * Real, per-page numbers computed from the actual services on a category (or
+ * category x city) page - the substance that makes each of these pages
+ * genuinely different from its siblings instead of one template with the
+ * words swapped. Never invented: every figure comes straight from `services`.
+ */
+export function getCategoryInsights(services) {
+  if (!services || services.length === 0) return null;
+  const prices = services.map(s => Math.round((s.standardPrice || 0) * (1 - (s.discountPercentage || 0) / 100))).filter(p => p > 0);
+  const discounts = services.map(s => s.discountPercentage || 0).filter(d => d > 0);
+  return {
+    serviceCount: services.length,
+    businessCount: new Set(services.map(s => s.businessId)).size,
+    minPrice: prices.length ? Math.min(...prices) : null,
+    maxPrice: prices.length ? Math.max(...prices) : null,
+    avgDiscount: discounts.length ? Math.round(discounts.reduce((a, b) => a + b, 0) / discounts.length) : null,
+  };
+}
+
+/** One-sentence plain-English summary of getCategoryInsights, shared by the static page and the live SPA. */
+export function describeInsights(insights, categoryName, cityName) {
+  if (!insights) return null;
+  const where = cityName ? `in ${cityName}` : 'across Wake County';
+  const range = insights.minPrice != null && insights.maxPrice != null
+    ? ` Bulk-deal prices run from $${insights.minPrice} to $${insights.maxPrice}${insights.avgDiscount ? `, averaging ${insights.avgDiscount}% off the standard rate` : ''}.`
+    : '';
+  return `${insights.businessCount} local ${categoryName.toLowerCase()} ${insights.businessCount === 1 ? 'business is' : 'businesses are'} listed ${where}, with ${insights.serviceCount} bulk-pricing ${insights.serviceCount === 1 ? 'deal' : 'deals'} to compare.${range}`;
+}
+
+// --- Guides (blog) ---
+
+export const GUIDES_HUB_PATH = '/guides';
+
+export function guidePath(slug) {
+  return `/guides/${slug}`;
+}
+
+/** 'SEP 24, 2026' -> '2026-09-24' (undefined if unparseable). */
+export function guideDateIso(dateStr) {
+  const parsed = new Date(dateStr);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString().slice(0, 10);
+}
+
+/** Guides that cover a category: their primary category, or any section that links to it. */
+export function getGuidesForCategory(categoryName, allGuides = COST_GUIDES) {
+  return allGuides.filter(g =>
+    g.category === categoryName || (g.sections || []).some(sec => sec.linkCategory === categoryName)
+  );
+}
+
+/**
+ * Other guides worth linking from this one: same category group first (a
+ * reader on the HVAC guide is likelier to want Plumbing/Electrical than
+ * Fencing), then newest. Real internal links, not a decorative widget.
+ * @param {object} guide
+ * @param {object[]} allGuides
+ * @param {{name: string, categories: string[]}[]} categoryGroups
+ */
+export function getRelatedGuides(guide, allGuides = COST_GUIDES, categoryGroups = [], limit = 4) {
+  const groupOf = (cat) => categoryGroups.find(g => g.categories.includes(cat))?.name;
+  const myGroup = groupOf(guide.category);
+  const time = (g) => new Date(g.date).getTime() || 0;
+  return allGuides
+    .filter(g => g.slug !== guide.slug)
+    .sort((a, b) => {
+      const aSame = myGroup && groupOf(a.category) === myGroup ? 0 : 1;
+      const bSame = myGroup && groupOf(b.category) === myGroup ? 0 : 1;
+      return aSame - bSame || time(b) - time(a);
+    })
+    .slice(0, limit);
+}
+
+export function buildArticleJsonLd(guide, canonicalUrl) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.description,
+    image: guide.image,
+    author: { '@type': 'Organization', name: guide.author },
+    publisher: {
+      '@type': 'Organization',
+      name: 'BetterBuyTheBlock',
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
+    },
+    datePublished: guideDateIso(guide.date),
+    dateModified: guideDateIso(guide.date),
+    mainEntityOfPage: canonicalUrl,
+  };
+}
+
+export function getGuidePageContent(guide, allGuides = COST_GUIDES, categoryGroups = []) {
+  const path = guidePath(guide.slug);
+  const canonicalUrl = `${SITE_URL}${path}`;
+  const breadcrumb = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Cost Guides', url: `${SITE_URL}${GUIDES_HUB_PATH}` },
+    { name: guide.title, url: canonicalUrl },
+  ];
+  return {
+    path,
+    canonicalUrl,
+    title: `${guide.title} | BetterBuyTheBlock`,
+    description: guide.description,
+    image: guide.image,
+    robots: 'index, follow',
+    relatedGuides: getRelatedGuides(guide, allGuides, categoryGroups),
+    jsonLd: [buildArticleJsonLd(guide, canonicalUrl), buildBreadcrumbJsonLd(breadcrumb)],
+  };
+}
+
+export function getGuidesHubContent(allGuides = COST_GUIDES) {
+  const canonicalUrl = `${SITE_URL}${GUIDES_HUB_PATH}`;
+  const guides = [...allGuides].sort((a, b) => (new Date(b.date).getTime() || 0) - (new Date(a.date).getTime() || 0));
+  const breadcrumb = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Cost Guides', url: canonicalUrl },
+  ];
+  return {
+    path: GUIDES_HUB_PATH,
+    canonicalUrl,
+    title: 'Cheap Home Service Cost Guides for Wake County, NC | BetterBuyTheBlock',
+    description: `${guides.length} plain-English cost guides for Raleigh and Wake County homeowners: what plumbing, HVAC, roofing, cleaning, landscaping and more really cost, and how to get the cheapest real price by bundling with neighbors.`,
+    robots: 'index, follow',
+    guides,
+    jsonLd: [
+      buildItemListJsonLd(guides.map(g => ({ name: g.title, url: `${SITE_URL}${guidePath(g.slug)}` })), canonicalUrl),
+      buildBreadcrumbJsonLd(breadcrumb),
+    ],
   };
 }

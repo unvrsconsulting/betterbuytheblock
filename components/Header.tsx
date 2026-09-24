@@ -74,9 +74,9 @@ const Header: React.FC<HeaderProps> = ({ currentUser, isAuthenticated = false, o
           <div className="bg-primary p-1.5 sm:p-2 rounded-lg shrink-0">
             <NeighborhoodIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
           </div>
-          <h1 className="text-base sm:text-2xl font-extrabold text-gray-900 tracking-tight whitespace-nowrap">
+          <span className="text-base sm:text-2xl font-extrabold text-gray-900 tracking-tight whitespace-nowrap">
             BetterBuyTheBlock
-          </h1>
+          </span>
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-6">

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import Link from './Link';
 
 interface Article {
+  slug: string;
   title: string;
   description: string;
   author: string;
@@ -36,9 +38,9 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, onArticleClick, o
       </button>
       
       <div className="mb-10">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Articles & Guides</h1>
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Cheap Home Service Cost Guides for Wake County, NC</h1>
         <p className="text-xl text-gray-600 max-w-3xl">
-          Expert advice, cost guides, and news to help you make informed decisions for your home.
+          Real prices for real Wake County homeowners: what home services actually cost in Raleigh, Cary, Apex and beyond, and how bundling with neighbors gets you the cheapest genuine rate.
         </p>
       </div>
       
@@ -62,9 +64,10 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, onArticleClick, o
       {/* Articles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredArticles.map(article => (
-          <div 
-            key={article.title} 
-            onClick={() => onArticleClick(article)}
+          <Link
+            key={article.title}
+            href={`/guides/${article.slug}`}
+            onNavigate={() => onArticleClick(article)}
             className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col h-full"
           >
             <div className="relative aspect-[3/2] overflow-hidden">
@@ -92,7 +95,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, onArticleClick, o
                 <span className="text-primary font-bold text-sm group-hover:underline">Read article &rarr;</span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       

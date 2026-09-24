@@ -17,12 +17,31 @@ import {
   businessPath,
   servicePath,
   neighborhoodPath,
+  categoryPath,
+  categoryCityPath,
+  guidePath,
+  guideDateIso,
+  GUIDES_HUB_PATH,
+  describeInsights,
   getBusinessPageContent,
   getServicePageContent,
   getNeighborhoodPageContent,
   getCategoryPageContent,
+  getGuidePageContent,
+  getGuidesHubContent,
+  getGuidesForCategory,
 } from '../../services/seo/pageContent.js';
-import { renderHead, renderPage, renderServiceCardHtml, renderBusinessCardHtml, escapeHtml } from './htmlTemplate.mjs';
+import { COST_GUIDES } from '../../services/seo/guides.js';
+import {
+  renderHead,
+  renderPage,
+  renderServiceCardHtml,
+  renderBusinessCardHtml,
+  renderGuideBodyHtml,
+  renderGuidesHubBodyHtml,
+  renderHomeBodyHtml,
+  escapeHtml,
+} from './htmlTemplate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..', '..');
@@ -90,33 +109,61 @@ function main() {
     return { businessHref: businessPath(business), serviceHref: servicePath(business, service) };
   }
 
-  let counts = { category: 0, categoryCity: 0, neighborhoodIndexed: 0, neighborhoodNoindex: 0, business: 0, service: 0 };
+  let counts = { category: 0, categoryCity: 0, neighborhoodIndexed: 0, neighborhoodNoindex: 0, business: 0, service: 0, guide: 0 };
   const sitemapUrls = [];
 
-  function pageHtml({ title, description, canonicalUrl, robots, jsonLd, bodyHtml }) {
+  function pageHtml({ title, description, canonicalUrl, robots, jsonLd, bodyHtml, ogImage }) {
     const head = renderHead({
       title,
       description,
       canonicalUrl,
       robots,
-      ogImage: DEFAULT_OG_IMAGE,
+      ogImage: ogImage || DEFAULT_OG_IMAGE,
       jsonLdList: jsonLd,
       assetTags,
     });
     return renderPage({ head, bodyHtml });
   }
 
-  function listingBody({ heading, intro, cardsHtml, count }) {
+  const NAV_LINK = 'color:#059669;text-decoration:none;font-weight:600;';
+  function linkRow(title, links) {
+    if (!links.length) return '';
+    return `<div style="margin:24px 0 0;"><h2 style="font-size:16px;font-weight:800;color:#111827;margin:0 0 8px;">${escapeHtml(title)}</h2><p style="line-height:2;margin:0;">${links
+      .map(l => `<a href="${escapeHtml(l.href)}" style="${NAV_LINK}margin-right:16px;white-space:nowrap;">${escapeHtml(l.label)}</a>`)
+      .join(' ')}</p></div>`;
+  }
+
+  function listingBody({ heading, intro, cardsHtml, count, insightsHtml = '', extraHtml = '' }) {
     return `<section style="max-width:1200px;margin:0 auto;padding:48px 24px;">
       <nav><a href="/" style="color:#059669;text-decoration:none;font-weight:600;">&larr; BetterBuyTheBlock</a></nav>
       <h1 style="font-size:32px;font-weight:800;color:#111827;margin:16px 0 8px;">${escapeHtml(heading)}</h1>
-      <p style="color:#6b7280;max-width:640px;margin:0 0 32px;">${escapeHtml(intro)}</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+      <p style="color:#6b7280;max-width:640px;margin:0 0 16px;">${escapeHtml(intro)}</p>
+      ${insightsHtml}
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:24px;">
         ${cardsHtml || '<p style="color:#9ca3af;">No listings here yet — check back soon.</p>'}
       </div>
       ${count > MAX_CARDS_PER_PAGE ? `<p style="color:#9ca3af;font-size:13px;margin-top:24px;">Showing ${MAX_CARDS_PER_PAGE} of ${count} — view the full list on the live site.</p>` : ''}
+      ${extraHtml}
     </section>`;
   }
+
+  // Which category x city combinations really have services - drives the
+  // cross-links below so no page ever links to an empty/non-existent combo.
+  const categoryGroupOf = new Map();
+  CATEGORY_GROUPS.forEach(g => g.categories.forEach(c => categoryGroupOf.set(c, g)));
+  const comboCounts = new Map();
+  for (const categoryName of allCategories) {
+    for (const cityName of WAKE_COUNTY_CITIES) {
+      const n = services.filter(sv => sv.category === categoryName && (sv.servedCities || []).includes(cityName)).length;
+      if (n > 0) comboCounts.set(`${categoryName}|${cityName}`, n);
+    }
+  }
+  const insightsBlock = (text) => (text
+    ? `<p style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:12px 16px;color:#374151;max-width:760px;margin:0;">${escapeHtml(text)}</p>`
+    : '');
+  const guideCallout = (guides) => (guides.length
+    ? `<p style="margin:16px 0 0;max-width:760px;color:#374151;">What does it cost? Read the full guide: ${guides.map(g => `<a href="${guidePath(g.slug)}" style="${NAV_LINK}">${escapeHtml(g.title)}</a>`).join(' &middot; ')}</p>`
+    : '');
 
   // --- Category pages (23, always indexable) ---
   for (const categoryName of allCategories) {
@@ -125,14 +172,22 @@ function main() {
       .slice(0, MAX_CARDS_PER_PAGE)
       .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
       .join('\n        ');
+    const cityLinks = WAKE_COUNTY_CITIES
+      .filter(city => comboCounts.has(`${categoryName}|${city}`))
+      .map(city => ({ href: categoryCityPath(categoryName, city), label: `${categoryName} in ${city}` }));
+    const siblingLinks = (categoryGroupOf.get(categoryName)?.categories || [])
+      .filter(c => c !== categoryName)
+      .map(c => ({ href: categoryPath(c), label: c }));
     const bodyHtml = listingBody({
       heading: `Cheap ${categoryName} in Wake County, NC`,
       intro: content.description,
       cardsHtml,
       count: content.services.length,
+      insightsHtml: insightsBlock(describeInsights(content.insights, categoryName, null)) + guideCallout(content.guides),
+      extraHtml: linkRow(`Cheap ${categoryName} by city`, cityLinks) + linkRow('Related services', siblingLinks),
     });
     writeRoute(content.path, pageHtml({ ...content, bodyHtml }));
-    sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.8' });
+    sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.8', group: 'core' });
     counts.category++;
   }
 
@@ -145,14 +200,27 @@ function main() {
         .slice(0, MAX_CARDS_PER_PAGE)
         .map(s => { const { businessHref, serviceHref } = hrefsFor(s); return renderServiceCardHtml(s, businessById.get(s.businessId), businessHref, serviceHref); })
         .join('\n        ');
+      const otherCities = WAKE_COUNTY_CITIES
+        .filter(city => city !== cityName && comboCounts.has(`${categoryName}|${city}`))
+        .map(city => ({ href: categoryCityPath(categoryName, city), label: `${categoryName} in ${city}` }));
+      const otherCategories = allCategories
+        .filter(c => c !== categoryName && comboCounts.has(`${c}|${cityName}`))
+        .sort((a, b) => comboCounts.get(`${b}|${cityName}`) - comboCounts.get(`${a}|${cityName}`))
+        .slice(0, 12)
+        .map(c => ({ href: categoryCityPath(c, cityName), label: `${c} in ${cityName}` }));
       const bodyHtml = listingBody({
         heading: `Cheap ${categoryName} in ${cityName}, NC`,
         intro: content.description,
         cardsHtml,
         count: content.services.length,
+        insightsHtml: insightsBlock(describeInsights(content.insights, categoryName, cityName)) + guideCallout(content.guides),
+        extraHtml:
+          linkRow('See the whole county', [{ href: categoryPath(categoryName), label: `All cheap ${categoryName} in Wake County` }]) +
+          linkRow(`${categoryName} in nearby cities`, otherCities) +
+          linkRow(`More services in ${cityName}`, otherCategories),
       });
       writeRoute(content.path, pageHtml({ ...content, bodyHtml }));
-      sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.7' });
+      sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.7', group: 'core' });
       counts.categoryCity++;
     }
   }
@@ -180,7 +248,7 @@ function main() {
     </section>`;
     writeRoute(content.path, pageHtml({ ...content, bodyHtml }));
     if (content.robots.startsWith('index')) {
-      sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.5' });
+      sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.5', group: 'neighborhoods' });
       counts.neighborhoodIndexed++;
     } else {
       counts.neighborhoodNoindex++;
@@ -211,8 +279,9 @@ function main() {
     const noteHtml = content.honestyNote
       ? `<p style="color:#6b7280;font-size:14px;max-width:640px;margin:0 0 16px;">${escapeHtml(content.honestyNote)}</p>`
       : '';
+    const bizGuides = business.category ? getGuidesForCategory(business.category) : [];
     const bodyHtml = `<section style="max-width:1200px;margin:0 auto;padding:48px 24px;">
-      <nav><a href="/" style="color:#059669;text-decoration:none;font-weight:600;">&larr; BetterBuyTheBlock</a></nav>
+      <nav><a href="/" style="color:#059669;text-decoration:none;font-weight:600;">&larr; BetterBuyTheBlock</a>${business.category ? ` &rsaquo; <a href="${escapeHtml(categoryPath(business.category))}" style="color:#059669;text-decoration:none;font-weight:600;">Cheap ${escapeHtml(business.category)} in Wake County</a>` : ''}</nav>
       <h1 style="font-size:32px;font-weight:800;color:#111827;margin:16px 0 8px;">${escapeHtml(business.name)}</h1>
       ${badgeHtml}
       ${noteHtml}
@@ -220,9 +289,10 @@ function main() {
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
         ${cardsHtml || '<p style="color:#9ca3af;">No current deals from this business.</p>'}
       </div>
+      ${bizGuides.length ? `<p style="margin-top:32px;color:#374151;">What does ${escapeHtml(business.category.toLowerCase())} cost in Wake County? ${bizGuides.map(g => `<a href="${guidePath(g.slug)}" style="color:#059669;text-decoration:none;font-weight:600;">${escapeHtml(g.title)}</a>`).join(' &middot; ')}</p>` : ''}
     </section>`;
     writeRoute(content.path, pageHtml({ ...content, bodyHtml }));
-    sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.6' });
+    sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.6', group: 'businesses' });
     counts.business++;
 
     // Nested service pages — real business context (name/address/price)
@@ -252,47 +322,88 @@ function main() {
       <p style="color:#6b7280;font-size:14px;">${service.currentSignups || 0} of ${service.requiredSignups} neighbors joined so far. Once enough neighbors join, ${escapeHtml(business.name)} reaches out to schedule at the bulk rate.</p>
     </section>`;
       writeRoute(svcContent.path, pageHtml({ ...svcContent, bodyHtml: svcBodyHtml }));
-      sitemapUrls.push({ loc: svcContent.canonicalUrl, priority: '0.5' });
+      if (svcContent.robots.startsWith('index')) sitemapUrls.push({ loc: svcContent.canonicalUrl, priority: '0.5', group: 'businesses' });
       counts.service++;
     }
   }
 
-  // --- Sitemap (replaces whatever public/sitemap.xml Vite already copied) ---
-  const staticUrls = [
-    { loc: `${SITE_URL}/`, priority: '1.0' },
-    { loc: `${SITE_URL}/privacy`, priority: '0.3' },
-    { loc: `${SITE_URL}/terms`, priority: '0.3' },
-  ];
-  // Blog guide slugs are authored directly in App.tsx's COST_GUIDES, not
-  // fetched data — read them out of the built client bundle would be fragile,
-  // so this list is kept in sync by hand (small, rarely-changing set).
-  const guideSlugs = [
-    'hvac-costs-wake-county-2027',
-    'roofing-costs-wake-county-2027',
-    'lawn-care-landscaping-costs-wake-county-2027',
-    'house-cleaning-costs-wake-county-2027',
-    'pest-control-costs-wake-county-2027',
-    'gutter-cleaning-costs-wake-county-2027',
-    'tree-service-costs-wake-county-2027',
-    'cheap-discount-home-services-wake-county-nc',
-    'plumbing-costs-wake-county-2027',
-    'electrical-costs-wake-county-2027',
-    'painting-costs-wake-county-2027',
-    'home-security-costs-wake-county-2027',
-    'power-washing-costs-wake-county-2027',
-    'pool-maintenance-costs-wake-county-2027',
-    'fencing-costs-wake-county-2027',
-    'carpet-cleaning-costs-wake-county-2027',
-    'handyman-costs-wake-county-2027',
-    'deck-porch-costs-wake-county-2027',
-  ];
-  for (const slug of guideSlugs) staticUrls.push({ loc: `${SITE_URL}/guides/${slug}`, priority: '0.7' });
+  // --- Blog: one static page per guide + the /guides hub ---
+  // Guides used to exist only as client-rendered JS (sitemap entries with no
+  // static HTML behind them), so a crawler that hadn't rendered the SPA yet
+  // found nothing. Now each guide is real HTML with Article schema, and the
+  // hub gives every guide a crawlable inbound link.
+  const guideHref = g => guidePath(g.slug);
+  for (const guide of COST_GUIDES) {
+    const content = getGuidePageContent(guide, COST_GUIDES, CATEGORY_GROUPS);
+    const categoryHref = guide.category ? categoryPath(guide.category) : null;
+    // Give each section that links to a category a real href for the static CTA.
+    const guideForHtml = {
+      ...guide,
+      sections: (guide.sections || []).map(sec => ({ ...sec, __href: sec.linkCategory ? categoryPath(sec.linkCategory) : null })),
+    };
+    const bodyHtml = renderGuideBodyHtml(guideForHtml, { relatedGuides: content.relatedGuides, categoryHref, guideHref });
+    writeRoute(content.path, pageHtml({ ...content, bodyHtml, ogImage: guide.image }));
+    counts.guide++;
+  }
+  const hub = getGuidesHubContent(COST_GUIDES);
+  const hubBody = renderGuidesHubBodyHtml({
+    guides: hub.guides,
+    guideHref,
+    categoryLinks: allCategories.map(c => ({ href: categoryPath(c), label: `Cheap ${c}` })),
+  });
+  writeRoute(hub.path, pageHtml({ ...hub, bodyHtml: hubBody }));
 
-  const allUrls = [...staticUrls, ...sitemapUrls];
-  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+  // --- Homepage: give the static shell real, crawlable content + links ---
+  // dist/index.html is also the SPA fallback for un-prerendered routes, so
+  // this content only ever shows for the instant before React mounts (which
+  // replaces #root's contents).
+  const latestGuides = [...COST_GUIDES]
+    .sort((a, b) => (new Date(b.date).getTime() || 0) - (new Date(a.date).getTime() || 0))
+    .slice(0, 6);
+  const homeBody = renderHomeBodyHtml({
+    groups: CATEGORY_GROUPS.map(g => ({
+      name: g.name,
+      categories: g.categories.map(c => ({ href: categoryPath(c), label: c })),
+    })),
+    latestGuides,
+    guideHref,
+  });
+  writeFileSync(
+    path.join(DIST, 'index.html'),
+    indexHtml.replace('<div id="root"></div>', `<div id="root">${homeBody}</div>`)
+  );
+
+  // --- Sitemaps: an index over four focused files ---
+  // Splitting by page type is what makes Search Console's per-sitemap
+  // indexing counts useful: core (home/guides/categories) vs. businesses vs.
+  // neighborhoods can each be watched on their own instead of one 10k-URL blob.
+  // lastmod is only emitted where it's true (a guide's own publish date) -
+  // a made-up "modified today" on every page trains Google to ignore it.
+  const today = new Date().toISOString().slice(0, 10);
+  const guideLastmod = new Map(COST_GUIDES.map(g => [`${SITE_URL}${guidePath(g.slug)}`, guideDateIso(g.date)]));
+  const coreStatic = [
+    { loc: `${SITE_URL}/`, priority: '1.0', group: 'core', lastmod: today },
+    { loc: `${SITE_URL}${GUIDES_HUB_PATH}`, priority: '0.9', group: 'core', lastmod: today },
+    ...COST_GUIDES.map(g => ({ loc: `${SITE_URL}${guidePath(g.slug)}`, priority: '0.8', group: 'core', lastmod: guideLastmod.get(`${SITE_URL}${guidePath(g.slug)}`) })),
+    { loc: `${SITE_URL}/privacy`, priority: '0.2', group: 'core' },
+    { loc: `${SITE_URL}/terms`, priority: '0.2', group: 'core' },
+  ];
+  const allUrls = [...coreStatic, ...sitemapUrls];
+  const urlsetXml = (urls) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allUrls.map(u => `  <url>\n    <loc>${escapeHtml(u.loc)}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`).join('\n')}
+${urls.map(u => `  <url>\n    <loc>${escapeHtml(u.loc)}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}\n    <priority>${u.priority}</priority>\n  </url>`).join('\n')}
 </urlset>
+`;
+  const sitemapFiles = [
+    ['sitemap-core.xml', allUrls.filter(u => u.group === 'core')],
+    ['sitemap-businesses.xml', allUrls.filter(u => u.group === 'businesses')],
+    ['sitemap-neighborhoods.xml', allUrls.filter(u => u.group === 'neighborhoods')],
+  ];
+  for (const [file, urls] of sitemapFiles) writeFileSync(path.join(DIST, file), urlsetXml(urls));
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapFiles.map(([file]) => `  <sitemap>\n    <loc>${SITE_URL}/${file}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`).join('\n')}
+</sitemapindex>
 `;
   writeFileSync(path.join(DIST, 'sitemap.xml'), sitemapXml);
 
@@ -301,8 +412,10 @@ ${allUrls.map(u => `  <url>\n    <loc>${escapeHtml(u.loc)}</loc>\n    <changefre
   console.log(`  Category x City pages: ${counts.categoryCity}`);
   console.log(`  Neighborhood pages:    ${counts.neighborhoodIndexed} indexed + ${counts.neighborhoodNoindex} noindex = ${counts.neighborhoodIndexed + counts.neighborhoodNoindex}`);
   console.log(`  Business pages:        ${counts.business}`);
-  console.log(`  Service pages:         ${counts.service}`);
+  console.log(`  Service pages:         ${counts.service} (indexable ones only in sitemap)`);
+  console.log(`  Guide pages:           ${counts.guide} + hub`);
   console.log(`  Total pages written:   ${counts.category + counts.categoryCity + counts.neighborhoodIndexed + counts.neighborhoodNoindex + counts.business + counts.service}`);
+  for (const [file, urls] of sitemapFiles) console.log(`  ${file.padEnd(28)} ${urls.length} URLs`);
   console.log(`  Sitemap entries:       ${allUrls.length}`);
 }
 

@@ -10,6 +10,18 @@ export default defineConfig(() => {
         host: '0.0.0.0',
       },
       plugins: [react(), tailwindcss()],
+      build: {
+        rollupOptions: {
+          output: {
+            // Separate long-lived vendor chunks so they cache independently of
+            // app code and download in parallel with the entry bundle.
+            manualChunks: {
+              'vendor-motion': ['framer-motion'],
+              'vendor-map': ['leaflet', 'react-leaflet'],
+            },
+          },
+        },
+      },
       // GEMINI_API_KEY is never defined for the client bundle — it's read
       // directly from process.env in api/ai.ts, which only runs server-side.
       // Baking a secret into `define` here would ship it in the shipped JS.

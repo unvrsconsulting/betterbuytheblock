@@ -63,6 +63,14 @@ export interface NeighborhoodPageContent {
 
 export function getNeighborhoodPageContent(neighborhood: Neighborhood, services: Service[]): NeighborhoodPageContent;
 
+export interface CategoryInsights {
+  serviceCount: number;
+  businessCount: number;
+  minPrice: number | null;
+  maxPrice: number | null;
+  avgDiscount: number | null;
+}
+
 export interface CategoryPageContent {
   path: string;
   canonicalUrl: string;
@@ -70,6 +78,8 @@ export interface CategoryPageContent {
   description: string;
   robots: 'index, follow' | 'noindex, follow';
   services: Service[];
+  insights: CategoryInsights | null;
+  guides: Guide[];
   jsonLd: Record<string, unknown>[];
 }
 
@@ -78,3 +88,50 @@ export function getCategoryPageContent(
   cityName: string | null,
   allServices: Service[]
 ): CategoryPageContent;
+
+// --- Guides (blog) ---
+
+export interface Guide {
+  slug: string;
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  image: string;
+  type: string;
+  category?: string;
+  intro?: string[];
+  sections?: { heading: string; paragraphs: string[]; bullets?: string[]; linkLabel?: string; linkCategory?: string }[];
+  closing?: string[];
+}
+
+export interface GuidePageContent {
+  path: string;
+  canonicalUrl: string;
+  title: string;
+  description: string;
+  image: string;
+  robots: 'index, follow';
+  relatedGuides: Guide[];
+  jsonLd: Record<string, unknown>[];
+}
+
+export interface GuidesHubContent {
+  path: string;
+  canonicalUrl: string;
+  title: string;
+  description: string;
+  robots: 'index, follow';
+  guides: Guide[];
+  jsonLd: Record<string, unknown>[];
+}
+
+export const GUIDES_HUB_PATH: string;
+export function guidePath(slug: string): string;
+export function guideDateIso(dateStr: string): string | undefined;
+export function getGuidesForCategory(categoryName: string, allGuides?: Guide[]): Guide[];
+export function getRelatedGuides(guide: Guide, allGuides?: Guide[], categoryGroups?: { name: string; categories: string[] }[], limit?: number): Guide[];
+export function getGuidePageContent(guide: Guide, allGuides?: Guide[], categoryGroups?: { name: string; categories: string[] }[]): GuidePageContent;
+export function getGuidesHubContent(allGuides?: Guide[]): GuidesHubContent;
+export function getCategoryInsights(services: Service[]): CategoryInsights | null;
+export function describeInsights(insights: CategoryInsights | null, categoryName: string, cityName?: string | null): string | null;
