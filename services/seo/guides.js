@@ -1216,4 +1216,95 @@ export const COST_GUIDES = [
       "Deck maintenance bundles well with neighbors, since staining and sealing crews already have the power washer, sprayer, and materials mobilized at one house, and a same-day visit to a neighbor's deck costs them almost nothing extra in setup. New deck construction is a different scale of project, but even there, a builder already framing one deck on a street can often quote a meaningfully better rate for a second, which is how a cheap, discounted deck price becomes real rather than a lowball quote that skips permits or proper footings.",
     ],
   },
+  {
+    slug: 'window-washing-costs-wake-county-2027',
+    title: 'Cheap Window Washing in Wake County for 2027: Per-Window, Whole-House, and Screen Cleaning Costs',
+    description: 'What window cleaning actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from a per-pane price to a whole-house package, plus the add-ons that inflate a quote and the cheapest ways to book.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 25, 2026',
+    image: 'https://images.pexels.com/photos/31435403/pexels-photo-31435403.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Window Washing',
+    intro: [
+      "Window washing is one of the cheapest ways to make a house look better, and one of the easiest to overpay for. Between pollen season, red clay dust, and the humidity that leaves film on glass, Wake County windows get dirty fast, and the price you're quoted can swing a lot depending on how the job is priced and who is doing it.",
+      "This guide covers per-window and whole-house costs, what interior versus exterior cleaning runs, the add-ons that quietly raise a quote, and the cheap, discounted ways to book, including why neighbors booking together is the most reliable way to lower the price.",
+    ],
+    sections: [
+      {
+        heading: 'Per-Window and Per-Pane Costs',
+        paragraphs: [
+          "Most professionals price by the window or the pane. Nationally, standard exterior cleaning runs about $6.40 to $12.80 per window, while interior-only cleaning is far cheaper at roughly $1.60 to $3.20 since there is no ladder work or weathering to deal with. Cleaning both sides typically lands around $8 to $16 per window.",
+          "Raleigh-area pricing sits in the same range. Local cost trackers put a standard window at about $8 to $10, with per-pane pricing around $6 to $8 for a residential job, and hourly rates for window washers of roughly $25 to $39.",
+        ],
+        bullets: [
+          'Exterior only: $6.40 to $12.80 per window',
+          'Interior only: $1.60 to $3.20 per window',
+          'Both sides: $8 to $16 per window',
+          'Raleigh average per standard window: about $8 to $10',
+          'Hourly window washer rates: about $25 to $39',
+        ],
+        linkLabel: 'See real window washing deals in your neighborhood',
+        linkCategory: 'Window Washing',
+      },
+      {
+        heading: 'Whole-House Window Cleaning Costs',
+        paragraphs: [
+          "Most homeowners are better off thinking in whole-house terms. Cleaning all the windows on a standard single-story home usually costs $150 to $350, while two- and three-story homes run $250 to $600 or more because of ladder time and safety setup.",
+          "Wake County-specific estimates put the typical job at about $192 to $256, with a full range of roughly $94 to $378. A quick way to sanity check a quote is to multiply the window count by $10 to $16 for both sides, then add a few dollars per window above the first floor.",
+        ],
+        bullets: [
+          '5 to 6 windows: about $100 to $120',
+          '8 to 10 windows: about $160 to $200',
+          '13 to 15 windows: about $260 to $300',
+          '18 to 20 windows: about $360 to $400',
+          'Raleigh typical whole-house job: $192 to $256 ($94 to $378 range)',
+        ],
+      },
+      {
+        heading: 'Window Type Changes the Price',
+        paragraphs: [
+          "Not every window costs the same to clean. A standard double-hung window is the cheapest, while bay, bow, picture, and casement windows take longer or need extra care, and skylights are the most expensive because of the access and glass type.",
+          "If your house has a lot of large picture windows or divided-pane windows with many small panes, expect a per-pane price to cost noticeably more than a per-window price, and ask which method the company uses before you accept a quote.",
+        ],
+        bullets: [
+          'Single or double-hung: $8 to $16 (around $12 average)',
+          'Bay, bow, and picture windows: $15 to $25 (around $20 average)',
+          'Awning and casement windows: $15 to $30 (around $23 average)',
+          'Skylights: $25 to $35 (around $30 average)',
+          'Storm windows: $30 to $40 per window',
+        ],
+      },
+      {
+        heading: 'Add-Ons That Raise the Quote',
+        paragraphs: [
+          "The base per-window price is rarely the whole bill. Screen cleaning, track and sill detailing, and hard water stain removal are all common add-ons, and each one can turn a cheap quote into an average one.",
+          "Upper floors matter too. Companies typically add about $3 to $5 per window above the ground floor, so a two-story house with mostly second-floor windows costs more than the same number of windows on a ranch.",
+        ],
+        bullets: [
+          'Screens: $5 to $10 per window (around $8 average)',
+          'Sills and tracks: up to about $5 per window (around $3 average)',
+          'Hard water stain removal: about $10 to $30 extra per window',
+          'Multi-story premium: about $3 to $5 more per window above ground level',
+        ],
+      },
+      {
+        heading: 'How to Get the Cheapest Price',
+        paragraphs: [
+          "Bundling is where the real savings are. Many companies offer a combined interior and exterior rate that runs 15 to 25 percent cheaper than booking the two separately, and a 20-window home often comes in between $300 and $500 for a full package.",
+          "Frequency matters too. Most homes only need a professional cleaning about twice a year, typically spring after pollen season and fall before winter, so a maintenance plan that locks in those two visits is usually cheaper per visit than calling ad hoc.",
+        ],
+        bullets: [
+          'Book interior and exterior together: about 15 to 25 percent cheaper',
+          'Clean twice a year, after pollen season and before winter',
+          'Clean only the windows that need it, skipping rarely used ones',
+          'Ask for a per-window price in writing, including screens and tracks',
+        ],
+        linkLabel: 'Compare window washing prices near you',
+        linkCategory: 'Window Washing',
+      },
+    ],
+    closing: [
+      "Window washing is a perfect fit for group pricing. A crew that is already set up with ladders, water-fed poles, and a route on your street loses almost nothing by doing the house next door, and that saved travel and setup time is exactly what turns into a cheap, discounted price for everyone on the block. Compare real window washing deals in your neighborhood, and get two or three quotes in writing before you book.",
+    ],
+  },
 ];
