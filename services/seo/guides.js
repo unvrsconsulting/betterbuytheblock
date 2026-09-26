@@ -1307,4 +1307,105 @@ export const COST_GUIDES = [
       "Window washing is a perfect fit for group pricing. A crew that is already set up with ladders, water-fed poles, and a route on your street loses almost nothing by doing the house next door, and that saved travel and setup time is exactly what turns into a cheap, discounted price for everyone on the block. Compare real window washing deals in your neighborhood, and get two or three quotes in writing before you book.",
     ],
   },
+  {
+    slug: 'solar-panel-costs-wake-county-2027',
+    title: 'Affordable Solar Panel Installation in Wake County for 2027: System Costs, Incentives, and How to Pay Less',
+    description: 'What rooftop solar actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, including cost per watt, full system prices, the Duke Energy deadline, financing options, and the cheapest ways to buy.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 26, 2026',
+    image: 'https://images.pexels.com/photos/12243093/pexels-photo-12243093.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Solar Panel Installation',
+    intro: [
+      "Solar is the biggest single home-service purchase most Wake County homeowners will ever price, and the numbers have shifted a lot. The 30 percent federal tax credit for homeowners no longer applies to systems finished after December 31, 2025, and Duke Energy is changing how it pays for the power your roof sends back to the grid.",
+      "This guide walks through what a system costs per watt and in total, how the Duke Energy rules affect your payback, which payment options are cheapest over time, and the affordable, discounted ways to buy, including why neighbors going solar together is one of the few real ways to lower the price.",
+    ],
+    sections: [
+      {
+        heading: 'Cost Per Watt and Total System Cost',
+        paragraphs: [
+          "Solar is priced per watt of capacity, installed. Across North Carolina, recent 2026 data puts the average around $2.40 to $3.10 per watt depending on the source, with some trackers reporting closer to $2.34 per watt for the most competitive installers.",
+          "Total cost depends on system size. EnergySage puts the average North Carolina home at about a 14 kW system costing roughly $35,000 before incentives, with a range of about $29,700 to $40,200. A smaller 6 kW system for a modest home typically lands between $15,000 and $21,000, and Wake County-specific estimates run about $16,650 to $22,500 for a typical residential install.",
+        ],
+        bullets: [
+          'North Carolina average: about $2.40 to $3.10 per watt installed',
+          '5 kW system: about $12,200',
+          '10 kW system: about $24,400',
+          '14 kW system (average home): about $35,000 ($29,700 to $40,200 range)',
+          'Wake County typical residential range: about $16,650 to $22,500',
+        ],
+        linkLabel: 'See real solar installation deals in your neighborhood',
+        linkCategory: 'Solar Panel Installation',
+      },
+      {
+        heading: 'The Federal Tax Credit Is Gone',
+        paragraphs: [
+          "The 30 percent residential clean energy credit that cut the price of solar for years does not apply to systems placed in service after December 31, 2025. That means any quote you get for 2027 has to be judged on its full price, with no automatic 30 percent off.",
+          "In practice, this makes comparing quotes more important than before. Installers who used to lean on the credit in their pitch now compete on equipment cost, labor, and financing terms, and the spread between the cheapest and most expensive local quotes can easily run several thousand dollars for the same size system.",
+        ],
+        bullets: [
+          'Federal residential credit: not available for systems placed in service after 12/31/2025',
+          'Judge every quote at the full, pre-incentive price',
+          'Get at least three written quotes for the same system size',
+        ],
+      },
+      {
+        heading: 'The Duke Energy Deadline That Affects Your Payback',
+        paragraphs: [
+          "Most of Wake County is served by Duke Energy. Duke's Net Metering Bridge Rate is scheduled to close to new applicants on December 31, 2026. Customers who get their interconnection request submitted and approved before then are generally protected from the mandatory time-of-use structure for 15 years, while later customers move to the Residential Solar Choice rate.",
+          "Under Residential Solar Choice, the credit you receive for power you send to the grid is reported at only a small fraction of the retail rate, in the range of a few cents per kWh, so a system sized to export a lot of power pays back more slowly. Confirm the current terms directly with Duke Energy and your installer, since utility rules change, and ask any installer how long interconnection approval is taking so you know whether the deadline is realistic.",
+        ],
+        bullets: [
+          'Bridge Rate closes to new applicants December 31, 2026',
+          'After that, new customers use time-of-use Residential Solar Choice',
+          'Export credits under the new rate are a small fraction of retail',
+          'Size a system for what you use, not for what you can export',
+        ],
+      },
+      {
+        heading: 'Payback and Long-Term Savings',
+        paragraphs: [
+          "With the credit gone, payback is longer. EnergySage estimates roughly 15.7 years for the average North Carolina system, with about $31,600 in savings over 25 years for a cash buyer, while other local estimates for a smaller Wake County system show payback closer to 9.6 years. The range is wide because usage, roof orientation, shading, and the rate you are on all move the answer.",
+          "The cheapest kilowatt-hour you can buy is the one you never use, so a few inexpensive efficiency upgrades before sizing a system, like insulation, air sealing, and HVAC maintenance, can shrink the system you need and the price you pay.",
+        ],
+        bullets: [
+          'Average NC payback: about 15.7 years (EnergySage)',
+          'Average 25-year savings for a cash buyer: about $31,600',
+          'Smaller Wake County systems: payback estimates near 9.6 years',
+          'Reduce usage first to reduce the size, and the cost, of the system',
+        ],
+      },
+      {
+        heading: 'Cash, Loan, Lease, or PPA: Which Is Cheapest?',
+        paragraphs: [
+          "How you pay matters as much as the sticker price. On EnergySage's numbers for the average North Carolina system, a cash purchase saves about $31,600 over 25 years, a power purchase agreement about $50,000, a solar lease about $18,700, and a loan can actually lose money, at about negative $11,000, once interest and fees are counted.",
+          "Those figures are estimates, and leases and PPAs come with contract terms, escalators, and effects on selling your home, so read the fine print before signing. But the comparison shows why the cheapest option on monthly payment is not always the cheapest over the life of the system.",
+        ],
+        bullets: [
+          'Cash purchase: highest upfront cost, about $31,600 25-year savings',
+          'Power purchase agreement: low monthly payment, about $50,000 25-year savings',
+          'Solar lease: about $18,700 25-year savings',
+          'Loan: watch dealer fees and interest, which can erase savings',
+        ],
+      },
+      {
+        heading: 'How to Pay Less',
+        paragraphs: [
+          "The biggest savings come from process, not a single trick. Comparing several written quotes, asking for equipment and labor separately, and choosing a system sized to your actual usage all reduce the price. Panel brand matters less than the warranty, the inverter, and the installer's track record locally.",
+          "Batteries add a lot of cost, often $10,000 or more, so only include one if you truly need backup power or plan to benefit from time-of-use rates. Ask about any Duke Energy battery rebates that are still available, and check that current availability directly, since limited programs fill up.",
+        ],
+        bullets: [
+          'Compare at least three written quotes for the same system size',
+          'Ask for equipment, labor, and permit costs itemized',
+          'Skip the battery unless backup power or rate arbitrage is the goal',
+          'Confirm your roof age first, since panels have to come off to replace it',
+        ],
+        linkLabel: 'Compare solar installation prices near you',
+        linkCategory: 'Solar Panel Installation',
+      },
+    ],
+    closing: [
+      "Solar is where neighbors going together can genuinely lower a price. An installer already permitting, staffing, and ordering equipment for one street can spread that overhead across several homes, and that saved cost is what turns into a cheap, discounted price for everyone on the block. Compare real solar installation deals in your neighborhood, get several written quotes, and check the current Duke Energy terms before you sign.",
+    ],
+  },
 ];
