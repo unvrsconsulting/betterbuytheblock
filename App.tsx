@@ -1882,10 +1882,10 @@ const App: React.FC = () => {
           </div>
         )}
 
-        <div className="max-w-[95%] mx-auto px-4 sm:px-6 pb-8">
+        <div className="max-w-[97%] mx-auto px-3 sm:px-6 pb-8">
           {view !== 'home' && <Breadcrumbs items={getBreadcrumbs()} />}
           {view === 'home' ? (
-            <div className="pt-8 space-y-16">
+            <div className="pt-8 space-y-10 sm:space-y-16">
               {/* Carousels */}
               {filteredServices.length > 0 ? (
                 <>
@@ -1924,8 +1924,8 @@ const App: React.FC = () => {
 
               {/* How it works + trust stats */}
               <section className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-[0_2px_4px_rgba(15,23,42,0.04),0_16px_40px_-8px_rgba(15,23,42,0.18)]">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">How BetterBuyTheBlock Works</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">How BetterBuyTheBlock Works</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-10">
                   <div className="text-center">
                     <div className="w-12 h-12 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center mx-auto mb-3">
                       <Search className="w-5 h-5" />
@@ -1949,18 +1949,18 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 {businesses.length > 0 ? (
-                  <div className="grid grid-cols-3 divide-x divide-gray-200 border-t border-gray-200 pt-6">
-                    <div className="text-center px-2">
-                      <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{activeDealsCount}</p>
-                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Active Deals</p>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4 sm:divide-x divide-gray-200 border-t border-gray-200 pt-6">
+                    <div className="text-center px-1 sm:px-2 min-w-0">
+                      <p className="text-lg sm:text-3xl font-extrabold text-gray-900">{activeDealsCount}</p>
+                      <p className="text-[10px] sm:text-sm text-gray-500 font-medium mt-1 leading-tight">Active Deals</p>
                     </div>
-                    <div className="text-center px-2">
-                      <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{neighborhoodsCoveredCount}</p>
-                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Neighborhoods Covered</p>
+                    <div className="text-center px-1 sm:px-2 min-w-0">
+                      <p className="text-lg sm:text-3xl font-extrabold text-gray-900">{neighborhoodsCoveredCount}</p>
+                      <p className="text-[10px] sm:text-sm text-gray-500 font-medium mt-1 leading-tight">Neighborhoods Covered</p>
                     </div>
-                    <div className="text-center px-2">
-                      <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{businesses.length}</p>
-                      <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1">Local Businesses</p>
+                    <div className="text-center px-1 sm:px-2 min-w-0">
+                      <p className="text-lg sm:text-3xl font-extrabold text-gray-900">{businesses.length}</p>
+                      <p className="text-[10px] sm:text-sm text-gray-500 font-medium mt-1 leading-tight">Local Businesses</p>
                     </div>
                   </div>
                 ) : (
@@ -2726,7 +2726,7 @@ const App: React.FC = () => {
               </div>
             </section>
           ) : view === 'wishlist' ? (
-            <section className="pt-12 max-w-[95%] mx-auto">
+            <section className="pt-12">
               <button 
                 onClick={() => setView('home')} 
                 className="text-primary hover:underline mb-6 inline-flex items-center font-medium"
@@ -2766,7 +2766,7 @@ const App: React.FC = () => {
               </div>
             </section>
           ) : view === 'profile' ? (
-            <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="pt-12 max-w-4xl mx-auto">
               <button 
                 onClick={() => setView('home')} 
                 className="text-primary hover:underline mb-6 inline-flex items-center font-medium"
@@ -2789,7 +2789,7 @@ const App: React.FC = () => {
               />
             </section>
           ) : view === 'business-onboarding' ? (
-            <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="pt-12 max-w-4xl mx-auto">
               <BusinessOnboarding
                 currentUser={currentUser}
                 onComplete={async (businessData) => {
@@ -2860,7 +2860,7 @@ const App: React.FC = () => {
               />
             </section>
           ) : view === 'business-edit-profile' ? (
-            <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="pt-12 max-w-4xl mx-auto">
               <BusinessEditProfile
                 business={businesses.find(b => b.id === currentUser.businessId)!}
                 onSave={async (updates) => {
@@ -2891,7 +2891,7 @@ const App: React.FC = () => {
               />
             </section>
           ) : view === 'business-create-deal' ? (
-            <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="pt-12 max-w-4xl mx-auto">
               <BusinessCreateDeal
                 business={businesses.find(b => b.id === currentUser.businessId)!}
                 initialService={editingServiceId ? services.find(s => s.id === editingServiceId) : undefined}
@@ -2962,7 +2962,7 @@ const App: React.FC = () => {
               />
             </section>
           ) : view === 'connections' ? (
-            <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="pt-12 max-w-4xl mx-auto">
               <button 
                 onClick={() => setView('home')} 
                 className="text-primary hover:underline mb-6 inline-flex items-center font-medium"
@@ -2973,7 +2973,7 @@ const App: React.FC = () => {
               <ConnectionsFeed currentUser={currentUser} users={users} services={services} />
             </section>
           ) : view === 'my-deals' ? (
-            <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="pt-12 max-w-4xl mx-auto">
               <button 
                 onClick={() => setView('home')} 
                 className="text-primary hover:underline mb-6 inline-flex items-center font-medium"

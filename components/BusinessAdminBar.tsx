@@ -65,7 +65,7 @@ const BusinessAdminBar: React.FC<BusinessAdminBarProps> = ({ business, onGoToAdm
 
   return (
     <div className="sticky top-0 z-50 bg-gray-900 text-white text-sm">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 h-10 flex items-center justify-between gap-4">
+      <div className="max-w-[97%] mx-auto px-3 sm:px-6 h-10 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2 font-bold shrink-0">
           <ShieldCheck className="w-4 h-4 text-primary" />
           Admin view

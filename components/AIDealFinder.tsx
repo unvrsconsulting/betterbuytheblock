@@ -84,7 +84,7 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onSele
         </div>
       )}
 
-      <div className={`relative max-w-[95%] mx-auto px-4 sm:px-6 ${compact ? 'py-4' : 'py-10 lg:py-14'} flex flex-col items-center text-center`}>
+      <div className={`relative max-w-[97%] mx-auto px-3 sm:px-6 ${compact ? 'py-4' : 'py-10 lg:py-14'} flex flex-col items-center text-center`}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ const AIDealFinder: React.FC<AIDealFinderProps> = ({ currentNeighborhood, onSele
         >
           {!compact && (
             <>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+              <h1 className="text-balance text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
                 Wake County Home Services <br className="hidden md:block" />
                 <span className="text-primary-400">at Discounted Rates</span>
               </h1>

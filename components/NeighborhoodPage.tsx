@@ -51,7 +51,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
 
   if (!neighborhood) {
     return (
-      <section className="pt-12 max-w-4xl mx-auto px-4 sm:px-6">
+      <section className="pt-12 max-w-4xl mx-auto">
         <button onClick={onBack} className="text-primary hover:underline mb-6 inline-flex items-center font-medium">&larr; Back to Home</button>
         <p className="text-gray-500">Neighborhood not found.</p>
       </section>
@@ -59,7 +59,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
   }
 
   return (
-    <section className="pt-12 max-w-[95%] mx-auto px-4 sm:px-6">
+    <section className="pt-12">
       <button onClick={onBack} className="text-primary hover:underline mb-6 inline-flex items-center font-medium">&larr; Back to Home</button>
 
       <div className="flex flex-col md:flex-row gap-8 mb-10">

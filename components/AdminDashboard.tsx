@@ -114,7 +114,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, onViewBusin
   }
 
   return (
-    <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+    <div className="max-w-[97%] mx-auto px-3 sm:px-6 lg:px-8 pt-8 pb-16">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <h1 className="text-3xl font-extrabold text-gray-900">Admin</h1>
         <Button variant="outline" size="sm" onClick={handleLogOut} className="flex items-center gap-1.5 w-fit">

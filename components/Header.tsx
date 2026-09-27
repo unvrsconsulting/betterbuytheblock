@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ currentUser, isAuthenticated = false, o
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-40">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      <div className="max-w-[97%] mx-auto px-3 sm:px-6 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2 cursor-pointer shrink-0" onClick={onLogoClick}>
           <div className="bg-primary p-1.5 sm:p-2 rounded-lg shrink-0">
             <NeighborhoodIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />

@@ -79,7 +79,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="max-w-[95%] mx-auto px-4 sm:px-6 py-8"
+      className="py-8"
     >
       <button 
         onClick={onBack} 
@@ -102,8 +102,8 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
           </div>
         </div>
 
-        <div className="p-8 md:p-12">
-          <div className="flex flex-col md:flex-row gap-12">
+        <div className="p-5 sm:p-8 md:p-12">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-12">
             {/* Main Content */}
             <div className="flex-1">
               <div 
@@ -127,7 +127,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
                 </div>
               </div>
 
-              <h1 className="text-4xl font-extrabold text-gray-900 mb-4 leading-tight">{service.title}</h1>
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">{service.title}</h1>
 
               {neighborhoods.length > 0 && (() => {
                 const CHIP_LIMIT = 8;
@@ -324,7 +324,7 @@ const ServiceProfile: React.FC<ServiceProfileProps> = ({
           </div>
 
           {/* Good to Know / Featured Review row - aligned siblings */}
-          <div className="flex flex-col md:flex-row gap-12 mt-8">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-12 mt-8">
             <div className="flex-1">
               <FaqAccordion />
             </div>

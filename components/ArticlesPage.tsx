@@ -29,7 +29,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ articles, onArticleClick, o
     : articles.filter(a => (a.type || 'Guide') === activeFilter);
 
   return (
-    <div className="max-w-[95%] mx-auto px-4 sm:px-6 py-8">
+    <div className="py-8">
       <button 
         onClick={onBack} 
         className="text-primary hover:underline mb-6 inline-flex items-center font-medium"

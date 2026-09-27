@@ -8,7 +8,7 @@ interface StaticPageProps {
 
 const StaticPage: React.FC<StaticPageProps> = ({ title, content, onBack }) => {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <div className="max-w-4xl mx-auto py-12">
       <button 
         onClick={onBack} 
         className="text-primary hover:underline mb-8 inline-flex items-center font-medium"
