@@ -1408,4 +1408,94 @@ export const COST_GUIDES = [
       "Solar is where neighbors going together can genuinely lower a price. An installer already permitting, staffing, and ordering equipment for one street can spread that overhead across several homes, and that saved cost is what turns into a cheap, discounted price for everyone on the block. Compare real solar installation deals in your neighborhood, get several written quotes, and check the current Duke Energy terms before you sign.",
     ],
   },
+  {
+    slug: 'moving-services-costs-wake-county-2027',
+    title: 'Cheap Local Movers in Wake County for 2027: Hourly Rates, Home-Size Costs, and Timing Tricks',
+    description: 'What hiring local movers actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from hourly crew rates to full home-size pricing, plus the timing and booking tricks that cut the bill.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 27, 2026',
+    image: 'https://images.pexels.com/photos/5933476/pexels-photo-5933476.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Moving Services',
+    intro: [
+      "Moving is one of the few home services priced almost entirely by the hour, which means the same move can cost very different amounts depending on the day you book, how ready you are when the truck shows up, and how many other people are moving that same week.",
+      "This guide covers hourly crew rates, what a typical move costs by home size in the Raleigh area, the add-ons that raise the bill, and the cheap, discounted ways to book a mid-week or off-season move for meaningfully less.",
+    ],
+    sections: [
+      {
+        heading: 'Hourly Rates for Local Movers',
+        paragraphs: [
+          "Local moves are usually billed by the hour for the truck and crew, not by weight. Nationally, a standard two-mover crew runs about $90 to $140 an hour, a three-mover crew about $140 to $190, and a four-mover crew about $190 to $260 or more.",
+          "Raleigh-area rates run close to the national numbers, averaging around $93 an hour overall, with two-person crews commonly quoted between $80 and $130 an hour and three-person crews closer to $130 to $190. Most companies set a two- to four-hour minimum, so a very small move can still cost more than the hourly rate implies once the minimum kicks in.",
+        ],
+        bullets: [
+          '2 movers + truck: about $80 to $140 per hour',
+          '3 movers + truck: about $130 to $190 per hour',
+          '4 movers + truck: about $190 to $260+ per hour',
+          'Raleigh average: about $93 per hour',
+          'Most companies require a 2 to 4 hour minimum',
+        ],
+        linkLabel: 'See real moving service deals in your neighborhood',
+        linkCategory: 'Moving Services',
+      },
+      {
+        heading: 'Typical Cost by Home Size',
+        paragraphs: [
+          "For homeowners who want a single number instead of an hourly rate, cost by home size is the easier comparison. A studio or one-bedroom local move typically runs $300 to $800, a two-bedroom move $700 to $1,400, and a three-bedroom move $1,000 to $2,500, with larger homes running $1,500 to $3,500 or more.",
+          "Nationally, the average cost for a typical 2 to 3 bedroom local move lands around $1,250, which lines up closely with Raleigh-area estimates once minimum hours and travel time are factored in.",
+        ],
+        bullets: [
+          'Studio or 1BR: about $300 to $800',
+          '2BR: about $700 to $1,400',
+          '3BR: about $1,000 to $2,500',
+          '4BR or larger: about $1,500 to $3,500+',
+          'National average for a 2-3BR local move: about $1,250',
+        ],
+      },
+      {
+        heading: 'What Raises the Bill',
+        paragraphs: [
+          "The quoted hourly rate is rarely the whole cost. Packing services, if you want the crew to box everything up instead of just loading it, typically add $280 to $2,200 or more depending on how much needs packing. Stairs, long carries from the truck to the door, and heavy or awkward items like pianos and safes also commonly add fees.",
+          "Long-distance moves out of the Raleigh area work differently, priced by weight and distance instead of by the hour, and typically run $2,700 to $10,000 or more, so get a separate, flat-rate quote if you're leaving Wake County rather than assuming hourly pricing applies.",
+        ],
+        bullets: [
+          'Full packing service: about $280 to $2,200+',
+          'Stairs, long carries, and heavy items: added fees, ask upfront',
+          'Long-distance moves: flat-rate, typically $2,700 to $10,000+',
+          'Get the fee schedule in writing before moving day',
+        ],
+      },
+      {
+        heading: 'Timing Is the Biggest Lever on Price',
+        paragraphs: [
+          "Moving is seasonal and weekly demand swings the price more than almost anything else. Summer, weekends, and the first and last few days of the month are the most expensive times to move because that's when almost everyone else is moving too. Tuesday and Wednesday moves commonly cost 10 to 25 percent less than a Saturday move for the identical job.",
+          "Booking mid-month, between roughly the 7th and the 20th, and mid-week avoids both the end-of-month rental turnover crowd and the weekend rush. Winter months, especially January and February, can run meaningfully cheaper than peak summer for the same size move, since demand drops sharply once the school year has started.",
+        ],
+        bullets: [
+          'Move Tuesday through Thursday, not Friday through Sunday',
+          'Book mid-month (roughly the 7th to 20th), not the 1st or the 30th',
+          'Winter (January-February) is typically the cheapest season',
+          'Book 2 to 3 months ahead to lock in a lower rate before schedules fill',
+        ],
+        linkLabel: 'Compare local mover prices near you',
+        linkCategory: 'Moving Services',
+      },
+      {
+        heading: 'Cutting Billable Hours on Moving Day',
+        paragraphs: [
+          "Because most local moves bill by the hour, anything that speeds up loading directly cuts the bill. Being fully packed and taped before the crew arrives, disassembling large furniture in advance, and staging boxes near the door all shave real time off the clock.",
+          "A hybrid approach also works well for a tight budget: hire movers only for the heavy or awkward items, like furniture, appliances, and anything requiring two people, and move boxes and smaller items yourself. That keeps the paid hours focused on what actually needs a professional crew.",
+        ],
+        bullets: [
+          'Pack and label all boxes before the crew arrives',
+          'Disassemble beds, tables, and large furniture ahead of time',
+          'Stage boxes near the door to cut carry distance',
+          'Consider hiring movers only for heavy items and moving boxes yourself',
+        ],
+      },
+    ],
+    closing: [
+      "Moving is another category where booking with neighbors pays off, since a crew already staffed and driving a truck to your street loses very little by adding a second small job nearby on the same day. That shared setup time is exactly what becomes a cheap, discounted local move instead of a full-price one. Compare real moving service deals in your neighborhood, and get a written hourly rate and minimum before you book.",
+    ],
+  },
 ];
