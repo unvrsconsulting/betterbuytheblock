@@ -1498,4 +1498,92 @@ export const COST_GUIDES = [
       "Moving is another category where booking with neighbors pays off, since a crew already staffed and driving a truck to your street loses very little by adding a second small job nearby on the same day. That shared setup time is exactly what becomes a cheap, discounted local move instead of a full-price one. Compare real moving service deals in your neighborhood, and get a written hourly rate and minimum before you book.",
     ],
   },
+  {
+    slug: 'interior-design-costs-wake-county-2027',
+    title: 'Affordable Interior Design in Wake County for 2027: Hourly Rates, Flat Fees, and Cheaper Ways to Hire a Designer',
+    description: 'What an interior designer actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from hourly rates and flat-fee room packages to e-design, plus the cheapest ways to get professional help.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 28, 2026',
+    image: 'https://images.pexels.com/photos/4968672/pexels-photo-4968672.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Interior Design',
+    intro: [
+      "Interior design has a reputation for being a luxury, but the price depends almost entirely on how you hire. A full-service designer managing an entire renovation is a very different purchase from a two-hour consultation or a flat-fee plan for a single room, and the gap between them can be thousands of dollars.",
+      "This guide covers the four common pricing models, what a room typically costs in the Raleigh area, how online e-design compares to hiring locally, and the affordable, discounted ways to get professional help without paying for more than you need.",
+    ],
+    sections: [
+      {
+        heading: 'How Interior Designers Charge',
+        paragraphs: [
+          "Interior designers generally use one of four pricing models: an hourly rate, a flat fee per project or room, a percentage of the total project budget, or cost-plus, where the designer marks up the furniture and materials they purchase for you. Which one you pick changes both the total and how predictable it is.",
+          "Published 2026 ranges vary widely by source, but a common breakdown is hourly billing at roughly $125 to $450 an hour, flat fees from a few hundred dollars per room up to $3,500 or more for a whole project, a percentage fee of about 10 to 30 percent of the project budget, and a 15 to 35 percent markup on furnishings under cost-plus.",
+        ],
+        bullets: [
+          'Hourly: about $50 to $200 typical, $200 to $500 at high-end firms',
+          'Flat fee: about $500 to $2,500 for the design work on a single room',
+          'Percentage of project: about 10 to 30 percent of the total budget',
+          'Cost-plus: about 15 to 35 percent markup on furnishings purchased',
+        ],
+        linkLabel: 'See real interior design deals in your neighborhood',
+        linkCategory: 'Interior Design',
+      },
+      {
+        heading: 'Raleigh-Area Costs',
+        paragraphs: [
+          "Local cost trackers put the average interior design job in Raleigh at roughly $3,920 to $6,036, with a full range of about $744 to $11,178 depending on scope. Hourly rates for Raleigh-area designers are commonly quoted between about $50 and $200, noticeably below the $200 to $500 you would see from high-end firms in the largest cities.",
+          "An initial consultation typically runs about $100 to $225, and many designers apply that fee toward the project if you hire them, so it is worth asking before you pay for a first meeting.",
+        ],
+        bullets: [
+          'Raleigh average project: about $3,920 to $6,036 ($744 to $11,178 range)',
+          'Raleigh hourly rates: about $50 to $200',
+          'Initial consultation: about $100 to $225',
+          'Ask whether the consultation fee is credited toward a project',
+        ],
+      },
+      {
+        heading: 'Cost by Room',
+        paragraphs: [
+          "Costs climb quickly when a project involves construction instead of just furnishing and styling. A living room design fee alone typically runs about $2,500 to $5,000, while bedrooms usually land between $2,000 and $8,000 for guest and kids' rooms and higher for a primary suite.",
+          "Kitchens and bathrooms are the most expensive because cabinetry, plumbing, and contractor work enter the picture, and full projects can run into the tens of thousands. Those numbers include far more than the designer's fee, so compare the design fee separately from the purchase and construction costs when you read a quote.",
+        ],
+        bullets: [
+          'Living room design fee: about $2,500 to $5,000',
+          'Guest or kids room: about $2,000 to $8,000',
+          'Primary bedroom: about $3,000 to $15,000',
+          'Kitchens and baths: often $15,000+ once construction is included',
+        ],
+      },
+      {
+        heading: 'E-Design and Consultations: The Cheap Options',
+        paragraphs: [
+          "Online e-design is the cheapest way to get a real design plan. Services typically charge a flat fee of about $79 to $500 per room, with many platforms falling around $199 to $499, and you receive a layout, mood board, and shopping list to carry out yourself.",
+          "A one-time consultation is the other budget route. A two-hour session with a local designer, commonly $200 to $400, gets you professional advice on layout, materials, and priorities, and can save far more than it costs by steering you away from expensive mistakes.",
+        ],
+        bullets: [
+          'E-design: about $79 to $500 per room (most around $199 to $499)',
+          'Two-hour local consultation: about $200 to $400',
+          'You handle the shopping and installation to keep costs down',
+          'Best for renters, single rooms, and confident DIYers',
+        ],
+      },
+      {
+        heading: 'How to Pay Less',
+        paragraphs: [
+          "Decide the scope before you call anyone. A designer given a clear budget, a room list, and a wish list can quote a flat fee, while an open-ended project tends to get billed hourly and grow. Ask every designer how they are paid on purchases, since a markup or trade discount they keep changes what you really pay for the same sofa.",
+          "Doing the phases in order also helps. Get the layout and color plan first, buy the big pieces next, and add decor over time, so you are never paying a designer to revisit the same room repeatedly.",
+        ],
+        bullets: [
+          'Set a budget and room list before requesting quotes',
+          'Prefer a flat fee for a defined room over open-ended hourly billing',
+          'Ask how markups and trade discounts on furniture are handled',
+          'Get quotes from at least three designers and compare the scope',
+        ],
+        linkLabel: 'Compare interior design prices near you',
+        linkCategory: 'Interior Design',
+      },
+    ],
+    closing: [
+      "Interior design is one of the more flexible categories for group pricing, since a designer already working in your neighborhood can offer neighbors consultations back to back and spread their travel and prep time across several homes. That shared setup is what turns a full-price engagement into a cheap, discounted one. Compare real interior design deals in your neighborhood, and get the scope and fee structure in writing before you commit.",
+    ],
+  },
 ];
