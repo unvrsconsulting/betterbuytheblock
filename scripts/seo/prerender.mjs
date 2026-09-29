@@ -240,7 +240,7 @@ function main() {
       .join('\n        ');
     const bodyHtml = `<section style="max-width:1200px;margin:0 auto;padding:48px 24px;">
       <nav><a href="/" style="color:#059669;text-decoration:none;font-weight:600;">&larr; BetterBuyTheBlock</a></nav>
-      <h1 style="font-size:32px;font-weight:800;color:#111827;margin:16px 0 8px;">${escapeHtml(neighborhood.name)}, ${escapeHtml(neighborhood.city)} NC</h1>
+      <h1 style="font-size:32px;font-weight:800;color:#111827;margin:16px 0 8px;">Cheap Home Service Deals in ${escapeHtml(neighborhood.name)}, ${escapeHtml(neighborhood.city)} NC</h1>
       <div style="margin-bottom:24px;">${statsHtml}</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
         ${cardsHtml || '<p style="color:#9ca3af;">No deals here yet — check back soon.</p>'}

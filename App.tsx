@@ -424,7 +424,7 @@ const App: React.FC = () => {
   };
 
   const selectedNeighborhoodId = currentUser.neighborhoodId ?? '';
-  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'category' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood' | 'admin'>(() => {
+  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood' | 'admin'>(() => {
     const path = window.location.pathname;
     // Not linked anywhere in the UI on purpose — reached only by typing the
     // URL directly. Gated by its own password prompt (see AdminDashboard),
@@ -528,7 +528,6 @@ const App: React.FC = () => {
   }, [view, selectedBusinessId]);
 
   const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCategoryPageCategory, setSelectedCategoryPageCategory] = useState<string | null>(() => {
     const path = window.location.pathname;
     if (!path.startsWith('/category/')) return null;
@@ -1287,18 +1286,10 @@ const App: React.FC = () => {
     });
   };
 
-  const handleCategoryClick = (categoryName: string) => {
-    setSelectedCategory(categoryName);
-    setCategorySortBy('recommended');
-    setCategoryMinPrice('');
-    setCategoryMaxPrice('');
-    setView('category');
-  };
-
   // Real, indexable /category/<slug>[/<city-slug>] pages — deliberately
-  // independent of session state (selectedNeighborhoodId etc.), unlike the
-  // `category` view above, so the same URL always shows the same content for
-  // every visitor and for a crawler with no session at all. See
+  // independent of session state (selectedNeighborhoodId etc.), so the same
+  // URL always shows the same content for every visitor and for a crawler
+  // with no session at all. See
   // services/seo/pageContent.js#getCategoryPageContent.
   const handleCategoryPageClick = (categoryName: string, cityName?: string | null) => {
     setSelectedCategoryPageCategory(categoryName);
@@ -1396,43 +1387,6 @@ const App: React.FC = () => {
   const seasonalServices = useMemo(() => {
     return filteredServices.filter(s => currentSeason.categories.includes(s.category));
   }, [filteredServices, currentSeason]);
-
-  const categoryPageServices = useMemo(() => {
-    if (!selectedCategory) return [];
-    let results = filteredServices.filter(s => s.category === selectedCategory);
-
-    if (categoryMinPrice.trim()) {
-      const min = Number(categoryMinPrice);
-      if (!Number.isNaN(min)) {
-        results = results.filter(s => (s.standardPrice * (1 - s.discountPercentage / 100)) >= min);
-      }
-    }
-    if (categoryMaxPrice.trim()) {
-      const max = Number(categoryMaxPrice);
-      if (!Number.isNaN(max)) {
-        results = results.filter(s => (s.standardPrice * (1 - s.discountPercentage / 100)) <= max);
-      }
-    }
-
-    results = [...results];
-    switch (categorySortBy) {
-      case 'price_low':
-        results.sort((a, b) => (a.standardPrice * (1 - a.discountPercentage / 100)) - (b.standardPrice * (1 - b.discountPercentage / 100)));
-        break;
-      case 'price_high':
-        results.sort((a, b) => (b.standardPrice * (1 - b.discountPercentage / 100)) - (a.standardPrice * (1 - a.discountPercentage / 100)));
-        break;
-      case 'discount_high':
-        results.sort((a, b) => b.discountPercentage - a.discountPercentage);
-        break;
-      case 'closest_to_unlocking':
-        results.sort((a, b) => (b.currentSignups / b.requiredSignups) - (a.currentSignups / a.requiredSignups));
-        break;
-      default:
-        break;
-    }
-    return results;
-  }, [filteredServices, selectedCategory, categoryMinPrice, categoryMaxPrice, categorySortBy]);
 
   // The real, session-independent /category/<slug>[/<city-slug>] pages: base
   // list comes from getCategoryPageContent (same function the prerender
@@ -1656,8 +1610,6 @@ const App: React.FC = () => {
     switch (view) {
       case 'results':
         return [home, { label: lastSearchQuery ? `Search Results for ${lastSearchQuery}` : 'Search Results' }];
-      case 'category':
-        return [home, { label: selectedCategory || 'Category' }];
       case 'business': {
         const business = businesses.find(b => b.id === selectedBusinessId);
         return [home, { label: 'Businesses', onClick: () => setView('businesses') }, { label: business?.name || 'Business' }];
@@ -1669,7 +1621,7 @@ const App: React.FC = () => {
         if (!service) return [home];
         return [
           home,
-          { label: service.category, onClick: () => handleCategoryClick(service.category) },
+          { label: service.category, onClick: () => handleCategoryPageClick(service.category) },
           { label: service.title },
         ];
       }
@@ -1870,7 +1822,7 @@ const App: React.FC = () => {
                 return (
                   <button
                     key={`${cat}-${idx}`}
-                    onClick={() => handleCategoryClick(cat)}
+                    onClick={() => handleCategoryPageClick(cat)}
                     className="shrink-0 flex items-center gap-1.5 text-sm font-semibold text-gray-600 hover:text-primary-700 hover:bg-primary-50 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
                   >
                     <Icon className="w-4 h-4" />
@@ -2374,91 +2326,6 @@ const App: React.FC = () => {
               onNeighborhoodClick={handleNeighborhoodPageClick}
               onToggleWishlist={handleToggleWishlist}
             />
-          ) : view === 'category' && selectedCategory ? (
-            <section className="pt-12">
-              <button
-                onClick={() => setView('home')}
-                className="text-primary hover:underline mb-6 inline-flex items-center font-medium"
-              >
-                &larr; Back to Home
-              </button>
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-2">{selectedCategory} Deals</h2>
-              <p className="text-gray-500 mb-8 max-w-2xl">
-                {categoryPageServices.length > 0
-                  ? `${categoryPageServices.length} ${selectedCategory.toLowerCase()} deal${categoryPageServices.length === 1 ? '' : 's'} available in ${currentNeighborhood?.name || 'your neighborhood'}. Join with your neighbors to unlock bulk pricing.`
-                  : `No ${selectedCategory.toLowerCase()} deals in ${currentNeighborhood?.name || 'your neighborhood'} right now. Request one and we'll let local businesses know your neighborhood is interested.`}
-              </p>
-
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-8 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-gray-600 whitespace-nowrap">Sort by</label>
-                  <select
-                    value={categorySortBy}
-                    onChange={(e) => setCategorySortBy(e.target.value)}
-                    className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
-                  >
-                    <option value="recommended">Recommended</option>
-                    <option value="closest_to_unlocking">Closest to Unlocking</option>
-                    <option value="discount_high">Highest Discount</option>
-                    <option value="price_low">Price: Low to High</option>
-                    <option value="price_high">Price: High to Low</option>
-                  </select>
-                </div>
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-gray-600 whitespace-nowrap">Price</label>
-                  <input
-                    type="number"
-                    min={0}
-                    placeholder="Min"
-                    value={categoryMinPrice}
-                    onChange={(e) => setCategoryMinPrice(e.target.value)}
-                    className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
-                  />
-                  <span className="text-gray-500">&ndash;</span>
-                  <input
-                    type="number"
-                    min={0}
-                    placeholder="Max"
-                    value={categoryMaxPrice}
-                    onChange={(e) => setCategoryMaxPrice(e.target.value)}
-                    className="w-24 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
-                  />
-                </div>
-                {(categoryMinPrice || categoryMaxPrice || categorySortBy !== 'recommended') && (
-                  <button
-                    onClick={() => { setCategorySortBy('recommended'); setCategoryMinPrice(''); setCategoryMaxPrice(''); }}
-                    className="text-sm font-medium text-primary-600 hover:underline sm:ml-auto"
-                  >
-                    Clear filters
-                  </button>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                {categoryPageServices.length > 0 ? (
-                  categoryPageServices.map(service => (
-                    <ServiceCard
-                      key={service.id}
-                      service={service}
-                      business={businesses.find(b => b.id === service.businessId)}
-                      onSignUp={() => handleSignUp(service.id)}
-                      isSignedUp={(service.signedUpUserIds || []).includes(currentUser?.id)}
-                      onBusinessClick={() => handleBusinessClick(service.businessId)}
-                      onServiceClick={() => handleServiceClick(service.id)}
-                      isWishlisted={(currentUser?.wishlist || []).includes(service.id)}
-                      onToggleWishlist={() => handleToggleWishlist(service.id)}
-                      currentUser={currentUser}
-                      users={users}
-                      onUpdateUser={updateCurrentUser}
-                    />
-                  ))
-                ) : (
-                  <div className="col-span-full text-center py-16 bg-gray-50 rounded-2xl">
-                    <p className="text-gray-500 mb-4">No deals found for {selectedCategory} in {currentNeighborhood?.name || 'your neighborhood'} right now.</p>
-                  </div>
-                )}
-              </div>
-            </section>
           ) : (view === 'categoryPage' || view === 'categoryCityPage') && selectedCategoryPageCategory ? (
             (() => {
               const cityScope = view === 'categoryCityPage' ? selectedCategoryPageCity : null;

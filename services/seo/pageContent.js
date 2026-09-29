@@ -238,10 +238,10 @@ export function getNeighborhoodPageContent(neighborhood, services) {
   const statsSentence = stats
     ? `${stats.homeCount.toLocaleString()} homes, average assessed value $${stats.avgAssessedValue.toLocaleString()}, average ${stats.avgSqFt.toLocaleString()} sq ft, built around ${stats.avgYearBuilt}.`
     : null;
-  const title = `Home Services Deals in ${neighborhood.name}, ${neighborhood.city} NC | BetterBuyTheBlock`;
+  const title = `Cheap Home Service Deals in ${neighborhood.name}, ${neighborhood.city} NC | BetterBuyTheBlock`;
   const description = stats
-    ? `${neighborhood.name} in ${neighborhood.city}, NC: ${statsSentence} Real bulk-pricing home service deals for this neighborhood.`
-    : `Bulk-pricing home service deals for ${neighborhood.name}, ${neighborhood.city}, NC.`;
+    ? `${neighborhood.name} in ${neighborhood.city}, NC: ${statsSentence} Real, discounted bulk-pricing home service deals for this neighborhood.`
+    : `Cheap, discounted bulk-pricing home service deals for ${neighborhood.name}, ${neighborhood.city}, NC.`;
   // No standalone "/city/<slug>" page exists in the URL scheme (only
   // "/category/<slug>/<city-slug>"), so the city itself isn't a real linkable
   // breadcrumb step here — just Home -> this neighborhood.

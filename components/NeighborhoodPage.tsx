@@ -67,7 +67,7 @@ const NeighborhoodPage: React.FC<NeighborhoodPageProps> = ({
           <div className="flex items-center gap-2 text-primary-600 font-semibold text-sm uppercase tracking-wider mb-2">
             <MapPin className="w-4 h-4" /> {neighborhood.city}, NC
           </div>
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{neighborhood.name}</h1>
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Cheap Home Service Deals in {neighborhood.name}</h1>
           <p className="text-gray-600 max-w-xl mb-4">
             {neighborhoodServices.length > 0
               ? `${neighborhoodServices.length} active neighborhood deal${neighborhoodServices.length === 1 ? '' : 's'} available in ${neighborhood.name}.`
