@@ -1586,4 +1586,93 @@ export const COST_GUIDES = [
       "Interior design is one of the more flexible categories for group pricing, since a designer already working in your neighborhood can offer neighbors consultations back to back and spread their travel and prep time across several homes. That shared setup is what turns a full-price engagement into a cheap, discounted one. Compare real interior design deals in your neighborhood, and get the scope and fee structure in writing before you commit.",
     ],
   },
+  {
+    slug: 'landscaping-costs-wake-county-2027',
+    title: 'Cheap Landscaping in Wake County for 2027: Sod, Mulch, Hardscaping, and Fall Timing',
+    description: 'What landscaping actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from sod and mulch by the square foot to full-yard projects, plus why fall is the cheapest time to book it.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'SEP 30, 2026',
+    image: 'https://images.pexels.com/photos/9690097/pexels-photo-9690097.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Landscaping',
+    intro: [
+      "Landscaping costs swing more than almost any other home service, because \"landscaping\" covers everything from a few yards of mulch to a full backyard rebuild with a paver patio. Wake County sits in the grass transition zone too, which means timing isn't just about price, it affects whether new sod actually survives.",
+      "This guide breaks down real per-square-foot and per-project pricing for Raleigh-area landscaping, why right now, fall, is the cheapest and most effective time to book lawn work, and how to get a genuinely discounted rate instead of a rushed spring-rush price.",
+    ],
+    sections: [
+      {
+        heading: 'What a Full Landscaping Project Costs',
+        paragraphs: [
+          "Nationally, the average landscaping project runs about $8,500, with most homeowners spending $4,500 to $22,500 depending on scope. Raleigh-area pricing tends to run below the national average: local data puts the typical project at about $2,947, with most jobs landing between $1,255 and $4,957.",
+          "A standard front-yard refresh, new plants, mulch, and garden beds, typically costs $1,425 to $4,750 in Raleigh. Add irrigation, hardscaping, or premium materials and a more ambitious project can reach $9,500 or more.",
+        ],
+        bullets: [
+          'Raleigh average landscaping project: about $2,947 ($1,255 to $4,957 typical range)',
+          'Standard front-yard refresh: about $1,425 to $4,750',
+          'Larger project with irrigation or hardscape: up to $9,500+',
+          'National average for comparison: about $8,500',
+        ],
+        linkLabel: 'See real landscaping deals in your neighborhood',
+        linkCategory: 'Landscaping',
+      },
+      {
+        heading: 'Sod, Mulch, and Topsoil by the Square Foot',
+        paragraphs: [
+          "For anyone pricing out materials directly, sod is the biggest line item. NC State's own 2026 producer survey puts delivered sod material at roughly $0.43 to $0.65 per square foot depending on grass species, with centipedegrass on the cheap end and zoysiagrass on the higher end. Installed cost including labor runs closer to $1 to $2 per square foot, so a 2,000 square foot lawn typically totals $2,000 to $4,000.",
+          "Mulch and topsoil are priced by the cubic yard rather than the bag once a project is any real size. Mulch runs about $40 to $80 per cubic yard, and topsoil about $30 to $60 per cubic yard, both cheaper bought in bulk than in individual retail bags.",
+        ],
+        bullets: [
+          'Sod material only: about $0.43 to $0.65 per sq ft (species-dependent)',
+          'Sod installed (material + labor): about $1 to $2 per sq ft',
+          '2,000 sq ft lawn, sod installed: about $2,000 to $4,000',
+          'Mulch: about $40 to $80 per cubic yard',
+          'Topsoil: about $30 to $60 per cubic yard',
+        ],
+      },
+      {
+        heading: 'Hardscaping Costs',
+        paragraphs: [
+          "Hardscaping, patios, walkways, and retaining walls, is where landscaping budgets grow fastest, since it involves heavy material and real labor time rather than plants and mulch. Hardscape projects overall span a huge range, roughly $295 to $29,500, depending entirely on size and material.",
+          "Material choice moves the price per square foot a lot. Poured concrete is the cheapest paved surface, pavers cost more but are easier to repair piece by piece, and natural stone is the most expensive but the longest-lasting.",
+        ],
+        bullets: [
+          'Poured concrete: about $8 to $18 per sq ft installed',
+          'Paver patio: about $15 to $30 per sq ft installed',
+          'Natural stone: about $20 to $40 per sq ft installed',
+          'Full hardscape project range: about $295 to $29,500',
+        ],
+      },
+      {
+        heading: 'Why Fall Is the Cheapest Time to Book',
+        paragraphs: [
+          "Wake County sits in the grass transition zone, too hot for cool-season grass all summer, too cold for warm-season grass all winter, which makes timing matter more here than in most of the country. September is widely considered the single best month to plant or sod tall fescue, the cool-season grass most common on Wake County lawns: the soil is still warm enough for fast root growth, air temperatures are dropping, and rainfall tends to be more reliable than midsummer.",
+          "That timing lines up with pricing too. Spring is landscapers' busiest, highest-demand season, so a fall booking, right when demand drops but conditions are still ideal for a cool-season lawn, is one of the few times a company has real incentive to offer a lower, discounted rate just to keep crews working.",
+        ],
+        bullets: [
+          'Best tall fescue seeding/sod window: late August through early October',
+          'Plant at least 45 days before the first fall frost for roots to establish',
+          'Warm-season grasses like centipede: wait for late spring instead',
+          'Fall demand drop is real leverage for a lower quote',
+        ],
+        linkLabel: 'Compare landscaping prices near you',
+        linkCategory: 'Landscaping',
+      },
+      {
+        heading: 'How to Get the Cheapest Real Price',
+        paragraphs: [
+          "Bundle everything you want done into one visit rather than calling separately for sod, mulch, and a patio. Landscapers price around setup and mobilization as much as the actual work, so three separate small jobs almost always costs more than one combined project.",
+          "Ask for the design fee and installation priced separately. A landscape architect's full design runs $70 to $200 an hour, or 10 to 15 percent of the total build cost, and skipping a formal design for a simple refresh (sod, a few beds, mulch) is one of the easiest ways to cut a quote without cutting quality.",
+        ],
+        bullets: [
+          'Bundle sod, mulch, and hardscaping into one visit, not three',
+          'Skip a formal design fee for simple refresh projects',
+          'Book in fall for both better lawn results and lower demand pricing',
+          'Get material (sod, mulch, stone) priced separately from labor',
+        ],
+      },
+    ],
+    closing: [
+      "Landscaping bundles unusually well with neighbors, since a crew already trucking in sod, mulch, or paver stone for one yard barely notices the extra stop next door, and that shared delivery and setup cost is exactly what turns into a cheap, discounted price for the whole street. Compare real landscaping deals in your neighborhood, and time it for fall if a lawn renovation is part of the plan.",
+    ],
+  },
 ];
