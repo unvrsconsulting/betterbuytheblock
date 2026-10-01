@@ -1675,4 +1675,79 @@ export const COST_GUIDES = [
       "Landscaping bundles unusually well with neighbors, since a crew already trucking in sod, mulch, or paver stone for one yard barely notices the extra stop next door, and that shared delivery and setup cost is exactly what turns into a cheap, discounted price for the whole street. Compare real landscaping deals in your neighborhood, and time it for fall if a lawn renovation is part of the plan.",
     ],
   },
+  {
+    slug: 'maid-service-costs-wake-county-2027',
+    title: 'Cheap Maid Service in Wake County for 2027: Weekly, Biweekly, and Monthly Plan Costs',
+    description: 'What a recurring maid service actually costs in Raleigh, Cary, and the rest of Wake County heading into 2027, from weekly to monthly plans, independent cleaners versus companies, and the cheapest way to book one.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 1, 2026',
+    image: 'https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Cleaning & Maid Services',
+    intro: [
+      "A one-time deep clean and a standing maid service are priced completely differently, and most of the real savings in cleaning are in the recurring plan, not the first visit. How often someone comes, and whether it's an independent cleaner or a bonded company, moves the per-visit price more than almost anything else.",
+      "This guide breaks down real weekly, biweekly, and monthly maid service pricing for the Raleigh area, independent cleaners versus cleaning companies, what add-ons actually cost, and how to lock in a cheap, discounted recurring rate instead of paying one-time prices every visit.",
+    ],
+    sections: [
+      {
+        heading: 'Weekly, Biweekly, and Monthly Pricing',
+        paragraphs: [
+          "Maid service is priced by how often someone shows up, and the gap between frequencies is real. Weekly service runs about $75 to $145 per visit for an apartment or $100 to $250 for a house, totaling roughly $5,200 to $10,400 a year. Biweekly, the most common plan, runs $120 to $250 per visit, or about $3,120 to $6,500 annually.",
+          "Monthly service costs more per visit, $120 to $300, because each visit has to cover a month of buildup rather than light weekly maintenance, and totals only $1,800 to $3,600 a year since there are far fewer visits. The average maid service visit overall runs $120 to $280 regardless of frequency.",
+        ],
+        bullets: [
+          'Weekly: $75 to $145/visit (apartment), $100 to $250/visit (house)',
+          'Biweekly: $120 to $250 per visit (most common plan)',
+          'Monthly: $120 to $300 per visit (deeper clean each time)',
+          'Recurring clients typically save 5 to 20 percent versus one-time booking',
+        ],
+        linkLabel: 'See real maid service deals in your neighborhood',
+        linkCategory: 'Cleaning & Maid Services',
+      },
+      {
+        heading: 'Raleigh-Area Pricing',
+        paragraphs: [
+          "Local data puts the average maid service visit in Raleigh at about $150 to $187, with a full range of $93 to $311 depending on home size and condition. A standard recurring visit for a typical 3-bedroom home generally falls between $150 and $250, in line with national numbers.",
+          "Hourly rates in Raleigh start around $20 to $50, with city-wide averages reported near $21 an hour for entry-level service. Frequency still moves the Raleigh price the same way it does nationally: committing to a weekly plan can save up to 30 percent per visit compared to booking one-off cleanings.",
+        ],
+        bullets: [
+          'Raleigh average maid service visit: about $150 to $187 ($93 to $311 range)',
+          'Standard 3-bedroom recurring visit: about $150 to $250',
+          'Raleigh hourly rates: about $20 to $50',
+          'Weekly plan savings vs. one-time booking: up to 30 percent per visit',
+        ],
+      },
+      {
+        heading: 'Independent Cleaner vs. Cleaning Company',
+        paragraphs: [
+          "Who you hire changes the price as much as how often they come. Independent cleaners typically charge $15 to $45 an hour and are usually cheaper, but most aren't licensed, bonded, or insured, which matters if something gets broken or damaged during a visit. Cleaning companies charge $50 to $90 an hour per cleaner but carry insurance, background-check their staff, and will send a replacement if your regular cleaner is out sick.",
+          "Tipping etiquette differs between the two. Independent cleaners set their own rates and gratuity generally isn't expected since it's already built into what they charge. For a company's employees, 15 to 20 percent of the visit cost, or $10 to $20 per cleaner, is the common range, especially for cleaners you see on a recurring basis.",
+        ],
+        bullets: [
+          'Independent cleaner: $15 to $45/hour, cheaper, usually uninsured',
+          'Cleaning company: $50 to $90/hour per cleaner, insured and bonded',
+          'Independent cleaners: tipping not expected, already priced in',
+          'Company employees: 15 to 20 percent tip, or $10 to $20 per cleaner, is common',
+        ],
+      },
+      {
+        heading: 'Add-Ons That Raise the Price',
+        paragraphs: [
+          "A standard recurring visit covers the basics, kitchens, bathrooms, dusting, floors, vacuuming, but the deeper tasks almost always cost extra. Interior fridge and oven cleaning each run about $25 to $50, and interior window cleaning runs about $5 to $10 per window, so a house with a lot of glass can add up fast if windows are included every visit.",
+          "The cheapest way to handle add-ons is to rotate them instead of paying for everything every time: put the fridge and oven on a quarterly add-on instead of a standing line item, and keep the regular visit to just the basics.",
+        ],
+        bullets: [
+          'Interior fridge cleaning: about $25 to $50',
+          'Interior oven cleaning: about $25 to $50',
+          'Interior window cleaning: about $5 to $10 per window',
+          'Laundry and organizing add-ons: roughly $20 to $80 depending on scope',
+        ],
+        linkLabel: 'Compare maid service prices near you',
+        linkCategory: 'Cleaning & Maid Services',
+      },
+    ],
+    closing: [
+      "Recurring maid service is one of the easiest categories to bundle with neighbors, since a cleaner already on your street for a biweekly visit barely adds any driving time by picking up the house next door on the same day. That shared routing is exactly what turns into a cheap, discounted recurring rate instead of a full-price solo booking. Compare real maid service deals in your neighborhood, and ask every quote whether the price is per visit or per hour before you commit to a plan.",
+    ],
+  },
 ];
