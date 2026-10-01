@@ -1,41 +1,45 @@
 // Server-only. Never import this from client code (components/, App.tsx) —
-// it reads CLOUDFLARE_EMAIL_API_TOKEN directly from process.env, and anything
-// imported into the client bundle gets shipped to every visitor's browser.
-// Only api/*.ts files (which run on Vercel's server, never in the browser)
-// should import this.
+// it reads RESEND_API_KEY directly from process.env, and anything imported
+// into the client bundle gets shipped to every visitor's browser. Only
+// api/*.ts files (which run on Vercel's server, never in the browser) should
+// import this.
 //
-// Sends via Cloudflare's Email Sending REST API (the paid Workers add-on
-// covering betterbuytheblock.com), not a third-party provider — the token
-// needs the "Email Sending: Edit" permission, scoped to this account only.
+// Was briefly on Cloudflare's Email Sending API; reverted because
+// CLOUDFLARE_EMAIL_API_TOKEN was never actually added to Vercel, which
+// silently no-op'd every notification email in production. Resend is the
+// known-working path. Move back to Cloudflare once that token is really in
+// place — the swap is isolated to this file.
 
-const ACCOUNT_ID = 'e01e02cacc3a7c2bbcc1ecb12ff5158b';
-const SEND_URL = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/email/sending/send`;
+const FROM = 'BetterBuyTheBlock <support@betterbuytheblock.com>';
+const SUPPORT_TO = 'support@betterbuytheblock.com';
 
-// Cloudflare's docs only show a plain address for "from"/"to" — no
-// "Name <email>" display-name syntax is documented, so we don't risk it.
-const FROM = 'support@betterbuytheblock.com';
-const TO = 'support@betterbuytheblock.com';
-
-export async function sendNotificationEmail(subject: string, html: string): Promise<void> {
-  const apiKey = process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+/** Sends to any address — e.g. a visitor's own inbox (email verification),
+ * not just the team's. `sendNotificationEmail` below is the narrower,
+ * support@-only case most callers actually want. */
+export async function sendEmail(to: string, subject: string, html: string): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn('CLOUDFLARE_EMAIL_API_TOKEN not set, skipping email');
+    console.warn('RESEND_API_KEY not set, skipping email');
     return;
   }
   try {
-    const res = await fetch(SEND_URL, {
+    const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: FROM, to: TO, subject, html }),
+      body: JSON.stringify({ from: FROM, to, subject, html }),
     });
     if (!res.ok) {
       console.error(`Email failed (${res.status}):`, await res.text());
     }
   } catch (err) {
-    // A failed email should never take down the form submission it's
-    // attached to - the real data is already saved by the time this runs.
+    // A failed email should never take down the request it's attached to -
+    // the real data is already saved by the time this runs.
     console.error('Email send threw:', err);
   }
+}
+
+export async function sendNotificationEmail(subject: string, html: string): Promise<void> {
+  return sendEmail(SUPPORT_TO, subject, html);
 }
 
 export function escapeHtml(value: string): string {

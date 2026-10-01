@@ -10,6 +10,24 @@ import {
   setSessionCookie,
   clearSessionCookie,
 } from './_lib/auth.js';
+import { sendEmail, escapeHtml } from './_lib/email.js';
+
+const SITE_URL = 'https://betterbuytheblock.com';
+const EMAIL_VERIFY_TTL_SECONDS = 60 * 60 * 24 * 3; // 3 days
+
+function verifyEmailHtml(name: string, link: string): string {
+  return `<p>Hi ${escapeHtml(name)},</p>
+    <p>Click the link below to verify your email on BetterBuyTheBlock:</p>
+    <p><a href="${link}">${link}</a></p>
+    <p>This link expires in 3 days. If you didn't create this account, you can ignore this email.</p>`;
+}
+
+async function sendVerificationEmail(userId: string, email: string, name: string): Promise<void> {
+  const token = crypto.randomUUID();
+  await withClient(client => client.set(`email_verify:${token}`, userId, { EX: EMAIL_VERIFY_TTL_SECONDS }));
+  const link = `${SITE_URL}/verify-email?token=${token}`;
+  await sendEmail(email, 'Verify your email - BetterBuyTheBlock', verifyEmailHtml(name, link));
+}
 
 // Real signup/login/logout, replacing the old "just type an email, no
 // password, no server-side account" model. A user document lives at
@@ -91,7 +109,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         if (existing) return null; // signal: email taken
 
         const userId = `user_${crypto.randomUUID()}`;
-        const fullUser = { ...user, id: userId, email: normalizedEmail };
+        const fullUser = { ...user, id: userId, email: normalizedEmail, emailVerified: false };
         const passwordHash = await hashPassword(String(password));
 
         await client.set(`user:${userId}`, JSON.stringify(fullUser));
@@ -107,6 +125,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       const token = await createSession(created.id);
       setSessionCookie(res, token);
+      // Fire-and-forget: a failed/slow verification email should never hold
+      // up the signup response — the account is already fully usable either way.
+      sendVerificationEmail(created.id, created.email, created.name).catch(err =>
+        console.error('verification email failed to send', err)
+      );
       return res.status(200).json({ user: created });
     } catch (err) {
       console.error('signup failed', err);
@@ -248,6 +271,58 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     } catch (err) {
       console.error('getLinked failed', err);
       return res.status(500).json({ error: 'Failed to load linked account.' });
+    }
+  }
+
+  if (action === 'verifyEmail') {
+    // Public — the token itself (emailed only to the real address) is the
+    // proof, same as any other email-confirmation link. Doesn't require or
+    // create a session: verifying on a different device/browser than the
+    // one you signed up on should still work.
+    const { token } = req.body || {};
+    if (!token || typeof token !== 'string') {
+      return res.status(400).json({ error: 'Missing verification token.' });
+    }
+    try {
+      const result = await withClient(async (client) => {
+        const tokenKey = `email_verify:${token}`;
+        const userId = await client.get(tokenKey);
+        if (!userId) return null;
+        const raw = await client.get(`user:${userId}`);
+        if (!raw) return null;
+        const updated = { ...JSON.parse(raw), emailVerified: true };
+        await client.set(`user:${userId}`, JSON.stringify(updated));
+        await client.del(tokenKey);
+        return updated;
+      });
+      if (!result) {
+        return res.status(400).json({ error: 'This verification link is invalid or has expired.' });
+      }
+      return res.status(200).json({ user: result });
+    } catch (err) {
+      console.error('verifyEmail failed', err);
+      return res.status(500).json({ error: 'Verification failed, please try again.' });
+    }
+  }
+
+  if (action === 'resendVerification') {
+    const userId = await getSessionUserId(req);
+    if (!userId) return res.status(401).json({ error: 'Not signed in.' });
+    if (await checkRateLimit(ip, 'resendVerification')) {
+      return res.status(429).json({ error: 'Too many attempts, please try again later.' });
+    }
+    try {
+      const user = await withClient<string | null>(client => client.get(`user:${userId}`));
+      if (!user) return res.status(404).json({ error: 'Account not found.' });
+      const parsed = JSON.parse(user);
+      if (parsed.emailVerified) {
+        return res.status(200).json({ ok: true, alreadyVerified: true });
+      }
+      await sendVerificationEmail(userId, parsed.email, parsed.name);
+      return res.status(200).json({ ok: true });
+    } catch (err) {
+      console.error('resendVerification failed', err);
+      return res.status(500).json({ error: 'Could not resend, please try again.' });
     }
   }
 

@@ -54,6 +54,11 @@ export interface User {
   // Left undefined for accounts created before phone verification existed,
   // or created while the verification service was unconfigured.
   phoneVerified?: boolean;
+  // True once the account confirms the /verify-email link sent to `email` at
+  // signup. False right after signup; undefined for accounts created before
+  // email verification existed. Informational only, like phoneVerified -
+  // does not gate anything in the product today.
+  emailVerified?: boolean;
   // Category names (matching constants/categoryGroups.json) the resident
   // said they're interested in at signup — optional, not tied to any
   // specific deal.

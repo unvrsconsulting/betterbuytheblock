@@ -54,6 +54,8 @@ import { isRateLimited } from './services/contentModeration';
 
 import ConnectionsFeed from './components/ConnectionsFeed';
 import StaticPage from './components/StaticPage';
+import VerifyEmailPage from './components/VerifyEmailPage';
+import VerifyEmailBanner from './components/VerifyEmailBanner';
 import Footer from './components/Footer';
 import CookieConsentBanner from './components/CookieConsentBanner';
 import Breadcrumbs, { BreadcrumbItem } from './components/Breadcrumbs';
@@ -424,12 +426,13 @@ const App: React.FC = () => {
   };
 
   const selectedNeighborhoodId = currentUser.neighborhoodId ?? '';
-  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood' | 'admin'>(() => {
+  const [view, setView] = useState<'home' | 'results' | 'business' | 'businesses' | 'serviceProfile' | 'categoryPage' | 'categoryCityPage' | 'blog' | 'profile' | 'wishlist' | 'articles' | 'how-it-works' | 'pro-signup' | 'pro-resources' | 'success-stories' | 'help' | 'contact' | 'terms' | 'privacy' | 'not-found' | 'settings' | 'connections' | 'my-deals' | 'business-onboarding' | 'business-hub' | 'business-create-deal' | 'business-edit-profile' | 'neighborhood' | 'admin' | 'verify-email'>(() => {
     const path = window.location.pathname;
     // Not linked anywhere in the UI on purpose — reached only by typing the
     // URL directly. Gated by its own password prompt (see AdminDashboard),
     // not by anything here.
     if (path === '/admin') return 'admin';
+    if (path === '/verify-email') return 'verify-email';
     if (path === '/privacy') return 'privacy';
     if (path === '/terms') return 'terms';
     if (path === GUIDES_HUB_PATH || path === `${GUIDES_HUB_PATH}/`) return 'articles';
@@ -728,6 +731,11 @@ const App: React.FC = () => {
     const path = view === 'privacy' ? '/privacy'
       : view === 'terms' ? '/terms'
       : view === 'admin' ? '/admin'
+      // Leave the ?token=... query string alone — this effect only ever
+      // compares/sets pathname, so resolving to the current pathname here
+      // (rather than falling through to '/') is what keeps pushState from
+      // firing and stripping the token off the address bar.
+      : view === 'verify-email' ? window.location.pathname
       : view === 'articles' ? GUIDES_HUB_PATH
       : view === 'blog' && selectedBlog ? `/guides/${selectedBlog.slug}`
       : view === 'business' && selectedBusinessId ? (businessForPath ? businessPath(businessForPath) : window.location.pathname)
@@ -747,6 +755,7 @@ const App: React.FC = () => {
       if (path === '/privacy') setView('privacy');
       else if (path === '/terms') setView('terms');
       else if (path === '/admin') setView('admin');
+      else if (path === '/verify-email') setView('verify-email');
       else if (path === GUIDES_HUB_PATH) setView('articles');
       else if (path.startsWith('/guides/')) {
         const slug = path.slice('/guides/'.length);
@@ -842,6 +851,11 @@ const App: React.FC = () => {
       title = `Admin | BetterBuyTheBlock`;
       description = 'Internal admin dashboard.';
       canonicalPath = '/admin';
+      robots = 'noindex, nofollow';
+    } else if (view === 'verify-email') {
+      title = `Verify Your Email | BetterBuyTheBlock`;
+      description = 'Confirm your email address.';
+      canonicalPath = '/verify-email';
       robots = 'noindex, nofollow';
     } else if (view === 'not-found') {
       title = `Page Not Found | BetterBuyTheBlock`;
@@ -1784,6 +1798,10 @@ const App: React.FC = () => {
         onClose={() => setIsLocationPromptOpen(false)} 
         onShareLocation={handleShareLocation} 
       />
+
+      {isAuthenticated && currentUser.emailVerified === false && view !== 'verify-email' && (
+        <VerifyEmailBanner email={currentUser.email} />
+      )}
 
       <main>
         <React.Suspense fallback={<div className="py-24 flex justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
@@ -3059,7 +3077,8 @@ const App: React.FC = () => {
                   <p>Your BetterBuyTheBlock profile (name, email, neighborhood, and activity like joined or wishlisted deals) is stored only in your own browser's local storage. It is never sent to our servers just by browsing the site, and we can't see it. Clearing your browser data deletes it permanently - we have no copy and no way to recover it.</p>
 
                   <h3>What actually gets sent to us</h3>
-                  <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), sign up for a profile, or subscribe to our cost-guide emails, the information you enter (service details, your display name, your email, and your neighborhood/city where relevant) is sent to our server, stored so we can see real demand, and used to send an internal email notification to our team at support@betterbuytheblock.com through Cloudflare's email sending service. This is the only visitor data that leaves your browser during normal use.</p>
+                  <p>When you submit a "Request a Deal" form (a general request or one aimed at a specific business), sign up for a profile, or subscribe to our cost-guide emails, the information you enter (service details, your display name, your email, and your neighborhood/city where relevant) is sent to our server, stored so we can see real demand, and used to send an internal email notification to our team at support@betterbuytheblock.com through Resend, our email delivery provider. This is the only visitor data that leaves your browser during normal use.</p>
+                  <p>When you sign up for a profile, Resend also sends a one-time email to the address you entered with a link to confirm it's really yours. That link only marks your account as having a verified email - it doesn't change anything else about how you use the site.</p>
                   <p>If you use the AI deal-request assistant, the text you type and the business's name are sent to Google's Gemini API to generate a draft message. That's a direct request to Google's API from our server - we don't separately store what you typed for this feature.</p>
 
                   <h3>Business data</h3>
@@ -3082,6 +3101,12 @@ const App: React.FC = () => {
             />
           ) : view === 'admin' ? (
             <AdminDashboard businesses={businesses} onViewBusiness={handleBusinessClick} />
+          ) : view === 'verify-email' ? (
+            <VerifyEmailPage
+              currentUser={currentUser}
+              onVerified={(user) => updateCurrentUser(user)}
+              onContinue={() => setView('home')}
+            />
           ) : view === 'not-found' ? (
             <div className="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
               <p className="text-primary font-bold text-lg mb-2">404</p>
