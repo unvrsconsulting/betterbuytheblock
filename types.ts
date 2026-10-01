@@ -194,6 +194,7 @@ export interface Business {
   isProspective?: boolean;
 }
 
+
 export interface BillingTransaction {
   id: string;
   date: string;
@@ -249,4 +250,9 @@ export interface Service {
   // disabled; the UI routes into the real request flow instead (see
   // handleSignUp's isProspective branch in App.tsx).
   isProspective?: boolean;
+  // Server-set on real (non-seed) deals, from the moment BusinessCreateDeal
+  // publishes them (api/services.ts) - absent on seed/catalog deals, which
+  // never went through that endpoint.
+  createdAt?: string;
 }
+

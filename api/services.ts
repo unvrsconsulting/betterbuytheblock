@@ -67,7 +67,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
       const id = `srv_${crypto.randomUUID()}`;
-      const fullService = { ...service, id, businessId, currentSignups: 0, signedUpUserIds: [] };
+      const fullService = { ...service, id, businessId, currentSignups: 0, signedUpUserIds: [], createdAt: new Date().toISOString() };
       await setDoc(serviceKey(id), fullService);
       await addToIndex(INDEX_KEY, id);
       await addToIndex(byBusinessIndexKey(businessId), id);

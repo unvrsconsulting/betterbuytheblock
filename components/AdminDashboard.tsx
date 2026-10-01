@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Lock, Search, Download, LogOut, RefreshCw, Mail, Phone, Users as UsersIcon, Briefcase, BarChart3, ListChecks, Trash2, X as CloseIcon, Eye } from 'lucide-react';
-import { Business, User } from '../types';
+import { Lock, Search, Download, LogOut, RefreshCw, Mail, Phone, Users as UsersIcon, Briefcase, BarChart3, ListChecks, Trash2, X as CloseIcon, Eye, Tag } from 'lucide-react';
+import { Business, Service, User } from '../types';
 import Button from './Button';
 import { toCsv, downloadCsv } from '../services/csv';
 
@@ -28,11 +28,12 @@ interface AdminDashboardProps {
   onViewBusiness: (businessId: string) => void;
 }
 
-type Tab = 'leads' | 'newsletter' | 'users' | 'businesses' | 'analytics';
+type Tab = 'leads' | 'newsletter' | 'deals' | 'users' | 'businesses' | 'analytics';
 
 const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'leads', label: 'Leads', icon: <ListChecks className="w-4 h-4" /> },
   { id: 'newsletter', label: 'Newsletter', icon: <Mail className="w-4 h-4" /> },
+  { id: 'deals', label: 'Deals', icon: <Tag className="w-4 h-4" /> },
   { id: 'users', label: 'Users', icon: <UsersIcon className="w-4 h-4" /> },
   { id: 'businesses', label: 'Businesses', icon: <Briefcase className="w-4 h-4" /> },
   { id: 'analytics', label: 'Analytics', icon: <BarChart3 className="w-4 h-4" /> },
@@ -139,6 +140,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, onViewBusin
 
       {tab === 'leads' && <LeadsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
       {tab === 'newsletter' && <NewsletterTab token={authedToken} onAuthFailed={handleLogOut} />}
+      {tab === 'deals' && <DealsTab businesses={businesses} onViewBusiness={onViewBusiness} />}
       {tab === 'users' && <UsersTab token={authedToken} onAuthFailed={handleLogOut} />}
       {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} onViewBusiness={onViewBusiness} onAuthFailed={handleLogOut} />}
       {tab === 'analytics' && <AnalyticsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
@@ -454,6 +456,163 @@ const NewsletterTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ 
                     </td>
                     <td className="px-6 py-3 text-gray-600">{s.zip || '—'}</td>
                     <td className="px-6 py-3 text-gray-500">{new Date(s.capturedAt).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Deals (real, business-submitted listings — "submit post" via
+// BusinessCreateDeal. GET /api/services is public and already returns only
+// the real/non-seed ones (see api/services.ts) - no admin token needed to
+// read it, same as how the catalog itself loads.
+// ---------------------------------------------------------------------------
+
+const DealsTab: React.FC<{ businesses: Business[]; onViewBusiness: (businessId: string) => void }> = ({ businesses, onViewBusiness }) => {
+  const [deals, setDeals] = useState<Service[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadError, setLoadError] = useState('');
+  const [search, setSearch] = useState('');
+  const [fetchedAt, setFetchedAt] = useState<Date | null>(null);
+
+  const businessNameById = useMemo(() => {
+    const map = new Map<string, string>();
+    businesses.forEach(b => map.set(b.id, b.name));
+    return map;
+  }, [businesses]);
+
+  const fetchDeals = async () => {
+    setIsLoading(true);
+    setLoadError('');
+    try {
+      const res = await fetch('/api/services');
+      if (!res.ok) throw new Error('Request failed');
+      const data = await res.json();
+      const items: Service[] = data.services || [];
+      items.sort((a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime());
+      setDeals(items);
+      setFetchedAt(new Date());
+    } catch (err) {
+      console.error('Admin deals fetch failed', err);
+      setLoadError("Couldn't load deals — try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchDeals();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const businessLabel = (d: Service) => businessNameById.get(d.businessId) || d.businessId;
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return deals;
+    return deals.filter(d =>
+      (d.title || '').toLowerCase().includes(q) ||
+      (d.category || '').toLowerCase().includes(q) ||
+      businessLabel(d).toLowerCase().includes(q)
+    );
+  }, [deals, search, businessNameById]);
+
+  const activeCount = useMemo(() => deals.filter(d => d.status !== 'completed').length, [deals]);
+  const totalSignups = useMemo(() => deals.reduce((sum, d) => sum + (d.currentSignups || 0), 0), [deals]);
+
+  const handleExportCsv = () => {
+    const rows = filtered.map(d => [
+      d.title || '', businessLabel(d), d.category || '',
+      String(d.standardPrice ?? ''), String(d.discountPercentage ?? ''),
+      String(d.currentSignups ?? 0), String(d.requiredSignups ?? ''),
+      d.status || 'active', d.createdAt ? new Date(d.createdAt).toISOString().slice(0, 10) : '',
+    ]);
+    downloadCsv(`deals-${new Date().toISOString().slice(0, 10)}.csv`, toCsv(
+      ['Title', 'Business', 'Category', 'Standard Price', 'Discount %', 'Signups', 'Required', 'Status', 'Created'], rows
+    ));
+  };
+
+  return (
+    <div>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <p className="text-gray-500 text-sm">
+          Every real deal a business has published through their dashboard.
+          {fetchedAt && <> Updated {fetchedAt.toLocaleTimeString()}.</>}
+        </p>
+        <Button variant="outline" size="sm" onClick={fetchDeals} disabled={isLoading} className="flex items-center gap-1.5 w-fit">
+          <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} /> Refresh
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+        <StatCard label="Total Deals" value={deals.length} />
+        <StatCard label="Active" value={activeCount} />
+        <StatCard label="Total Signups" value={totalSignups} />
+      </div>
+
+      {loadError && <p className="text-sm text-red-600 mb-4">{loadError}</p>}
+
+      <div className="flex flex-col sm:flex-row gap-3 mb-4">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full pl-9 pr-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+            placeholder="Search by title, category, or business..."
+          />
+        </div>
+        <Button variant="outline" onClick={handleExportCsv} disabled={filtered.length === 0} className="flex items-center gap-1.5 shrink-0">
+          <Download className="w-4 h-4" /> Export CSV
+        </Button>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        {isLoading && deals.length === 0 ? (
+          <div className="p-16 text-center text-gray-500 text-sm">Loading...</div>
+        ) : filtered.length === 0 ? (
+          <div className="p-16 text-center text-gray-500 text-sm">No deals match.</div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs uppercase tracking-wider text-gray-500 border-b border-gray-100">
+                  <th className="px-6 py-3 font-medium">Deal</th>
+                  <th className="px-6 py-3 font-medium">Business</th>
+                  <th className="px-6 py-3 font-medium">Category</th>
+                  <th className="px-6 py-3 font-medium">Price</th>
+                  <th className="px-6 py-3 font-medium">Signups</th>
+                  <th className="px-6 py-3 font-medium">Status</th>
+                  <th className="px-6 py-3 font-medium">Created</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {filtered.map(d => (
+                  <tr key={d.id} className="hover:bg-gray-50">
+                    <td className="px-6 py-3 font-medium text-gray-900">{d.title}</td>
+                    <td className="px-6 py-3 text-gray-600">
+                      <button onClick={() => onViewBusiness(d.businessId)} className="flex items-center gap-1.5 hover:text-primary hover:underline text-left">
+                        <Eye className="w-3.5 h-3.5 text-gray-400 shrink-0" /> {businessLabel(d)}
+                      </button>
+                    </td>
+                    <td className="px-6 py-3 text-gray-600">{d.category || '—'}</td>
+                    <td className="px-6 py-3 text-gray-600">
+                      ${d.standardPrice} <span className="text-green-700 font-bold">({d.discountPercentage}% off)</span>
+                    </td>
+                    <td className="px-6 py-3 text-gray-600">{d.currentSignups || 0} / {d.requiredSignups}</td>
+                    <td className="px-6 py-3">
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${d.status === 'completed' ? 'bg-gray-100 text-gray-500' : 'bg-green-50 text-green-700'}`}>
+                        {d.status === 'completed' ? 'Completed' : 'Active'}
+                      </span>
+                    </td>
+                    <td className="px-6 py-3 text-gray-500">{d.createdAt ? new Date(d.createdAt).toLocaleDateString() : '—'}</td>
                   </tr>
                 ))}
               </tbody>
