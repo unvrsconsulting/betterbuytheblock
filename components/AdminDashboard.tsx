@@ -28,10 +28,11 @@ interface AdminDashboardProps {
   onViewBusiness: (businessId: string) => void;
 }
 
-type Tab = 'leads' | 'users' | 'businesses' | 'analytics';
+type Tab = 'leads' | 'newsletter' | 'users' | 'businesses' | 'analytics';
 
 const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: 'leads', label: 'Leads', icon: <ListChecks className="w-4 h-4" /> },
+  { id: 'newsletter', label: 'Newsletter', icon: <Mail className="w-4 h-4" /> },
   { id: 'users', label: 'Users', icon: <UsersIcon className="w-4 h-4" /> },
   { id: 'businesses', label: 'Businesses', icon: <Briefcase className="w-4 h-4" /> },
   { id: 'analytics', label: 'Analytics', icon: <BarChart3 className="w-4 h-4" /> },
@@ -137,6 +138,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ businesses, onViewBusin
       </div>
 
       {tab === 'leads' && <LeadsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
+      {tab === 'newsletter' && <NewsletterTab token={authedToken} onAuthFailed={handleLogOut} />}
       {tab === 'users' && <UsersTab token={authedToken} onAuthFailed={handleLogOut} />}
       {tab === 'businesses' && <BusinessesTab token={authedToken} businesses={businesses} onViewBusiness={onViewBusiness} onAuthFailed={handleLogOut} />}
       {tab === 'analytics' && <AnalyticsTab token={authedToken} businesses={businesses} onAuthFailed={handleLogOut} />}
@@ -330,6 +332,128 @@ const LeadsTab: React.FC<{ token: string; businesses: Business[]; onAuthFailed: 
                     <td className="px-6 py-3 text-gray-600">{lead.dealTitle}</td>
                     <td className="px-6 py-3 text-gray-600">{lead.city || '—'}</td>
                     <td className="px-6 py-3 text-gray-500">{new Date(lead.date).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Newsletter signups (cost-guide email capture — read-only, no per-user record)
+// ---------------------------------------------------------------------------
+
+interface NewsletterSignup {
+  email: string;
+  zip: string | null;
+  capturedAt: string;
+}
+
+const NewsletterTab: React.FC<{ token: string; onAuthFailed: () => void }> = ({ token, onAuthFailed }) => {
+  const [signups, setSignups] = useState<NewsletterSignup[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadError, setLoadError] = useState('');
+  const [search, setSearch] = useState('');
+  const [fetchedAt, setFetchedAt] = useState<Date | null>(null);
+
+  const fetchSignups = async () => {
+    setIsLoading(true);
+    setLoadError('');
+    try {
+      const res = await fetch(`/api/newsletter-signup?token=${encodeURIComponent(token)}`);
+      if (res.status === 401) return onAuthFailed();
+      if (!res.ok) throw new Error('Request failed');
+      const data = await res.json();
+      setSignups((data.items || []).sort((a: NewsletterSignup, b: NewsletterSignup) => new Date(b.capturedAt).getTime() - new Date(a.capturedAt).getTime()));
+      setFetchedAt(new Date());
+    } catch (err) {
+      console.error('Admin newsletter fetch failed', err);
+      setLoadError("Couldn't load signups — try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchSignups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return signups;
+    return signups.filter(s => s.email.toLowerCase().includes(q) || (s.zip || '').includes(q));
+  }, [signups, search]);
+
+  const uniqueZips = useMemo(() => new Set(signups.map(s => s.zip).filter(Boolean)).size, [signups]);
+
+  const handleExportCsv = () => {
+    const rows = filtered.map(s => [s.email, s.zip || '', new Date(s.capturedAt).toISOString().slice(0, 10)]);
+    downloadCsv(`newsletter-signups-${new Date().toISOString().slice(0, 10)}.csv`, toCsv(['Email', 'Zip', 'Date'], rows));
+  };
+
+  return (
+    <div>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <p className="text-gray-500 text-sm">
+          Every email submitted for the cost-guide newsletter.
+          {fetchedAt && <> Updated {fetchedAt.toLocaleTimeString()}.</>}
+        </p>
+        <Button variant="outline" size="sm" onClick={fetchSignups} disabled={isLoading} className="flex items-center gap-1.5 w-fit">
+          <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} /> Refresh
+        </Button>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 mb-8">
+        <StatCard label="Total Signups" value={signups.length} />
+        <StatCard label="Distinct Zip Codes" value={uniqueZips} />
+      </div>
+
+      {loadError && <p className="text-sm text-red-600 mb-4">{loadError}</p>}
+
+      <div className="flex flex-col sm:flex-row gap-3 mb-4">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full pl-9 pr-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+            placeholder="Search by email or zip..."
+          />
+        </div>
+        <Button variant="outline" onClick={handleExportCsv} disabled={filtered.length === 0} className="flex items-center gap-1.5 shrink-0">
+          <Download className="w-4 h-4" /> Export CSV
+        </Button>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        {isLoading && signups.length === 0 ? (
+          <div className="p-16 text-center text-gray-500 text-sm">Loading...</div>
+        ) : filtered.length === 0 ? (
+          <div className="p-16 text-center text-gray-500 text-sm">No signups match.</div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-xs uppercase tracking-wider text-gray-500 border-b border-gray-100">
+                  <th className="px-6 py-3 font-medium">Email</th>
+                  <th className="px-6 py-3 font-medium">Zip</th>
+                  <th className="px-6 py-3 font-medium">Date</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {filtered.map((s, idx) => (
+                  <tr key={idx} className="hover:bg-gray-50">
+                    <td className="px-6 py-3 font-medium text-gray-900">
+                      <div className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-gray-500 shrink-0" /> {s.email}</div>
+                    </td>
+                    <td className="px-6 py-3 text-gray-600">{s.zip || '—'}</td>
+                    <td className="px-6 py-3 text-gray-500">{new Date(s.capturedAt).toLocaleDateString()}</td>
                   </tr>
                 ))}
               </tbody>

@@ -19,8 +19,28 @@ async function withClient<T>(fn: (client: any) => Promise<T>): Promise<T> {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method === 'GET') {
+    // Admin-only, same single-token model as deal-request.ts/deal-signup.ts —
+    // no per-business scoping here since a newsletter signup isn't tied to
+    // any one business.
+    const token = req.query.token;
+    if (!token || token !== process.env.ADMIN_TOKEN) {
+      return res.status(401).json({ error: 'unauthorized' });
+    }
+    try {
+      const items = await withClient(async (client) => {
+        const raw = await client.lRange(LIST_KEY, 0, -1);
+        return raw.map((r: string) => JSON.parse(String(r)));
+      });
+      return res.status(200).json({ count: items.length, items });
+    } catch (err) {
+      console.error('newsletter fetch failed', err);
+      return res.status(500).json({ error: 'failed to read signups' });
+    }
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
+    res.setHeader('Allow', 'GET, POST');
     return res.status(405).json({ error: 'method not allowed' });
   }
 
