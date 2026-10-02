@@ -1750,4 +1750,94 @@ export const COST_GUIDES = [
       "Recurring maid service is one of the easiest categories to bundle with neighbors, since a cleaner already on your street for a biweekly visit barely adds any driving time by picking up the house next door on the same day. That shared routing is exactly what turns into a cheap, discounted recurring rate instead of a full-price solo booking. Compare real maid service deals in your neighborhood, and ask every quote whether the price is per visit or per hour before you commit to a plan.",
     ],
   },
+  {
+    slug: 'cheap-fall-home-maintenance-checklist-wake-county',
+    title: 'Cheap Fall Home Maintenance Checklist for Wake County: What to Book Before Winter and What It Costs',
+    description: 'A fall home maintenance checklist for Raleigh, Cary, and the rest of Wake County, with real prices for gutter cleaning, a heating tune-up, lawn aeration, tree trimming, and rodent-proofing, plus how to book each one cheaper.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 2, 2026',
+    image: 'https://images.pexels.com/photos/34515430/pexels-photo-34515430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Fall is the cheapest season to take care of a house in Wake County. Most of the jobs that matter before winter, cleaning gutters, servicing the heat, aerating the lawn, trimming limbs over the roof, are cheap when you book them on your own schedule and expensive when you book them in an emergency after the first cold snap or ice storm.",
+      "This checklist covers the five fall jobs worth doing, what each one really costs in the Raleigh area, and the affordable, discounted way to book them, including why doing them at the same time as your neighbors is one of the easiest ways to pay less.",
+    ],
+    sections: [
+      {
+        heading: '1. Clean the Gutters After the Leaves Drop',
+        paragraphs: [
+          "Wake County's oaks and maples drop most of their leaves from late October through November, so the best time to clean gutters is once most of the leaves are down, not before. Cleaning too early just means paying for a second visit when the rest of the leaves fall.",
+          "Raleigh homeowners average around $117 per cleaning, with most paying between $89 and $151. That's cheaper than the national average of about $168. Clogged gutters overflowing all winter can cause fascia rot and foundation problems that cost far more to fix.",
+        ],
+        bullets: [
+          'Raleigh average: about $117 per cleaning ($89 to $151 typical)',
+          'National average: about $168',
+          'Best timing: after most leaves have fallen, usually mid to late November',
+        ],
+        linkLabel: 'See real gutter cleaning deals in your neighborhood',
+        linkCategory: 'Gutter Cleaning',
+      },
+      {
+        heading: '2. Get a Heating Tune-Up Before the First Cold Night',
+        paragraphs: [
+          "A heat pump tune-up typically runs $70 to $200, averaging about $140, and a furnace tune-up runs about $80 to $150. Booking in early fall, before demand picks up, can save roughly $20 to $50 per visit compared to calling once it is already cold and every HVAC company is booked up.",
+          "If you plan on yearly service, ask about a maintenance plan. Many companies offer annual plans in the $120 to $360 range that cover the tune-ups and add priority scheduling and repair discounts, which usually costs less than paying for each visit separately.",
+        ],
+        bullets: [
+          'Heat pump tune-up: about $70 to $200 (around $140 average)',
+          'Furnace tune-up: about $80 to $150',
+          'Booking early in fall: often $20 to $50 cheaper',
+          'Annual maintenance plans: about $120 to $360 per year',
+        ],
+        linkLabel: 'Compare HVAC tune-up deals near you',
+        linkCategory: 'HVAC Maintenance',
+      },
+      {
+        heading: '3. Aerate and Overseed the Lawn',
+        paragraphs: [
+          "Most Wake County lawns are tall fescue, a cool-season grass that does its growing in the fall. Early fall is the right window to core aerate and overseed, while the soil is still warm enough for new seed to take root before winter.",
+          "Core aeration typically costs about $107 to $202 for a standard residential lot, with a national average near $154. Pairing aeration with overseeding in a single visit is cheaper than booking the two separately.",
+        ],
+        bullets: [
+          'Core aeration, typical lot: about $107 to $202 (around $154 average)',
+          'Best window for tall fescue: September through early October',
+          'Bundle aeration and overseeding into one visit',
+        ],
+        linkLabel: 'See real lawn service deals in your neighborhood',
+        linkCategory: 'Lawn Service',
+      },
+      {
+        heading: '4. Trim Limbs Hanging Over the Roof',
+        paragraphs: [
+          "Ice storms are a real winter risk in the Triangle, and heavy, ice-coated limbs over a roof or power line are what turn a storm into a repair bill. Trimming them back in the fall is much cheaper than emergency removal after one comes down.",
+          "Trimming averages around $420 per tree nationally. A small tree under 30 feet usually runs $75 to $400, a medium tree $300 to $700, and a large mature oak or pine over 60 feet $700 to $1,800, depending on access.",
+        ],
+        bullets: [
+          'Small tree (under 30 ft): about $75 to $400',
+          'Medium tree (30 to 60 ft): about $300 to $700',
+          'Large tree (over 60 ft): about $700 to $1,800',
+          'Fall and winter, while trees are dormant, is often the cheaper time to book',
+        ],
+        linkLabel: 'Compare tree service deals near you',
+        linkCategory: 'Tree Service',
+      },
+      {
+        heading: '5. Seal Up Entry Points Before Mice Move In',
+        paragraphs: [
+          "Mice and rats start looking for warm places to spend the winter as nights get colder, so fall is when sealing gaps around pipes, vents, and the foundation does the most good. Fixing a few known entry points is cheap; dealing with an established infestation later is not.",
+          "Partial exclusion, sealing the entry points you already know about, typically runs $200 to $500, and basic sealing runs about $10 to $50 per point. A full-home exclusion job averages about $1,200, with a range of roughly $500 to $3,000 depending on the size and age of the house.",
+        ],
+        bullets: [
+          'Basic sealing: about $10 to $50 per entry point',
+          'Partial exclusion (known entry points): about $200 to $500',
+          'Full-home exclusion: about $500 to $3,000 (around $1,200 average)',
+        ],
+        linkLabel: 'See real pest control deals in your neighborhood',
+        linkCategory: 'Pest Control',
+      },
+    ],
+    closing: [
+      "All five of these jobs get cheaper when a whole street books them together. A gutter crew, an HVAC tech, or a lawn crew that's already working on your block can add the house next door for very little extra cost, and that saving is what becomes a discounted neighborhood price. Compare real fall deals in your neighborhood and get these done before the first cold snap.",
+    ],
+  },
 ];
