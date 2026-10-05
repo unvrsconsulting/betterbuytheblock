@@ -1840,4 +1840,78 @@ export const COST_GUIDES = [
       "All five of these jobs get cheaper when a whole street books them together. A gutter crew, an HVAC tech, or a lawn crew that's already working on your block can add the house next door for very little extra cost, and that saving is what becomes a discounted neighborhood price. Compare real fall deals in your neighborhood and get these done before the first cold snap.",
     ],
   },
+  {
+    slug: 'group-buying-home-services-wake-county',
+    title: 'Group Buying for Home Services: How Neighbors Get Discounted Rates in Wake County',
+    description: 'How group buying works for home services like lawn care, pest control, and gutter cleaning, why booking with your neighbors lowers the price, which services discount the most, and how to start a group deal in your Wake County neighborhood.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 5, 2026',
+    image: 'https://images.pexels.com/photos/16401900/pexels-photo-16401900.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Group buying for home services is simple: several households on the same street or in the same neighborhood book the same service together, and the business gives everyone a lower price than any of them would get booking alone. It isn't a coupon trick. It works because of how service businesses actually spend their day.",
+      "This guide explains why booking with your neighbors brings the price down, which services get the biggest group discounts, which ones don't discount much, and how to get a group deal started where you live in Raleigh, Cary, Apex, or anywhere else in Wake County.",
+    ],
+    sections: [
+      {
+        heading: 'Why Booking Together Is Cheaper',
+        paragraphs: [
+          "Most home service businesses lose a big part of every day to driving. Industry guides for lawn care companies say crews typically spend 90 minutes to two hours of every working day behind the wheel, and a well-run operation tries to keep drive time below about 40 percent of the day. Every minute on the road is a minute nobody is paying for.",
+          "When customers are clustered close together, that changes. Route-planning guides for the industry describe cutting the average gap between stops from 18 minutes to 9 minutes as enough to fit more paid visits into the same day, and pest control operators describe route density, how many stops sit close together, as the single biggest factor in profitability. A new customer next door to an existing one costs the business far less to serve than a new customer across town, and that difference is what a group discount passes back to you.",
+        ],
+        bullets: [
+          'Service crews commonly spend 90 minutes to 2 hours a day driving',
+          'Industry benchmark: keep drive time under about 40% of the workday',
+          'Tighter routes fit more paid stops into the same hours',
+          'A customer next door costs far less to serve than one across town',
+        ],
+      },
+      {
+        heading: 'How a Group Deal Works on BetterBuyTheBlock',
+        paragraphs: [
+          "Each deal on BetterBuyTheBlock is tied to specific Wake County neighborhoods and has a set number of neighbors needed to unlock it. You join for free, nothing is charged on the site, and the deal unlocks once enough neighbors have joined. After that, the business contacts everyone who joined to schedule at the group rate.",
+          "If a deal doesn't reach its goal before it expires, nothing happens and nobody owes anything. Joining is a signal of real demand, not a commitment to pay. Across the site, deals currently need between 4 and 12 neighbors to unlock, about 6 on average, so it usually takes a handful of households on a street, not a whole subdivision.",
+        ],
+        bullets: [
+          'Joining a deal is free, and no payment happens on the site',
+          'A deal unlocks once enough neighbors join, typically 4 to 12',
+          'If it never unlocks, nobody is charged anything',
+          'The business schedules directly with everyone who joined',
+        ],
+      },
+      {
+        heading: 'Which Services Discount the Most',
+        paragraphs: [
+          "Group pricing works best for recurring, route-based work, the kind of service a crew does house after house on the same day. That pattern shows up in the pricing on the site. The deals currently listed are proposed rates for real local businesses that haven't joined yet, not offers they've agreed to, but the proposed discounts follow the route logic closely: pest control and HVAC maintenance average about 16 percent off, maid service about 16 percent, and gutter cleaning about 15 percent.",
+          "One-off, custom projects discount the least, because a moving crew or a solar installer isn't running a route past your house anyway. Moving services average under 10 percent off, and solar installation and landscaping about 10 to 11 percent. Across every category, proposed discounts range from 8 to 27 percent and average about 13 percent.",
+        ],
+        bullets: [
+          'Biggest proposed discounts: pest control and HVAC maintenance (about 16%), maid service (about 16%), gutter cleaning (about 15%)',
+          'Smallest: moving (under 10%), solar and landscaping (about 10 to 11%)',
+          'Range across all categories: 8 to 27%, about 13% on average',
+          'Rule of thumb: the more routine and route-based the service, the bigger the group discount',
+        ],
+        linkLabel: 'See pest control deals in your neighborhood',
+        linkCategory: 'Pest Control',
+      },
+      {
+        heading: 'How to Get a Group Deal Started on Your Street',
+        paragraphs: [
+          "Start by finding a deal in your neighborhood for a service you already pay for or were going to book anyway. Joining costs nothing, so the main job is getting a few neighbors to join with you. Sharing the deal link in your neighborhood group chat, HOA newsletter, or Nextdoor is usually enough to reach the goal.",
+          "If the service you need isn't listed, request it. A request tells local businesses that your neighborhood wants that service, and that real demand is what brings a business onto the site with a confirmed group rate.",
+        ],
+        bullets: [
+          'Pick a service you were going to book anyway',
+          'Share the deal link with neighbors on your street or in your HOA',
+          'Request a deal if the service you need is not listed yet',
+          'Recurring services like lawn care and pest control are the easiest wins',
+        ],
+        linkLabel: 'Browse lawn service deals near you',
+        linkCategory: 'Lawn Service',
+      },
+    ],
+    closing: [
+      "Group buying works for home services because neighbors genuinely make the work cheaper to do. A crew that can handle five houses on one street instead of five houses spread across Wake County spends less time driving and more time working, and that saving becomes your discount. Find a deal in your neighborhood, share it with a few neighbors, and unlock the group rate together.",
+    ],
+  },
 ];
