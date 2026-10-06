@@ -339,7 +339,7 @@ function main() {
     // Give each section that links to a category a real href for the static CTA.
     const guideForHtml = {
       ...guide,
-      sections: (guide.sections || []).map(sec => ({ ...sec, __href: sec.linkCategory ? categoryPath(sec.linkCategory) : null })),
+      sections: (guide.sections || []).map(sec => ({ ...sec, __href: sec.linkCategory ? (sec.linkCity ? categoryCityPath(sec.linkCategory, sec.linkCity) : categoryPath(sec.linkCategory)) : null })),
     };
     const bodyHtml = renderGuideBodyHtml(guideForHtml, { relatedGuides: content.relatedGuides, categoryHref, guideHref });
     writeRoute(content.path, pageHtml({ ...content, bodyHtml, ogImage: guide.image }));

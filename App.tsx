@@ -2562,8 +2562,8 @@ const App: React.FC = () => {
                     )}
                     {section.linkCategory && (
                       <Link
-                        href={categoryPath(section.linkCategory)}
-                        onNavigate={() => handleCategoryPageClick(section.linkCategory)}
+                        href={section.linkCity ? categoryCityPath(section.linkCategory, section.linkCity) : categoryPath(section.linkCategory)}
+                        onNavigate={() => handleCategoryPageClick(section.linkCategory, section.linkCity || null)}
                         className="w-full sm:w-auto inline-flex items-center justify-between gap-3 bg-primary-50 hover:bg-primary-100 border border-primary-200 rounded-xl px-5 py-3.5 text-primary-700 font-bold transition-colors"
                       >
                         {section.linkLabel || `See real ${section.linkCategory} deals`}

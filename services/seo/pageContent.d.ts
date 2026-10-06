@@ -101,7 +101,7 @@ export interface Guide {
   type: string;
   category?: string;
   intro?: string[];
-  sections?: { heading: string; paragraphs: string[]; bullets?: string[]; linkLabel?: string; linkCategory?: string }[];
+  sections?: { heading: string; paragraphs: string[]; bullets?: string[]; linkLabel?: string; linkCategory?: string; linkCity?: string }[];
   closing?: string[];
 }
 

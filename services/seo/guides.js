@@ -1914,4 +1914,83 @@ export const COST_GUIDES = [
       "Group buying works for home services because neighbors genuinely make the work cheaper to do. A crew that can handle five houses on one street instead of five houses spread across Wake County spends less time driving and more time working, and that saving becomes your discount. Find a deal in your neighborhood, share it with a few neighbors, and unlock the group rate together.",
     ],
   },
+  {
+    slug: 'cheap-home-services-cary-nc',
+    title: 'Cheap Home Services in Cary, NC: What Cary Homeowners Pay and How to Save',
+    description: 'A Cary-specific guide to home service costs: why bigger Cary homes cost more to clean, paint, and heat, which late-1990s systems are due for replacement, the free Town of Cary leaf collection, and how neighbors get discounted rates together.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 6, 2026',
+    image: 'https://images.pexels.com/photos/40017766/pexels-photo-40017766.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Cary homes are different from the Wake County average in ways that change what home services cost. Wake County's own property records put Cary at about 50,800 single-family homes averaging roughly 2,660 square feet and built around 1998. That's about 550 square feet bigger than the average Raleigh home, and old enough that a lot of the original equipment is reaching the end of its life.",
+      "This guide covers what that means for Cary homeowners: which services cost more here and why, which big-ticket replacements are coming due, a free town service many people pay a contractor for anyway, and the cheap, discounted way to book the rest with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Bigger Homes Mean Bigger Quotes',
+        paragraphs: [
+          "Many home services are priced by size: square footage, number of rooms, or how much wall and floor there is. The average Cary single-family home is about 2,660 square feet, compared with about 2,110 in Raleigh, so the same service often costs more in Cary simply because there's more house.",
+          "House cleaning, carpet cleaning, interior painting, and window washing all scale this way. When you compare quotes, compare them per square foot or per room rather than by the total, and make sure each quote covers the same rooms. Otherwise a quote that looks cheap may just cover less of the house.",
+        ],
+        bullets: [
+          'Average Cary home: about 2,660 sq ft (Raleigh: about 2,110)',
+          'Size-priced services: cleaning, carpet, interior painting, windows',
+          'Compare quotes per square foot or per room, not just the total',
+          'Confirm every quote covers the same rooms',
+        ],
+        linkLabel: 'See house cleaning deals in Cary',
+        linkCategory: 'House Cleaning',
+        linkCity: 'Cary',
+      },
+      {
+        heading: 'Late-1990s Homes: What Is Coming Due',
+        paragraphs: [
+          "With the average Cary home built around 1998, many houses here are on their second HVAC system or due for one. Heat pumps and central air systems typically last around 15 to 20 years, and many asphalt shingle roofs need replacing at around 20 to 30 years. A house built in the late 1990s that still has its original equipment is right in that window.",
+          "The cheapest way to handle a big replacement is to plan for it rather than wait for it to fail. An annual HVAC tune-up and a roof inspection after big storms cost far less than an emergency replacement in the middle of a July heat wave, and planning ahead gives you time to get several quotes.",
+        ],
+        bullets: [
+          'Average Cary home built around 1998',
+          'HVAC systems typically last around 15 to 20 years',
+          'Asphalt shingle roofs typically last around 20 to 30 years',
+          'Plan replacements early so you have time for multiple quotes',
+        ],
+        linkLabel: 'Compare HVAC maintenance deals in Cary',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Cary',
+      },
+      {
+        heading: 'A Free Service Cary Residents Already Have',
+        paragraphs: [
+          "The Town of Cary collects loose leaves at the curb for free every fall and winter, making multiple passes down each street between roughly November and the end of winter. You rake leaves to the curb and the town picks them up, so there's no need to pay a lawn crew to haul them away.",
+          "Outside the loose-leaf season, leaves and yard waste in reusable containers or brown paper bags go out with weekly yard waste collection, and the town's Citizen's Convenience Center on North Dixon Avenue accepts yard waste year-round at no charge. Check the town's website or the Cary Collects app for your street's exact schedule, since the dates change each year.",
+        ],
+        bullets: [
+          'Free curbside loose-leaf collection, several passes per street each season',
+          'Season runs roughly November through the end of winter',
+          'Bagged or containerized yard waste goes out with weekly collection',
+          'Free year-round yard waste drop-off at the Citizen\'s Convenience Center',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Cary',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 750 deals covering Cary from more than 320 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Recurring, route-based services carry the deepest proposed discounts in Cary. Pest control deals run about $81 to $138 at around 17 percent off, HVAC maintenance about $109 to $378 at around 16 percent off, and gutter cleaning averages about 16 percent off. Lawn service deals start around $41 per visit at about 13 percent off.",
+        ],
+        bullets: [
+          'About 750 proposed deals covering Cary, from 320+ local businesses',
+          'Pest control: about $81 to $138, around 17% off',
+          'HVAC maintenance: about $109 to $378, around 16% off',
+          'Gutter cleaning: around 16% off; lawn service from about $41, around 13% off',
+        ],
+        linkLabel: 'See pest control deals in Cary',
+        linkCategory: 'Pest Control',
+        linkCity: 'Cary',
+      },
+    ],
+    closing: [
+      "Cary's tightly built subdivisions are a good fit for group buying. When several neighbors on the same street book the same pest control, lawn, or gutter service, the crew spends less time driving between houses, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Cary neighborhood, share it with a few neighbors, and book the big replacements before they become emergencies.",
+    ],
+  },
 ];
