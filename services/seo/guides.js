@@ -1993,4 +1993,83 @@ export const COST_GUIDES = [
       "Cary's tightly built subdivisions are a good fit for group buying. When several neighbors on the same street book the same pest control, lawn, or gutter service, the crew spends less time driving between houses, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Cary neighborhood, share it with a few neighbors, and book the big replacements before they become emergencies.",
     ],
   },
+  {
+    slug: 'cheap-home-services-raleigh-nc',
+    title: 'Cheap Home Services in Raleigh, NC: The New Leaf Pickup Rules and How to Save This Fall',
+    description: 'A Raleigh guide for fall 2026: the end of loose-leaf vacuum collection and the new weekly yard waste pickup, what older Raleigh homes need, and real group-deal prices for lawn care, HVAC, pest control, and roofing.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 7, 2026',
+    image: 'https://images.pexels.com/photos/35224519/pexels-photo-35224519.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Fall 2026 is the first leaf season in years that works differently in Raleigh. The City has ended its loose-leaf vacuum collection, where you raked leaves to the curb and a truck picked them up, and replaced it with weekly yard waste pickup. A lot of homeowners are going to be raking leaves to the curb out of habit this fall, and those piles won't be collected.",
+      "This guide explains the new rules, when it makes sense to pay someone to handle leaves and when it doesn't, what Raleigh's older housing stock means for repair costs, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'The End of Loose-Leaf Collection in Raleigh',
+        paragraphs: [
+          "Starting September 8, 2026, the City of Raleigh collects yard waste every week instead of every other week, and leaves now go out with that weekly yard waste. Each week you can set out your green yard waste cart, up to 15 biodegradable paper bags, and up to five bundles of tied sticks and twigs. The City says there's no more raking or blowing leaves to the curb.",
+          "Collection days stay the same as before. If one cart isn't enough, the City offers a second yard waste cart for $55 plus $2 a month. For your exact collection day and current fees, check the City of Raleigh's Solid Waste Services pages or call 919-996-3245.",
+        ],
+        bullets: [
+          'Weekly yard waste pickup started September 8, 2026',
+          'Loose-leaf vacuum collection has ended; leaf piles at the curb won\'t be picked up',
+          'Each week: your yard waste cart, up to 15 paper bags, and up to 5 tied bundles',
+          'Optional second cart: $55 plus $2 per month',
+        ],
+      },
+      {
+        heading: 'Should You Pay Someone to Handle Leaves?',
+        paragraphs: [
+          "For most yards, no. A mulching mower that chops leaves into the lawn costs nothing extra and feeds the grass. Leaves that won't mulch can go in paper bags with your weekly pickup. Fifteen bags a week covers most Raleigh lots.",
+          "Paying a lawn crew makes sense for big lots under mature oaks, where the leaf volume outruns 15 bags a week, or if you'd rather not do it yourself. In that case, book a recurring fall cleanup instead of a one-off visit, and ask whether the crew hauls the leaves away or bags them for your weekly pickup. A crew that leaves them for the City's pickup has less to haul and should charge less.",
+        ],
+        bullets: [
+          'Free option: mulch leaves into the lawn with a mulching mower',
+          'Bag what\'s left: up to 15 paper bags a week with yard waste pickup',
+          'Hire out when leaf volume outruns the weekly limit',
+          'Ask whether the crew hauls leaves away or bags them for City pickup',
+        ],
+        linkLabel: 'See lawn service deals in Raleigh',
+        linkCategory: 'Lawn Service',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Older Homes, Older Systems',
+        paragraphs: [
+          "Wake County property records put Raleigh at about 119,500 single-family homes, averaging about 2,110 square feet and built around 1991. That's several years older than the county average and older than newer suburbs like Apex and Holly Springs, where the average home was built around 2009.",
+          "A Raleigh home built in the early 1990s has usually been through at least one HVAC system and often a roof already, and many are due again. Central air and heat pumps typically last around 15 to 20 years, and asphalt shingle roofs about 20 to 30. A yearly tune-up and a roof check after big storms cost far less than replacing either in an emergency.",
+        ],
+        bullets: [
+          'Average Raleigh home: about 2,110 sq ft, built around 1991',
+          'Newer suburbs like Apex and Holly Springs: built around 2009 on average',
+          'HVAC typically lasts around 15 to 20 years; asphalt roofs around 20 to 30',
+          'Plan replacements before they fail so you have time to compare quotes',
+        ],
+        linkLabel: 'Compare HVAC maintenance deals in Raleigh',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock lists more deals for Raleigh than any other city in Wake County, about 1,580 from more than 650 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Recurring services carry the deepest proposed discounts. Pest control deals in Raleigh run about $80 to $138 at around 16 percent off, HVAC maintenance about $113 to $374 at around 16 percent off, and lawn service starts around $41 per visit at about 13 percent off. Roofing is the most-listed category in Raleigh, with proposed rates of about $168 to $363 for inspections, minor repairs, and moss treatment at around 12 percent off.",
+        ],
+        bullets: [
+          'About 1,580 proposed deals covering Raleigh, from 650+ local businesses',
+          'Pest control: about $80 to $138, around 16% off',
+          'HVAC maintenance: about $113 to $374, around 16% off',
+          'Lawn service from about $41 per visit, around 13% off; roofing about $168 to $363, around 12% off',
+        ],
+        linkLabel: 'See pest control deals in Raleigh',
+        linkCategory: 'Pest Control',
+        linkCity: 'Raleigh',
+      },
+    ],
+    closing: [
+      "Raleigh's neighborhoods are dense enough for group buying to work well. When several households on the same street book the same lawn, pest, or HVAC service, the crew spends less time driving between jobs, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Raleigh neighborhood, share it with a few neighbors, and don't rake your leaves to the curb this year.",
+    ],
+  },
 ];
