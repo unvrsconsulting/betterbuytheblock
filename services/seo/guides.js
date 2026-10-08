@@ -2072,4 +2072,67 @@ export const COST_GUIDES = [
       "Raleigh's neighborhoods are dense enough for group buying to work well. When several households on the same street book the same lawn, pest, or HVAC service, the crew spends less time driving between jobs, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Raleigh neighborhood, share it with a few neighbors, and don't rake your leaves to the curb this year.",
     ],
   },
+  {
+    slug: 'cheap-home-services-apex-nc',
+    title: 'Cheap Home Services in Apex, NC: Leaf Season Rules and the First Big Replacement Wave',
+    description: 'An Apex guide for fall 2026: the new biweekly yard waste and loose-leaf rules starting October 19, why many 2000s-era Apex homes are hitting their first HVAC and water heater replacements, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 8, 2026',
+    image: 'https://images.pexels.com/photos/39447777/pexels-photo-39447777.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Apex has some of the newest housing in Wake County. County property records put the average Apex single-family home at about 2,600 square feet, built around 2009. That makes Apex homes cheaper to maintain than older parts of the county in some ways, but it also means a lot of them are hitting their first round of big, expensive replacements right about now.",
+      "This guide covers the Town of Apex's leaf season rules that start October 19, which equipment in a 2000s-era Apex home is most likely due, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Apex Leaf Season Starts October 19',
+        paragraphs: [
+          "On October 19, 2026, the Town of Apex switches yard waste collection from weekly to every other week for peak leaf season, which runs into early February. The town splits into two zones: Zone A is west of I-540, and Zone B is east of I-540 plus Sunset Hills. During leaf season, set yard waste out by 6 a.m. on Monday of your collection week, since pickup can happen any day that week.",
+          "Leaves in Apex go out loose, not bagged. The town's vacuum trucks pick up leaf piles, and the town asks residents not to bag yard waste. Keep leaves in a separate pile from sticks and limbs, because leaves mixed with other debris won't be collected. Place piles within 3 feet of the curb, at least 10 feet from storm drains, and at least 6 feet from mailboxes, cars, and hydrants. Each collection takes up to 2 cubic yards, and you can request extra pickup for a fee.",
+        ],
+        bullets: [
+          'Biweekly pickup starts October 19, 2026, through early February',
+          'Zone A: west of I-540; Zone B: east of I-540 plus Sunset Hills',
+          'Rake leaves loose to the curb; don\'t bag them, and keep them separate from limbs',
+          'Up to 2 cubic yards per collection; extra pickup available for a fee',
+        ],
+      },
+      {
+        heading: 'The First Big Replacement Wave',
+        paragraphs: [
+          "A home built around 2009 is now about 17 years old. Central air and heat pumps typically last around 15 to 20 years, so many Apex homes still running their original builder-installed HVAC system are getting close to replacement. Annual tune-ups help a system last longer, and planning ahead means you can compare quotes instead of taking the first company available during a summer breakdown.",
+          "Water heaters wear out sooner. A standard tank water heater typically lasts about 8 to 12 years, so an original 2009 tank is well past its expected life if it hasn't already been replaced. A like-for-like tank replacement typically runs around $1,200 to $2,800 installed depending on size and fuel type. Periodic flushing and inspection costs far less and can catch a failing tank before it leaks.",
+        ],
+        bullets: [
+          'Average Apex home: about 2,600 sq ft, built around 2009',
+          'HVAC typically lasts around 15 to 20 years; original systems are approaching that now',
+          'Tank water heaters typically last about 8 to 12 years',
+          'Like-for-like tank replacement: roughly $1,200 to $2,800 installed',
+        ],
+        linkLabel: 'See plumbing and water heater deals in Apex',
+        linkCategory: 'Plumbing',
+        linkCity: 'Apex',
+      },
+      {
+        heading: 'What Group Deals Look Like in Apex',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 510 deals covering Apex from more than 220 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Pest control has the deepest proposed discounts in Apex, at about $85 to $137 and around 17 percent off. HVAC maintenance deals, including AC tune-ups, duct cleaning, and thermostat upgrades, run about $119 to $374 at around 16 percent off. Plumbing deals, including whole-home inspections and water heater flushes, run about $142 to $212. Lawn service starts around $42 per visit at about 13 percent off.",
+        ],
+        bullets: [
+          'About 510 proposed deals covering Apex, from 220+ local businesses',
+          'Pest control: about $85 to $137, around 17% off',
+          'HVAC maintenance: about $119 to $374, around 16% off',
+          'Plumbing (inspections, water heater flushes): about $142 to $212; lawn service from about $42',
+        ],
+        linkLabel: 'Compare HVAC maintenance deals in Apex',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Apex',
+      },
+    ],
+    closing: [
+      "Apex's newer subdivisions, often built by the same builder in the same few years, are well suited to group buying. Neighbors with the same age of home tend to need the same service at the same time, and a crew that can handle several of those homes on one street spends less time driving between jobs. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Apex neighborhood, share it with a few neighbors, and get your leaves to the curb loose and on time.",
+    ],
+  },
 ];
