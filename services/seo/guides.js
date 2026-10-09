@@ -2135,4 +2135,82 @@ export const COST_GUIDES = [
       "Apex's newer subdivisions, often built by the same builder in the same few years, are well suited to group buying. Neighbors with the same age of home tend to need the same service at the same time, and a crew that can handle several of those homes on one street spends less time driving between jobs. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Apex neighborhood, share it with a few neighbors, and get your leaves to the curb loose and on time.",
     ],
   },
+  {
+    slug: 'cheap-home-services-wake-forest-nc',
+    title: 'Cheap Home Services in Wake Forest, NC: Leaf Collection, Tree Work, and How to Save',
+    description: 'A Wake Forest guide for fall 2026: how the town\'s loose-leaf collection works, the brush pickup limits that matter when you hire a tree crew, and real group-deal prices for tree service, roofing, and pest control.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 9, 2026',
+    image: 'https://images.pexels.com/photos/7812847/pexels-photo-7812847.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Wake Forest's loose-leaf season is already underway. The town collects loose leaves from the first Monday in October through the second Friday in March, and the rules for raking, brush piles, and tree debris decide what the town will haul for free and what you'll end up paying someone else to take away.",
+      "This guide covers how Wake Forest's leaf and brush collection works, the one rule that matters most before you hire a tree crew, what a typical Wake Forest home looks like, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'How Loose-Leaf Collection Works in Wake Forest',
+        paragraphs: [
+          "Every year, the Town of Wake Forest collects loose leaves from the first Monday in October, which was October 5 this year, through the second Friday in March. Rake leaves into piles behind the curb, not in the street or gutter, and keep them at least eight feet from cars, mailboxes, carts, trees, and shrubs. Crews work through neighborhoods in order, so pickup won't always fall on your usual day. The town's Leaf Collection Hotline, 919-435-9582, is updated each weekday morning with the neighborhoods being worked.",
+          "Keep the piles clean. The town's vacuum equipment only handles loose leaves, so don't mix in sticks, rocks, pine cones, garden trimmings, or trash. Outside leaf season, from mid-March through September, leaves and grass clippings have to go in paper yard waste bags or containers marked \"YW.\" Plastic bags aren't collected. The limit is 20 paper bags or 10 marked containers a week, each no more than 45 gallons or 50 pounds.",
+        ],
+        bullets: [
+          'Loose-leaf season: first Monday in October through the second Friday in March',
+          'Rake piles behind the curb, at least 8 feet from cars, mailboxes, carts, trees, and shrubs',
+          'Leaves only in the pile: no sticks, rocks, pine cones, or trimmings',
+          'Off-season: paper bags or "YW" containers, up to 20 bags or 10 containers a week',
+        ],
+      },
+      {
+        heading: 'The Brush Rule to Know Before You Hire a Tree Crew',
+        paragraphs: [
+          "Wake Forest collects up to 8 cubic yards of brush per household per week, picked up one business day before your trash day. Brush must be less than 10 inches in diameter and no longer than 6 feet, and logs over 6 inches thick can't be longer than 2 feet. Bigger logs, stumps, and roots go in a separate pile.",
+          "The rule that matters most when you're paying for tree work is this one: the town won't collect large quantities of brush from removing more than one tree, or from land clearing. If you're having several trees taken down, make sure the quote includes hauling the debris away. Otherwise a cheap removal price can leave you with a pile the town won't pick up. For a single tree's worth of trimmings cut to size, the town's weekly brush pickup can save you the hauling charge.",
+        ],
+        bullets: [
+          'Brush pickup: up to 8 cubic yards per household per week',
+          'Brush under 10 inches thick and 6 feet long; logs over 6 inches thick no longer than 2 feet',
+          'Brush from removing more than one tree, or land clearing, won\'t be collected',
+          'For multi-tree jobs, get debris hauling included in the quote',
+        ],
+        linkLabel: 'See tree service deals in Wake Forest',
+        linkCategory: 'Tree Service',
+        linkCity: 'Wake Forest',
+      },
+      {
+        heading: 'What Wake Forest Homes Need',
+        paragraphs: [
+          "Wake County property records put Wake Forest at about 17,100 single-family homes, averaging about 2,480 square feet and built around 2007. That's newer than Raleigh's average home, built around 1991, but old enough that original heating and cooling systems, which typically last around 15 to 20 years, are getting close to replacement.",
+          "On BetterBuyTheBlock, roofing and tree service are the most-listed categories in Wake Forest, ahead of HVAC and plumbing. Roofing deals cover inspections, minor repairs, and moss and algae treatment, and tree service deals cover trimming, stump grinding, and storm damage cleanup.",
+        ],
+        bullets: [
+          'Average Wake Forest home: about 2,480 sq ft, built around 2007',
+          'HVAC typically lasts around 15 to 20 years',
+          'Most-listed categories in Wake Forest: roofing and tree service',
+        ],
+        linkLabel: 'Compare roofing deals in Wake Forest',
+        linkCategory: 'Roofing',
+        linkCity: 'Wake Forest',
+      },
+      {
+        heading: 'What Group Deals Look Like in Wake Forest',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 585 deals covering Wake Forest from more than 230 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Tree service deals run about $133 to $168 for stump grinding, $174 to $205 for storm damage cleanup, and $332 to $437 for trimming and pruning, at around 13 percent off. Roofing runs about $172 to $336 at around 12 percent off. Pest control has the deepest proposed discounts, about $87 to $123 at around 16 percent off.",
+        ],
+        bullets: [
+          'About 585 proposed deals covering Wake Forest, from 230+ local businesses',
+          'Tree service: stump grinding about $133 to $168, storm cleanup about $174 to $205, trimming about $332 to $437',
+          'Roofing: about $172 to $336, around 12% off',
+          'Pest control: about $87 to $123, around 16% off',
+        ],
+        linkLabel: 'See pest control deals in Wake Forest',
+        linkCategory: 'Pest Control',
+        linkCity: 'Wake Forest',
+      },
+    ],
+    closing: [
+      "Tree work is one of the best services to book with neighbors. A crew that's already set up with a bucket truck and chipper on your street can trim the trees next door for far less than a separate trip, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Wake Forest neighborhood, share it with a few neighbors, and keep your leaf piles clean so the town picks them up for free.",
+    ],
+  },
 ];
