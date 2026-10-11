@@ -2289,4 +2289,80 @@ export const COST_GUIDES = [
       "In Garner, the cheapest yard work is often the kind the town hauls for free, and the cheapest paid service is one booked with your neighbors. A crew that handles several houses on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Garner neighborhood, share it with a few neighbors, and make sure every quote includes hauling.",
     ],
   },
+  {
+    slug: 'cheap-home-services-holly-springs-nc',
+    title: 'Cheap Home Services in Holly Springs, NC: The Fall Yard Waste Sweep, Leaf Zones, and How to Save',
+    description: 'A Holly Springs guide for fall 2026: the free fall yard waste sweep (October 12 to 16), the leaf-season zone schedule, the free yard waste drop-off center, the rule about contractor debris, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 11, 2026',
+    image: 'https://images.pexels.com/photos/33784496/pexels-photo-33784496.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Holly Springs gives residents several free ways to get rid of yard waste, but most of them are tied to specific weeks. The fall yard waste sweep runs October 12 to 16, leaf-season zone collection starts October 26, and the rest of the year almost everything has to fit in your yard waste cart or you can be fined.",
+      "This guide lays out the dates, a free drop-off option, the rule to know before hiring a landscaper or tree crew, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'The Fall Yard Waste Sweep: October 12 to 16',
+        paragraphs: [
+          "Twice a year, Holly Springs runs a fee-free yard waste cleanup. The 2026 fall sweep runs October 12 to 16. During sweep week you can put any amount of acceptable yard waste at the curb, not just what fits in your cart. The town asks residents to have it out the Sunday before the cleanup week, and crews work through Zones A to D in order.",
+          "Crews pick up limbs and bulky yard waste first, and leaf vacuum trucks come back afterward for loose leaves. Regular cart collection continues as scheduled. If you've been putting off cutting back overgrown shrubs or clearing out fallen limbs, sweep week is the time to do it, because outside of the sweeps and leaf season, yard waste left outside the cart can be fined.",
+        ],
+        bullets: [
+          'Fall sweep: October 12 to 16, 2026, free, any amount of acceptable yard waste',
+          'Have it at the curb the Sunday before cleanup week',
+          'Crews work Zone A through Zone D; limbs first, then leaf vacuum trucks',
+          'Outside the sweeps and leaf season, yard waste must go in the cart',
+        ],
+      },
+      {
+        heading: 'Leaf Season and Your Zone',
+        paragraphs: [
+          "Leaf-season zone collection runs from October 26, 2026 through February 2027. Leaves that don't fit in your cart can go at the edge of your front yard, and town vacuum trucks pick them up once a month during your zone's collection week. Zone A's weeks are October 26, November 23, January 4, and February 1. Zone B's are November 2, November 30, January 11, and February 8. Zone C's are November 9, December 7, January 18, and February 15. Zone D's are November 16, December 14, January 25, and February 22.",
+          "Put leaf piles out before 7 a.m. on the Monday of your zone's week, off the street and away from storm drains. Leave only leaves in the pile. Limbs and sticks go in your yard waste cart, since they can damage the vacuum trucks. Your brown yard waste cart is still collected every other week on your recycling day all season.",
+        ],
+        bullets: [
+          'Leaf-season zone collection: October 26, 2026 through February 2027',
+          'Each zone gets vacuum pickup one week a month',
+          'Piles out before 7 a.m. Monday of your zone week, off the street',
+          'Leaves only in the pile; limbs and sticks go in the cart',
+        ],
+      },
+      {
+        heading: 'The Free Drop-Off Center and the Contractor Rule',
+        paragraphs: [
+          "If you don't want to wait for your zone's week, Holly Springs residents can drop off any amount of yard waste at no charge at the town's yard waste convenience center at 361 Bumgardner Drive, open seven days a week from 7 a.m. to 3 p.m. Bring proof of residence, like a driver's license or utility bill. Bags and bins are fine for the trip, but you have to empty them at the center. Dirt, root balls, mulch, rocks, and lumber aren't accepted.",
+          "Before you hire help, know this rule: the town doesn't collect debris cut by landscape or tree service contractors, and the town ordinance requires them to remove the leaves and yard waste they handle. Landscaping companies also can't use the convenience center. Make sure any lawn, landscaping, or tree quote includes hauling, so you aren't left with a pile the town won't take.",
+        ],
+        bullets: [
+          'Free drop-off: 361 Bumgardner Drive, 7 days a week, 7 a.m. to 3 p.m.',
+          'Any amount of yard waste, with proof of Holly Springs residence',
+          'Contractor-cut debris isn\'t collected by the town',
+          'Get hauling included in every lawn, landscaping, and tree quote',
+        ],
+        linkLabel: 'See tree service deals in Holly Springs',
+        linkCategory: 'Tree Service',
+        linkCity: 'Holly Springs',
+      },
+      {
+        heading: 'What Group Deals Look Like in Holly Springs',
+        paragraphs: [
+          "County property records put Holly Springs at about 16,000 single-family homes, averaging about 2,640 square feet and built around 2009, among the newest housing in Wake County. BetterBuyTheBlock currently lists about 350 deals covering Holly Springs from more than 150 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "Electrical work is the most-listed category in Holly Springs, with whole-home safety inspections, surge protection, and fixture installs at about $146 to $300 and around 14 percent off. Tree service runs about $133 to $396 at around 13 percent off. Pest control has some of the deepest proposed discounts, about $85 to $126 at around 16 percent off, and lawn service starts around $44 per visit.",
+        ],
+        bullets: [
+          'Average Holly Springs home: about 2,640 sq ft, built around 2009',
+          'About 350 proposed deals covering Holly Springs, from 150+ local businesses',
+          'Electrical: about $146 to $300, around 14% off; tree service about $133 to $396',
+          'Pest control: about $85 to $126, around 16% off; lawn service from about $44',
+        ],
+        linkLabel: 'See electrical deals in Holly Springs',
+        linkCategory: 'Electrical',
+        linkCity: 'Holly Springs',
+      },
+    ],
+    closing: [
+      "The cheapest yard work in Holly Springs is timed to the town's free sweeps and leaf weeks, and the cheapest paid service is one booked with your neighbors. A crew that handles several houses on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Holly Springs neighborhood, share it with a few neighbors, and get your yard waste to the curb before sweep week starts.",
+    ],
+  },
 ];
