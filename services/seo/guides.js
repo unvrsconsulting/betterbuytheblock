@@ -2365,4 +2365,80 @@ export const COST_GUIDES = [
       "The cheapest yard work in Holly Springs is timed to the town's free sweeps and leaf weeks, and the cheapest paid service is one booked with your neighbors. A crew that handles several houses on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Holly Springs neighborhood, share it with a few neighbors, and get your yard waste to the curb before sweep week starts.",
     ],
   },
+  {
+    slug: 'cheap-home-services-fuquay-varina-nc',
+    title: 'Cheap Home Services in Fuquay-Varina, NC: Leaf Season, Yard Debris Requests, and How to Save',
+    description: 'A Fuquay-Varina guide for fall 2026: loose-leaf season (October 12 to February 12), why limbs and clippings need a pickup request every time, the no-bags and contractor rules, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 12, 2026',
+    image: 'https://images.pexels.com/photos/34655760/pexels-photo-34655760.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Fuquay-Varina has some of the newest housing in Wake County. County property records put the average single-family home there at about 2,310 square feet and built around 2011. Newer homes mean fewer big repairs for now, but yard care is a weekly cost for everyone, and Fuquay-Varina handles yard waste differently from its neighbors.",
+      "Loose-leaf season starts today, October 12, and runs through February 12. Leaves are picked up automatically, but limbs and grass clippings aren't: you have to request a pickup every time. This guide explains both, the rules that get piles left behind, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Loose-Leaf Season: October 12 to February 12',
+        paragraphs: [
+          "The Town of Fuquay-Varina collects loose leaves automatically from October 12 through February 12, with no request needed. Leaves are picked up the same week as your recycling, so put them out by Sunday night of your recycling week.",
+          "Rake leaves and pine straw into one large pile at the curb. Don't put them in a bag, a container, or on a tarp. Keep sticks, rocks, dirt, and other debris out of the pile, and keep it out of the street, away from storm drains, and clear of sidewalks and fire hydrants.",
+        ],
+        bullets: [
+          'Loose-leaf season: October 12, 2026 through February 12, 2027',
+          'Automatic pickup during your recycling week; piles out by Sunday night',
+          'One large pile at the curb, with no bags, containers, or tarps',
+          'Leaves and pine straw only: no sticks, rocks, or dirt',
+        ],
+      },
+      {
+        heading: 'Limbs and Clippings: Request Pickup Every Time',
+        paragraphs: [
+          "Other yard debris, including limbs, sticks, grass clippings, and pulled weeds, is collected year-round, but the town only guarantees pickup if you request it each time using its yard debris form. Requests received by 5 p.m. Monday are scheduled for pickup that week, Tuesday through Friday, and debris should be at the curb by Monday evening. Keep it in a separate pile at least 3 feet from your leaf pile.",
+          "Loose debris goes in rigid plastic containers, ideally trash-can-style containers of 20 gallons or less that weigh under 40 pounds when loaded. Bags of any kind aren't accepted, including reusable cloth bags, and neither are town garbage or recycling carts. Limbs go in one stacked pile, no longer than 5 feet and no thicker than 5 inches, and the town picks up only one limb pile per address per week.",
+        ],
+        bullets: [
+          'Limbs and clippings: submit a pickup request each time, by 5 p.m. Monday',
+          'Rigid containers up to about 20 gallons and 40 pounds; no bags of any kind',
+          'One stacked limb pile per week, limbs up to 5 feet long and 5 inches thick',
+          'Keep yard debris at least 3 feet from your leaf pile',
+        ],
+      },
+      {
+        heading: 'The Rule to Know Before You Hire a Crew',
+        paragraphs: [
+          "Fuquay-Varina's yard debris pickup is a residential service. The town won't collect debris left by landscape contractors, tree surgeons, or other paid workers. If you hire someone for tree trimming, shrub removal, or a big fall cleanup, make sure hauling the debris away is part of the quote. Otherwise you'll pay a second time to get rid of it.",
+          "Burning isn't an option either. The town doesn't allow burning yard debris within town limits because curbside pickup is provided. For a big yard project you're doing yourself, spread the work across a few weeks so each week's limbs fit in the one pile the town will take.",
+        ],
+        bullets: [
+          'Debris left by paid crews isn\'t collected by the town',
+          'Get hauling included in every tree, landscaping, and cleanup quote',
+          'Burning yard debris isn\'t allowed in town limits',
+          'Spread big DIY projects over several weeks to stay within one pile a week',
+        ],
+        linkLabel: 'See tree service deals in Fuquay-Varina',
+        linkCategory: 'Tree Service',
+        linkCity: 'Fuquay-Varina',
+      },
+      {
+        heading: 'What Group Deals Look Like in Fuquay-Varina',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 305 deals covering Fuquay-Varina from more than 125 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Tree service is the most-listed category in Fuquay-Varina, with trimming, stump grinding, and storm cleanup at about $133 to $396 and around 13 percent off. HVAC maintenance has the deepest proposed discounts, about $122 to $342 at around 17 percent off. Pest control runs about $85 to $126 at around 16 percent off, and lawn service starts around $43 per visit.",
+        ],
+        bullets: [
+          'About 305 proposed deals covering Fuquay-Varina, from 125+ local businesses',
+          'Tree service: about $133 to $396, around 13% off',
+          'HVAC maintenance: about $122 to $342, around 17% off',
+          'Pest control: about $85 to $126, around 16% off; lawn service from about $43',
+        ],
+        linkLabel: 'Compare HVAC maintenance deals in Fuquay-Varina',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Fuquay-Varina',
+      },
+    ],
+    closing: [
+      "Fuquay-Varina's newer subdivisions, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Fuquay-Varina neighborhood, share it with a few neighbors, and get your leaves to the curb by Sunday night of your recycling week.",
+    ],
+  },
 ];
