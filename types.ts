@@ -165,20 +165,16 @@ export interface Business {
   // profile — unrelated to Service (the group-buy deal entity): no pricing,
   // discount, or signup-threshold mechanics, just a description of the work.
   offerings?: BusinessOffering[];
-  // Generated once at business account creation, never shown in the UI or
-  // any URL. Sent alongside businessId whenever the Business Hub fetches its
-  // own leads (see api/deal-signup.ts, api/deal-request.ts) — the server
-  // trusts-on-first-use, binding this key to the businessId on the first
-  // request it sees for it, so a stranger who only knows/guesses a
-  // businessId still can't read another business's residents' contact info.
-  // Businesses seeded before this existed simply have no key and no leads
-  // access — there's no real signup history to protect there anyway.
+  // Legacy: a per-business secret older business docs still carry. No
+  // longer used for anything — leads access is now authorized by the
+  // owner's real session (see api/_lib/leadsAuth.ts) — and never returned
+  // by the public GET /api/businesses.
   leadsAccessKey?: string;
   // Set only on a real, server-backed business (see api/businesses.ts
   // create) — the account that registered it. Never present on a seed/
-  // directory listing, which makes this the reliable signal for whether a
-  // business has an actual Redis document behind it (editable/deletable via
-  // api/admin.ts) versus being read-only static catalog data.
+  // directory listing. Stripped from the public GET /api/businesses list;
+  // only present on the owner's own business (GET /api/businesses?mine=1,
+  // create/update responses) and on the admin list (api/admin.ts).
   ownerUserId?: string;
   galleryPhotoIds?: string[];
   highlights?: string[];
@@ -188,6 +184,7 @@ export interface Business {
   amenities?: string[];
   // Every deal-publish / neighborhood-expansion payment, oldest last — the
   // business's payment history (see BusinessCreateDeal.tsx's checkout step).
+  // Owner-only: absent from the public list, loaded via ?mine=1.
   // Reverse-chronological is a display concern, not a storage concern; each
   // entry is just a paid line item, not a running balance.
   billingHistory?: BillingTransaction[];

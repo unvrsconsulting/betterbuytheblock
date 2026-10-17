@@ -6,8 +6,10 @@ import { authorizeBusinessLeadsAccess } from './_lib/leadsAuth.js';
 // Every real "Request a Deal" submission from the live site lands here, so the
 // owner can see aggregate real demand (which categories, which neighborhoods)
 // instead of it being trapped in each visitor's own browser localStorage.
-// POST is public (any visitor submitting a request); GET is token-gated so
-// only the site owner can read the aggregated list.
+// POST is public (any visitor submitting a request); GET needs either the
+// site owner's ADMIN_TOKEN (the full aggregated list) or a signed-in session
+// that owns ?businessId= (that business's requests only — see
+// _lib/leadsAuth.ts).
 
 const LIST_KEY = 'deal_requests';
 const MAX_ENTRIES = 5000;
@@ -106,16 +108,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const isAdmin = !!token && token === process.env.ADMIN_TOKEN;
 
     const businessId = req.query.businessId ? String(req.query.businessId) : null;
-    const key = req.query.key ? String(req.query.key) : null;
 
     try {
       let authorizedBusinessId: string | null = null;
       if (!isAdmin) {
-        if (!businessId || !key) {
+        if (!businessId) {
           return res.status(401).json({ error: 'unauthorized' });
         }
-        const authorized = await withClient(client => authorizeBusinessLeadsAccess(client, businessId, key));
-        if (!authorized) return res.status(401).json({ error: 'unauthorized' });
+        const access = await authorizeBusinessLeadsAccess(req, businessId);
+        if (access === 'unauthenticated') return res.status(401).json({ error: 'unauthorized' });
+        if (access !== 'ok') return res.status(403).json({ error: 'forbidden' });
         authorizedBusinessId = businessId;
       }
 

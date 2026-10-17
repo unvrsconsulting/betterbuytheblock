@@ -8,8 +8,9 @@ import { authorizeBusinessLeadsAccess } from './_lib/leadsAuth.js';
 // captures custom / not-yet-real deal requests instead. Keeping these as two
 // separate lists (rather than one shared list with a type flag) mirrors how
 // the two flows already work in the app: this one always has a serviceId,
-// deal-request often doesn't. POST is public; GET is token-gated so only the
-// site owner can pull the lead list for a given deal.
+// deal-request often doesn't. POST is public; GET needs either the site
+// owner's ADMIN_TOKEN (every lead) or a signed-in session that owns
+// ?businessId= (that business's leads only — see _lib/leadsAuth.ts).
 
 const LIST_KEY = 'deal_signups';
 const MAX_ENTRIES = 20000;
@@ -95,16 +96,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const isAdmin = !!token && token === process.env.ADMIN_TOKEN;
 
     const businessId = req.query.businessId ? String(req.query.businessId) : null;
-    const key = req.query.key ? String(req.query.key) : null;
 
     try {
       let authorizedBusinessId: string | null = null;
       if (!isAdmin) {
-        if (!businessId || !key) {
+        if (!businessId) {
           return res.status(401).json({ error: 'unauthorized' });
         }
-        const authorized = await withClient(client => authorizeBusinessLeadsAccess(client, businessId, key));
-        if (!authorized) return res.status(401).json({ error: 'unauthorized' });
+        const access = await authorizeBusinessLeadsAccess(req, businessId);
+        if (access === 'unauthenticated') return res.status(401).json({ error: 'unauthorized' });
+        if (access !== 'ok') return res.status(403).json({ error: 'forbidden' });
         authorizedBusinessId = businessId;
       }
 
@@ -115,7 +116,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       // A business-scoped request is hard-filtered to its own businessId
       // regardless of what serviceId/businessId query params it sends — the
-      // key only ever proves ownership of authorizedBusinessId, nothing else.
+      // session only ever proves ownership of authorizedBusinessId, nothing else.
       const scoped = authorizedBusinessId ? items.filter((i: any) => i.businessId === authorizedBusinessId) : items;
       const requestedServiceId = req.query.serviceId ? String(req.query.serviceId) : null;
       const filtered = requestedServiceId ? scoped.filter((i: any) => i.serviceId === requestedServiceId) : scoped;

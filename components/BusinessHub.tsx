@@ -50,17 +50,31 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
   const [leadsLoading, setLeadsLoading] = useState(false);
   const [leadsError, setLeadsError] = useState('');
   const [leadsFetchedAt, setLeadsFetchedAt] = useState<Date | null>(null);
+  // Set when the server says this signed-in account doesn't own a real
+  // (server-backed) business with this id — e.g. a seed/directory listing.
+  const [leadsUnavailable, setLeadsUnavailable] = useState(false);
 
+  // Authorized by the real session cookie (the server checks the signed-in
+  // account is this business's ownerUserId) — no client-held secret.
   const fetchLeads = useCallback(async () => {
-    if (!business?.id || !business.leadsAccessKey) return;
+    if (!business?.id) return;
     setLeadsLoading(true);
     setLeadsError('');
+    setLeadsUnavailable(false);
     try {
-      const qs = `businessId=${encodeURIComponent(business.id)}&key=${encodeURIComponent(business.leadsAccessKey)}`;
+      const qs = `businessId=${encodeURIComponent(business.id)}`;
       const [signupsRes, requestsRes] = await Promise.all([
-        fetch(`/api/deal-signup?${qs}`),
-        fetch(`/api/deal-request?${qs}`),
+        fetch(`/api/deal-signup?${qs}`, { credentials: 'same-origin' }),
+        fetch(`/api/deal-request?${qs}`, { credentials: 'same-origin' }),
       ]);
+      if (signupsRes.status === 403 || requestsRes.status === 403) {
+        setLeadsUnavailable(true);
+        return;
+      }
+      if (signupsRes.status === 401 || requestsRes.status === 401) {
+        setLeadsError('Your session expired — sign in again to see your leads.');
+        return;
+      }
       if (!signupsRes.ok || !requestsRes.ok) throw new Error('Leads request failed');
       const signupsData = await signupsRes.json();
       const requestsData = await requestsRes.json();
@@ -92,7 +106,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
     } finally {
       setLeadsLoading(false);
     }
-  }, [business?.id, business?.leadsAccessKey]);
+  }, [business?.id]);
 
   useEffect(() => {
     fetchLeads();
@@ -368,7 +382,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
               variant="outline"
               size="sm"
               onClick={fetchLeads}
-              disabled={leadsLoading || !business.leadsAccessKey}
+              disabled={leadsLoading}
               className="flex items-center gap-1.5"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${leadsLoading ? 'animate-spin' : ''}`} /> Refresh
@@ -385,7 +399,7 @@ const BusinessHub: React.FC<BusinessHubProps> = ({ currentUser, business, servic
           </div>
         </div>
 
-        {!business.leadsAccessKey ? (
+        {leadsUnavailable ? (
           <div className="p-6 text-sm text-gray-500">
             Lead tracking isn't available for this business account — it was created before this feature existed.
           </div>

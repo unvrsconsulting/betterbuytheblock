@@ -409,6 +409,24 @@ const App: React.FC = () => {
     Promise.allSettled([businessesFetch, servicesFetch]).then(() => setRealCatalogSettled(true));
   }, []);
 
+  // The public list above omits owner-only fields (billing history etc.) —
+  // the signed-in owner gets their own businesses in full from ?mine=1,
+  // merged over the public copies. Waits for the public merge so it can't be
+  // clobbered by it, and re-runs on sign-in/account switch.
+  useEffect(() => {
+    if (!realCatalogSettled || !currentUserId) return;
+    fetch('/api/businesses?mine=1', { credentials: 'same-origin' })
+      .then(r => (r.ok ? r.json() : { businesses: [] }))
+      .then(data => {
+        const owned: Business[] = data.businesses || [];
+        if (owned.length === 0) return;
+        owned.forEach(b => realBusinessIdsRef.current.add(b.id));
+        const ownedIds = new Set(owned.map(b => b.id));
+        setBusinesses(prev => [...prev.filter(b => !ownedIds.has(b.id)), ...owned]);
+      })
+      .catch(err => console.error('Failed to load your businesses', err));
+  }, [realCatalogSettled, currentUserId]);
+
   const { neighborhoods } = useNeighborhoods();
 
   const isAuthenticated = currentUserId !== null && users.some(u => u.id === currentUserId);
