@@ -1,6 +1,7 @@
 import { CityStats } from '../types';
+import { dataUrl } from './dataUrl';
 
-const DATA_URL = '/data/wake-city-stats.json';
+const DATA_URL = dataUrl('wake-city-stats.json');
 
 let cache: Record<string, CityStats> | null = null;
 let inflight: Promise<Record<string, CityStats>> | null = null;

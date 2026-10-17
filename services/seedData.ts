@@ -1,4 +1,5 @@
 import { Business, Service } from '../types';
+import { dataUrl } from './dataUrl';
 
 // The real business/service catalog (523 businesses, 886 offerings) used to
 // live as a literal array in constants.ts — over 1MB of JSON parsed as JS
@@ -6,8 +7,8 @@ import { Business, Service } from '../types';
 // browser already had it cached in localStorage. It's fetched as static JSON
 // instead now, same pattern as public/data/wake-neighborhoods.json.
 
-const BUSINESSES_URL = '/data/seed-businesses.json';
-const SERVICES_URL = '/data/seed-services.json';
+const BUSINESSES_URL = dataUrl('seed-businesses.json');
+const SERVICES_URL = dataUrl('seed-services.json');
 
 let cache: { businesses: Business[]; services: Service[] } | null = null;
 let inflight: Promise<{ businesses: Business[]; services: Service[] }> | null = null;

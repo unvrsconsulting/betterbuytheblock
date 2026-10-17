@@ -20,6 +20,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
       const ids = await getIndexIds(INDEX_KEY);
       const businesses = await getManyDocs(ids.map(businessKey));
+      // Same public list for every visitor, fetched on every page load: let the CDN answer most requests
+      // instead of a function + Redis read. Writes update the creator's own view locally (App.tsx), so the
+      // short staleness only affects other visitors.
+      res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=300');
       return res.status(200).json({ businesses });
     } catch (err) {
       console.error('businesses list failed', err);

@@ -1,7 +1,8 @@
 import { Neighborhood, CityStats } from '../types';
+import { dataUrl } from './dataUrl';
 
-const DATA_URL = '/data/wake-neighborhoods.json';
-const STATS_URL = '/data/wake-neighborhood-stats.json';
+const DATA_URL = dataUrl('wake-neighborhoods.json');
+const STATS_URL = dataUrl('wake-neighborhood-stats.json');
 
 let cache: Neighborhood[] | null = null;
 let inflight: Promise<Neighborhood[]> | null = null;
