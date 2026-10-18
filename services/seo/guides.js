@@ -2441,4 +2441,96 @@ export const COST_GUIDES = [
       "Fuquay-Varina's newer subdivisions, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Fuquay-Varina neighborhood, share it with a few neighbors, and get your leaves to the curb by Sunday night of your recycling week.",
     ],
   },
+  {
+    slug: 'cheap-home-services-knightdale-nc',
+    title: 'Cheap Home Services in Knightdale, NC: 2026 Leaf Vacuum Dates, Yard Waste Rules, and How to Save',
+    description: 'A Knightdale guide for fall 2026: the five loose-leaf vacuum passes (starting October 19 in Planters Walk and October 26 everywhere else), clear-bag and container rules, the knuckle boom truck for big brush, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 18, 2026',
+    image: 'https://images.pexels.com/photos/7854124/pexels-photo-7854124.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Knightdale has about 7,070 single-family homes, and county property records put the average one at about 2,190 square feet and built around 2008. Many of its neighborhoods are newer, but the town's older streets have mature trees, and every yard in town produces leaves this time of year.",
+      "Knightdale's leaf vacuum trucks start their first pass tomorrow, October 19, in Planters Walk, and October 26 everywhere else. This guide covers the full 2026-2027 leaf schedule, the bag and container rules for everyday yard waste, the knuckle boom truck for big brush piles, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Loose-Leaf Vacuum Schedule for 2026-2027',
+        paragraphs: [
+          "The Town of Knightdale vacuums loose leaves from late October through January. Planters Walk gets its own schedule because, according to the town, it produces most of the leaves collected in Knightdale thanks to its many mature trees. Every other neighborhood shares a second schedule. Either way, the town says every home will have a leaf truck come by at least five times this season.",
+          "Have your leaves ready by 7:30 a.m. on the first day of your scheduled week. The town can't predict the exact day a truck will reach your street, since weather and volume decide how fast crews move. The town also recommends putting out small piles as the season goes rather than one big pile at the end.",
+        ],
+        bullets: [
+          'Planters Walk: October 19, November 9, November 30, December 14, and January 11',
+          'All other neighborhoods: October 26, November 16, December 7, December 28, and January 18',
+          'Leaves ready by 7:30 a.m. on the first day of your week',
+          'Small piles through the season work better than one big pile',
+        ],
+      },
+      {
+        heading: 'How to Pile Leaves So the Truck Takes Them',
+        paragraphs: [
+          "Rake leaves loose to the back of the curb or the edge of your yard, within 6 feet of the edge of the pavement so the vacuum equipment can reach them. Don't pile leaves in the street or gutter, and keep piles at least 5 feet from parked cars, because the crew won't collect a pile that's too close to one.",
+          "Grass clippings and trimmings can go loose in the leaf pile too, but branches can't. Keep rocks, trash, and other debris out of the pile. The town won't collect leaf piles that have other litter mixed in.",
+        ],
+        bullets: [
+          'Loose piles within 6 feet of the pavement edge, never in the street or gutter',
+          'Keep piles at least 5 feet from parked cars',
+          'Grass clippings are fine; branches are not',
+          'No rocks, trash, or other debris mixed in',
+        ],
+      },
+      {
+        heading: 'Everyday Yard Waste and Big Brush Piles',
+        paragraphs: [
+          "Outside of leaf season, Knightdale picks up yard waste every week, year-round. Have it at the curb by 7:30 a.m. Monday and it will be picked up by Friday. Use clear plastic bags, compostable paper bags, or a reusable plastic container with a fully removable lid (not a hinged one). Bags over 30 pounds won't be collected, and full containers can't weigh more than 50 pounds. Only organic yard waste is accepted, so keep dirt, stone, and concrete out.",
+          "For larger brush, the town runs a knuckle boom claw truck on a weekly route that normally starts at 7:30 a.m. Monday. It's meant for large piles of brush, limbs, and trunks. Limbs can't be longer than 8 feet or thicker than 8 inches, stumps aren't accepted, and piles should be clear of traffic, parked cars, and utility poles and boxes. Small loose piles of sticks and prunings won't work with the claw, so put those in a container instead.",
+        ],
+        bullets: [
+          'Yard waste out by 7:30 a.m. Monday; picked up by Friday',
+          'Clear or compostable paper bags under 30 pounds, or lidded containers under 50 pounds',
+          'Knuckle boom truck: limbs up to 8 feet long and 8 inches thick, no stumps',
+          'No dirt, stone, or concrete in any yard waste',
+        ],
+        linkLabel: 'See landscaping deals in Knightdale',
+        linkCategory: 'Landscaping',
+        linkCity: 'Knightdale',
+      },
+      {
+        heading: 'The Rule to Know Before You Hire a Crew',
+        paragraphs: [
+          "Knightdale doesn't accept contractor waste in any of its yard programs, including the leaf vacuum, weekly yard waste, and the knuckle boom truck. The town says your contractor should arrange to haul the waste away. If you hire a crew for a fall cleanup, tree trimming, or gutter cleaning, make sure hauling is included in the quote so you don't pay twice.",
+          "The same goes for bigger projects. The town doesn't collect construction or demolition debris at all, and dumpsters or roll-offs for a job can't be placed on town streets. They have to stay inside the job site.",
+        ],
+        bullets: [
+          'Contractor yard waste isn\'t collected by the town',
+          'Get hauling included in every cleanup, tree, and gutter quote',
+          'Construction and demolition debris must be handled by a private contractor',
+          'Project dumpsters can\'t sit on town streets',
+        ],
+        linkLabel: 'Compare gutter cleaning deals in Knightdale',
+        linkCategory: 'Gutter Cleaning',
+        linkCity: 'Knightdale',
+      },
+      {
+        heading: 'What Group Deals Look Like in Knightdale',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 358 deals covering Knightdale from more than 140 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Roofing is the most-listed category in Knightdale, with inspections and repairs at about $182 to $338 and around 13 percent off. Landscaping runs about $198 to $382 at around 10 percent off. Pest control and HVAC maintenance have the deepest proposed discounts, around 16 percent off, with pest control at about $85 to $123 and HVAC at about $119 to $332. Gutter cleaning starts around $100, and lawn service starts around $46 per visit.",
+        ],
+        bullets: [
+          'About 358 proposed deals covering Knightdale, from 140+ local businesses',
+          'Roofing: about $182 to $338, around 13% off',
+          'Pest control: about $85 to $123; HVAC maintenance: about $119 to $332; both around 16% off',
+          'Gutter cleaning from about $100; lawn service from about $46',
+        ],
+        linkLabel: 'See HVAC maintenance deals in Knightdale',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Knightdale',
+      },
+    ],
+    closing: [
+      "Knightdale's neighborhoods are a good fit for group buying. Homes on the same street tend to need the same services at the same time of year, and a crew that handles several houses in one trip spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Knightdale neighborhood, share it with a few neighbors, and get your leaves to the curb by 7:30 a.m. on the first day of your leaf week.",
+    ],
+  },
 ];
