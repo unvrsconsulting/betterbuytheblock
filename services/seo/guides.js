@@ -2533,4 +2533,96 @@ export const COST_GUIDES = [
       "Knightdale's neighborhoods are a good fit for group buying. Homes on the same street tend to need the same services at the same time of year, and a crew that handles several houses in one trip spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Knightdale neighborhood, share it with a few neighbors, and get your leaves to the curb by 7:30 a.m. on the first day of your leaf week.",
     ],
   },
+  {
+    slug: 'cheap-home-services-morrisville-nc',
+    title: 'Cheap Home Services in Morrisville, NC: Bagged Leaf Rules, Yard Waste Dates, and How to Save',
+    description: 'A Morrisville guide for fall 2026: why there is no loose-leaf vacuum truck, the twice-a-month Wednesday yard waste schedule, the 20-item limit and paper-bag rules, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 19, 2026',
+    image: 'https://images.pexels.com/photos/35924457/pexels-photo-35924457.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Morrisville has about 6,610 single-family homes, and county property records put the average one at about 2,430 square feet and built around 2007. It's a compact town with a lot of newer neighborhoods, and one fall rule surprises people who move in from Raleigh, Cary, or Knightdale: Morrisville has no loose-leaf vacuum truck.",
+      "Every leaf has to be bagged or put in a container, and yard waste is only picked up twice a month. This guide covers the 2026 yard waste dates, the bag and container rules, the 20-item limit, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'No Leaf Vacuum: Bag Every Leaf',
+        paragraphs: [
+          "The Town of Morrisville contracts with GFL to collect bagged leaves and bundled sticks instead of running its own vacuum trucks. The town says it compared the two and found that in-house costs for vacuum trucks, extra staff, maintenance, and dump fees were much higher than the contract. Each household currently pays $1.55 a month for leaf collection and yard waste removal.",
+          "That means loose leaf piles at the curb won't be picked up, and neither will leaves in plastic bags. Use 30-gallon paper lawn and leaf bags and try to keep them dry so they don't tear when the crew lifts them. You can also use your own yard waste containers: 35 gallons or smaller, no more than 50 pounds full, labeled \"Yard Waste,\" and able to drain water if they don't have a lid.",
+        ],
+        bullets: [
+          'No loose-leaf vacuum pickup from the town or GFL',
+          'Loose leaves and plastic bags won\'t be collected',
+          '30-gallon paper lawn and leaf bags, kept as dry as possible',
+          'Personal containers: 35 gallons or less, under 50 pounds, labeled "Yard Waste"',
+        ],
+      },
+      {
+        heading: 'Yard Waste Dates for the Rest of 2026',
+        paragraphs: [
+          "Yard waste is collected on Wednesdays, twice a month, and which Wednesdays depends on your trash day. If your trash goes out Monday, Tuesday, or Wednesday, yard waste is collected on the second and fourth Wednesdays. If your trash goes out Thursday or Friday, it's the first and third Wednesdays. Have everything at the curb by 7 a.m.",
+          "In months with five Wednesdays, there's no yard waste pickup on the fifth one. Under that rule, the only fifth Wednesday left this year is December 30. Pickups can be two or more weeks apart, so plan your raking and bagging around your next date instead of leaving full bags out for weeks.",
+        ],
+        bullets: [
+          'Monday, Tuesday, or Wednesday trash routes: October 28, November 11, November 25, December 9, and December 23',
+          'Thursday or Friday trash routes: October 21, November 4, November 18, December 2, and December 16',
+          'No pickup on fifth Wednesdays (December 30 this year)',
+          'Everything at the curb by 7 a.m.',
+        ],
+      },
+      {
+        heading: 'The 20-Item Limit and What Gets Left Behind',
+        paragraphs: [
+          "GFL picks up a maximum of 20 yard waste items per visit, in any combination of paper bags, bundles of sticks and limbs, and up to 5 reusable containers. A big oak can easily fill more than 20 bags in a season, so spread your raking across several pickup dates instead of putting everything out at once.",
+          "Limbs have to be cut to less than 4 feet long and tied into bundles. Bags or cans with dirt, wood chips, stumps, lumber, bricks, rocks, planters, or anything inorganic won't be collected, and yard waste can't go in your trash or recycling cart.",
+        ],
+        bullets: [
+          'Up to 20 items per visit: bags, bundles, and up to 5 containers',
+          'Limbs under 4 feet long, tied in bundles',
+          'No dirt, wood chips, stumps, lumber, bricks, or rocks',
+          'Never put yard waste in your trash or recycling cart',
+        ],
+        linkLabel: 'See lawn service deals in Morrisville',
+        linkCategory: 'Lawn Service',
+        linkCity: 'Morrisville',
+      },
+      {
+        heading: 'The Rule to Know Before You Hire a Crew',
+        paragraphs: [
+          "GFL only collects yard waste from residents maintaining their own property. If a landscaper does work at your home, the town says they're responsible for hauling away the yard waste they generate. With bagging rules and a 20-item limit, a full fall cleanup can be hard to fit into curbside pickup anyway, so ask every crew whether hauling is included before you agree to a price.",
+          "If you'd rather keep leaves out of the waste stream entirely, Wake County runs a compost bin program that sells discounted bins to residents. Shredded leaves are also a free mulch for flower beds.",
+        ],
+        bullets: [
+          'Landscapers must haul away the yard waste they create',
+          'Get hauling included in every cleanup, tree, and gutter quote',
+          'Discounted compost bins are available through Wake County',
+          'Shredded leaves make free mulch for beds',
+        ],
+        linkLabel: 'Compare gutter cleaning deals in Morrisville',
+        linkCategory: 'Gutter Cleaning',
+        linkCity: 'Morrisville',
+      },
+      {
+        heading: 'What Group Deals Look Like in Morrisville',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 251 deals covering Morrisville from more than 100 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Lawn service is the most-listed category in Morrisville, at about $44 to $285 and around 13 percent off. HVAC maintenance and electrical work have the deepest proposed discounts, around 16 percent off, with HVAC at about $109 to $374 and electrical at about $146 to $276. Tree service runs about $138 to $419 at around 13 percent off, pest control is about $85 to $125, and gutter cleaning starts around $104.",
+        ],
+        bullets: [
+          'About 251 proposed deals covering Morrisville, from 100+ local businesses',
+          'Lawn service: about $44 to $285, around 13% off',
+          'HVAC maintenance: about $109 to $374; electrical: about $146 to $276; both around 16% off',
+          'Tree service from about $138; pest control about $85 to $125; gutter cleaning from about $104',
+        ],
+        linkLabel: 'See HVAC maintenance deals in Morrisville',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Morrisville',
+      },
+    ],
+    closing: [
+      "Morrisville's neighborhoods are close together, which makes them a good fit for group buying. A crew that handles several homes on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Morrisville neighborhood, share it with a few neighbors, and get your paper bags to the curb by 7 a.m. on your next yard waste Wednesday.",
+    ],
+  },
 ];
