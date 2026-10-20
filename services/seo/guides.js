@@ -2625,4 +2625,96 @@ export const COST_GUIDES = [
       "Morrisville's neighborhoods are close together, which makes them a good fit for group buying. A crew that handles several homes on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a deal in your Morrisville neighborhood, share it with a few neighbors, and get your paper bags to the curb by 7 a.m. on your next yard waste Wednesday.",
     ],
   },
+  {
+    slug: 'cheap-home-services-rolesville-nc',
+    title: 'Cheap Home Services in Rolesville, NC: 2026 Leaf Weeks, Yard Waste Rules, and How to Save',
+    description: 'A Rolesville guide for fall 2026: weekly loose-leaf collection starting November 2, the Monday and Tuesday yard waste groups, the 4-cubic-yard limit and brush pile rules, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 20, 2026',
+    image: 'https://images.pexels.com/photos/34580763/pexels-photo-34580763.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Rolesville has about 4,670 single-family homes, and county property records put the average one at about 2,680 square feet and built around 2014, which makes its housing some of the newest in Wake County. Newer homes usually mean fewer big repairs for now, but every yard in town still has leaves to deal with this fall.",
+      "Rolesville's loose-leaf vacuum season starts the week of November 2, and yard waste is picked up every other week on either Monday or Tuesday depending on your street. This guide covers the 2026 leaf weeks, the yard waste rules, the limits that get piles left behind, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Loose-Leaf Weeks for 2026',
+        paragraphs: [
+          "The Town of Rolesville vacuums loose leaves weekly in November and December, then every other week in January and February. On the town's 2026 calendar, the weekly leaf collection starts the week of November 2 and runs through the end of December, with the last pass moved to Tuesday, December 29, because of the holiday.",
+          "Have your leaves ready by 7 a.m. Monday of each leaf week. The town recommends putting them out Sunday evening. If bad weather changes the schedule, the town announces it on its website.",
+        ],
+        bullets: [
+          'Leaf weeks begin November 2, 9, 16, 23, and 30, and December 7, 14, and 21',
+          'Final 2026 pass: Tuesday, December 29 (holiday week)',
+          'January and February: every other week',
+          'Leaves out by 7 a.m. Monday; Sunday evening is recommended',
+        ],
+      },
+      {
+        heading: 'How to Pile Leaves So the Vacuum Takes Them',
+        paragraphs: [
+          "Rake leaves behind the curb, not into the street or gutter, and keep them off sidewalks and away from fire hydrants. Don't park in front of or on a leaf pile. The town requires at least 6 feet of clearance between leaves and cars, mailboxes, utility poles, and other obstacles, and anything inside that space won't be collected.",
+          "The vacuum is built to pick up loose leaves only. Keep sticks, rocks, pinecones, and limbs out of the pile, and put limbs and branches in a separate pile. Bagged leaves won't be taken by the leaf vacuum.",
+        ],
+        bullets: [
+          'Leaves behind the curb, never in the street or gutter',
+          'At least 6 feet from cars, mailboxes, poles, and other obstacles',
+          'Loose leaves only: no sticks, rocks, pinecones, or limbs',
+          'Bagged leaves aren\'t accepted by the leaf vacuum',
+        ],
+      },
+      {
+        heading: 'Yard Waste: Monday and Tuesday Groups',
+        paragraphs: [
+          "Yard waste is collected every other week, on Monday or Tuesday depending on your neighborhood, and must be at the curb by 7 a.m. The Monday group includes neighborhoods like Olde Towne, Heritage, Stonewater, Drayton Reserve, Hampton Pointe, and Wall Creek. The Tuesday group includes the Villages of Rolesville, Carlton Pointe, Cedar Lakes, Granite Falls, Chandlers Ridge, and Elizabeth Springs. The town's 2026 calendar lists every street.",
+          "Small debris goes in your own containers or brown paper yard waste bags, up to 5 cans or 10 bags, each under 50 pounds. Black or clear plastic bags aren't accepted. Brush can go in one pile per pickup, no bigger than 6 feet high, 6 feet deep, and 10 feet long, with limbs facing the same way. Limbs up to 6 inches thick can be 6 feet long, thicker limbs must be cut to 2 feet, and logs to 1 foot. Each household's total is capped at 4 cubic yards per pickup, about 12 by 3 by 3 feet.",
+        ],
+        bullets: [
+          'Monday group: October 26, November 9 and 23, December 7 and 21',
+          'Tuesday group: October 27, November 10 and 24, December 8 and 22',
+          'Up to 5 cans or 10 brown paper bags, each under 50 pounds; no plastic bags',
+          'One brush pile per pickup; 4 cubic yards total per household',
+        ],
+        linkLabel: 'See landscaping deals in Rolesville',
+        linkCategory: 'Landscaping',
+        linkCity: 'Rolesville',
+      },
+      {
+        heading: 'What to Check Before You Hire a Crew',
+        paragraphs: [
+          "Rolesville won't collect stumps, root balls, landscape timbers, edging, dirt, bricks, rocks, or construction waste. A full fall cleanup, tree removal, or bed renovation can also produce more than the 4 cubic yards the town takes per pickup. Before you agree to a price, ask whether hauling the debris away is included so you don't end up paying again.",
+          "For items the town doesn't pick up, residents can use a Wake County convenience center or call GFL to schedule a special pickup, which costs extra.",
+        ],
+        bullets: [
+          'Stumps, root balls, timbers, dirt, and construction waste aren\'t collected',
+          'Large jobs can exceed the 4-cubic-yard limit',
+          'Ask every crew whether hauling is included in the quote',
+          'Bulky items: Wake County convenience centers or a paid GFL special pickup',
+        ],
+        linkLabel: 'Compare tree service deals in Rolesville',
+        linkCategory: 'Tree Service',
+        linkCity: 'Rolesville',
+      },
+      {
+        heading: 'What Group Deals Look Like in Rolesville',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 149 deals covering Rolesville from about 60 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Landscaping is the most-listed category in Rolesville, at about $202 to $359 and around 11 percent off. HVAC maintenance has the deepest proposed discounts, about $115 to $344 at around 16 percent off. Pest control runs about $91 to $118 at around 15 percent off, tree service is about $133 to $437, and lawn service starts around $43 per visit.",
+        ],
+        bullets: [
+          'About 149 proposed deals covering Rolesville, from about 60 local businesses',
+          'Landscaping: about $202 to $359, around 11% off',
+          'HVAC maintenance: about $115 to $344, around 16% off',
+          'Pest control: about $91 to $118; tree service from about $133; lawn service from about $43',
+        ],
+        linkLabel: 'See HVAC maintenance deals in Rolesville',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Rolesville',
+      },
+    ],
+    closing: [
+      "Rolesville's newer subdivisions, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Rolesville neighborhood, share it with a few neighbors, and get your leaves behind the curb by Sunday evening before your leaf week.",
+    ],
+  },
 ];
