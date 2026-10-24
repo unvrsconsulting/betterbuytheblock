@@ -2717,4 +2717,96 @@ export const COST_GUIDES = [
       "Rolesville's newer subdivisions, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Rolesville neighborhood, share it with a few neighbors, and get your leaves behind the curb by Sunday evening before your leaf week.",
     ],
   },
+  {
+    slug: 'cheap-home-services-wendell-nc',
+    title: 'Cheap Home Services in Wendell, NC: 2026 Leaf Pickup Weeks, Yard Waste Rules, and How to Save',
+    description: 'A Wendell guide for fall 2026: the six leaf pickup weeks starting November 9, the 5 a.m. pile deadline, weekly yard waste carts, the three free courtesy pickups a year, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 24, 2026',
+    image: 'https://images.pexels.com/photos/5662146/pexels-photo-5662146.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Wendell has about 7,600 single-family homes, and county property records put the average one at about 1,975 square feet and built around 2011. With mostly newer homes, yard care is one of the main recurring costs for most households.",
+      "Wendell's leaf collection doesn't run all season. Crews pick up leaves during six set weeks, starting November 9. This guide covers those weeks, the pile rules, weekly yard waste carts, the town's free courtesy pickups, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Six Leaf Pickup Weeks for 2026-2027',
+        paragraphs: [
+          "The Town of Wendell runs daily leaf pickup during two weeks each in November, December, and January. This season's weeks are November 9 to 13 (with no pickup on Veterans Day, November 11), November 16 to 20, December 7 to 11, December 14 to 18, January 4 to 8, and January 11 to 15.",
+          "Have your pile at the curb by 5 a.m. on the first day of a pickup week, but don't put it out more than a week ahead. That keeps piles from sitting at the curb for weeks between rounds. Outside these weeks, the town asks residents to keep using their yard waste cart whenever they can.",
+        ],
+        bullets: [
+          'November 9 to 13 (no pickup November 11) and November 16 to 20',
+          'December 7 to 11 and December 14 to 18',
+          'January 4 to 8 and January 11 to 15',
+          'Piles out by 5 a.m. on the first day, and no more than a week early',
+        ],
+      },
+      {
+        heading: 'How to Pile Leaves So Crews Take Them',
+        paragraphs: [
+          "Keep leaf piles out of the road and out of ditches next to stormwater pipes. Don't pile them too close to mailboxes, parked cars, utility guy wires, or communications boxes. Leave dirt, rocks, and stumps out of the pile.",
+          "If you're also asking the town to pick up tree limbs, keep the leaf pile separate from the limbs. Limb pickup isn't part of leaf collection, and you schedule it by calling Public Works.",
+        ],
+        bullets: [
+          'Not in the road or in ditches near stormwater pipes',
+          'Clear of mailboxes, parked cars, guy wires, and communications boxes',
+          'No dirt, rocks, or stumps',
+          'Keep leaves separate from any limb pile',
+        ],
+      },
+      {
+        heading: 'Weekly Yard Waste Carts and Free Courtesy Pickups',
+        paragraphs: [
+          "GFL collects trash and yard waste carts every week, and recycling every other week. Your day depends on your zone, and the town's 2026 schedule lists Monday, Tuesday, and Wednesday routes. Call GFL at (919) 394-8801 if you're not sure which one you're on. Carts can go out as early as 7 a.m. the day before pickup and must be brought back by 7 a.m. the day after. Keep them behind the curb, or off the pavement where there's no curb.",
+          "Anything outside the cart won't be collected, and GFL won't take a cart left open that has filled with water. For bigger jobs, the town offers three free courtesy yard waste pickups a year, scheduled through Public Works. If you're planning heavy trimming, call Public Works early so you can line up your work with the next collection date.",
+        ],
+        bullets: [
+          'Trash and yard waste weekly; recycling every other week',
+          'Carts out no earlier than 7 a.m. the day before; back in by 7 a.m. the day after',
+          'Nothing outside the cart is collected; keep lids closed',
+          'Three free courtesy yard waste pickups a year through Public Works',
+        ],
+        linkLabel: 'See tree service deals in Wendell',
+        linkCategory: 'Tree Service',
+        linkCity: 'Wendell',
+      },
+      {
+        heading: 'What to Check Before You Hire a Crew',
+        paragraphs: [
+          "Each household only gets three courtesy pickups a year, and a single tree removal or fall cleanup can use one up. Before you hire anyone for trimming, removal, or landscaping, ask whether hauling the debris away is included in the price. If it isn't, you may end up waiting for a courtesy pickup or paying a second time to get rid of it.",
+          "For other materials, Wake County runs a household hazardous waste site in Wendell at 5051 Wendell Blvd. Live Christmas trees are picked up each January.",
+        ],
+        bullets: [
+          'One big job can use up a courtesy pickup',
+          'Ask every crew whether hauling is included in the quote',
+          'Household hazardous waste: 5051 Wendell Blvd.',
+          'Live Christmas tree pickup every January',
+        ],
+        linkLabel: 'Compare gutter cleaning deals in Wendell',
+        linkCategory: 'Gutter Cleaning',
+        linkCity: 'Wendell',
+      },
+      {
+        heading: 'What Group Deals Look Like in Wendell',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 228 deals covering Wendell from more than 90 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Plumbing is the most-listed category in Wendell, at about $136 to $193 and around 12 percent off. Tree service runs about $133 to $437 at around 11 percent off. HVAC maintenance and gutter cleaning have the deepest proposed discounts, around 15 to 16 percent off, with HVAC at about $107 to $299 and gutter cleaning starting around $98. Lawn service starts around $42 per visit.",
+        ],
+        bullets: [
+          'About 228 proposed deals covering Wendell, from 90+ local businesses',
+          'Plumbing: about $136 to $193, around 12% off',
+          'Tree service: about $133 to $437, around 11% off',
+          'HVAC maintenance about $107 to $299; gutter cleaning from about $98; both around 15% to 16% off',
+        ],
+        linkLabel: 'See HVAC maintenance deals in Wendell',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Wendell',
+      },
+    ],
+    closing: [
+      "Wendell's newer subdivisions, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Wendell neighborhood, share it with a few neighbors, and have your leaves at the curb by 5 a.m. on November 9.",
+    ],
+  },
 ];
