@@ -2809,4 +2809,96 @@ export const COST_GUIDES = [
       "Wendell's newer subdivisions, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Wendell neighborhood, share it with a few neighbors, and have your leaves at the curb by 5 a.m. on November 9.",
     ],
   },
+  {
+    slug: 'cheap-home-services-zebulon-nc',
+    title: 'Cheap Home Services in Zebulon, NC: 2026 Leaf and Yard Waste Zones, Bulk Pickup, and How to Save',
+    description: 'A Zebulon guide for fall 2026: the Zone 1 and Zone 2 leaf and yard waste weeks, the no-bags rule, weekly bulk pickup, free town mulch, what the $24.75 monthly fee covers, and real group-deal prices for local services.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 25, 2026',
+    image: 'https://images.pexels.com/photos/29129369/pexels-photo-29129369.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "Zebulon has about 4,680 single-family homes, and county property records put the average one at about 1,920 square feet and built around 2009. Its average assessed home value, about $322,000, is the lowest of any town BetterBuyTheBlock tracks, which makes keeping home service costs down especially important there.",
+      "Zebulon also gets a lot of value out of its monthly solid waste fee, including leaf and yard waste pickup every other week, weekly bulk pickup with no appointment, and free mulch. This guide covers the 2026 zone schedule, the rules that get piles left behind, what the fee includes, and the cheap, discounted way to book home services with your neighbors.",
+    ],
+    sections: [
+      {
+        heading: 'Leaf and Yard Waste Weeks by Zone',
+        paragraphs: [
+          "Zebulon Public Works collects leaves and yard waste together, every other week, and the town is split into two zones. Zone 1 includes neighborhoods like Barrington, Weavers Pond, Weavers Ridge, Shepards Park, Taryn Lake, and Woodland Crossing. Zone 2 includes Braemar, Cadence Meadows, Jasper Place, Pineview Estates, and Whitley Manor. The town's 2026 yard waste map shows every street.",
+          "Put everything at the curb by the Sunday night before your zone's week. For Zone 2, that's tonight, October 25. The town's calendar marks November 11, November 26 and 27, December 24 and 25, and December 28 as holidays.",
+        ],
+        bullets: [
+          'Zone 1: out by Sunday November 1, November 15, November 29, December 13, and December 27',
+          'Zone 2: out by Sunday October 25, November 8, November 22, December 6, and December 20',
+          'Leaves and yard waste are collected the same week',
+          'Questions: Public Works at 919-269-5285',
+        ],
+      },
+      {
+        heading: 'Two Piles, No Bags',
+        paragraphs: [
+          "Don't bag yard waste or leaves in Zebulon. Make one pile for loose leaves and grass clippings and a separate pile for limbs and woody debris. They're picked up by separate crews on different trucks, and sticks, rocks, pinecones, or limbs in a leaf pile can break the town's vacuum equipment.",
+          "Place both piles behind the curb, not in the street or gutter, and away from parked cars, trees, shrubs, mailboxes, utility boxes, guy wires, telephone poles, and low power lines. Mulch bags, plastic trays, potted plants, dirt, rocks, fencing, and building materials aren't yard waste and won't be collected.",
+        ],
+        bullets: [
+          'No bags: leaves and yard waste go out loose',
+          'One pile for leaves and grass, a separate pile for limbs and brush',
+          'Behind the curb, clear of cars, mailboxes, poles, and power lines',
+          'No dirt, rocks, potted plants, fencing, or building materials',
+        ],
+        linkLabel: 'See landscaping deals in Zebulon',
+        linkCategory: 'Landscaping',
+        linkCity: 'Zebulon',
+      },
+      {
+        heading: 'Weekly Bulk Pickup and Free Mulch',
+        paragraphs: [
+          "Zebulon's $24.75 monthly solid waste fee includes weekly trash, recycling every other week, $3.00 for yard waste, and $5.04 for bulk waste collection. Trash is picked up every Friday, and so is bulk waste, except on holidays. Put large items like furniture, mattresses, carpet, appliances, mowers, and grills (with oil and gas removed) at the curb Thursday night. No appointment is needed. Since it's already part of your fee, there's usually no reason to pay a junk hauler for these items.",
+          "The town also grinds the leaves and yard waste it collects into mulch several times a year and gives it free to residents. You can pick it up or have Public Works deliver it to the curb, first come, first served, after you sign a mulch waiver. Watch the Public Works website and Facebook page for when it's available.",
+        ],
+        bullets: [
+          '$24.75 a month covers trash, recycling, yard waste, and bulk pickup',
+          'Bulk pickup every Friday, included in the fee; items out Thursday night',
+          'Free town mulch several times a year, with free curbside delivery',
+          'Mulch delivery requires a signed waiver',
+        ],
+      },
+      {
+        heading: 'What to Check Before You Hire a Crew',
+        paragraphs: [
+          "Bulk pickup doesn't take electronics, batteries, paint, tires, hazardous waste, or construction debris, and yard waste pickup doesn't take building materials or fencing. If you hire someone for a roof repair, fence job, or tree removal, ask whether hauling the debris away is included in the price.",
+          "For items the town won't collect, Wake County residents can drop them off at no extra charge at the county convenience center at 5051 Wendell Blvd.",
+        ],
+        bullets: [
+          'Construction debris isn\'t collected curbside',
+          'Ask every crew whether hauling is included in the quote',
+          'Electronics, paint, tires, and batteries: 5051 Wendell Blvd., no extra charge',
+          'Missed trash or recycling: call 919-269-5285 by noon Monday',
+        ],
+        linkLabel: 'Compare roofing deals in Zebulon',
+        linkCategory: 'Roofing',
+        linkCity: 'Zebulon',
+      },
+      {
+        heading: 'What Group Deals Look Like in Zebulon',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 176 deals covering Zebulon from more than 70 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Roofing is the most-listed category in Zebulon, at about $168 to $325 and around 12 percent off. Landscaping runs about $187 to $363 at around 11 percent off. HVAC maintenance has the deepest proposed discounts, about $124 to $288 at around 18 percent off. Gutter cleaning starts around $104 at about 15 percent off, and lawn service starts around $40 per visit.",
+        ],
+        bullets: [
+          'About 176 proposed deals covering Zebulon, from 70+ local businesses',
+          'Roofing: about $168 to $325, around 12% off',
+          'HVAC maintenance: about $124 to $288, around 18% off',
+          'Landscaping about $187 to $363; gutter cleaning from about $104; lawn service from about $40',
+        ],
+        linkLabel: 'See HVAC maintenance deals in Zebulon',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Zebulon',
+      },
+    ],
+    closing: [
+      "Zebulon's neighborhoods, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Zebulon neighborhood, share it with a few neighbors, and get your leaf and limb piles to the curb by the Sunday before your zone's week.",
+    ],
+  },
 ];
