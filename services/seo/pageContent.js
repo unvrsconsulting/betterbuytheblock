@@ -102,16 +102,9 @@ export function buildLocalBusinessJsonLd(business, canonicalUrl) {
   if (business.coverImageUrl) jsonLd.image = business.coverImageUrl;
   if (business.category) jsonLd.additionalType = business.category;
   if (business.website) jsonLd.sameAs = [business.website];
-  // Never fabricate a rating for a prospective business with none on file —
-  // this only ever passes through real scraped data, per the app's existing
-  // honesty framing (see BUSINESS_HONESTY_NOTE / isProspective everywhere else).
-  if (business.reviewCount && business.reviewCount > 0 && business.rating) {
-    jsonLd.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: business.rating,
-      reviewCount: business.reviewCount,
-    };
-  }
+  // No aggregateRating here: the ratings on file are Google review counts, and Google's review-snippet
+  // policy forbids marking up ratings collected on another site (risk of a structured-data manual
+  // action). The rating still shows on the page, labeled as Google reviews.
   return jsonLd;
 }
 
