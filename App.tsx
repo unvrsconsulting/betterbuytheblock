@@ -729,9 +729,10 @@ const App: React.FC = () => {
     }
   };
 
+  // Also reset on guide-to-guide navigation, where the view stays 'blog'.
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [view]);
+  }, [view, selectedBlog]);
 
   // Real, bookmarkable URLs for the handful of views worth indexing (see
   // sitemap.xml) — everything else in this app is client-side view state
