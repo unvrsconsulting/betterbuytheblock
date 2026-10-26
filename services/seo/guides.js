@@ -2901,4 +2901,218 @@ export const COST_GUIDES = [
       "Zebulon's neighborhoods, where many homes were built around the same time, are a good fit for group buying. Neighbors tend to need the same services at the same time, and a crew that handles several houses on one street spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Zebulon neighborhood, share it with a few neighbors, and get your leaf and limb piles to the curb by the Sunday before your zone's week.",
     ],
   },
+  {
+    slug: 'free-leaf-pickup-wake-county-2026',
+    title: 'Free Leaf Pickup in Wake County 2026: Dates and Rules for All 12 Towns',
+    description: 'Every Wake County town handles leaves differently. Here are the 2026-2027 leaf collection dates and rules for Raleigh, Cary, Apex, Wake Forest, Garner, Holly Springs, Fuquay-Varina, Knightdale, Morrisville, Rolesville, Wendell, and Zebulon, plus when it makes sense to pay for help.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 26, 2026',
+    image: 'https://images.pexels.com/photos/40317349/pexels-photo-40317349.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    intro: [
+      "The cheapest way to deal with fall leaves in Wake County is usually free: your town will pick them up. But every town does it differently. Some send vacuum trucks for loose piles, some only take paper bags, and some run leaf pickup only during certain weeks. Put leaves out the wrong way or on the wrong week and they can sit at the curb for a month.",
+      "This guide lists the 2026-2027 leaf collection dates and rules for all 12 Wake County towns BetterBuyTheBlock covers, taken from each town's own website and calendar. Each section links to our full guide for that town. Weather and heavy volume can push dates back, so check your town's website if crews are running late.",
+    ],
+    sections: [
+      {
+        heading: 'Three Ways Wake County Towns Handle Leaves',
+        paragraphs: [
+          "Most towns, including Cary, Apex, Wake Forest, Garner, Holly Springs, Fuquay-Varina, Knightdale, Rolesville, Wendell, and Zebulon, send vacuum trucks for loose leaf piles at the curb. In all of them, the vacuum only takes clean leaves, so keep sticks, rocks, pine cones, and limbs out of the pile.",
+          "Raleigh and Morrisville don't vacuum loose leaves. Leaves there go out in paper bags or yard waste containers with regular yard waste pickup. And a few towns run leaf pickup only during set weeks or rounds instead of all season, so the date matters as much as how you pile them.",
+        ],
+        bullets: [
+          'Loose-leaf vacuum: Cary, Apex, Wake Forest, Garner, Holly Springs, Fuquay-Varina, Knightdale, Rolesville, Wendell, Zebulon',
+          'Bags or containers only: Raleigh and Morrisville',
+          'Every vacuum town: leaves only, no sticks, rocks, or limbs',
+          'Never rake leaves into the street, gutter, or storm drains',
+        ],
+      },
+      {
+        heading: 'Raleigh: Leaves Go in Bags or the Cart Now',
+        paragraphs: [
+          "Raleigh ended loose-leaf vacuum collection. Since September 8, 2026, yard waste is picked up every week instead of every other week, and leaves go out with it. Leaf piles raked to the curb won't be picked up anymore.",
+        ],
+        bullets: [
+          'Weekly yard waste pickup on your regular day',
+          'Your green cart, up to 15 paper bags, and up to 5 tied bundles a week',
+          "No loose-leaf vacuum; curb piles aren't collected",
+          'Mulching leaves into the lawn is the free option',
+        ],
+        linkLabel: 'Read the full Raleigh guide',
+        linkGuide: 'cheap-home-services-raleigh-nc',
+      },
+      {
+        heading: 'Cary: Three Free Rounds Starting November 2',
+        paragraphs: [
+          "Cary collects loose leaves three times from every street at no extra charge. Round 1 begins November 2, round 2 begins November 30, and round 3 begins January 4. Put piles at the curb, out of the roadway, by 7 a.m. up to one week before each round starts. Crews work zone by zone, so a round can take several weeks to reach your street.",
+        ],
+        bullets: [
+          'Rounds begin November 2, November 30, and January 4',
+          'Piles out by 7 a.m., up to a week before each round',
+          'Free pickup by request February 8 to March 31, 2027',
+          'Keep piles off sidewalks and away from storm drains, mailboxes, and cars',
+        ],
+        linkLabel: 'Read the full Cary guide',
+        linkGuide: 'cheap-home-services-cary-nc',
+      },
+      {
+        heading: 'Apex: Every Other Week Through Early February',
+        paragraphs: [
+          "Apex switched to every-other-week yard waste pickup for leaf season on October 19, and it runs into early February. Zone A is west of I-540, and Zone B is east of I-540 plus Sunset Hills. Rake leaves loose to the curb, don't bag them, and have them out by 6 a.m. Monday of your collection week.",
+        ],
+        bullets: [
+          'Leaf season: October 19 through early February',
+          'Zone A west of I-540; Zone B east of I-540 plus Sunset Hills',
+          'Loose leaves out by 6 a.m. Monday of your week',
+          'Up to 2 cubic yards per collection',
+        ],
+        linkLabel: 'Read the full Apex guide',
+        linkGuide: 'cheap-home-services-apex-nc',
+      },
+      {
+        heading: 'Wake Forest: October Through Mid-March',
+        paragraphs: [
+          "Wake Forest's loose-leaf season started October 5 and runs through the second Friday in March. Crews work through neighborhoods in order, so pickup won't always land on your usual day. The town's Leaf Collection Hotline, 919-435-9582, is updated each weekday morning with the neighborhoods being worked.",
+        ],
+        bullets: [
+          'Loose-leaf season: October 5 through the second Friday in March',
+          'Piles behind the curb, at least 8 feet from cars, mailboxes, and carts',
+          'Leaves only: no sticks, rocks, or pine cones',
+          'Leaf hotline: 919-435-9582',
+        ],
+        linkLabel: 'Read the full Wake Forest guide',
+        linkGuide: 'cheap-home-services-wake-forest-nc',
+      },
+      {
+        heading: 'Garner: November Through February, With Your Recycling Week',
+        paragraphs: [
+          "From November through February, Garner picks up loose leaves and pine straw every other week, following your recycling week. Rake them to the edge of the street behind the curb. The rest of the year, yard waste goes in reusable containers, since Garner doesn't accept bags of any kind for yard waste.",
+        ],
+        bullets: [
+          'Loose leaves and pine straw: November through February',
+          'Every other week, on your recycling week',
+          'Piles behind the curb, away from mailboxes and storm drains',
+          'No bags for yard waste; containers up to 32 gallons',
+        ],
+        linkLabel: 'Read the full Garner guide',
+        linkGuide: 'cheap-home-services-garner-nc',
+      },
+      {
+        heading: 'Holly Springs: One Week a Month by Zone',
+        paragraphs: [
+          "Holly Springs vacuums leaves one week a month in each of its four zones, from October 26 through February. Put leaf piles out before 7 a.m. Monday of your zone's week, off the street and away from storm drains. The town's yard waste convenience center at 361 Bumgardner Drive also takes any amount of yard waste free, seven days a week.",
+        ],
+        bullets: [
+          'Zone A: October 26, November 23, January 4, February 1',
+          'Zone B: November 2, November 30, January 11, February 8',
+          'Zone C: November 9, December 7, January 18, February 15',
+          'Zone D: November 16, December 14, January 25, February 22',
+        ],
+        linkLabel: 'Read the full Holly Springs guide',
+        linkGuide: 'cheap-home-services-holly-springs-nc',
+      },
+      {
+        heading: 'Fuquay-Varina: Automatic Pickup Through February 12',
+        paragraphs: [
+          "Fuquay-Varina's loose-leaf season runs from October 12 to February 12. Leaves are picked up automatically the same week as your recycling, with no request needed. Put one large pile at the curb by Sunday night of your recycling week. Limbs and grass clippings are different: those need a pickup request every time.",
+        ],
+        bullets: [
+          'Loose-leaf season: October 12 to February 12',
+          'Automatic pickup during your recycling week',
+          'One pile at the curb by Sunday night; no bags or tarps',
+          'Limbs and clippings need a request each time',
+        ],
+        linkLabel: 'Read the full Fuquay-Varina guide',
+        linkGuide: 'cheap-home-services-fuquay-varina-nc',
+      },
+      {
+        heading: 'Knightdale: Five Passes, Planters Walk First',
+        paragraphs: [
+          "Knightdale's vacuum trucks make five passes this season, and Planters Walk has its own schedule because it produces most of the town's leaves. Have leaves raked loose within 6 feet of the pavement by 7:30 a.m. on the first day of your week, and keep piles at least 5 feet from parked cars.",
+        ],
+        bullets: [
+          'Planters Walk: October 19, November 9, November 30, December 14, January 11',
+          'All other neighborhoods: October 26, November 16, December 7, December 28, January 18',
+          'Leaves out by 7:30 a.m. on the first day of your week',
+          'Grass clippings are fine in the pile; branches are not',
+        ],
+        linkLabel: 'Read the full Knightdale guide',
+        linkGuide: 'cheap-home-services-knightdale-nc',
+      },
+      {
+        heading: 'Morrisville: No Vacuum, Paper Bags Only',
+        paragraphs: [
+          "Morrisville doesn't run leaf vacuum trucks. Leaves have to go in 30-gallon paper bags or labeled yard waste containers, and GFL picks them up twice a month on Wednesdays. Monday through Wednesday trash routes are collected on the second and fourth Wednesdays, and Thursday and Friday routes on the first and third. GFL takes up to 20 items per visit.",
+        ],
+        bullets: [
+          "No loose-leaf pickup; loose piles and plastic bags aren't collected",
+          'Mon to Wed routes: October 28, November 11 and 25, December 9 and 23',
+          'Thu and Fri routes: November 4 and 18, December 2 and 16',
+          'Up to 20 items per visit, out by 7 a.m.',
+        ],
+        linkLabel: 'Read the full Morrisville guide',
+        linkGuide: 'cheap-home-services-morrisville-nc',
+      },
+      {
+        heading: 'Rolesville: Weekly in November and December',
+        paragraphs: [
+          "Rolesville vacuums loose leaves every week in November and December, starting the week of November 2, then every other week in January and February. Have leaves behind the curb by 7 a.m. Monday of each leaf week. The town recommends Sunday evening. Keep piles at least 6 feet from cars, mailboxes, and utility poles.",
+        ],
+        bullets: [
+          'Weekly leaf pickup starting November 2 through December',
+          'Every other week in January and February',
+          'Leaves out by 7 a.m. Monday; Sunday evening recommended',
+          "Bagged leaves aren't taken by the vacuum",
+        ],
+        linkLabel: 'Read the full Rolesville guide',
+        linkGuide: 'cheap-home-services-rolesville-nc',
+      },
+      {
+        heading: 'Wendell: Six Set Weeks',
+        paragraphs: [
+          "Wendell picks up leaves daily during six set weeks: November 9 to 13 (no pickup on November 11), November 16 to 20, December 7 to 11, December 14 to 18, January 4 to 8, and January 11 to 15. Piles have to be at the curb by 5 a.m. on the first day, but no more than a week early.",
+        ],
+        bullets: [
+          'November 9 to 13 and November 16 to 20',
+          'December 7 to 11 and December 14 to 18',
+          'January 4 to 8 and January 11 to 15',
+          'Piles out by 5 a.m. on the first day',
+        ],
+        linkLabel: 'Read the full Wendell guide',
+        linkGuide: 'cheap-home-services-wendell-nc',
+      },
+      {
+        heading: 'Zebulon: Every Other Week by Zone',
+        paragraphs: [
+          "Zebulon collects leaves and yard waste together every other week, alternating between two zones. Put everything at the curb by the Sunday night before your zone's week. Don't bag anything, and keep leaves and grass in one pile and limbs in a separate pile, since different trucks pick them up.",
+        ],
+        bullets: [
+          'Zone 1: out by Sunday November 1, November 15, November 29, December 13, December 27',
+          'Zone 2: out by Sunday November 8, November 22, December 6, December 20',
+          'No bags; leaves and limbs in separate piles',
+          'Behind the curb, clear of cars, mailboxes, and power lines',
+        ],
+        linkLabel: 'Read the full Zebulon guide',
+        linkGuide: 'cheap-home-services-zebulon-nc',
+      },
+      {
+        heading: 'When Paying for Leaf Help Makes Sense',
+        paragraphs: [
+          "For most yards, town pickup plus a rake or a mulching mower is all you need. Paying for help makes sense for big lots under mature oaks, in towns with bag or item limits, or if you can't do the raking yourself. If you hire a crew, ask whether they haul the leaves away or leave them for town pickup. Several towns, including Holly Springs, Knightdale, and Morrisville, won't collect yard waste left by paid crews.",
+          "BetterBuyTheBlock lists about 206 proposed lawn service deals across Wake County starting around $40 per visit, about 268 landscaping deals with a typical rate around $237, and about 150 gutter cleaning deals starting around $98 at about 15 percent off. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. Booking with neighbors on the same street is what makes a cheaper, discounted rate possible.",
+        ],
+        bullets: [
+          'Free first: town pickup, a mulching mower, or composting',
+          'Hire out for big lots, bag limits, or if you can\'t rake it yourself',
+          'Ask every crew whether hauling is included',
+          'Lawn service from about $40; gutter cleaning from about $98',
+        ],
+        linkLabel: 'See lawn service deals in Wake County',
+        linkCategory: 'Lawn Service',
+      },
+    ],
+    closing: [
+      "Fall is a good time to team up with neighbors. Leaf cleanups and gutter cleaning hit every house on a street at the same time, and a crew that handles several homes in one trip spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find your town above, get your leaves out the right way on the right week, and share a deal with your neighbors for anything the town won't take.",
+    ],
+  },
 ];

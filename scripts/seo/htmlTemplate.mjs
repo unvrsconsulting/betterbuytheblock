@@ -106,7 +106,8 @@ export function renderGuideBodyHtml(guide, { relatedGuides, categoryHref, guideH
     <h2 style="font-size:24px;font-weight:800;color:#111827;margin:40px 0 12px;border-left:4px solid #10b981;padding-left:12px;">${escapeHtml(section.heading)}</h2>
     ${(section.paragraphs || []).map(p => `<p style="color:#374151;line-height:1.7;margin:0 0 16px;">${escapeHtml(p)}</p>`).join('')}
     ${section.bullets && section.bullets.length ? `<ul style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:16px;padding:20px 20px 20px 40px;color:#1f2937;margin:0 0 16px;">${section.bullets.map(b => `<li style="margin:6px 0;">${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
-    ${section.linkCategory && section.__href ? `<p><a href="${escapeHtml(section.__href)}" style="${LINK}">${escapeHtml(section.linkLabel || `See real ${section.linkCategory} deals`)} &rarr;</a></p>` : ''}`).join('');
+    ${section.linkCategory && section.__href ? `<p><a href="${escapeHtml(section.__href)}" style="${LINK}">${escapeHtml(section.linkLabel || `See real ${section.linkCategory} deals`)} &rarr;</a></p>` : ''}
+    ${section.__guideHref ? `<p><a href="${escapeHtml(section.__guideHref)}" style="${LINK}">${escapeHtml(section.linkLabel || section.__guideTitle)} &rarr;</a></p>` : ''}`).join('');
   const related = relatedGuides.length
     ? `<section style="margin-top:48px;border-top:1px solid #e5e7eb;padding-top:24px;">
         <h2 style="font-size:20px;font-weight:800;color:#111827;margin:0 0 12px;">More cost guides</h2>

@@ -2588,6 +2588,19 @@ const App: React.FC = () => {
                         <span aria-hidden="true">&rarr;</span>
                       </Link>
                     )}
+                    {section.linkGuide && (() => {
+                      const linked = COST_GUIDES.find(g => g.slug === section.linkGuide);
+                      return linked ? (
+                        <Link
+                          href={guidePath(linked.slug)}
+                          onNavigate={() => handleBlogClick(linked)}
+                          className="w-full sm:w-auto inline-flex items-center justify-between gap-3 bg-primary-50 hover:bg-primary-100 border border-primary-200 rounded-xl px-5 py-3.5 text-primary-700 font-bold transition-colors"
+                        >
+                          {section.linkLabel || linked.title}
+                          <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      ) : null;
+                    })()}
                   </div>
                 ))}
                 {(selectedBlog as any).closing?.length > 0 && (
