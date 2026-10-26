@@ -97,6 +97,7 @@ function main() {
 
   // Same merge services/neighborhoods.ts does client-side, replicated here
   // since this script runs under plain Node, not through that TS module.
+  const SITEMAP_MIN_HOMES = 50;
   const realStats = statsFile.neighborhoods || {};
   const neighborhoods = neighborhoodsRaw.map(n => ({ ...n, homeStats: realStats[n.id] }));
 
@@ -109,7 +110,7 @@ function main() {
     return { businessHref: businessPath(business), serviceHref: servicePath(business, service) };
   }
 
-  let counts = { category: 0, categoryCity: 0, neighborhoodIndexed: 0, neighborhoodNoindex: 0, business: 0, service: 0, guide: 0 };
+  let counts = { category: 0, categoryCity: 0, neighborhoodIndexed: 0, neighborhoodInSitemap: 0, neighborhoodNoindex: 0, business: 0, service: 0, guide: 0 };
   const sitemapUrls = [];
 
   function pageHtml({ title, description, canonicalUrl, robots, jsonLd, bodyHtml, ogImage }) {
@@ -248,7 +249,13 @@ function main() {
     </section>`;
     writeRoute(content.path, pageHtml({ ...content, bodyHtml }));
     if (content.robots.startsWith('index')) {
-      sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.5', group: 'neighborhoods' });
+      // Only neighborhoods with at least SITEMAP_MIN_HOMES homes go in the sitemap. A young domain gets a
+      // small crawl budget, and thousands of tiny subdivisions (none of which have earned an impression)
+      // were crowding out the pages that do rank. Smaller ones stay indexable and linked, just not listed.
+      if ((neighborhood.homeStats?.homeCount || 0) >= SITEMAP_MIN_HOMES) {
+        sitemapUrls.push({ loc: content.canonicalUrl, priority: '0.5', group: 'neighborhoods' });
+        counts.neighborhoodInSitemap++;
+      }
       counts.neighborhoodIndexed++;
     } else {
       counts.neighborhoodNoindex++;
@@ -416,6 +423,7 @@ ${sitemapFiles.map(([file]) => `  <sitemap>\n    <loc>${SITE_URL}/${file}</loc>\
   console.log(`  Category pages:        ${counts.category}`);
   console.log(`  Category x City pages: ${counts.categoryCity}`);
   console.log(`  Neighborhood pages:    ${counts.neighborhoodIndexed} indexed + ${counts.neighborhoodNoindex} noindex = ${counts.neighborhoodIndexed + counts.neighborhoodNoindex}`);
+  console.log(`  Neighborhoods in sitemap: ${counts.neighborhoodInSitemap} (${SITEMAP_MIN_HOMES}+ homes)`);
   console.log(`  Business pages:        ${counts.business}`);
   console.log(`  Service pages:         ${counts.service} (indexable ones only in sitemap)`);
   console.log(`  Guide pages:           ${counts.guide} + hub`);
