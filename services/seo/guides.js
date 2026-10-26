@@ -3115,4 +3115,93 @@ export const COST_GUIDES = [
       "Fall is a good time to team up with neighbors. Leaf cleanups and gutter cleaning hit every house on a street at the same time, and a crew that handles several homes in one trip spends less time driving. That saving becomes a cheaper, discounted rate for everyone. Find your town above, get your leaves out the right way on the right week, and share a deal with your neighbors for anything the town won't take.",
     ],
   },
+  {
+    slug: 'cheap-smart-lock-video-doorbell-installation-raleigh-nc',
+    title: 'Cheap Smart Lock and Video Doorbell Installation in Raleigh, NC: 2026 Costs',
+    description: 'What smart lock, keyless entry, and video doorbell installation costs in Raleigh in 2026, when you need a pro, the extra charges to watch for, and real group-deal prices from local installers.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 26, 2026',
+    image: 'https://images.pexels.com/photos/6689288/pexels-photo-6689288.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Home Security',
+    intro: [
+      "A smart lock and a video doorbell are two of the cheapest security upgrades you can make to a home. Many installs take an hour or two at most, but quotes in Raleigh vary widely depending on the hardware, your door, and whether your doorbell needs new wiring.",
+      "This guide breaks down what smart lock, keyless entry, and video doorbell installation costs in 2026, when it's worth paying a pro, the extra charges to ask about, and how booking with neighbors can get you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'Smart Lock and Keyless Entry Installation Costs',
+        paragraphs: [
+          "According to HomeGuide's 2026 lock cost data, smart and electronic lock hardware costs $75 to $350 or more. That includes keypad, fingerprint, Bluetooth, and Wi-Fi locks. Installed by a pro, a smart lock typically runs $135 to $450 or more per door. Upgrading every exterior door on a home to smart locks typically costs $400 to $1,200 or more.",
+          "A big part of a single-lock job is the trip itself. HomeGuide puts a locksmith's service call fee at $60 to $140. That's why doing your front and back doors in one visit costs less per door than two separate visits, and why several neighbors booking the same installer on the same day can bring the price down further.",
+        ],
+        bullets: [
+          'Smart lock hardware: $75 to $350+',
+          'Installed smart lock: about $135 to $450+ per door',
+          'Whole-home smart lock upgrade: about $400 to $1,200+',
+          'Locksmith service call fee: $60 to $140, so bundle doors into one visit',
+        ],
+      },
+      {
+        heading: 'Video Doorbell Installation Costs in Raleigh',
+        paragraphs: [
+          "Angi's 2026 data for Raleigh puts doorbell camera installation at $50 to $600, with an average of about $300. Complex wired setups can reach $1,100. Battery-powered (wireless) doorbell cameras cost about $50 to $150, and wired models about $120 to $300.",
+          "The biggest added cost is wiring. If your front door doesn't already have doorbell wiring, Angi puts an electrician's charge for running new wiring at $162 to $535, and electricians typically charge $50 to $100 an hour. Also budget for cloud video storage, which most doorbell brands charge for at about $5 to $40 a month.",
+        ],
+        bullets: [
+          'Raleigh doorbell camera installation: $50 to $600, about $300 on average',
+          'Wireless doorbell cameras: $50 to $150; wired: $120 to $300',
+          'New wiring by an electrician: $162 to $535',
+          'Cloud video storage: about $5 to $40 a month',
+        ],
+        linkLabel: 'See home security deals in Raleigh',
+        linkCategory: 'Home Security',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'When You Need a Pro, and When You Don\'t',
+        paragraphs: [
+          "A battery-powered doorbell camera usually doesn't need drilling into your door or any electrical work, and many install in minutes. A wired doorbell is a different job: it can take several hours and may need a professional installer or a licensed electrician, especially if new wiring is involved.",
+          "Smart locks follow the same pattern. Swapping a standard deadbolt for a smart lock on a door that's already drilled is a job some homeowners do themselves. Paying a pro makes more sense if the door needs modification, if you want the lock connected to an alarm or smart home system, or if you're doing several doors at once.",
+        ],
+        bullets: [
+          'Battery doorbell cameras: usually a quick DIY job',
+          'Wired doorbells and new wiring: hire a pro or electrician',
+          'Smart lock on a pre-drilled door: often DIY',
+          'Door modifications or system integration: worth a pro',
+        ],
+      },
+      {
+        heading: 'Questions to Ask Before You Book',
+        paragraphs: [
+          "Ask whether the quote includes the lock or doorbell itself or only labor, since some installers quote labor only. Ask whether the price covers app setup and connecting the device to your Wi-Fi, and what happens if your doorbell transformer or wiring turns out to be inadequate.",
+          "If you're doing more than one upgrade, ask for a single visit price for everything. A smart lock, a doorbell camera, and a basic security walkthrough together can cost less than three separate service calls, since you only pay for one trip.",
+        ],
+        bullets: [
+          'Is the hardware included, or labor only?',
+          'Does the price include app and Wi-Fi setup?',
+          'What if the doorbell wiring or transformer needs work?',
+          'Can several upgrades be done in one visit?',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 71 home security deals covering Raleigh from 29 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A smart doorbell camera installation with app setup runs about $136 to $179 at around 12 percent off. A smart lock upgrade covering both front and back doors runs about $336 to $451 at around 13 percent off. A home security walkthrough that identifies weak entry points runs about $111 to $146 at around 16 percent off. Confirm with the installer whether hardware is included.",
+        ],
+        bullets: [
+          'About 71 proposed home security deals in Raleigh, from 29 local businesses',
+          'Smart doorbell camera install: about $136 to $179, around 12% off',
+          'Smart lock upgrade, front and back doors: about $336 to $451, around 13% off',
+          'Home security walkthrough: about $111 to $146, around 16% off',
+        ],
+        linkLabel: 'Compare home security deals across Wake County',
+        linkCategory: 'Home Security',
+      },
+    ],
+    closing: [
+      "Security upgrades are a natural fit for group buying. Installers spend a lot of a short job on travel, so several homes on one street booking the same day saves them time, and that saving becomes a cheaper, discounted rate for everyone. Find a home security deal in your Raleigh neighborhood, share it with a few neighbors, and get your smart lock and doorbell installed for less.",
+    ],
+  },
 ];
