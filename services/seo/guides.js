@@ -3204,4 +3204,92 @@ export const COST_GUIDES = [
       "Security upgrades are a natural fit for group buying. Installers spend a lot of a short job on travel, so several homes on one street booking the same day saves them time, and that saving becomes a cheaper, discounted rate for everyone. Find a home security deal in your Raleigh neighborhood, share it with a few neighbors, and get your smart lock and doorbell installed for less.",
     ],
   },
+  {
+    slug: 'sewer-line-replacement-cost-wake-county',
+    title: 'Affordable Sewer Line Replacement in Wake County: 2026 Costs and Who Pays',
+    description: 'What sewer line repair and replacement costs in Wake County in 2026, which part of the line you own versus Raleigh Water, trenchless versus digging, the hidden costs to plan for, and cheap ways to prevent a backup.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 27, 2026',
+    image: 'https://images.pexels.com/photos/37627672/pexels-photo-37627672.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Cost Guide',
+    category: 'Plumbing',
+    intro: [
+      "A sewer line problem is one of the most expensive surprises a homeowner can face, and most people don't know which part of the line they're responsible for until something backs up. In Raleigh and the six towns Raleigh Water serves, the pipe from your house to the city's main is yours to fix.",
+      "This guide covers who pays for what, what sewer line repair and replacement cost in 2026, when trenchless methods make sense, the extra costs that catch homeowners off guard, and the cheap, affordable steps that help you avoid the bill in the first place.",
+    ],
+    sections: [
+      {
+        heading: 'Who Pays: Your Line vs. the City\'s',
+        paragraphs: [
+          "Raleigh Water serves Raleigh plus Garner, Knightdale, Rolesville, Wake Forest, Wendell, and Zebulon. Under its rules, you're responsible for the sewer line that runs from your home to where it connects to the city's main, often called the sewer lateral. The city maintains the main sewer lines in the public right-of-way, such as under streets and sidewalks. Breaks in mains in the street are the city's responsibility, and breaks on private property are the owner's.",
+          "Raleigh Water says most sewer backups happen between the house and the city's main, which puts them on the homeowner. If you have a plumber clear a blockage, ask them to clear it all the way to the city main. If the problem turns out to be in the public right-of-way, report it to Raleigh Water at 919-996-3245. In Cary, Apex, Holly Springs, Morrisville, or Fuquay-Varina, check with your town's own utility, since rules can differ.",
+        ],
+        bullets: [
+          'Homeowner: the line from your house to the city\'s main',
+          'City: main sewer lines in the public right-of-way',
+          'Most backups happen on the homeowner\'s side of the line',
+          'Problem in the street or sidewalk? Call Raleigh Water at 919-996-3245',
+        ],
+      },
+      {
+        heading: 'What Sewer Line Repair and Replacement Cost',
+        paragraphs: [
+          "According to Angi's 2026 data, the average sewer line repair costs about $2,600, with most jobs between $1,100 and $4,100 depending on the damage. Full replacement is priced by the foot, so the length of your line matters most. Digging up and replacing a sewer line costs about $50 to $250 per foot, and trenching alone adds about $4 to $12 per foot.",
+          "Trenchless methods cost about $60 to $250 per foot. Pipe bursting, which breaks up the old pipe while pulling a new one through, runs about $60 to $200 per foot. Cured-in-place lining, which creates a new pipe inside the old one, runs about $80 to $250 per foot, and Angi puts the average lining project around $9,000. If the line runs under a concrete slab, trenching there can add $150 to $200 per foot.",
+        ],
+        bullets: [
+          'Average sewer line repair: about $2,600 ($1,100 to $4,100 typical)',
+          'Dig and replace: about $50 to $250 per foot',
+          'Pipe bursting: about $60 to $200 per foot; lining: about $80 to $250 per foot',
+          'Under a slab: an extra $150 to $200 per foot to trench',
+        ],
+      },
+      {
+        heading: 'Start With a Camera, Not a Shovel',
+        paragraphs: [
+          "Before anyone digs, a sewer camera inspection shows exactly where the problem is and what caused it, whether that's tree roots, a blockage, or a broken pipe or joint. Angi puts a camera inspection at about $300 to $400, which is cheap compared with digging up more of the yard than you need to.",
+          "Not every backup means replacement. Removing tree roots from a sewer line costs about $100 to $600, and clearing a main line clog averages around $380. If the same spot clogs again and again, that's usually a sign of a bigger problem in the line, and a camera inspection is worth it before paying for another clearing.",
+        ],
+        bullets: [
+          'Camera inspection: about $300 to $400',
+          'Tree root removal: about $100 to $600',
+          'Main line clog clearing: about $380 on average',
+          'Repeat clogs in the same spot: inspect before you re-clear',
+        ],
+        linkLabel: 'Read the full Wake County plumbing cost guide',
+        linkGuide: 'plumbing-costs-wake-county-2027',
+      },
+      {
+        heading: 'The Hidden Costs to Plan For',
+        paragraphs: [
+          "The pipe is only part of the bill. If the line is dug up, Angi puts landscape restoration at $300 to $10,000, driveway repair at about $799 to $2,603, and patio or walkway replacement at about $665 to $3,000. If sewage backed up into the house, cleanup can run $500 to $10,000 depending on the damage. Sewer work almost always needs a permit, which your contractor should handle.",
+          "Check your homeowners insurance too. Angi notes that sewer line coverage often isn't included in a standard policy and is usually an add-on for an extra premium. If your lowest floor sits lower than the nearest upstream sewer manhole, Raleigh Water says you likely need a backwater valve, which stops wastewater from flowing back into the house. A plumber can tell you whether yours does.",
+        ],
+        bullets: [
+          'Landscape restoration: $300 to $10,000',
+          'Driveway repair: about $799 to $2,603; patio or walkway: about $665 to $3,000',
+          'Backup cleanup: $500 to $10,000',
+          'Sewer line coverage is often an insurance add-on, not standard',
+        ],
+      },
+      {
+        heading: 'Cheap Ways to Avoid a Sewer Bill',
+        paragraphs: [
+          "Raleigh Water lists the usual causes of backups as grease, tree roots, and wipes marketed as flushable. Collect cooking grease in a container and throw it in the trash, keep food scraps out of the drain, and never flush wipes, even ones labeled flushable. If you have big trees near the line, a periodic camera check can catch root intrusion before it breaks the pipe.",
+          "BetterBuyTheBlock lists about 242 plumbing deals across Wake County from 99 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. Drain clearing runs about $143 to $207 at around 11 percent off, and a whole-home plumbing inspection runs about $136 to $184 at around 12 percent off. Booking with neighbors on the same street is what makes a cheaper, discounted rate possible.",
+        ],
+        bullets: [
+          'Grease goes in the trash, not the drain',
+          'Never flush wipes, even "flushable" ones',
+          'Drain clearing: about $143 to $207, around 11% off',
+          'Whole-home plumbing inspection: about $136 to $184, around 12% off',
+        ],
+        linkLabel: 'See plumbing deals in Wake County',
+        linkCategory: 'Plumbing',
+      },
+    ],
+    closing: [
+      "Most sewer line problems start small: a slow drain, a gurgling toilet, or a clog that keeps coming back. Catching them early with a camera inspection is the most affordable way to avoid a replacement bill. Find a plumbing deal in your neighborhood, share it with a few neighbors, and get your lines checked for less.",
+    ],
+  },
 ];
