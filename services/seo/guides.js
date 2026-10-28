@@ -3292,4 +3292,95 @@ export const COST_GUIDES = [
       "Most sewer line problems start small: a slow drain, a gurgling toilet, or a clog that keeps coming back. Catching them early with a camera inspection is the most affordable way to avoid a replacement bill. Find a plumbing deal in your neighborhood, share it with a few neighbors, and get your lines checked for less.",
     ],
   },
+  {
+    slug: 'affordable-roofers-wake-county-nc',
+    title: 'Affordable Roofers in Wake County, NC: How to Get a Fair Quote in 2026',
+    description: 'How to find an affordable roofer in Raleigh, Cary, Angier, and the rest of Wake County: what a fair price looks like, the North Carolina license and permit rules most homeowners don\'t know, how to vet a roofer, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 28, 2026',
+    image: 'https://images.pexels.com/photos/38028508/pexels-photo-38028508.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Roofing',
+    intro: [
+      "Finding an affordable roofer in Wake County isn't just about the lowest quote. Roofing is one of the biggest checks most homeowners write, and in North Carolina, most residential roofing jobs need neither a state license nor a building permit. That means checking out the roofer is mostly up to you.",
+      "This guide covers what a fair roofing price looks like here, the state rules that matter, how to compare quotes and vet a roofer, and how booking with neighbors can get you a cheaper, discounted rate on inspections and repairs.",
+    ],
+    sections: [
+      {
+        heading: 'What a Fair Roofing Price Looks Like',
+        paragraphs: [
+          "Our Wake County roofing cost guide puts a typical full roof replacement here at about $9,000 to $15,000, or roughly $3.40 to $5.90 per square foot for asphalt shingles. Most roof repairs fall between $400 and $1,900. Metal, tile, and slate cost considerably more.",
+          "Use those ranges to spot outliers. A replacement quote far above the range should come with a clear reason, like a steep roof, extra layers to tear off, or rotted decking. A quote far below it is worth questioning too, since it may leave out tear-off, underlayment, flashing, or cleanup.",
+        ],
+        bullets: [
+          'Typical Wake County roof replacement: about $9,000 to $15,000',
+          'Asphalt shingles: about $3.40 to $5.90 per square foot locally',
+          'Typical roof repair: about $400 to $1,900',
+          'Unusually high or low quotes should come with a clear reason',
+        ],
+        linkLabel: 'Read the full Wake County roofing cost guide',
+        linkGuide: 'roofing-costs-wake-county-2027',
+      },
+      {
+        heading: 'North Carolina Rules Most Homeowners Don\'t Know',
+        paragraphs: [
+          "Under North Carolina law (G.S. 87-1), a state general contractor license is only required when a project costs $40,000 or more. Most residential roof replacements cost less than that, so the roofer you hire usually doesn't need a state license. For bigger jobs, you can look up a contractor's license with the North Carolina Licensing Board for General Contractors.",
+          "Permits work similarly. Under G.S. 160D-1110, replacing the roof covering on a single-family home doesn't need a building permit if the work costs $40,000 or less and follows the state building code. Adding roofing where there wasn't any before, or work on load-bearing structure like rafters, still needs a permit. With no license or inspection required for a typical reroof, it's up to you to check out the roofer.",
+        ],
+        bullets: [
+          'State contractor license: only required for jobs of $40,000 or more',
+          'Roof covering replacement up to $40,000: no building permit required',
+          'Structural work or adding new roofing still needs a permit',
+          'For $40,000+ jobs, look up the license with the NC Licensing Board for General Contractors',
+        ],
+      },
+      {
+        heading: 'How to Vet a Roofer and Compare Quotes',
+        paragraphs: [
+          "Get at least three written quotes for the same scope of work so you're comparing like for like. Each one should spell out the shingle brand and line, whether the old roof will be torn off, underlayment, flashing and vent replacement, how rotted decking will be priced if they find it, cleanup and nail pickup, and both the manufacturer and workmanship warranties.",
+          "Ask for a certificate of insurance showing liability coverage, and check that the business has a local address and a history of reviews. Avoid paying the full price up front. A reasonable deposit with the balance due at completion protects you if the job stalls.",
+        ],
+        bullets: [
+          'Three written quotes for the same scope',
+          'Quote lists materials, tear-off, flashing, decking pricing, cleanup, and warranties',
+          'Certificate of insurance and a local business address',
+          'Deposit up front, balance when the job is done',
+        ],
+        linkLabel: 'See roofing deals in Raleigh',
+        linkCategory: 'Roofing',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Be Careful After a Storm',
+        paragraphs: [
+          "After hail or a big windstorm, roofing crews often go door to door offering free inspections. Some are local businesses, but others travel from storm to storm and can be hard to reach once the job is done and the warranty matters.",
+          "If someone knocks after a storm, take their information and don't sign anything on the spot. Check whether they have a local address and reviews, call your insurance company before agreeing to a claim-based job, and get your own quotes to compare. A legitimate roofer will still be there tomorrow.",
+        ],
+        bullets: [
+          'Don\'t sign on the spot after a storm',
+          'Check for a local address and reviews',
+          'Call your insurer before agreeing to a claim-based job',
+          'Get your own quotes to compare',
+        ],
+      },
+      {
+        heading: 'The Cheapest Way to Handle a Roof Problem',
+        paragraphs: [
+          "Start with an inspection rather than a replacement quote. A roof that's leaking in one spot often needs a repair, not a whole new roof, and a written inspection report gives you something objective to compare quotes against. BetterBuyTheBlock lists about 337 roofing deals across Wake County from 141 local businesses, including Raleigh, Cary, Wake Forest, Apex, Angier, and other nearby towns. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "A roof inspection with photos and a written report runs about $164 to $239 at around 12 percent off. Minor roof repairs, like patching small leaks, replacing damaged shingles, and resealing flashing, run about $250 to $378 at around 14 percent off. Moss and algae treatment runs about $244 to $359 at around 10 percent off.",
+        ],
+        bullets: [
+          'About 337 proposed roofing deals from 141 local businesses',
+          'Roof inspection and written report: about $164 to $239, around 12% off',
+          'Minor roof repair: about $250 to $378, around 14% off',
+          'Moss and algae treatment: about $244 to $359, around 10% off',
+        ],
+        linkLabel: 'Compare roofing deals across Wake County',
+        linkCategory: 'Roofing',
+      },
+    ],
+    closing: [
+      "Neighborhoods built around the same time tend to need roof work around the same time, which makes roofing a good fit for group buying. A crew that inspects or repairs several roofs on one street spends less time driving and setting up, and that saving becomes a cheaper, discounted rate for everyone. Find a roofing deal in your neighborhood, share it with a few neighbors, and get a fair price on your roof.",
+    ],
+  },
 ];
