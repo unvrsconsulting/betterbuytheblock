@@ -3383,4 +3383,95 @@ export const COST_GUIDES = [
       "Neighborhoods built around the same time tend to need roof work around the same time, which makes roofing a good fit for group buying. A crew that inspects or repairs several roofs on one street spends less time driving and setting up, and that saving becomes a cheaper, discounted rate for everyone. Find a roofing deal in your neighborhood, share it with a few neighbors, and get a fair price on your roof.",
     ],
   },
+  {
+    slug: 'affordable-pest-control-raleigh-nc',
+    title: 'Affordable Pest Control in Raleigh, NC: How to Pick a Plan Without Overpaying',
+    description: 'How to get affordable pest control in Raleigh: one-time visit vs. quarterly plan prices, what termite and fall pest coverage really costs, how to check a company\'s North Carolina pest control license, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 29, 2026',
+    image: 'https://images.pexels.com/photos/4894608/pexels-photo-4894608.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Pest Control',
+    intro: [
+      "Pest control is one of the easiest home services to overpay for. Most companies steer you toward a recurring plan, quotes for the same house can vary by hundreds of dollars a year, and termite coverage is often a separate contract entirely.",
+      "This guide covers what pest control costs in Raleigh, when a one-time visit makes more sense than a plan, how to check that a company is licensed in North Carolina, the contract terms to read before you sign, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'One-Time Visit or Quarterly Plan?',
+        paragraphs: [
+          "Our Wake County pest control cost guide puts a one-time general pest treatment in the Raleigh area at $95 to $575, with most homeowners paying around $170 for an interior and exterior treatment. Quarterly plans run about $99 to $200 per visit, and monthly plans, usually for homes with heavy pest pressure, run about $40 to $65 per visit.",
+          "Do the yearly math before you sign. Four quarterly visits at $99 to $200 each comes to roughly $400 to $800 a year. If you only see a few ants in the spring, one or two treatments may cost less. A plan makes more sense for homes backing up to woods or water, or with crawl spaces, where pests keep coming back, and most quarterly plans include free re-treatments between visits.",
+        ],
+        bullets: [
+          'One-time treatment: $95 to $575, about $170 typical',
+          'Quarterly plan: about $99 to $200 per visit, roughly $400 to $800 a year',
+          'Monthly plan: about $40 to $65 per visit',
+          'Light, occasional pests: a one-time visit may be cheaper than a plan',
+        ],
+        linkLabel: 'Read the full Wake County pest control cost guide',
+        linkGuide: 'pest-control-costs-wake-county-2027',
+      },
+      {
+        heading: 'Termites Are a Separate Bill',
+        paragraphs: [
+          "A general pest plan often doesn't cover termites. A termite inspection with a written report runs about $75 to $325 in the Raleigh area, and many companies will do it free or for a small fee if you sign up for ongoing service, so ask before paying full price.",
+          "Treating an active termite infestation runs about $1,080 to $3,150, averaging around $1,800. After treatment, an annual termite bond covering yearly inspections and re-treatment typically costs $225 to $450 a year. Ask exactly what a bond covers, such as re-treatment only or repair of new damage too, since contracts differ.",
+        ],
+        bullets: [
+          'Termite inspection: about $75 to $325, often free with a service plan',
+          'Active termite treatment: about $1,080 to $3,150',
+          'Annual termite bond: about $225 to $450 a year',
+          'Ask whether a bond covers re-treatment only or damage repair too',
+        ],
+      },
+      {
+        heading: 'Check the License Before You Hire',
+        paragraphs: [
+          "In North Carolina, pest control companies have to be licensed. Under G.S. 106-65.25, it's unlawful to run or supervise structural pest control work without a license, and the state issues separate licenses for household pests (the P phase), wood-destroying organisms like termites (the W phase), and fumigation (the F phase). A company quoting you termite work should hold the W phase license.",
+          "You can look up any company for free on the NC Department of Agriculture's Structural Pest Control license search. The department requires active license holders to show proof of insurance before a license is issued. For help, the division's number is 984-236-4575.",
+        ],
+        bullets: [
+          'Pest control companies must be licensed in North Carolina',
+          'P phase: household pests; W phase: termites; F phase: fumigation',
+          'Look up licenses free on the NC Department of Agriculture website',
+          'Active licenses require proof of insurance',
+        ],
+      },
+      {
+        heading: 'Read the Contract Before You Sign',
+        paragraphs: [
+          "Before agreeing to a plan, find out how long the contract runs, whether it renews automatically, and how to cancel. Ask which pests are covered and which cost extra, since termites, bed bugs, and mosquitoes can be add-ons. Confirm that re-treatments between scheduled visits are free.",
+          "Fall is a good time to compare. Stink bugs and lady beetles tend to move indoors as the weather cools, and most quarterly plans already cover seasonal pests like these. Sealing gaps around windows, doors, and utility lines is a cheap step you can take yourself, and it helps keep them out in the first place.",
+        ],
+        bullets: [
+          'Contract length, auto-renewal, and how to cancel',
+          'Which pests are covered and which are add-ons',
+          'Free re-treatments between scheduled visits',
+          'Seal gaps around windows, doors, and utility lines yourself',
+        ],
+        linkLabel: 'See pest control deals in Raleigh',
+        linkCategory: 'Pest Control',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 101 pest control deals covering Raleigh from 39 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Quarterly pest prevention runs about $100 to $134 per visit at around 17 percent off. A termite inspection with a written report runs about $80 to $111 at around 21 percent off. Mosquito yard treatment runs about $106 to $138 per visit at around 12 percent off.",
+        ],
+        bullets: [
+          'About 101 proposed pest control deals in Raleigh, from 39 local businesses',
+          'Quarterly pest prevention: about $100 to $134 per visit, around 17% off',
+          'Termite inspection: about $80 to $111, around 21% off',
+          'Mosquito yard treatment: about $106 to $138, around 12% off',
+        ],
+        linkLabel: 'Compare pest control deals across Wake County',
+        linkCategory: 'Pest Control',
+      },
+    ],
+    closing: [
+      "Pest control is a natural fit for group buying. Technicians treat homes on a route, so several houses on one street signing up together saves the company drive time, and that saving becomes a cheaper, discounted rate for everyone. Find a pest control deal in your Raleigh neighborhood, share it with a few neighbors, and keep the bugs out for less.",
+    ],
+  },
 ];
