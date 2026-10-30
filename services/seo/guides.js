@@ -3474,4 +3474,95 @@ export const COST_GUIDES = [
       "Pest control is a natural fit for group buying. Technicians treat homes on a route, so several houses on one street signing up together saves the company drive time, and that saving becomes a cheaper, discounted rate for everyone. Find a pest control deal in your Raleigh neighborhood, share it with a few neighbors, and keep the bugs out for less.",
     ],
   },
+  {
+    slug: 'cheap-deep-cleaning-before-thanksgiving-raleigh-nc',
+    title: 'Cheap Deep Cleaning Before Thanksgiving in Raleigh: 2026 Costs and How to Save',
+    description: 'What a deep house cleaning costs in Raleigh before the holidays, what\'s included versus extra, how to clean only what guests will see, why a deep clean plus biweekly service costs less, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'OCT 30, 2026',
+    image: 'https://images.pexels.com/photos/5591926/pexels-photo-5591926.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'House Cleaning',
+    intro: [
+      "Thanksgiving is Thursday, November 26, and hosting is one of the most common reasons people book a deep clean. It's also when cleaning calendars fill up, so the cheapest deep clean is usually the one you book early and scope carefully.",
+      "This guide covers what a deep cleaning costs in Raleigh in 2026, what's usually included and what costs extra, how to keep the bill down by focusing on the rooms guests will actually see, and how booking with neighbors can get you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What a Deep Clean Costs',
+        paragraphs: [
+          "Angi's 2026 data puts the national average deep cleaning at $260, with most homeowners paying $180 to $375. Size matters most: a 1,500 to 2,500 square foot home runs about $245 to $575, and homes over 2,500 square feet about $330 to $900. Cleaners typically charge $0.10 to $0.30 per square foot, or $25 to $70 an hour for one cleaner and $50 to $120 an hour for two.",
+          "In the Raleigh area, our house cleaning cost guide puts a first-time deep clean at about $300 to $540. Many companies also have a minimum charge of $100 to $150 per visit, so a very small job may not cost much less than a medium one.",
+        ],
+        bullets: [
+          'National average deep clean: $260 ($180 to $375 typical)',
+          '1,500 to 2,500 sq ft: about $245 to $575; over 2,500 sq ft: about $330 to $900',
+          'Raleigh-area first-time deep clean: about $300 to $540',
+          'Common minimum charge: $100 to $150 per visit',
+        ],
+        linkLabel: 'Read the full Wake County house cleaning cost guide',
+        linkGuide: 'house-cleaning-costs-wake-county-2027',
+      },
+      {
+        heading: 'What\'s Included and What Costs Extra',
+        paragraphs: [
+          "According to Angi, a standard deep clean covers every room and typically includes baseboards, light fixtures, and cleaning behind furniture. Inside the oven and fridge, interior windows, and laundry are usually add-ons. Our Wake County maid service guide puts fridge and oven interiors at about $25 to $50 each and interior windows at about $5 to $10 per window.",
+          "Before you book, ask for the checklist in writing. Two quotes for a deep clean can cover very different work, and the cheaper one may leave out the baseboards or bathrooms you most wanted done. If you'll be cooking a big meal, the oven add-on is often worth doing after Thanksgiving instead of before.",
+        ],
+        bullets: [
+          'Usually included: every room, baseboards, light fixtures, behind furniture',
+          'Usually extra: inside the oven or fridge, interior windows, laundry',
+          'Fridge or oven interior: about $25 to $50 each',
+          'Get the cleaning checklist in writing before comparing quotes',
+        ],
+      },
+      {
+        heading: 'Clean Only What Guests Will See',
+        paragraphs: [
+          "If you're hosting for a day, you may not need the whole house deep cleaned. Angi's 2026 room averages are about $100 for a kitchen, $120 for a bathroom, $75 for a living room, and $50 for a bedroom. Asking for a deep clean of the kitchen, guest bathroom, and main living areas, with a lighter clean everywhere else, can cost less than a full-house deep clean.",
+          "Book as early as you can. Holiday weeks can fill up fast for cleaners, and a flexible date earlier in November gives you more choices. Doing a quick declutter yourself the night before also helps, since cleaners can work faster on clear surfaces.",
+        ],
+        bullets: [
+          'Kitchen: about $100; bathroom: about $120',
+          'Living room: about $75; bedroom: about $50',
+          'Deep clean the rooms guests use, lighter clean elsewhere',
+          'Book early, and declutter surfaces before the cleaners arrive',
+        ],
+        linkLabel: 'See house cleaning deals in Raleigh',
+        linkCategory: 'House Cleaning',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Deep Clean Once, Then Go Biweekly',
+        paragraphs: [
+          "One-time cleans cost more than recurring visits because there's more buildup to remove. Angi says many companies discount weekly, biweekly, or monthly service by 10 to 30 percent compared with single visits, and recommends a deep clean every three to six months. A common money-saving approach is one deep clean before the holidays, then a biweekly plan to keep the house from getting back to deep-clean condition.",
+          "Biweekly service is the most common plan, at about $120 to $250 per visit according to our maid service guide. If you tip, Angi says 10 to 20 percent of the bill is standard for a deep clean, but check your invoice first, since some companies already include gratuity.",
+        ],
+        bullets: [
+          'Recurring service: often 10% to 30% cheaper per visit than one-time',
+          'Biweekly plan: about $120 to $250 per visit',
+          'Deep clean every three to six months',
+          'Tip 10% to 20% if you\'re happy, unless gratuity is already included',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 114 house cleaning and maid service deals covering Raleigh from 48 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A one-time deep house cleaning runs about $191 to $252 at around 18 percent off. Biweekly house cleaning runs about $136 to $187 per visit at around 16 percent off. A move-in or move-out cleaning runs about $256 to $324 at around 13 percent off.",
+        ],
+        bullets: [
+          'About 114 proposed cleaning deals in Raleigh, from 48 local businesses',
+          'One-time deep clean: about $191 to $252, around 18% off',
+          'Biweekly cleaning: about $136 to $187 per visit, around 16% off',
+          'Move-in or move-out cleaning: about $256 to $324, around 13% off',
+        ],
+        linkLabel: 'Compare house cleaning deals across Wake County',
+        linkCategory: 'House Cleaning',
+      },
+    ],
+    closing: [
+      "Before the holidays, half the street is getting ready for guests at the same time, which makes cleaning a good fit for group buying. A cleaning team that books several homes in one neighborhood on the same day spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a cleaning deal in your Raleigh neighborhood, share it with a few neighbors, and get the house ready for Thanksgiving for less.",
+    ],
+  },
 ];
