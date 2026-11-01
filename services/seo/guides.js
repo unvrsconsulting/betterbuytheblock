@@ -3565,4 +3565,95 @@ export const COST_GUIDES = [
       "Before the holidays, half the street is getting ready for guests at the same time, which makes cleaning a good fit for group buying. A cleaning team that books several homes in one neighborhood on the same day spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a cleaning deal in your Raleigh neighborhood, share it with a few neighbors, and get the house ready for Thanksgiving for less.",
     ],
   },
+  {
+    slug: 'cheap-heat-pump-tune-up-duke-energy-rebates-raleigh-nc',
+    title: 'Cheap Heat Pump Tune-Up in Raleigh Before Winter: 2026 Costs and Duke Energy Rebates',
+    description: 'What a fall heat pump or furnace tune-up costs in Raleigh in 2026, why fall is the cheaper time to book, the Duke Energy Progress Smart $aver rebates of up to $900 if your system needs replacing, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 1, 2026',
+    image: 'https://images.pexels.com/photos/38067323/pexels-photo-38067323.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'HVAC Maintenance',
+    intro: [
+      "If your home heats with a heat pump, the first cold mornings of November are when a weak system shows it. A fall tune-up is one of the cheapest ways to avoid a winter repair bill, and if your system is near the end of its life, Duke Energy will pay you to replace it before it fails.",
+      "This guide covers what a heat pump or furnace tune-up costs in 2026, why fall is the cheaper time to book, the Duke Energy Progress rebates available if you replace your system, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What a Fall Tune-Up Costs',
+        paragraphs: [
+          "Angi's 2026 data puts the national average HVAC maintenance visit at $250, with most homeowners paying $175 to $350. By system type, heat pump maintenance runs about $80 to $150, a furnace inspection before winter about $80 to $300, and a split system about $200 to $600. HVAC service contracts that cover annual tune-ups and basic repairs run about $150 to $300 a year.",
+          "A furnace inspection matters most for gas systems, since the technician checks that there's no gas leak. For a heat pump, a basic visit covers electrical connections, motor lubrication, coils, and refrigerant. HVAC labor typically runs $50 to $150 an hour if a repair turns up.",
+        ],
+        bullets: [
+          'Average HVAC maintenance visit: $250 ($175 to $350 typical)',
+          'Heat pump maintenance: about $80 to $150',
+          'Furnace inspection before winter: about $80 to $300',
+          'Annual service contract: about $150 to $300 a year',
+        ],
+        linkLabel: 'Read the full Wake County HVAC cost guide',
+        linkGuide: 'hvac-costs-wake-county-2027',
+      },
+      {
+        heading: 'Why Fall Is the Cheaper Time to Book',
+        paragraphs: [
+          "According to Angi, HVAC companies charge more during their busiest seasons, summer and winter, so booking maintenance in the fall or spring can get you a lower rate. Angi recommends two tune-ups a year: one in spring before cooling season and one in fall before heating season. A heat pump does both jobs, so it gets used year-round.",
+          "Between visits, the cheapest maintenance is yours to do. Replace air filters every one to three months, keep leaves and debris cleared away from the outdoor unit, and pay attention to warning signs like a system that runs constantly in mild weather or can't hold the set temperature.",
+        ],
+        bullets: [
+          'Book in fall or spring, not summer or winter',
+          'Two tune-ups a year for a heat pump: spring and fall',
+          'Change filters every one to three months',
+          'Keep leaves and debris away from the outdoor unit',
+        ],
+        linkLabel: 'See HVAC maintenance deals in Raleigh',
+        linkCategory: 'HVAC Maintenance',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Duke Energy Rebates If You Need a New System',
+        paragraphs: [
+          "If your tune-up turns up a system near the end of its life, Duke Energy's Smart $aver program pays rebates for efficient replacements. For Duke Energy Progress customers, which includes much of Wake County, a new air-source heat pump earns $350 to $700 if you replace it after it fails, depending on efficiency (15.2 to 17+ SEER2). Replacing it early, while it still heats and cools, earns more: $700 to $900. A qualifying smart thermostat installed at the same time adds $125.",
+          "Converting from electric furnace, baseboard, or radiant heat to a heat pump earns a $1,500 rebate. To qualify, you have to be a Duke Energy residential electric customer, use a participating Smart $aver contractor, and get the application submitted within 60 days. The contractor files it for you. Program-specific duct sealing is required with central air and heat pump replacements. Duke also offers a free in-home energy assessment, the Home Energy House Call, at 844-346-4366.",
+        ],
+        bullets: [
+          'Heat pump replacement after failure: $350 to $700 rebate',
+          'Early heat pump replacement: $700 to $900 rebate',
+          'Electric furnace or baseboard to heat pump: $1,500 rebate',
+          'Must use a participating contractor; smart thermostat adds $125',
+        ],
+      },
+      {
+        heading: 'Repair, Replace, or Wait?',
+        paragraphs: [
+          "Duke Energy lists signs that it may be time to replace early: the system runs for long stretches even in mild weather, can't reach or hold the set temperature, needs refrigerant added every year, has humidity or odor problems, cycles on and off randomly, or drives up your energy bills. Its early-replacement rebate only applies while the system still heats and cools, and not if it has a failed compressor, a cracked heat exchanger, or a large refrigerant leak.",
+          "That timing matters for your wallet. If a technician says your system is on its way out, replacing it early can earn a bigger rebate than waiting for it to fail in January, when you'd also be paying winter rates. Get two or three quotes from participating contractors and compare them on the same equipment and efficiency rating.",
+        ],
+        bullets: [
+          'Warning signs: long run times, can\'t hold temperature, yearly refrigerant top-ups',
+          'Early replacement rebate requires a working system',
+          'Failed compressor or cracked heat exchanger: replace-on-failure rebate only',
+          'Compare quotes on the same equipment and SEER2 rating',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 106 HVAC maintenance deals covering Raleigh from 43 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A seasonal tune-up with a full inspection runs about $113 to $147 at around 15 percent off. A smart thermostat installation runs about $182 to $242 at around 17 percent off. Duct cleaning and inspection runs about $269 to $374 at around 16 percent off.",
+        ],
+        bullets: [
+          'About 106 proposed HVAC maintenance deals in Raleigh, from 43 local businesses',
+          'Seasonal tune-up: about $113 to $147, around 15% off',
+          'Smart thermostat install: about $182 to $242, around 17% off',
+          'Duct cleaning and inspection: about $269 to $374, around 16% off',
+        ],
+        linkLabel: 'Compare HVAC maintenance deals across Wake County',
+        linkCategory: 'HVAC Maintenance',
+      },
+    ],
+    closing: [
+      "Tune-ups are a natural fit for group buying. HVAC technicians spend a big part of a short visit driving, so several homes on one street booking the same week saves them time, and that saving becomes a cheaper, discounted rate for everyone. Find an HVAC deal in your Raleigh neighborhood, share it with a few neighbors, and get your heat pump ready for winter for less.",
+    ],
+  },
 ];
