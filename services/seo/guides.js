@@ -3656,4 +3656,93 @@ export const COST_GUIDES = [
       "Tune-ups are a natural fit for group buying. HVAC technicians spend a big part of a short visit driving, so several homes on one street booking the same week saves them time, and that saving becomes a cheaper, discounted rate for everyone. Find an HVAC deal in your Raleigh neighborhood, share it with a few neighbors, and get your heat pump ready for winter for less.",
     ],
   },
+  {
+    slug: 'cheap-winterize-pipes-raleigh-nc',
+    title: 'Cheap Ways to Winterize Your Pipes in Raleigh Before the First Freeze',
+    description: 'When Raleigh\'s first freeze usually arrives, Raleigh Water\'s free checklist for protecting your pipes, how to winterize outdoor faucets and irrigation backflow, what to do if a pipe freezes, and what frozen and burst pipe repairs cost.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 2, 2026',
+    image: 'https://images.pexels.com/photos/8875449/pexels-photo-8875449.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Plumbing',
+    intro: [
+      "A burst pipe is one of the most expensive winter surprises a Raleigh homeowner can face, and most of the prevention costs little or nothing. Raleigh Water's own winter checklist uses supplies you probably already have, and a few minutes of prep before the first hard freeze can save you a plumber's bill and water damage.",
+      "This guide covers when Raleigh's first freeze usually arrives, the cheap steps that protect your pipes, how to winterize outdoor faucets and irrigation, what to do if a pipe freezes anyway, and what repairs cost if it bursts.",
+    ],
+    sections: [
+      {
+        heading: 'When Raleigh\'s First Freeze Arrives',
+        paragraphs: [
+          "According to the National Weather Service office in Raleigh, the first fall freeze typically comes in late October or early November for most of central North Carolina. It varies a lot from year to year. In 2024, Raleigh didn't record its first freeze until November 29, more than three weeks later than the historical average. The Raleigh area's earliest recorded first freeze was October 2, 1947, and the latest was December 3, 1931.",
+          "Angi notes that pipes are most at risk when temperatures drop below 20 degrees, especially pipes outside or in unheated spaces like crawl spaces, attics, and garages. Angi also warns that homes in warmer climates can be more susceptible to freeze damage, especially when pipes run outside or through unheated spaces. Don't wait for a forecast in the teens to get ready.",
+        ],
+        bullets: [
+          'Typical first freeze in central NC: late October or early November',
+          'Raleigh\'s 2024 first freeze: November 29, over three weeks late',
+          'Highest risk: below 20 degrees, in crawl spaces, attics, and garages',
+          'Prep before the first hard freeze, not during it',
+        ],
+      },
+      {
+        heading: 'Raleigh Water\'s Free and Cheap Checklist',
+        paragraphs: [
+          "Raleigh Water recommends wrapping exposed pipes, faucets, and water meters with insulating material, especially in the coldest areas of your home. Keep the garage door closed, cover outside vents, and disconnect garden hoses to keep cold air away from your pipes.",
+          "When temperatures drop below freezing, let a small stream of cold water run from faucets on exposed or freeze-prone pipes. It helps prevent freezing and relieves pressure inside the pipes. Open the cabinet doors under sinks on exterior walls so warm air from the house can reach the pipes.",
+        ],
+        bullets: [
+          'Insulate exposed pipes, faucets, and water meters',
+          'Close the garage door, cover outside vents, and disconnect hoses',
+          'Drip cold water from freeze-prone faucets during freezes',
+          'Open sink cabinets on exterior walls',
+        ],
+      },
+      {
+        heading: 'Outdoor Faucets and Irrigation',
+        paragraphs: [
+          "Outdoor faucets are some of the first pipes to freeze. Angi recommends removing hoses, insulating the faucets, and shutting off the water supply to outdoor faucets if your home has a separate shutoff. If you have an irrigation system, turn it off for the winter.",
+          "An irrigation system's backflow assembly sits outside, right after the water meter. Raleigh Water notes that many customers restart irrigation in spring by reinstalling the backflow assembly or hiring an irrigation contractor to do it, and the assembly must be tested by a City of Raleigh Certified Tester. Skipping the test is expensive: a non-compliant metered irrigation system gets disconnected with a $50 fee each time service is restored, and a non-compliant branched system gets a $100 fee on your water bill.",
+        ],
+        bullets: [
+          'Remove hoses and insulate outdoor faucets',
+          'Shut off the outdoor faucet supply if you have a separate valve',
+          'Turn irrigation off for winter',
+          'Missed backflow test: $50 restore fee (metered) or $100 fee (branched)',
+        ],
+      },
+      {
+        heading: 'If a Pipe Freezes Anyway',
+        paragraphs: [
+          "Find your main water shutoff now, before you need it. It's often in a utility room, crawl space, or near the meter. If a pipe bursts, shut off the main right away. If a pipe is frozen but not leaking, Angi recommends thawing it with a hair dryer on low, a space heater kept well away from anything flammable, or an electric heating pad. Never use a torch or open flame.",
+          "If you can't reach the pipe or it has already split, call a plumber. Angi says a plumber typically charges a flat fee of around $100 to thaw frozen pipes that haven't burst. Burst pipe repairs average about $500, ranging from $150 for a small section to $5,000 for underground replacement and water damage cleanup. Remember that in Raleigh Water's service area, breaks on private property are the homeowner's responsibility.",
+        ],
+        bullets: [
+          'Know where your main shutoff is before winter',
+          'Thaw with a hair dryer, space heater, or heating pad, never a flame',
+          'Plumber to thaw frozen pipes: about $100 flat fee',
+          'Burst pipe repair: about $500 on average ($150 to $5,000)',
+        ],
+        linkLabel: 'Read who pays for what in our sewer and water line guide',
+        linkGuide: 'sewer-line-replacement-cost-wake-county',
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 75 plumbing deals covering Raleigh from 31 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A whole-home plumbing inspection, where a licensed plumber checks supply lines, drains, and fixtures for leaks and wear, runs about $139 to $170 at around 12 percent off. A water heater flush and inspection runs about $153 to $207 at around 12 percent off. Drain clearing runs about $166 to $202 at around 10 percent off.",
+        ],
+        bullets: [
+          'About 75 proposed plumbing deals in Raleigh, from 31 local businesses',
+          'Whole-home plumbing inspection: about $139 to $170, around 12% off',
+          'Water heater flush and inspection: about $153 to $207, around 12% off',
+          'Drain clearing: about $166 to $202, around 10% off',
+        ],
+        linkLabel: 'See plumbing deals in Raleigh',
+        linkCategory: 'Plumbing',
+        linkCity: 'Raleigh',
+      },
+    ],
+    closing: [
+      "Winter prep is a good fit for group buying. A plumber who inspects several homes on one street in the same week spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a plumbing deal in your Raleigh neighborhood, share it with a few neighbors, and get your pipes ready before the first hard freeze.",
+    ],
+  },
 ];
