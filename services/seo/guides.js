@@ -3745,4 +3745,93 @@ export const COST_GUIDES = [
       "Winter prep is a good fit for group buying. A plumber who inspects several homes on one street in the same week spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a plumbing deal in your Raleigh neighborhood, share it with a few neighbors, and get your pipes ready before the first hard freeze.",
     ],
   },
+  {
+    slug: 'cheap-november-lawn-care-raleigh-nc',
+    title: 'Cheap November Lawn Care in Raleigh: Free Soil Test, Fescue Fertilizer, and What to Skip',
+    description: 'A November lawn care plan for Raleigh tall fescue lawns: get a free NC soil test before the November 30 deadline, when and how much to fertilize, mowing and leaf tips from NC State Extension, what to skip this month, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 4, 2026',
+    image: 'https://images.pexels.com/photos/40479641/pexels-photo-40479641.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Lawn Service',
+    intro: [
+      "November is one of the cheapest months to take care of a tall fescue lawn in Raleigh. The two most useful things you can do this month cost little or nothing: a soil test that's free until November 30, and one round of fertilizer at the right time.",
+      "This guide follows NC State Extension's tall fescue calendar and covers the free soil test deadline, how much fertilizer to buy, mowing and leaf care, what to skip this month, and how booking lawn care with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'Get a Free Soil Test Before November 30',
+        paragraphs: [
+          "The N.C. Department of Agriculture and Consumer Services tests soil for free for North Carolina residents through November 30, 2026. Starting December 1, peak season begins and the fee is $5 per sample through March 31, 2027. A soil test tells you exactly what your lawn needs, so you don't pay for fertilizer or lime it doesn't.",
+          "The deadline is strict. Samples must physically arrive at the Agronomic Services Division at 4300 Reedy Creek Road in Raleigh by 5 p.m. on Monday, November 30. Shipping dates, postmarks, and drop-offs at a county Extension office don't count. You can pick up official sample boxes and forms at the Wake County Extension office or at the lab itself. If you're mailing them, the department says UPS and FedEx deliver straight to the lab, while USPS goes through an off-site mail center that adds time.",
+        ],
+        bullets: [
+          'Soil testing is free through Monday, November 30, 2026',
+          'From December 1 to March 31: $5 per sample',
+          'Samples must arrive at 4300 Reedy Creek Road by 5 p.m. November 30',
+          'Use official sample boxes from an Extension office or the lab',
+        ],
+      },
+      {
+        heading: 'Fertilize Once in November, and Buy the Right Amount',
+        paragraphs: [
+          "NC State Extension recommends fertilizing tall fescue with 1 pound of nitrogen per 1,000 square feet in mid-September and again in November, when the grass is still green but not actively growing. If you don't have soil test results, it suggests a turf-grade fertilizer with a 3-1-2 or 4-1-2 ratio, such as 12-4-8 or 16-4-8.",
+          "Here's how to avoid overbuying: divide 100 by the first number on the bag to get the pounds needed per 1,000 square feet. For a 16-4-8 fertilizer, that's about 6 pounds per 1,000 square feet. For a 10-10-10, it's 10 pounds. These recommendations are for tall fescue. Warm-season grasses like Bermuda, zoysia, and centipede follow different calendars, so check NC State's calendar for your grass type before you fertilize.",
+        ],
+        bullets: [
+          'Tall fescue: 1 lb of nitrogen per 1,000 sq ft in November',
+          'Without a soil test: 12-4-8 or 16-4-8 turf fertilizer',
+          'Pounds needed per 1,000 sq ft = 100 divided by the first number on the bag',
+          'Warm-season grasses follow a different calendar',
+        ],
+      },
+      {
+        heading: 'Mowing and Leaves',
+        paragraphs: [
+          "NC State recommends mowing tall fescue to 2½ to 3 inches through November, and to 3 inches from December through February, removing leaves and other debris. In other words, keep leaves from piling up on the grass through the winter.",
+          "Leaves are free to get rid of in most of Wake County, since many towns vacuum loose leaves from the curb or pick up bagged leaves with yard waste. Running a mulching mower over a light layer of leaves is another free option. NC State also says grass clippings left on the lawn decompose quickly and can supply up to 25 percent of the lawn's fertilizer needs.",
+        ],
+        bullets: [
+          'Mow fescue to 2½ to 3 inches in November; 3 inches in winter',
+          'Keep leaves from piling up on the grass through winter',
+          'Use your town\'s free leaf pickup or mulch light leaves with the mower',
+          'Leave clippings on the lawn as free fertilizer',
+        ],
+        linkLabel: 'See free leaf pickup dates for your town',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
+      },
+      {
+        heading: 'What to Skip in November',
+        paragraphs: [
+          "Don't pay for overseeding this month. NC State's window for overseeding thin fescue in the Piedmont, which includes Raleigh, is September 1 to October 1, so plan any overseeding for next September instead. You can also skip dethatching: NC State says it's generally not necessary for tall fescue.",
+          "What is worth doing: NC State lists fall as the time to aerate lawns with heavy traffic or clay soil, and to treat winter broadleaf weeds like chickweed and henbit as needed. Read herbicide labels carefully if any part of the lawn was seeded this fall.",
+        ],
+        bullets: [
+          'Skip overseeding; the Piedmont window was September 1 to October 1',
+          'Skip dethatching tall fescue',
+          'Aerate in fall if you have clay soil or heavy traffic',
+          'Treat chickweed and henbit as needed, following label directions',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 73 lawn service deals covering Raleigh from 31 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A seasonal weed control and fertilization treatment runs about $112 to $152 at around 13 percent off. Core aeration and overseeding runs about $234 to $305 at around 11 percent off, and is best booked for next September. Weekly mowing and edging runs about $41 to $55 per visit at around 13 percent off.",
+        ],
+        bullets: [
+          'About 73 proposed lawn service deals in Raleigh, from 31 local businesses',
+          'Weed control and fertilization: about $112 to $152, around 13% off',
+          'Aeration and overseeding: about $234 to $305, around 11% off (book for September)',
+          'Weekly mowing: about $41 to $55 per visit, around 13% off',
+        ],
+        linkLabel: 'See lawn service deals in Raleigh',
+        linkCategory: 'Lawn Service',
+        linkCity: 'Raleigh',
+      },
+    ],
+    closing: [
+      "Lawn care is one of the easiest services to group buy. Crews work street by street, so several neighbors booking the same company saves them drive time, and that saving becomes a cheaper, discounted rate for everyone. Get your free soil test in before November 30, find a lawn deal in your Raleigh neighborhood, and share it with a few neighbors.",
+    ],
+  },
 ];
