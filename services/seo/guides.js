@@ -3949,4 +3949,98 @@ export const COST_GUIDES = [
       "Gutter cleaning is one of the best services to group buy. Every house on a street needs it at the same time of year, and a crew that does several homes in one trip skips the drive and ladder setup between jobs. That saving becomes a cheaper, discounted rate for everyone. Find a gutter deal in your Raleigh neighborhood, share it with a few neighbors, and get your gutters cleared before winter rain.",
     ],
   },
+  {
+    slug: 'cheap-carpet-steam-cleaning-raleigh-nc',
+    title: 'Cheap Carpet Steam Cleaning in Raleigh: 2026 Prices, Methods, and How to Avoid Overpaying',
+    description: 'What carpet steam cleaning costs in Raleigh in 2026, how steam compares to dry cleaning and other methods in Raleigh\'s humidity, the fees that inflate small jobs, and real group-deal prices in Raleigh, Wake Forest, and Fuquay-Varina.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 5, 2026',
+    image: 'https://images.pexels.com/photos/4107284/pexels-photo-4107284.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Carpet Cleaning',
+    intro: [
+      "Carpet cleaning prices in Raleigh swing widely, from under $100 for a single room to nearly $2,000 for a large home. Most of that spread comes down to three things: how much carpet you have, which cleaning method you choose, and the small-job fees that some companies add on top.",
+      "This guide covers what carpet cleaning costs in Raleigh in 2026, how steam cleaning compares to other methods in our humid climate, how to avoid paying more than you need to, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What Carpet Cleaning Costs in Raleigh',
+        paragraphs: [
+          "Angi's 2026 data puts the average carpet cleaning in Raleigh at $180, with most homeowners paying $126 to $233. By size, a single room up to 200 square feet runs about $40 to $180, two or three rooms about $80 to $535, a 1,000 to 1,500 square foot home about $200 to $1,335, and a home over 2,000 square feet about $400 to $1,900 or more.",
+          "Labor runs about $25 to $65 an hour. Carpet type matters too: nylon, the most common carpet, costs about $60 to $300 per room, while wool runs about $100 to $400 because it needs gentler handling.",
+        ],
+        bullets: [
+          'Raleigh average: $180 ($126 to $233 typical)',
+          'Single room: about $40 to $180; two or three rooms: about $80 to $535',
+          'Homes over 2,000 sq ft: about $400 to $1,900+',
+          'Nylon: about $60 to $300 per room; wool: about $100 to $400',
+        ],
+        linkLabel: 'Read the full Wake County carpet cleaning cost guide',
+        linkGuide: 'carpet-cleaning-costs-wake-county-2027',
+      },
+      {
+        heading: 'Steam Cleaning vs. Other Methods in Raleigh\'s Humidity',
+        paragraphs: [
+          "Steam cleaning, also called hot water extraction, is one of the cheaper methods at about $40 to $90 per room, and Angi rates it best for deep cleaning, pet stains, and allergies. The drawback in Raleigh is moisture. Steam uses more water than other methods, carpet can take six to eight hours to dry, and with humidity here averaging around 70 percent, Angi warns that excess moisture can lead to mold and mildew in the carpet and pad.",
+          "If you choose steam cleaning, hire a reputable cleaner, ventilate the room, and run a dehumidifier while it dries. Low-moisture methods dry faster but usually cost more per room: dry cleaning runs about $60 to $130, shampooing about $80 to $150, and encapsulation about $80 to $200. Bonnet cleaning, at about $30 to $90, is mostly a surface clean for commercial carpet.",
+        ],
+        bullets: [
+          'Steam cleaning: about $40 to $90 per room; best for deep cleaning and pet stains',
+          'Drying time after steam: six to eight hours',
+          'Dry cleaning: about $60 to $130 per room; dries faster',
+          'After steam cleaning: ventilate and run a dehumidifier',
+        ],
+        linkLabel: 'See carpet cleaning deals in Raleigh',
+        linkCategory: 'Carpet Cleaning',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'How to Avoid Overpaying',
+        paragraphs: [
+          "Watch for minimum charges. Angi says some companies have minimum service fees of about $75 to $125, or travel charges for small jobs, so cleaning one room can cost nearly as much as cleaning three. If you're paying a minimum anyway, add the hallway, stairs, or another room to the same visit.",
+          "Ask how the company defines a room. Angi's pricing treats a room as up to about 200 square feet, so a large living room may be priced as more than one. Recurring service can lower the price per visit: Angi gives an example of a one-time cleaning at $220 versus $180 per visit on a quarterly plan. And be careful with store-bought stain removers on older stains, since Angi notes some can make stains worse.",
+        ],
+        bullets: [
+          'Minimum service fees: often about $75 to $125',
+          'Fill the minimum by adding rooms, halls, or stairs to one visit',
+          'Ask how a "room" is defined before you compare quotes',
+          'Recurring plans can lower the per-visit price',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 97 carpet cleaning deals covering Raleigh from 39 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A whole-home carpet deep clean using hot water extraction runs about $180 to $230 at around 13 percent off. Stain and odor treatment for pet stains and high-traffic paths runs about $72 to $94 at around 12 percent off. Off-site area rug cleaning runs about $99 to $132 at around 16 percent off.",
+        ],
+        bullets: [
+          'About 97 proposed carpet cleaning deals in Raleigh, from 39 local businesses',
+          'Whole-home steam deep clean: about $180 to $230, around 13% off',
+          'Stain and odor treatment: about $72 to $94, around 12% off',
+          'Area rug cleaning: about $99 to $132, around 16% off',
+        ],
+        linkLabel: 'Compare carpet cleaning deals across Wake County',
+        linkCategory: 'Carpet Cleaning',
+      },
+      {
+        heading: 'Carpet Cleaning Deals in Wake Forest and Fuquay-Varina',
+        paragraphs: [
+          "Outside Raleigh, BetterBuyTheBlock lists about 21 proposed carpet cleaning deals covering Wake Forest from 9 local businesses, and about 19 covering Fuquay-Varina from 8. In Wake Forest, a whole-home steam deep clean runs about $168 to $202 at around 13 percent off. In Fuquay-Varina, it runs about $172 to $229 at around 14 percent off, and area rug cleaning about $103 to $129 at around 16 percent off.",
+          "As in Raleigh, these are proposed rates for businesses that haven't joined the site yet. Booking with neighbors works the same way there.",
+        ],
+        bullets: [
+          'Wake Forest: about 21 proposed deals from 9 local businesses',
+          'Wake Forest whole-home deep clean: about $168 to $202',
+          'Fuquay-Varina: about 19 proposed deals from 8 local businesses',
+          'Fuquay-Varina whole-home deep clean: about $172 to $229',
+        ],
+        linkLabel: 'See carpet cleaning deals in Wake Forest',
+        linkCategory: 'Carpet Cleaning',
+        linkCity: 'Wake Forest',
+      },
+    ],
+    closing: [
+      "Carpet cleaning is a good fit for group buying. A carpet cleaning crew spends time driving and setting up equipment for each job, so several homes on one street booking the same day saves them time, and that saving becomes a cheaper, discounted rate for everyone. Find a carpet cleaning deal in your neighborhood, share it with a few neighbors, and get your carpets cleaned before the holidays.",
+    ],
+  },
 ];
