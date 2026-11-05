@@ -292,6 +292,12 @@ async function main() {
   console.log(`Querying ${remainingPairs.length} remaining category/city combinations.\n`);
 
   const existingPlaceIds = new Set(existingBusinesses.map(b => b.placeId).filter(Boolean));
+  // Listings removed by hand because they aren't the service their category claims (see
+  // remove-miscategorized.mjs) are treated as already known so they don't come back.
+  const EXCLUDED_PATH = path.join(__dirname, 'excluded-businesses.json');
+  if (existsSync(EXCLUDED_PATH)) {
+    for (const e of JSON.parse(readFileSync(EXCLUDED_PATH, 'utf-8'))) if (e.placeId) existingPlaceIds.add(e.placeId);
+  }
   const businessesByPlaceId = new Map();
   let queryCount = 0;
   let errorCount = 0;
