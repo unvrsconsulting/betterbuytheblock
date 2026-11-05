@@ -3834,4 +3834,95 @@ export const COST_GUIDES = [
       "Lawn care is one of the easiest services to group buy. Crews work street by street, so several neighbors booking the same company saves them drive time, and that saving becomes a cheaper, discounted rate for everyone. Get your free soil test in before November 30, find a lawn deal in your Raleigh neighborhood, and share it with a few neighbors.",
     ],
   },
+  {
+    slug: 'cheap-gutter-cleaning-after-leaf-fall-raleigh-nc',
+    title: 'Cheap Gutter Cleaning in Raleigh After the Leaves Fall: When to Book and What to Pay',
+    description: 'When to book gutter cleaning in Raleigh after leaf fall, what a fair 2026 price looks like, how contractors price the job, add-ons worth bundling, whether gutter guards actually pay off, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 5, 2026',
+    image: 'https://images.pexels.com/photos/13793186/pexels-photo-13793186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Gutter Cleaning',
+    intro: [
+      "November is when Raleigh gutters fill up. Angi says most Raleigh homeowners need gutter cleaning twice a year because of the area's above-average tree cover and rainfall, and the fall cleaning is the one that matters most before winter rain.",
+      "This guide covers when to book so you only pay once, what a fair price looks like in Raleigh in 2026, how contractors price the job, which add-ons are worth bundling, whether gutter guards pay for themselves, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'Book After Most of the Leaves Are Down',
+        paragraphs: [
+          "The cheapest gutter cleaning is the one you only pay for once. If you book before your trees finish dropping their leaves, you may need a second visit before winter. Waiting until most of your trees' leaves are down gets everything in one trip.",
+          "Angi recommends cleaning once or twice a year for an average home, in spring and early fall, and more often for homes near deciduous trees. Homes with gutter guards or screens may only need one cleaning a year. If your gutters overflow during heavy rain or you see plants growing in them, don't wait.",
+        ],
+        bullets: [
+          'Most Raleigh homes: twice a year',
+          'Book after most leaves fall to avoid paying for two visits',
+          'Homes near deciduous trees may need more frequent cleaning',
+          'Overflowing gutters or plants growing in them: book now',
+        ],
+      },
+      {
+        heading: 'What a Fair Price Looks Like in Raleigh',
+        paragraphs: [
+          "Angi's 2026 Raleigh data puts the average gutter cleaning at $117, with most homeowners paying $89 to $151. The total runs from about $50 to $250 depending on the home. By gutter length, Angi estimates about $84 to $200 for 125 feet, $100 to $240 for 150 feet, and $130 to $320 for 200 feet. A one-story home runs about $0.67 to $0.88 per linear foot.",
+          "Some contractors price by your home's square footage instead, at around $0.07 per square foot for the first floor and $0.14 for the second. Seamless gutters are cheaper to clean, about $84 to $125, than older seamed gutters at about $115 to $175. Raleigh doesn't require a permit for gutter cleaning, but Angi notes that sales tax applies.",
+        ],
+        bullets: [
+          'Raleigh average: $117 ($89 to $151 typical)',
+          '150 feet of gutters: about $100 to $240',
+          'One-story home: about $0.67 to $0.88 per linear foot',
+          'Seamless gutters: about $84 to $125; seamed: about $115 to $175',
+        ],
+        linkLabel: 'Read the full Wake County gutter cleaning cost guide',
+        linkGuide: 'gutter-cleaning-costs-wake-county-2027',
+      },
+      {
+        heading: 'Add-Ons Worth Bundling',
+        paragraphs: [
+          "According to Angi, a steep roof can add about 15 percent to the price, since crews have to work from ladders instead of the roof. Ask whether that applies before you book. Downspout cleaning runs about $50 to $100, and it's worth adding if water backs up even after the gutters are clear.",
+          "Angi also suggests bundling services while the crew and ladders are already there, since many pros price bundles lower. Common pairings are gutter cleaning with a downspout flush, minor gutter repairs, or a roof inspection from the same company.",
+        ],
+        bullets: [
+          'Steep roof: about 15% extra',
+          'Downspout cleaning: about $50 to $100',
+          'Bundle repairs or other services while the crew is there',
+          'Ask about surcharges before booking',
+        ],
+        linkLabel: 'See gutter cleaning deals in Raleigh',
+        linkCategory: 'Gutter Cleaning',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Do Gutter Guards Pay for Themselves?',
+        paragraphs: [
+          "Angi says gutter guards can cut cleaning costs by up to 50 percent, but they still need periodic sweeping. Our Wake County gutter cost guide puts guard installation in the Raleigh area at about $1,048 on average, with most homes paying $863 to $1,973.",
+          "Here's a rough example. If you pay Raleigh's $117 average twice a year, that's about $234 a year. Cutting that in half saves about $117 a year, so a $1,048 guard system would take roughly nine years to pay for itself on cleaning savings alone. Guards make the most sense if you have heavy tree cover, a two-story home that's expensive or risky to clean, or recurring overflow problems.",
+        ],
+        bullets: [
+          'Guards can cut cleaning costs by up to 50%',
+          'Raleigh-area guard installation: about $1,048 on average',
+          'Example payback on cleaning savings alone: roughly nine years',
+          'Best fit: heavy tree cover, two-story homes, recurring overflow',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 62 gutter deals covering Raleigh from 25 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A full gutter cleaning with a downspout flush runs about $99 to $134 at around 17 percent off. Downspout repair and realignment runs about $115 to $152 at around 12 percent off. Mesh gutter guard installation runs about $1,118 to $1,536 at around 14 percent off.",
+        ],
+        bullets: [
+          'About 62 proposed gutter deals in Raleigh, from 25 local businesses',
+          'Full gutter cleaning and flush: about $99 to $134, around 17% off',
+          'Downspout repair and realignment: about $115 to $152, around 12% off',
+          'Mesh gutter guards: about $1,118 to $1,536, around 14% off',
+        ],
+        linkLabel: 'Compare gutter cleaning deals across Wake County',
+        linkCategory: 'Gutter Cleaning',
+      },
+    ],
+    closing: [
+      "Gutter cleaning is one of the best services to group buy. Every house on a street needs it at the same time of year, and a crew that does several homes in one trip skips the drive and ladder setup between jobs. That saving becomes a cheaper, discounted rate for everyone. Find a gutter deal in your Raleigh neighborhood, share it with a few neighbors, and get your gutters cleared before winter rain.",
+    ],
+  },
 ];
