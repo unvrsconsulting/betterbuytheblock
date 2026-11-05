@@ -1971,16 +1971,18 @@ export const COST_GUIDES = [
           'Bagged or containerized yard waste goes out with weekly collection',
           'Free year-round yard waste drop-off at the Citizen\'s Convenience Center',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'What Group Deals Look Like in Cary',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 750 deals covering Cary from more than 320 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
-          "Recurring, route-based services carry the deepest proposed discounts in Cary. Pest control deals run about $81 to $138 at around 17 percent off, HVAC maintenance about $109 to $378 at around 16 percent off, and gutter cleaning averages about 16 percent off. Lawn service deals start around $41 per visit at about 13 percent off.",
+          "BetterBuyTheBlock currently lists about 740 deals covering Cary from more than 315 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Recurring, route-based services carry the deepest proposed discounts in Cary. Pest control deals run about $84 to $138 at around 17 percent off, HVAC maintenance about $109 to $378 at around 16 percent off, and gutter cleaning averages about 16 percent off. Lawn service deals start around $41 per visit at about 13 percent off.",
         ],
         bullets: [
-          'About 750 proposed deals covering Cary, from 320+ local businesses',
-          'Pest control: about $81 to $138, around 17% off',
+          'About 740 proposed deals covering Cary, from 315+ local businesses',
+          'Pest control: about $84 to $138, around 17% off',
           'HVAC maintenance: about $109 to $378, around 16% off',
           'Gutter cleaning: around 16% off; lawn service from about $41, around 13% off',
         ],
@@ -2018,6 +2020,8 @@ export const COST_GUIDES = [
           'Each week: your yard waste cart, up to 15 paper bags, and up to 5 tied bundles',
           'Optional second cart: $55 plus $2 per month',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'Should You Pay Someone to Handle Leaves?',
@@ -2054,11 +2058,11 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Raleigh',
         paragraphs: [
-          "BetterBuyTheBlock lists more deals for Raleigh than any other city in Wake County, about 1,580 from more than 650 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "BetterBuyTheBlock lists more deals for Raleigh than any other city in Wake County, about 1,550 from more than 640 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
           "Recurring services carry the deepest proposed discounts. Pest control deals in Raleigh run about $80 to $138 at around 16 percent off, HVAC maintenance about $113 to $374 at around 16 percent off, and lawn service starts around $41 per visit at about 13 percent off. Roofing is the most-listed category in Raleigh, with proposed rates of about $168 to $363 for inspections, minor repairs, and moss treatment at around 12 percent off.",
         ],
         bullets: [
-          'About 1,580 proposed deals covering Raleigh, from 650+ local businesses',
+          'About 1,550 proposed deals covering Raleigh, from 640+ local businesses',
           'Pest control: about $80 to $138, around 16% off',
           'HVAC maintenance: about $113 to $374, around 16% off',
           'Lawn service from about $41 per visit, around 13% off; roofing about $168 to $363, around 12% off',
@@ -2097,6 +2101,8 @@ export const COST_GUIDES = [
           'Rake leaves loose to the curb; don\'t bag them, and keep them separate from limbs',
           'Up to 2 cubic yards per collection; extra pickup available for a fee',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'The First Big Replacement Wave',
@@ -2160,6 +2166,8 @@ export const COST_GUIDES = [
           'Leaves only in the pile: no sticks, rocks, pine cones, or trimmings',
           'Off-season: paper bags or "YW" containers, up to 20 bags or 10 containers a week',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'The Brush Rule to Know Before You Hire a Tree Crew',
@@ -2195,11 +2203,11 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Wake Forest',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 585 deals covering Wake Forest from more than 230 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "BetterBuyTheBlock currently lists about 580 deals covering Wake Forest from more than 230 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
           "Tree service deals run about $133 to $168 for stump grinding, $174 to $205 for storm damage cleanup, and $332 to $437 for trimming and pruning, at around 13 percent off. Roofing runs about $172 to $336 at around 12 percent off. Pest control has the deepest proposed discounts, about $87 to $123 at around 16 percent off.",
         ],
         bullets: [
-          'About 585 proposed deals covering Wake Forest, from 230+ local businesses',
+          'About 580 proposed deals covering Wake Forest, from 230+ local businesses',
           'Tree service: stump grinding about $133 to $168, storm cleanup about $174 to $205, trimming about $332 to $437',
           'Roofing: about $172 to $336, around 12% off',
           'Pest control: about $87 to $123, around 16% off',
@@ -2267,17 +2275,19 @@ export const COST_GUIDES = [
           'Piles behind the curb, away from mailboxes and storm drains',
           'No stones, bricks, or branches in leaf piles',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'What Group Deals Look Like in Garner',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 415 deals covering Garner from more than 175 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
-          "Plumbing is the most-listed category in Garner, with drain clearing, water heater flushes, and whole-home inspections at about $141 to $203 and around 13 percent off. Pest control has the deepest proposed discounts, about $81 to $123 at around 17 percent off. HVAC maintenance runs about $115 to $348 at around 16 percent off, and lawn service starts around $41 per visit at about 13 percent off.",
+          "BetterBuyTheBlock currently lists about 405 deals covering Garner from more than 170 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Plumbing is the most-listed category in Garner, with drain clearing, water heater flushes, and whole-home inspections at about $141 to $203 and around 13 percent off. Pest control has the deepest proposed discounts, about $85 to $123 at around 17 percent off. HVAC maintenance runs about $115 to $348 at around 16 percent off, and lawn service starts around $41 per visit at about 13 percent off.",
         ],
         bullets: [
-          'About 415 proposed deals covering Garner, from 175+ local businesses',
+          'About 405 proposed deals covering Garner, from 170+ local businesses',
           'Plumbing: about $141 to $203, around 13% off',
-          'Pest control: about $81 to $123, around 17% off',
+          'Pest control: about $85 to $123, around 17% off',
           'HVAC maintenance: about $115 to $348, around 16% off; lawn service from about $41',
         ],
         linkLabel: 'See plumbing deals in Garner',
@@ -2327,6 +2337,8 @@ export const COST_GUIDES = [
           'Piles out before 7 a.m. Monday of your zone week, off the street',
           'Leaves only in the pile; limbs and sticks go in the cart',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'The Free Drop-Off Center and the Contractor Rule',
@@ -2347,12 +2359,12 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Holly Springs',
         paragraphs: [
-          "County property records put Holly Springs at about 16,000 single-family homes, averaging about 2,640 square feet and built around 2009, among the newest housing in Wake County. BetterBuyTheBlock currently lists about 350 deals covering Holly Springs from more than 150 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "County property records put Holly Springs at about 16,000 single-family homes, averaging about 2,640 square feet and built around 2009, among the newest housing in Wake County. BetterBuyTheBlock currently lists about 345 deals covering Holly Springs from more than 150 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
           "Electrical work is the most-listed category in Holly Springs, with whole-home safety inspections, surge protection, and fixture installs at about $146 to $300 and around 14 percent off. Tree service runs about $133 to $396 at around 13 percent off. Pest control has some of the deepest proposed discounts, about $85 to $126 at around 16 percent off, and lawn service starts around $44 per visit.",
         ],
         bullets: [
           'Average Holly Springs home: about 2,640 sq ft, built around 2009',
-          'About 350 proposed deals covering Holly Springs, from 150+ local businesses',
+          'About 345 proposed deals covering Holly Springs, from 150+ local businesses',
           'Electrical: about $146 to $300, around 14% off; tree service about $133 to $396',
           'Pest control: about $85 to $126, around 16% off; lawn service from about $44',
         ],
@@ -2390,6 +2402,8 @@ export const COST_GUIDES = [
           'One large pile at the curb, with no bags, containers, or tarps',
           'Leaves and pine straw only: no sticks, rocks, or dirt',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'Limbs and Clippings: Request Pickup Every Time',
@@ -2423,11 +2437,11 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Fuquay-Varina',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 305 deals covering Fuquay-Varina from more than 125 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "BetterBuyTheBlock currently lists about 295 deals covering Fuquay-Varina from about 125 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
           "Tree service is the most-listed category in Fuquay-Varina, with trimming, stump grinding, and storm cleanup at about $133 to $396 and around 13 percent off. HVAC maintenance has the deepest proposed discounts, about $122 to $342 at around 17 percent off. Pest control runs about $85 to $126 at around 16 percent off, and lawn service starts around $43 per visit.",
         ],
         bullets: [
-          'About 305 proposed deals covering Fuquay-Varina, from 125+ local businesses',
+          'About 295 proposed deals covering Fuquay-Varina, from about 125 local businesses',
           'Tree service: about $133 to $396, around 13% off',
           'HVAC maintenance: about $122 to $342, around 17% off',
           'Pest control: about $85 to $126, around 16% off; lawn service from about $43',
@@ -2466,6 +2480,8 @@ export const COST_GUIDES = [
           'Leaves ready by 7:30 a.m. on the first day of your week',
           'Small piles through the season work better than one big pile',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'How to Pile Leaves So the Truck Takes Them',
@@ -2515,11 +2531,11 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Knightdale',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 358 deals covering Knightdale from more than 140 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "BetterBuyTheBlock currently lists about 350 deals covering Knightdale from more than 140 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
           "Roofing is the most-listed category in Knightdale, with inspections and repairs at about $182 to $338 and around 13 percent off. Landscaping runs about $198 to $382 at around 10 percent off. Pest control and HVAC maintenance have the deepest proposed discounts, around 16 percent off, with pest control at about $85 to $123 and HVAC at about $119 to $332. Gutter cleaning starts around $100, and lawn service starts around $46 per visit.",
         ],
         bullets: [
-          'About 358 proposed deals covering Knightdale, from 140+ local businesses',
+          'About 350 proposed deals covering Knightdale, from 140+ local businesses',
           'Roofing: about $182 to $338, around 13% off',
           'Pest control: about $85 to $123; HVAC maintenance: about $119 to $332; both around 16% off',
           'Gutter cleaning from about $100; lawn service from about $46',
@@ -2558,6 +2574,8 @@ export const COST_GUIDES = [
           '30-gallon paper lawn and leaf bags, kept as dry as possible',
           'Personal containers: 35 gallons or less, under 50 pounds, labeled "Yard Waste"',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'Yard Waste Dates for the Rest of 2026',
@@ -2650,6 +2668,8 @@ export const COST_GUIDES = [
           'January and February: every other week',
           'Leaves out by 7 a.m. Monday; Sunday evening is recommended',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'How to Pile Leaves So the Vacuum Takes Them',
@@ -2699,12 +2719,12 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Rolesville',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 149 deals covering Rolesville from about 60 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
-          "Landscaping is the most-listed category in Rolesville, at about $202 to $359 and around 11 percent off. HVAC maintenance has the deepest proposed discounts, about $115 to $344 at around 16 percent off. Pest control runs about $91 to $118 at around 15 percent off, tree service is about $133 to $437, and lawn service starts around $43 per visit.",
+          "BetterBuyTheBlock currently lists about 145 deals covering Rolesville from about 60 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Landscaping is the most-listed category in Rolesville, at about $202 to $350 and around 12 percent off. HVAC maintenance has the deepest proposed discounts, about $115 to $344 at around 16 percent off. Pest control runs about $91 to $118 at around 15 percent off, tree service is about $133 to $437, and lawn service starts around $43 per visit.",
         ],
         bullets: [
-          'About 149 proposed deals covering Rolesville, from about 60 local businesses',
-          'Landscaping: about $202 to $359, around 11% off',
+          'About 145 proposed deals covering Rolesville, from about 60 local businesses',
+          'Landscaping: about $202 to $350, around 12% off',
           'HVAC maintenance: about $115 to $344, around 16% off',
           'Pest control: about $91 to $118; tree service from about $133; lawn service from about $43',
         ],
@@ -2742,6 +2762,8 @@ export const COST_GUIDES = [
           'January 4 to 8 and January 11 to 15',
           'Piles out by 5 a.m. on the first day, and no more than a week early',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'How to Pile Leaves So Crews Take Them',
@@ -2791,11 +2813,11 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Wendell',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 228 deals covering Wendell from more than 90 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "BetterBuyTheBlock currently lists about 225 deals covering Wendell from more than 90 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
           "Plumbing is the most-listed category in Wendell, at about $136 to $193 and around 12 percent off. Tree service runs about $133 to $437 at around 11 percent off. HVAC maintenance and gutter cleaning have the deepest proposed discounts, around 15 to 16 percent off, with HVAC at about $107 to $299 and gutter cleaning starting around $98. Lawn service starts around $42 per visit.",
         ],
         bullets: [
-          'About 228 proposed deals covering Wendell, from 90+ local businesses',
+          'About 225 proposed deals covering Wendell, from 90+ local businesses',
           'Plumbing: about $136 to $193, around 12% off',
           'Tree service: about $133 to $437, around 11% off',
           'HVAC maintenance about $107 to $299; gutter cleaning from about $98; both around 15% to 16% off',
@@ -2834,6 +2856,8 @@ export const COST_GUIDES = [
           'Leaves and yard waste are collected the same week',
           'Questions: Public Works at 919-269-5285',
         ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
       },
       {
         heading: 'Two Piles, No Bags',
@@ -2883,11 +2907,11 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Zebulon',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 176 deals covering Zebulon from more than 70 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "BetterBuyTheBlock currently lists about 170 deals covering Zebulon from more than 70 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
           "Roofing is the most-listed category in Zebulon, at about $168 to $325 and around 12 percent off. Landscaping runs about $187 to $363 at around 11 percent off. HVAC maintenance has the deepest proposed discounts, about $124 to $288 at around 18 percent off. Gutter cleaning starts around $104 at about 15 percent off, and lawn service starts around $40 per visit.",
         ],
         bullets: [
-          'About 176 proposed deals covering Zebulon, from 70+ local businesses',
+          'About 170 proposed deals covering Zebulon, from 70+ local businesses',
           'Roofing: about $168 to $325, around 12% off',
           'HVAC maintenance: about $124 to $288, around 18% off',
           'Landscaping about $187 to $363; gutter cleaning from about $104; lawn service from about $40',
@@ -3099,7 +3123,7 @@ export const COST_GUIDES = [
         heading: 'When Paying for Leaf Help Makes Sense',
         paragraphs: [
           "For most yards, town pickup plus a rake or a mulching mower is all you need. Paying for help makes sense for big lots under mature oaks, in towns with bag or item limits, or if you can't do the raking yourself. If you hire a crew, ask whether they haul the leaves away or leave them for town pickup. Several towns, including Holly Springs, Knightdale, and Morrisville, won't collect yard waste left by paid crews.",
-          "BetterBuyTheBlock lists about 206 proposed lawn service deals across Wake County starting around $40 per visit, about 268 landscaping deals with a typical rate around $237, and about 150 gutter cleaning deals starting around $98 at about 15 percent off. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. Booking with neighbors on the same street is what makes a cheaper, discounted rate possible.",
+          "BetterBuyTheBlock lists about 206 proposed lawn service deals across Wake County starting around $40 per visit, about 265 landscaping deals with a typical rate around $236, and about 150 gutter cleaning deals starting around $98 at about 15 percent off. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. Booking with neighbors on the same street is what makes a cheaper, discounted rate possible.",
         ],
         bullets: [
           'Free first: town pickup, a mulching mower, or composting',
@@ -3187,14 +3211,14 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Raleigh',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 71 home security deals covering Raleigh from 29 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
-          "A smart doorbell camera installation with app setup runs about $136 to $179 at around 12 percent off. A smart lock upgrade covering both front and back doors runs about $336 to $451 at around 13 percent off. A home security walkthrough that identifies weak entry points runs about $111 to $146 at around 16 percent off. Confirm with the installer whether hardware is included.",
+          "BetterBuyTheBlock currently lists about 48 home security deals covering Raleigh from 20 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A smart doorbell camera installation with app setup runs about $136 to $175 at around 13 percent off. A smart lock upgrade covering both front and back doors runs about $336 to $451 at around 13 percent off. A home security walkthrough that identifies weak entry points runs about $111 to $146 at around 15 percent off. Confirm with the installer whether hardware is included.",
         ],
         bullets: [
-          'About 71 proposed home security deals in Raleigh, from 29 local businesses',
-          'Smart doorbell camera install: about $136 to $179, around 12% off',
+          'About 48 proposed home security deals in Raleigh, from 20 local businesses',
+          'Smart doorbell camera install: about $136 to $175, around 13% off',
           'Smart lock upgrade, front and back doors: about $336 to $451, around 13% off',
-          'Home security walkthrough: about $111 to $146, around 16% off',
+          'Home security walkthrough: about $111 to $146, around 15% off',
         ],
         linkLabel: 'Compare home security deals across Wake County',
         linkCategory: 'Home Security',
@@ -3457,14 +3481,14 @@ export const COST_GUIDES = [
       {
         heading: 'What Group Deals Look Like in Raleigh',
         paragraphs: [
-          "BetterBuyTheBlock currently lists about 101 pest control deals covering Raleigh from 39 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
-          "Quarterly pest prevention runs about $100 to $134 per visit at around 17 percent off. A termite inspection with a written report runs about $80 to $111 at around 21 percent off. Mosquito yard treatment runs about $106 to $138 per visit at around 12 percent off.",
+          "BetterBuyTheBlock currently lists about 99 pest control deals covering Raleigh from 38 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Quarterly pest prevention runs about $100 to $134 per visit at around 17 percent off. A termite inspection with a written report runs about $80 to $111 at around 21 percent off. Mosquito yard treatment runs about $107 to $138 per visit at around 11 percent off.",
         ],
         bullets: [
-          'About 101 proposed pest control deals in Raleigh, from 39 local businesses',
+          'About 99 proposed pest control deals in Raleigh, from 38 local businesses',
           'Quarterly pest prevention: about $100 to $134 per visit, around 17% off',
           'Termite inspection: about $80 to $111, around 21% off',
-          'Mosquito yard treatment: about $106 to $138, around 12% off',
+          'Mosquito yard treatment: about $107 to $138, around 11% off',
         ],
         linkLabel: 'Compare pest control deals across Wake County',
         linkCategory: 'Pest Control',
