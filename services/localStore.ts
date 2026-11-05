@@ -25,6 +25,22 @@ export const resetIfStaleSeed = (): void => {
   }
 };
 
+// The cached seed catalog (businesses/services) is also dropped whenever the static data files change, keyed on
+// the same content hash that versions their URLs (__DATA_VERSION__, see vite.config.ts). Without this, a returning
+// visitor keeps seeing listings that were removed from public/data until someone remembers to bump SEED_VERSION.
+// Only the catalog keys are cleared, so a data update doesn't sign anyone out.
+const CATALOG_KEYS = ['businesses', 'services'];
+
+export const resetIfStaleCatalog = (): void => {
+  try {
+    if (localStorage.getItem(PREFIX + 'dataVersion') === __DATA_VERSION__) return;
+    CATALOG_KEYS.forEach(key => localStorage.removeItem(PREFIX + key));
+    localStorage.setItem(PREFIX + 'dataVersion', __DATA_VERSION__);
+  } catch (e) {
+    console.warn('Failed to check/reset cached catalog version.', e);
+  }
+};
+
 export const loadState = <T,>(key: string, fallback: T): T => {
   try {
     const raw = localStorage.getItem(PREFIX + key);

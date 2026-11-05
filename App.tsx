@@ -42,12 +42,13 @@ import LocationPromptModal from './components/LocationPromptModal';
 import Button from './components/Button';
 import { TagIcon } from './components/Icon';
 import AuthModal from './components/AuthModal';
-import { loadState, saveState, resetIfStaleSeed } from './services/localStore';
+import { loadState, saveState, resetIfStaleSeed, resetIfStaleCatalog } from './services/localStore';
 
 // Runs once when the module loads, before any component state initializes,
 // so a stale cached catalog from a previous seed version never shadows fresh
 // demo data (see SEED_VERSION comment in services/localStore.ts).
 resetIfStaleSeed();
+resetIfStaleCatalog();
 import { useNeighborhoods } from './hooks/useNeighborhoods';
 import { findNearestNeighborhood, searchNeighborhoods } from './services/neighborhoods';
 import { isRateLimited } from './services/contentModeration';
