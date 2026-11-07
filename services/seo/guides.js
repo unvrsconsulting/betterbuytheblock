@@ -4043,4 +4043,96 @@ export const COST_GUIDES = [
       "Carpet cleaning is a good fit for group buying. A carpet cleaning crew spends time driving and setting up equipment for each job, so several homes on one street booking the same day saves them time, and that saving becomes a cheaper, discounted rate for everyone. Find a carpet cleaning deal in your neighborhood, share it with a few neighbors, and get your carpets cleaned before the holidays.",
     ],
   },
+  {
+    slug: 'cheap-house-cleaning-morrisville-wendell-fuquay-varina-nc',
+    title: 'Cheap House Cleaning in Morrisville, Wendell, and Fuquay-Varina: 2026 Prices by Home Size',
+    description: 'What house cleaning costs in Morrisville, Wendell, and Fuquay-Varina in 2026 based on each town\'s typical home size, weekly vs. biweekly pricing, add-ons to watch, and real group-deal prices from local cleaners.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 7, 2026',
+    image: 'https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'House Cleaning',
+    intro: [
+      "House cleaning is priced mostly by the size of your home, and homes in Morrisville, Wendell, and Fuquay-Varina differ by more than you might expect. County property records put the average single-family home at about 2,430 square feet in Morrisville, 2,310 in Fuquay-Varina, and 1,980 in Wendell. That difference alone can move a cleaning quote by $50 or more per visit.",
+      "This guide uses Angi's 2026 cleaning prices to estimate what a typical home in each town costs to clean, compares weekly and biweekly service, lists the add-ons that raise the bill, and shows how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What a Typical Home Costs to Clean in Each Town',
+        paragraphs: [
+          "Angi's 2026 data puts the national average house cleaning at $176 per visit, with most homeowners paying $118 to $239. By size, a regular cleaning runs about $200 to $400 for a 2,000 square foot home and $250 to $500 for a 2,500 square foot home. A deep cleaning runs about $240 to $500 and $300 to $625 for the same sizes.",
+          "Applied to each town's average home, a typical Wendell home (about 1,980 square feet) lands in the 2,000 square foot range, while typical homes in Fuquay-Varina (about 2,310) and Morrisville (about 2,430) sit between the 2,000 and 2,500 square foot ranges, closer to the higher one. Your own home's size, bedrooms, and bathrooms matter more than the town average, so use these as a starting point when comparing quotes.",
+        ],
+        bullets: [
+          'National average: $176 per visit ($118 to $239 typical)',
+          '2,000 sq ft: about $200 to $400 regular, $240 to $500 deep',
+          '2,500 sq ft: about $250 to $500 regular, $300 to $625 deep',
+          'Average homes: Wendell about 1,980 sq ft; Fuquay-Varina about 2,310; Morrisville about 2,430',
+        ],
+        linkLabel: 'Read the full Wake County house cleaning cost guide',
+        linkGuide: 'house-cleaning-costs-wake-county-2027',
+      },
+      {
+        heading: 'Weekly, Biweekly, or Monthly?',
+        paragraphs: [
+          "Angi puts weekly cleaning at about $75 to $200 per visit, or $300 to $800 a month. Biweekly cleaning runs about $100 to $250 per visit, or $200 to $500 a month. Our Wake County maid service guide found biweekly to be the most common plan, since it keeps the house clean without paying for four visits a month.",
+          "If you're starting a recurring plan, expect the first visit to cost more, since the cleaners are removing buildup. Many companies charge by bedroom too: Angi says each additional bedroom adds about $25 to $35 to a standard clean, and each additional bathroom about $10 to $40.",
+        ],
+        bullets: [
+          'Weekly: about $75 to $200 per visit ($300 to $800 a month)',
+          'Biweekly: about $100 to $250 per visit ($200 to $500 a month)',
+          'Each extra bedroom: about $25 to $35; each extra bathroom: about $10 to $40',
+          'Expect a higher first visit when starting a recurring plan',
+        ],
+      },
+      {
+        heading: 'Add-Ons That Raise the Bill',
+        paragraphs: [
+          "Standard cleanings cover the rooms you use every day. Extras cost more, and they add up fast if you don't ask for a written list. Angi's 2026 add-on prices are about $10 to $40 for inside the refrigerator, $25 to $75 for baseboards, $20 to $50 for cabinets, $4 to $10 per window, and $5 to $20 per load of laundry.",
+          "Ask each company for its checklist and which items are included. Two quotes for a \"standard clean\" can cover very different work, and the cheaper one may leave out things you assumed were included. Cleaners typically charge $25 to $50 per hour per person, so a two-person team finishes faster but doesn't necessarily cost less.",
+        ],
+        bullets: [
+          'Inside the fridge: about $10 to $40; baseboards: about $25 to $75',
+          'Cabinets: about $20 to $50; windows: about $4 to $10 each',
+          'Laundry: about $5 to $20 per load',
+          'Get the cleaning checklist in writing before comparing quotes',
+        ],
+      },
+      {
+        heading: 'Group Deals in Morrisville and Wendell',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 12 proposed house cleaning deals covering Morrisville from 6 local businesses, and 12 covering Wendell from 5. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "In Morrisville, biweekly cleaning runs about $148 to $196 per visit at around 16 percent off, and a one-time deep clean about $195 to $252 at around 18 percent off. In Wendell, biweekly cleaning runs about $140 to $155 per visit at around 17 percent off, and a deep clean about $211 to $230 at around 15 percent off.",
+        ],
+        bullets: [
+          'Morrisville biweekly: about $148 to $196, around 16% off',
+          'Morrisville deep clean: about $195 to $252, around 18% off',
+          'Wendell biweekly: about $140 to $155, around 17% off',
+          'Wendell deep clean: about $211 to $230, around 15% off',
+        ],
+        linkLabel: 'See house cleaning deals in Morrisville',
+        linkCategory: 'House Cleaning',
+        linkCity: 'Morrisville',
+      },
+      {
+        heading: 'Group Deals in Fuquay-Varina',
+        paragraphs: [
+          "Fuquay-Varina has the most cleaning options of the three, with about 23 proposed deals from 10 local businesses. Biweekly cleaning runs about $136 to $196 per visit at around 17 percent off. A one-time deep clean runs about $214 to $252 at around 16 percent off, and weekly cleaning about $166 to $202 per visit at around 9 percent off.",
+          "Like the other towns, these are proposed rates for real businesses that haven't joined the site yet. They show what a neighborhood rate could look like when several households on the same street book the same cleaning company.",
+        ],
+        bullets: [
+          'About 23 proposed cleaning deals in Fuquay-Varina, from 10 local businesses',
+          'Biweekly: about $136 to $196 per visit, around 17% off',
+          'Deep clean: about $214 to $252, around 16% off',
+          'Weekly: about $166 to $202 per visit, around 9% off',
+        ],
+        linkLabel: 'See house cleaning deals in Fuquay-Varina',
+        linkCategory: 'House Cleaning',
+        linkCity: 'Fuquay-Varina',
+      },
+    ],
+    closing: [
+      "Recurring cleaning is one of the best services to group buy. A cleaning team that has several homes on the same street on the same day spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a cleaning deal in your Morrisville, Wendell, or Fuquay-Varina neighborhood, share it with a few neighbors, and get the house cleaned for less.",
+    ],
+  },
 ];
