@@ -4135,4 +4135,105 @@ export const COST_GUIDES = [
       "Recurring cleaning is one of the best services to group buy. A cleaning team that has several homes on the same street on the same day spends less time driving, and that saving becomes a cheaper, discounted rate for everyone. Find a cleaning deal in your Morrisville, Wendell, or Fuquay-Varina neighborhood, share it with a few neighbors, and get the house cleaned for less.",
     ],
   },
+  {
+    slug: 'cheap-fall-yard-cleanup-wake-forest-knightdale-nc',
+    title: 'Cheap Fall Yard Cleanup in Wake Forest and Knightdale: 2026 Costs and Free Town Pickup',
+    description: 'What fall yard cleanup and leaf removal cost in 2026, how to use Wake Forest\'s and Knightdale\'s free leaf collection to cut the bill, the contractor and brush rules that catch homeowners, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 10, 2026',
+    image: 'https://images.pexels.com/photos/20805905/pexels-photo-20805905.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Landscaping',
+    intro: [
+      "A fall yard cleanup is one of the easiest services to overpay for. Most of what you're paying for is labor, and both Wake Forest and Knightdale already pick up leaves for free, so the cheapest plan usually combines town pickup with as little paid help as you need.",
+      "This guide covers what fall cleanup and leaf removal cost in 2026, how each town's free collection works, the rules that can leave you with a pile nobody will take, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What Fall Cleanup Costs in 2026',
+        paragraphs: [
+          "Angi's 2026 data puts the national average leaf removal at $379, with most homeowners paying $191 to $593. The North Carolina average is about $370. A one-time fall cleanup runs about $200 to $850, averaging around $525, and recurring contracts lower the price per visit.",
+          "Lot size and tree cover drive the price. Angi puts a quarter-acre at about $175 to $250, a half-acre at $200 to $500, and a full acre at $400 to $1,000, with heavily wooded lots at the high end. By the hour, raking runs about $25 to $50, blowing $15 to $45, and vacuuming $40 to $60. Labor makes up 90 to 95 percent of the bill, and hauling leaves away adds about $5 to $10 per bag.",
+        ],
+        bullets: [
+          'Leaf removal: $379 national average; about $370 in North Carolina',
+          'One-time fall cleanup: about $200 to $850',
+          'Quarter-acre: about $175 to $250; half-acre: about $200 to $500',
+          'Hauling leaves away: about $5 to $10 per bag',
+        ],
+        linkLabel: 'Read the full Wake County landscaping cost guide',
+        linkGuide: 'landscaping-costs-wake-county-2027',
+      },
+      {
+        heading: 'Wake Forest: Free Leaf Pickup Through Mid-March',
+        paragraphs: [
+          "Wake Forest collects loose leaves from the first Monday in October through the second Friday in March, which will be March 12, 2027. Rake leaves behind the curb, at least 8 feet from cars, mailboxes, carts, trees, and shrubs, and keep sticks, rocks, and pine cones out of the pile. Crews work neighborhoods in order, and the Leaf Collection Hotline, 919-435-9582, lists where they're working each weekday morning.",
+          "Brush has its own rules. The town collects up to 8 cubic yards of brush per household per week, but it won't pick up large quantities from removing more than one tree or from land clearing. If a fall cleanup includes taking down trees, make sure the quote includes hauling the debris away.",
+        ],
+        bullets: [
+          'Loose-leaf season: first Monday in October to March 12, 2027',
+          'Piles behind the curb, at least 8 feet from cars and mailboxes',
+          'Leaf hotline: 919-435-9582',
+          'Multi-tree removal debris isn\'t collected; get hauling in the quote',
+        ],
+        linkGuideLabel: 'Read the full Wake Forest guide',
+        linkGuide: 'cheap-home-services-wake-forest-nc',
+        linkLabel: 'See landscaping deals in Wake Forest',
+        linkCategory: 'Landscaping',
+        linkCity: 'Wake Forest',
+      },
+      {
+        heading: 'Knightdale: Free Vacuum Passes, but Not for Crews',
+        paragraphs: [
+          "Knightdale's vacuum trucks still have several passes left this season. Outside Planters Walk, the remaining weeks start November 16, December 7, December 28, and January 18. Planters Walk's remaining weeks start November 30, December 14, and January 11. Have leaves raked loose within 6 feet of the pavement by 7:30 a.m. on the first day of your week, and at least 5 feet from parked cars.",
+          "Here's the rule that changes the math: Knightdale doesn't accept contractor waste in its yard programs, including the leaf vacuum. The town says contractors should haul away the waste they create. In Knightdale, doing the raking yourself and using the free vacuum is usually the cheapest option, and if you hire a crew, the quote needs to include hauling.",
+        ],
+        bullets: [
+          'Most neighborhoods: weeks of November 16, December 7, December 28, January 18',
+          'Planters Walk: weeks of November 30, December 14, January 11',
+          'Leaves within 6 feet of the pavement by 7:30 a.m.',
+          'Contractor-generated leaves aren\'t collected; crews must haul them',
+        ],
+        linkGuideLabel: 'Read the full Knightdale guide',
+        linkGuide: 'cheap-home-services-knightdale-nc',
+        linkLabel: 'See landscaping deals in Knightdale',
+        linkCategory: 'Landscaping',
+        linkCity: 'Knightdale',
+      },
+      {
+        heading: 'How Often You Really Need It',
+        paragraphs: [
+          "Angi recommends removing leaves at least twice per fall. If you only have a tree or two, two cleanups are usually enough. With many trees or leaves piling up heavily, aim for about once a month through the fall. Mowing a light layer of leaves with a mulching mower is free, and Angi notes decomposing leaves add nutrients to the soil.",
+          "If you do hire help, compare a single big cleanup against a short recurring plan, since Angi notes recurring contracts bring the per-visit price down. Ask for the same scope in every quote: which areas, whether beds are cleared, whether gutters are included, and whether leaves are hauled away or left for town pickup where that's allowed.",
+        ],
+        bullets: [
+          'At least two leaf cleanups per fall; monthly with heavy tree cover',
+          'Mulch light layers of leaves with the mower for free',
+          'Recurring plans lower the price per visit',
+          'Compare quotes on the same scope, including hauling',
+        ],
+        linkGuideLabel: 'Compare leaf pickup across all 12 Wake County towns',
+        linkGuide: 'free-leaf-pickup-wake-county-2026',
+      },
+      {
+        heading: 'What Group Deals Look Like',
+        paragraphs: [
+          "BetterBuyTheBlock doesn't list a dedicated leaf removal package yet, but several fall jobs have proposed deals. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. In Wake Forest, a full gutter cleaning and downspout flush runs about $100 to $125 at around 18 percent off, and a mulching and bed refresh about $300 to $382 at around 9 percent off.",
+          "In Knightdale, a gutter cleaning and flush runs about $100 to $115 at around 17 percent off, and a mulching and bed refresh about $330 to $382 at around 10 percent off. Both towns also list weed control and fertilization at about $112 to $147, which pairs well with a fall cleanup on a tall fescue lawn.",
+        ],
+        bullets: [
+          'Wake Forest gutter cleaning and flush: about $100 to $125, around 18% off',
+          'Wake Forest mulching and bed refresh: about $300 to $382',
+          'Knightdale gutter cleaning and flush: about $100 to $115, around 17% off',
+          'Knightdale mulching and bed refresh: about $330 to $382',
+        ],
+        linkLabel: 'See gutter cleaning deals in Wake Forest',
+        linkCategory: 'Gutter Cleaning',
+        linkCity: 'Wake Forest',
+      },
+    ],
+    closing: [
+      "Fall cleanups are a natural fit for group buying. Every yard on a street needs the same work at the same time, and a crew that handles several houses in one trip spends less time driving and unloading equipment. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Wake Forest or Knightdale neighborhood, share it with a few neighbors, and use the free town pickup for everything you can.",
+    ],
+  },
 ];
