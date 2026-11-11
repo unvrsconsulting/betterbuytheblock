@@ -4236,4 +4236,95 @@ export const COST_GUIDES = [
       "Fall cleanups are a natural fit for group buying. Every yard on a street needs the same work at the same time, and a crew that handles several houses in one trip spends less time driving and unloading equipment. That saving becomes a cheaper, discounted rate for everyone. Find a deal in your Wake Forest or Knightdale neighborhood, share it with a few neighbors, and use the free town pickup for everything you can.",
     ],
   },
+  {
+    slug: 'cheap-tree-removal-storm-cleanup-raleigh-nc',
+    title: 'Cheap Tree Removal and Storm Cleanup in Raleigh: 2026 Costs, City Tree Rules, and What the City Won\'t Haul',
+    description: 'What tree removal, trimming, and storm cleanup cost in Raleigh in 2026, when a tree belongs to the City and needs a Tree Impact Permit, which tree debris the City will and won\'t collect, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 11, 2026',
+    image: 'https://images.pexels.com/photos/34581908/pexels-photo-34581908.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Tree Service',
+    intro: [
+      "Tree work is one of the biggest swings in a Raleigh homeowner's budget. A small trim can cost under $100, while a large tree near the house can run into the thousands. Two Raleigh rules can add to that bill if you miss them: some trees that look like yours actually belong to the City, and the City won't haul away most of the debris a paid crew leaves behind.",
+      "This guide covers what tree removal, trimming, and storm cleanup cost in 2026, how to tell if a tree is a City tree, what the City will and won't collect, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What Tree Work Costs in Raleigh',
+        paragraphs: [
+          "Our Wake County tree service cost guide puts the average tree removal in the Raleigh area at about $737, with most jobs between $196 and $1,964. A small tree with easy access can run $147 to $300, while a large or hazardous tree near a house or power lines can cost several thousand dollars. Trimming averages about $420 per tree nationally, from $75 to $400 for a small tree up to $700 to $1,800 for one over 60 feet.",
+          "Stumps are usually extra. Raleigh-area stump grinding runs about $2 to $3 per inch of diameter. Always ask whether a removal quote includes the stump, chipping, and hauling, since those are the line items that most often get left out of a low price.",
+        ],
+        bullets: [
+          'Raleigh-area tree removal: about $737 on average ($196 to $1,964 typical)',
+          'Small, easy-access tree: about $147 to $300',
+          'Trimming: about $420 per tree on average nationally',
+          'Stump grinding: about $2 to $3 per inch of diameter',
+        ],
+        linkLabel: 'Read the full Wake County tree service cost guide',
+        linkGuide: 'tree-service-costs-wake-county-2027',
+      },
+      {
+        heading: 'Is It Your Tree or the City\'s?',
+        paragraphs: [
+          "In Raleigh, street trees in the public right-of-way are City trees, even when they look like part of your front yard. The right-of-way isn't a set distance from the curb, so it can be hard to tell without a survey, but the City's inspectors will help make the call if you ask.",
+          "Any work on a City tree needs a Tree Impact Permit. That includes trimming, removal, planting, and even digging, trenching, or parking equipment within the tree's critical root zone, which the City defines as a circle with a radius of 1.25 feet for every inch of trunk diameter. If the work isn't part of a plan the City is already reviewing, you apply through the City's Permit and Development Portal. To report a problem with a street tree, call Urban Forestry at 919-996-4115.",
+        ],
+        bullets: [
+          'Street trees in the right-of-way belong to the City',
+          'Trimming, removal, or digging near a City tree needs a Tree Impact Permit',
+          'Critical root zone: 1.25 feet of radius per inch of trunk diameter',
+          'Report street tree issues to Urban Forestry: 919-996-4115',
+        ],
+      },
+      {
+        heading: 'What the City Will and Won\'t Haul',
+        paragraphs: [
+          "Raleigh's weekly yard waste pickup takes up to 5 bundles of limbs and brush, each tied, no more than 5 feet long, 18 inches across, and 50 pounds. Logs and limbs thicker than 6 inches or longer than 5 feet aren't collected, and neither are stumps. Most important for anyone hiring help: the City won't collect yard waste from contracted jobs or land clearing.",
+          "For extra yard waste you cut yourself, the City offers a Special Load pickup for $70, which covers up to 24 biodegradable yard waste bags. It doesn't take loose leaves, oversized limbs, stumps, or contractor yard waste. Call 919-996-3245 to schedule it, and don't put items at the curb before your pickup is scheduled, since that can bring a fine.",
+        ],
+        bullets: [
+          'Weekly pickup: up to 5 bundles, each 5 feet long, 18 inches across, 50 pounds max',
+          'Limbs over 6 inches thick or 5 feet long, and stumps, aren\'t collected',
+          'Debris from a paid crew isn\'t collected; hauling must be in the quote',
+          'Special Load for extra yard waste: $70, call 919-996-3245',
+        ],
+        linkLabel: 'See tree service deals in Raleigh',
+        linkCategory: 'Tree Service',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Storm Cleanup Without Overpaying',
+        paragraphs: [
+          "After a big storm, tree crews can be booked up for days. If a tree is on the house or a power line, call the professionals and your utility first. For limbs down in the yard, you can often cut smaller branches yourself and set them out within the City's bundle limits, then hire help only for the big pieces.",
+          "Before you hire, get at least two written quotes with the same scope: which trees or limbs, whether the stump is included, and whether the crew will chip and haul everything. If you plan to file an insurance claim, take photos of the damage before cleanup starts.",
+        ],
+        bullets: [
+          'Trees on a house or power line: call a pro and your utility first',
+          'Cut small limbs yourself and bundle them for City pickup',
+          'Get two written quotes with the same scope, including hauling',
+          'Photograph damage before cleanup if you plan to file a claim',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 92 tree service deals covering Raleigh from 40 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "Storm damage cleanup with hauling runs about $174 to $228 at around 12 percent off. Tree trimming and pruning runs about $340 to $446 at around 12 percent off. Stump grinding runs about $133 to $164 at around 13 percent off.",
+        ],
+        bullets: [
+          'About 92 proposed tree service deals in Raleigh, from 40 local businesses',
+          'Storm damage cleanup and hauling: about $174 to $228, around 12% off',
+          'Tree trimming and pruning: about $340 to $446, around 12% off',
+          'Stump grinding: about $133 to $164, around 13% off',
+        ],
+        linkLabel: 'Compare tree service deals across Wake County',
+        linkCategory: 'Tree Service',
+      },
+    ],
+    closing: [
+      "Tree work is a natural fit for group buying. A crew that brings a bucket truck and chipper to one street can work several yards in a day instead of hauling equipment across town, and that saving becomes a cheaper, discounted rate for everyone. Find a tree service deal in your Raleigh neighborhood, share it with a few neighbors, and get your trees taken care of before the next storm.",
+    ],
+  },
 ];
