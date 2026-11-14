@@ -4327,4 +4327,95 @@ export const COST_GUIDES = [
       "Tree work is a natural fit for group buying. A crew that brings a bucket truck and chipper to one street can work several yards in a day instead of hauling equipment across town, and that saving becomes a cheaper, discounted rate for everyone. Find a tree service deal in your Raleigh neighborhood, share it with a few neighbors, and get your trees taken care of before the next storm.",
     ],
   },
+  {
+    slug: 'cheap-outdoor-outlet-installation-holiday-lights-raleigh-nc',
+    title: 'Cheap Outdoor Outlet Installation in Raleigh Before Holiday Lights: 2026 Costs and NC Permit Rules',
+    description: 'What it costs to add or replace an outdoor outlet in Raleigh in 2026, when North Carolina requires an electrical permit, when homeowners can do the work themselves, and real group-deal prices from local electricians.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 14, 2026',
+    image: 'https://images.pexels.com/photos/10636078/pexels-photo-10636078.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Electrical',
+    intro: [
+      "Holiday lights are when a lot of Raleigh homeowners discover they don't have an outdoor outlet where they need one, or that the one they have keeps tripping. Running extension cords through a cracked door works for a night, but a properly installed outdoor outlet is a one-time cost that pays off every season.",
+      "This guide covers what adding or replacing an outdoor outlet costs in 2026, when North Carolina law requires a permit, when you can do the work yourself, and how booking an electrician with neighbors can get you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What an Outdoor Outlet Costs',
+        paragraphs: [
+          "HomeGuide's 2026 data puts a new outdoor outlet at about $180 to $350 installed, including a GFCI outlet, a weatherproof cover, and labor. Replacing an existing outdoor outlet costs about $100 to $175. The job itself is quick, but many electricians charge a one-hour minimum plus a trip fee of about $75 to $125, which is why a single small job costs more than you'd expect.",
+          "In Raleigh specifically, Angi puts the average outlet installation at $295, with most homeowners paying $98 to $442. Costs climb when new wiring is needed: HomeGuide estimates about $7 to $10 per foot of new wiring and $250 to $900 for a dedicated new circuit that includes the outlet.",
+        ],
+        bullets: [
+          'New outdoor outlet: about $180 to $350 installed',
+          'Replace an existing outdoor outlet: about $100 to $175',
+          'Raleigh average outlet installation: $295 ($98 to $442 typical)',
+          'New dedicated circuit with outlet: about $250 to $900',
+        ],
+        linkLabel: 'Read the full Wake County electrical cost guide',
+        linkGuide: 'electrical-costs-wake-county-2027',
+      },
+      {
+        heading: 'When North Carolina Requires a Permit',
+        paragraphs: [
+          "North Carolina's permit exemption for small home projects (G.S. 160D-1110) covers most work under $40,000, but it specifically excludes the addition, replacement, or change in design of electrical wiring, devices, or equipment, other than like-kind replacement of electrical devices and lighting fixtures. In plain terms, adding a new outdoor outlet or running new wiring needs an electrical permit, while swapping a worn-out outlet for the same kind of outlet generally doesn't.",
+          "Ask any electrician whether the quote includes pulling the permit. HomeGuide puts electrical permits at about $50 to $350 depending on the area. For permit questions in Raleigh or elsewhere in Wake County, check with your city or county inspections office before work starts.",
+        ],
+        bullets: [
+          'New outlet or new wiring: electrical permit required',
+          'Like-kind replacement of an existing outlet: generally no permit',
+          'Electrical permits: about $50 to $350',
+          'Ask whether the electrician\'s quote includes the permit',
+        ],
+      },
+      {
+        heading: 'Can You Do It Yourself?',
+        paragraphs: [
+          "North Carolina law (G.S. 87-43.1) lets a homeowner do electrical work on their own property, for their own use, when the home isn't being offered for rent, lease, or sale at the time, without an electrical contractor's license. That doesn't remove the permit requirement for new work. Garner, for example, requires a homeowner affidavit for this kind of permit, and Holly Springs notes that permits and inspections are still required.",
+          "Replacing an existing outdoor outlet with a weatherproof GFCI is a job some homeowners do themselves, and HomeGuide puts the outlet itself at about $15 to $30 plus $5 to $20 for a cover. Adding a new outlet, running wire, or adding a circuit is a bigger job where hiring a licensed electrician is usually the safer and simpler choice, since it includes the permit and inspection.",
+        ],
+        bullets: [
+          'NC lets homeowners do electrical work on their own home, for their own use',
+          'New work still needs a permit and inspection',
+          'Outdoor GFCI outlet: about $15 to $30; cover: about $5 to $20',
+          'New circuits and wiring: usually worth hiring a licensed electrician',
+        ],
+        linkLabel: 'See electrical deals in Raleigh',
+        linkCategory: 'Electrical',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'How to Keep the Bill Down',
+        paragraphs: [
+          "Since a trip fee and one-hour minimum often make up much of a small job's cost, bundle work into one visit. If you're adding an outdoor outlet, it's a good time to also replace a flickering fixture, add a second outdoor outlet on the other side of the house, or have the electrician check a breaker that keeps tripping.",
+          "Location matters too. An outlet on an exterior wall close to the electrical panel or an existing circuit costs much less than one at the far end of the yard, where wire may need to be buried. If you only need power for seasonal lights, ask whether a spot closer to existing wiring would work.",
+        ],
+        bullets: [
+          'Bundle small electrical jobs into one visit to spread the trip fee',
+          'Outlets near the panel or existing wiring cost less',
+          'Outlets far out in the yard may need buried wire and cost much more',
+          'Get the same scope from every electrician you compare',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 77 electrical deals covering Raleigh from 30 local businesses. There isn't a dedicated outdoor outlet package yet, but several deals pair well with one. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "A whole-home electrical safety inspection, where a licensed electrician checks the panel, outlets, and wiring, runs about $143 to $196 at around 15 percent off. Ceiling fan and fixture installation runs about $167 to $239 at around 10 percent off. A whole-panel surge protection upgrade runs about $235 to $302 at around 16 percent off.",
+        ],
+        bullets: [
+          'About 77 proposed electrical deals in Raleigh, from 30 local businesses',
+          'Electrical safety inspection: about $143 to $196, around 15% off',
+          'Fixture and ceiling fan installation: about $167 to $239, around 10% off',
+          'Surge protection upgrade: about $235 to $302, around 16% off',
+        ],
+        linkLabel: 'Compare electrical deals across Wake County',
+        linkCategory: 'Electrical',
+      },
+    ],
+    closing: [
+      "Small electrical jobs are a great fit for group buying. When several neighbors on one street book the same electrician for the same day, the trip fee gets spread across homes instead of each household paying it alone, and that saving becomes a cheaper, discounted rate for everyone. Find an electrical deal in your Raleigh neighborhood, share it with a few neighbors, and get the outlet in before the lights go up.",
+    ],
+  },
 ];
