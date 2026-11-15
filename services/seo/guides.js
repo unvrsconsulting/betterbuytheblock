@@ -4418,4 +4418,99 @@ export const COST_GUIDES = [
       "Small electrical jobs are a great fit for group buying. When several neighbors on one street book the same electrician for the same day, the trip fee gets spread across homes instead of each household paying it alone, and that saving becomes a cheaper, discounted rate for everyone. Find an electrical deal in your Raleigh neighborhood, share it with a few neighbors, and get the outlet in before the lights go up.",
     ],
   },
+  {
+    slug: 'cheap-window-cleaning-morrisville-cary-raleigh-nc',
+    title: 'Cheap Window Cleaning in Morrisville, Cary, and Raleigh: 2026 Prices Per Window',
+    description: 'What window cleaning costs in Morrisville, Cary, and Raleigh in 2026, per-window prices by window type, how to save by splitting inside and outside work, when to book around pollen season, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 15, 2026',
+    image: 'https://images.pexels.com/photos/6197111/pexels-photo-6197111.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Window Washing',
+    intro: [
+      "Window cleaning is priced mostly by the window, so the easiest way to understand a quote is to count your windows. Angi's 2026 Raleigh-area data gives per-window prices by type, which makes it simple to check whether a quote in Morrisville, Cary, or Raleigh is fair.",
+      "This guide covers what window cleaning costs in 2026, how to save by splitting the work, when to book around the Triangle's pollen season, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What Window Cleaning Costs Here',
+        paragraphs: [
+          "Angi's 2026 data puts the average window cleaning for a standard home in the Raleigh area at $263, with most homeowners paying $175 to $365. Per window, cleaning both sides runs about $10 to $20 locally, and one side only about $5 to $10.",
+          "Window type changes the price. A standard single- or double-hung window runs about $5 to $10 per side, large picture or bay windows about $10 to $20, windows with grids or multiple panes about $10 to $15, and skylights about $20 to $30. Here's a quick example: a home with 25 standard windows, cleaned inside and out at $10 to $20 each, would run about $250 to $500. Angi also recommends budgeting for Raleigh's 7.25 percent local sales tax.",
+        ],
+        bullets: [
+          'Raleigh-area average: $263 ($175 to $365 typical)',
+          'Both sides: about $10 to $20 per window; one side: about $5 to $10',
+          'Picture or bay windows: about $10 to $20; skylights: about $20 to $30',
+          'Example: 25 windows, inside and out, about $250 to $500',
+        ],
+        linkLabel: 'Read the full Wake County window washing cost guide',
+        linkGuide: 'window-washing-costs-wake-county-2027',
+      },
+      {
+        heading: 'Split the Work to Cut the Bill',
+        paragraphs: [
+          "Since outside-only cleaning costs about half as much per window as both sides, one simple way to save is to clean the inside of your windows yourself and pay a pro for the outside, where ladders and second-story glass are involved. That's the part that's hardest and riskiest to do on your own.",
+          "Count your windows by type before you call, and ask each company to quote per window for the same scope: which sides, whether screens and tracks are included, and any extra for second-story or hard-to-reach glass. Quotes that use the same count are much easier to compare.",
+        ],
+        bullets: [
+          'Do the insides yourself; hire out the outsides',
+          'Count windows by type before requesting quotes',
+          'Ask whether screens and tracks are included',
+          'Compare quotes on the same window count and scope',
+        ],
+      },
+      {
+        heading: 'When to Book in the Triangle',
+        paragraphs: [
+          "Angi points out that Raleigh's heavy spring pollen and frequent summer thunderstorms leave a lot of residue on exterior glass, which makes routine cleaning worthwhile here. Angi also notes that a recurring schedule keeps each visit closer to the low end of the price range, since there's less buildup to remove.",
+          "Fall is a practical time for a cleaning, since you can pair it with gutter cleaning after the leaves come down. Angi suggests bundling the two to keep the whole exterior looking fresh. Then plan another exterior cleaning after spring pollen season ends.",
+        ],
+        bullets: [
+          'Spring pollen and summer storms leave heavy residue on glass',
+          'Recurring service keeps each visit cheaper',
+          'Pair a fall window cleaning with gutter cleaning',
+          'Plan another exterior cleaning after pollen season',
+        ],
+        linkLabel: 'See window washing deals in Raleigh',
+        linkCategory: 'Window Washing',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Group Deals in Morrisville',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 15 proposed window washing deals covering Morrisville from 6 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "A full interior and exterior window cleaning runs about $172 to $224 at around 15 percent off. A combined gutter and window cleaning in one visit runs about $223 to $296 at around 14 percent off. Screen cleaning and repair runs about $132 to $156 at around 9 percent off.",
+        ],
+        bullets: [
+          'About 15 proposed window deals in Morrisville, from 6 local businesses',
+          'Interior and exterior cleaning: about $172 to $224, around 15% off',
+          'Gutter and window combo: about $223 to $296, around 14% off',
+          'Screen cleaning and repair: about $132 to $156, around 9% off',
+        ],
+        linkLabel: 'See window washing deals in Morrisville',
+        linkCategory: 'Window Washing',
+        linkCity: 'Morrisville',
+      },
+      {
+        heading: 'Group Deals in Cary and Raleigh',
+        paragraphs: [
+          "In Cary, BetterBuyTheBlock lists about 26 proposed window washing deals from 11 local businesses. A full interior and exterior cleaning runs about $166 to $238 at around 15 percent off, and a gutter and window combo about $223 to $270.",
+          "In Raleigh, there are about 36 proposed deals from 14 local businesses. A full interior and exterior cleaning runs about $172 to $197 at around 16 percent off, and a gutter and window combo about $223 to $274 at around 14 percent off. Like the Morrisville deals, these are proposed rates for businesses that haven't joined the site yet.",
+        ],
+        bullets: [
+          'Cary: about 26 proposed deals from 11 local businesses',
+          'Cary interior and exterior: about $166 to $238',
+          'Raleigh: about 36 proposed deals from 14 local businesses',
+          'Raleigh interior and exterior: about $172 to $197, around 16% off',
+        ],
+        linkLabel: 'See window washing deals in Cary',
+        linkCategory: 'Window Washing',
+        linkCity: 'Cary',
+      },
+    ],
+    closing: [
+      "Window cleaning is a good fit for group buying. A crew that does several homes on one street in a day spends less time loading ladders and driving across town, and that saving becomes a cheaper, discounted rate for everyone. Find a window washing deal in your Morrisville, Cary, or Raleigh neighborhood, share it with a few neighbors, and get the glass clean for less.",
+    ],
+  },
 ];
