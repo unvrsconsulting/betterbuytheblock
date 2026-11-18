@@ -4513,4 +4513,93 @@ export const COST_GUIDES = [
       "Window cleaning is a good fit for group buying. A crew that does several homes on one street in a day spends less time loading ladders and driving across town, and that saving becomes a cheaper, discounted rate for everyone. Find a window washing deal in your Morrisville, Cary, or Raleigh neighborhood, share it with a few neighbors, and get the glass clean for less.",
     ],
   },
+  {
+    slug: 'cheap-thanksgiving-drain-clog-grease-pickup-raleigh-nc',
+    title: 'Cheap Ways to Avoid a Thanksgiving Drain Clog in Raleigh: Free Grease Pickup and Plumber Costs',
+    description: 'How to dodge a holiday plumbing bill in Raleigh: the City\'s free curbside cooking oil pickup through January 11, free Wake County drop-off sites, what clogged drains cost to clear in 2026, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 18, 2026',
+    image: 'https://images.pexels.com/photos/7262356/pexels-photo-7262356.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Plumbing',
+    intro: [
+      "Thanksgiving cooking can be hard on a kitchen drain. Turkey drippings, gravy, and fryer oil look harmless going down the sink, but Raleigh Water warns that fats, oils, and grease stick to pipes, build up, and cause backups. If the clog is on your side of the city's sewer main, the bill is yours.",
+      "The good news is that avoiding it is nearly free. This guide covers Raleigh's free curbside cooking oil pickup, Wake County's free drop-off sites, the kitchen habits that prevent clogs, and what a plumber costs if one happens anyway.",
+    ],
+    sections: [
+      {
+        heading: 'Raleigh\'s Free Curbside Grease Pickup',
+        paragraphs: [
+          "The City of Raleigh is running its annual holiday cooking oil and grease collection now. Raleigh residents and places of worship can call 919-996-3245 to schedule a free Monday pickup from November 16, 2026, through January 11, 2027. The last day to call is Friday, January 8. For anyone cooking on Thanksgiving Day, the first Monday pickup afterward is November 30.",
+          "You need at least 1 gallon of cooking oil to schedule a pickup, and the limit is 3 containers. That makes this most useful if you're frying a turkey. Let the oil cool, pour it into a plastic bottle, jug, or coffee tin, write \"cooking oil\" on the outside, and have it at the curb by 7:30 a.m. Glass containers won't be collected, and motor oil and other petroleum products aren't accepted.",
+        ],
+        bullets: [
+          'Free Monday pickups: November 16, 2026 through January 11, 2027',
+          'Call 919-996-3245 to schedule; last day to call is January 8',
+          '1 gallon minimum, up to 3 containers',
+          'Cooled oil in a labeled plastic bottle, jug, or coffee tin; no glass',
+        ],
+      },
+      {
+        heading: 'Free Drop-Off Anywhere in Wake County',
+        paragraphs: [
+          "If you don't live in Raleigh, or have less than a gallon, Wake County's three Multi-Material Recycling Facilities accept cooking oil. The City of Raleigh says household cooking oil and grease can be recycled there at no charge. Don't take it to a regular convenience center, since those sites don't accept cooking oil.",
+          "North Wake and South Wake are open Monday through Saturday, and East Wake is open weekends only, all from 8 a.m. to 4 p.m. Check the county's closings page before you drive over during the holidays.",
+        ],
+        bullets: [
+          'North Wake: 9029 Deponie Drive, Raleigh (Monday to Saturday)',
+          'South Wake: 6130 Old Smithfield Road, Apex (Monday to Saturday)',
+          'East Wake: 5051 Wendell Blvd., Wendell (Saturday and Sunday only)',
+          'All open 8 a.m. to 4 p.m.; check holiday closings first',
+        ],
+      },
+      {
+        heading: 'Kitchen Habits That Prevent a Clog',
+        paragraphs: [
+          "For the smaller amounts left in a roasting pan, Raleigh Water's advice is simple. Pour cooled grease into a can, let it solidify, and put it in the garbage. Wipe pans and plates with a paper towel before washing them, and throw the towel in the trash. Don't use a sponge or mop to clean up grease, since those get rinsed in the sink and send it straight into the sewer.",
+          "Keep grease out of the garbage disposal too. Raleigh Water says disposals aren't designed to handle it. Raleigh's sewer guidance also says food scraps belong in the trash or compost, not down the drain, which matters on a day with a lot of peels and trimmings.",
+        ],
+        bullets: [
+          'Pour cooled grease into a can, then put it in the trash',
+          'Wipe pans with a paper towel before washing',
+          'Keep grease out of the garbage disposal',
+          'Food scraps go in the trash or compost, not the drain',
+        ],
+      },
+      {
+        heading: 'What a Clog Costs If It Happens Anyway',
+        paragraphs: [
+          "Angi's 2026 data puts drain cleaning in Raleigh at $246 on average, with most jobs between $158 and $338. Clearing a kitchen sink typically costs $110 to $215, a toilet $110 to $275, and a main sewer line $175 to $600. Hydro-jetting, which scours built-up grease out of pipes, runs about $350 to $600, and a camera inspection about $200 to $400.",
+          "Remember who pays. Raleigh Water says most backups happen between the house and the city's main, and blockages there are the property owner's responsibility. If you hire a plumber for a backup, the City recommends asking them to clear the line all the way to the main. Keep in mind that a holiday call may cost more, so ask about emergency rates before you book.",
+        ],
+        bullets: [
+          'Raleigh drain cleaning: $246 average ($158 to $338 typical)',
+          'Kitchen sink: about $110 to $215',
+          'Main sewer line: about $175 to $600',
+          'Hydro-jetting for grease: about $350 to $600',
+        ],
+        linkLabel: 'Read who pays for what in our sewer line guide',
+        linkGuide: 'sewer-line-replacement-cost-wake-county',
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 75 plumbing deals covering Raleigh from 31 local businesses. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to. They show what a neighborhood rate could look like when several households book together.",
+          "A drain clearing service for slow or clogged kitchen and bathroom drains runs about $166 to $202 at around 10 percent off. A whole-home plumbing inspection runs about $139 to $170 at around 12 percent off, and a water heater flush and inspection about $153 to $207 at around 12 percent off.",
+        ],
+        bullets: [
+          'About 75 proposed plumbing deals in Raleigh, from 31 local businesses',
+          'Drain clearing: about $166 to $202, around 10% off',
+          'Whole-home plumbing inspection: about $139 to $170, around 12% off',
+          'Water heater flush and inspection: about $153 to $207, around 12% off',
+        ],
+        linkLabel: 'See plumbing deals in Raleigh',
+        linkCategory: 'Plumbing',
+        linkCity: 'Raleigh',
+      },
+    ],
+    closing: [
+      "The cheapest plumbing bill is the one you never get. Keep the grease out of the sink this Thanksgiving, use the free pickup or drop-off for fryer oil, and if your drains are already slow, book them before the holiday. Find a plumbing deal in your Raleigh neighborhood and share it with a few neighbors, since a plumber who visits several homes on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone.",
+    ],
+  },
 ];
