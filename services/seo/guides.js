@@ -4602,4 +4602,97 @@ export const COST_GUIDES = [
       "The cheapest plumbing bill is the one you never get. Keep the grease out of the sink this Thanksgiving, use the free pickup or drop-off for fryer oil, and if your drains are already slow, book them before the holiday. Find a plumbing deal in your Raleigh neighborhood and share it with a few neighbors, since a plumber who visits several homes on one street spends less time driving, and that saving becomes a cheaper, discounted rate for everyone.",
     ],
   },
+  {
+    slug: 'cheap-security-camera-installation-raleigh-nc',
+    title: 'Cheap Security Camera Installation in Raleigh Before the Holiday Delivery Rush: 2026 Costs',
+    description: 'What security camera installation costs in Raleigh in 2026, wired vs. wireless camera prices, how to cover your porch and driveway without overspending, free ways to protect holiday packages, and real group-deal prices.',
+    author: 'BetterBuyTheBlock Team',
+    date: 'NOV 20, 2026',
+    image: 'https://images.pexels.com/photos/24783389/pexels-photo-24783389.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    type: 'Money-Saving Guide',
+    category: 'Home Security',
+    intro: [
+      "With holiday packages starting to pile up on porches, a lot of Raleigh homeowners are pricing security cameras. Quotes range from about $150 for a single camera to several thousand for a whole-property system, and most of that spread comes down to how many cameras you buy and whether they're wired.",
+      "This guide covers what security camera installation costs in Raleigh in 2026, how wired and wireless cameras compare, how to cover the spots that matter without overbuying, free ways to protect deliveries, and how booking with neighbors gets you a cheaper, discounted rate.",
+    ],
+    sections: [
+      {
+        heading: 'What Camera Installation Costs in Raleigh',
+        paragraphs: [
+          "Angi's 2026 data puts the average security camera project in Raleigh at about $1,896, with most homeowners spending $476 to $3,671. A basic single-camera install starts around $150, while large systems with extensive wiring and smart integrations can approach $6,500.",
+          "The number of cameras drives the price more than anything. Angi estimates installation at about $150 to $1,100 per camera, which works out to about $300 to $2,200 for two cameras and $600 to $4,400 for four, before the cost of the cameras themselves. Whole-home systems that bundle cameras, sensors, and alarms run about $210 to $1,100.",
+        ],
+        bullets: [
+          'Raleigh average project: about $1,896 ($476 to $3,671 typical)',
+          'Installation: about $150 to $1,100 per camera',
+          'Installing four cameras: about $600 to $4,400, plus camera cost',
+          'Whole-home camera, sensor, and alarm systems: about $210 to $1,100',
+        ],
+        linkLabel: 'Read the full Wake County home security cost guide',
+        linkGuide: 'home-security-costs-wake-county-2027',
+      },
+      {
+        heading: 'Wired vs. Wireless',
+        paragraphs: [
+          "Wireless cameras are the cheapest to buy, at about $25 to $250 each according to Angi, and many include night vision and phone app alerts. Wired cameras cost about $150 to $500 each but give you a stable connection and can record to a DVR. Many modern cameras connect over Wi-Fi or Power over Ethernet and offer higher resolution, cloud storage, and motion detection.",
+          "Traditional CCTV systems are wired and harder to hack, but Angi notes they're less common in homes and usually have lower resolution. A four-camera CCTV system runs about $600 to $1,600. Whichever you choose, ask whether cloud video storage requires a monthly subscription, since that cost adds up over time.",
+        ],
+        bullets: [
+          'Wireless cameras: about $25 to $250 each',
+          'Wired cameras: about $150 to $500 each',
+          'Four-camera CCTV system: about $600 to $1,600',
+          'Ask about monthly cloud storage fees before you buy',
+        ],
+      },
+      {
+        heading: 'Cover the Spots That Matter First',
+        paragraphs: [
+          "You probably don't need six cameras. For package protection, the front porch is the priority, and a video doorbell may cover it on its own. After that, a camera facing the driveway or a back door covers the other main ways onto your property. Starting with two or three well-placed cameras keeps the bill much lower than a whole-property system.",
+          "Placement affects price too. Cameras near an outlet or an existing wiring run are cheaper to install than ones at the far corner of the house that need new cable. If you're adding a camera somewhere without power nearby, ask whether a battery or solar model would avoid an electrician's bill.",
+        ],
+        bullets: [
+          'Start with the front porch; a video doorbell may be enough',
+          'Add a driveway or back door camera next',
+          'Two or three well-placed cameras beat six random ones',
+          'Cameras near existing power cost less to install',
+        ],
+        linkGuideLabel: 'Read our smart lock and video doorbell guide',
+        linkGuide: 'cheap-smart-lock-video-doorbell-installation-raleigh-nc',
+        linkLabel: 'See home security deals in Raleigh',
+        linkCategory: 'Home Security',
+        linkCity: 'Raleigh',
+      },
+      {
+        heading: 'Free Ways to Protect Holiday Packages',
+        paragraphs: [
+          "A camera records a theft, but it doesn't stop one. The cheapest protection is keeping packages off the porch. Have deliveries sent to your workplace or a pickup locker when you can, choose delivery windows when someone will be home, or ask a neighbor who's home during the day to bring packages inside.",
+          "For expensive items, ask the retailer for signature-required delivery. Neighbors can also look out for each other's porches during the busiest weeks, which costs nothing and works even on streets where no one has a camera.",
+        ],
+        bullets: [
+          'Ship to work or a pickup locker when possible',
+          'Pick delivery windows when someone is home',
+          'Ask a neighbor to bring packages inside',
+          'Use signature-required delivery for expensive items',
+        ],
+      },
+      {
+        heading: 'What Group Deals Look Like in Raleigh',
+        paragraphs: [
+          "BetterBuyTheBlock currently lists about 48 home security deals covering Raleigh from 20 local businesses. There isn't a dedicated multi-camera package yet, but several deals cover the basics. These are proposed group rates for real businesses that haven't joined the site yet, not offers they've agreed to.",
+          "A smart video doorbell camera installation with app setup runs about $136 to $175 at around 13 percent off. A home security walkthrough that identifies weak entry points and blind spots runs about $111 to $146 at around 15 percent off, which is a good way to figure out where cameras actually need to go. A smart lock upgrade for front and back doors runs about $336 to $451 at around 13 percent off.",
+        ],
+        bullets: [
+          'About 48 proposed home security deals in Raleigh, from 20 local businesses',
+          'Video doorbell camera install: about $136 to $175, around 13% off',
+          'Home security walkthrough: about $111 to $146, around 15% off',
+          'Smart lock upgrade, front and back doors: about $336 to $451',
+        ],
+        linkLabel: 'Compare home security deals across Wake County',
+        linkCategory: 'Home Security',
+      },
+    ],
+    closing: [
+      "Security upgrades work well as a group buy. An installer who sets up cameras at several homes on one street saves time on driving and setup, and that saving becomes a cheaper, discounted rate for everyone. Neighbors with cameras on the same street can also cover more of the block together. Find a home security deal in your Raleigh neighborhood, share it with a few neighbors, and get set up before the holiday deliveries peak.",
+    ],
+  },
 ];
